@@ -1,5 +1,6 @@
 * [_SA](_SA.md)
     * [_SA.StrReplace()](_SA.StrReplace().md)
     * [_SA.Sort()](_SA.Sort().md)
+    * [_SA.SameElementFilter()](_SA.SameElementFilter().md)
 * [废弃](废弃.md)
     * [默认示例](default.md)	
