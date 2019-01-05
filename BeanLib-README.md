@@ -1,4 +1,4 @@
-# ![](https://i.loli.net/2019/01/05/5c306a647336b.png) BeanLib
+# ![*](https://i.loli.net/2019/01/05/5c306a647336b.png) BeanLib
 
 ## 特点
 
