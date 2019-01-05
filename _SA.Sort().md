@@ -1,9 +1,6 @@
 ​	
-
 **对数组进行排序, 支持顺序, 倒序, 逆序**
-
 ```
-From https://sites.google.com/site/ahkref/custom-functions/sortarray
 _SA.Sort(Array, Order="A")
 ```
 
@@ -24,3 +21,6 @@ Null
 ### Throws
 
 待完善
+
+
+_From https://sites.google.com/site/ahkref/custom-functions/sortarray_
