@@ -40,7 +40,7 @@ emmm...刚刚建站，内容正逐步添加。
 
 ## 创建者信息
 
-- @心如止水 ![心如止水](https://upload-images.jianshu.io/upload_images/14875935-319e198e74b0496c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+- ![心如止水](https://upload-images.jianshu.io/upload_images/14875935-319e198e74b0496c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)   @心如止水 QQ:3404624865 
 
 ## 贡献者信息
 
