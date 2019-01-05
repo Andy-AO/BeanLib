@@ -15,12 +15,11 @@ _SA.StrReplace(StrSA,SearchText,ReplaceText,isRegEx:=false)
 
 - isRegEx: true 代表正则模式, 处于"正则模式"时，SearchText 为正则表达式。
 
-### 返回 Returns: SA
-
-### 抛出异常 Throws: 暂无
-
+### 返回 Returns: 
+SA
+### 抛出异常 Throws: 
+- 暂无
 ### 示例 Example
-
 ```autohotkey
 暂无
 ```

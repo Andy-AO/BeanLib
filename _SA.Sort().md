@@ -11,12 +11,11 @@ _SA.Sort(Array, Order="A")
 
 - Order: 排列顺序 A: 顺序 D: 倒序 R: 逆序
 
-### 返回 Returns:NullString
-
-### 抛出异常 Throws: 暂无
-
+### 返回 Returns: 
+SA
+### 抛出异常 Throws: 
+- 暂无
 ### 示例 Example
-
 ```autohotkey
 暂无
 ```
