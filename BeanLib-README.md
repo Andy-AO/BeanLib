@@ -23,14 +23,17 @@ Lib是可以重复使用的代码，您可以把他们和自己的代码相结�
 从 码云 或 GitHub 下载
 
 ## 其他有用的资源
-
-- [awesome-AutoHotkey](https://github.com/ahkscript/awesome-AutoHotkey)  精选的[ AutoHotkey](https://autohotkey.com/) 库，库分发，脚本，工具和资源的精选列表。
-- [AHK官方文档](https://autohotkey.com/docs/AutoHotkey.htm)  [中文翻译版](https://wyagd001.github.io/zh-cn/docs/AutoHotkey.htm)
-- [智能热键网](https://www.autoahk.com/)
-- [AHK程序设计 专栏](https://segmentfault.com/blog/ahkprogramdesign)
+### 软件
+- [RunAny - 一劳永逸的快速启动 @hui-Zz](https://github.com/hui-Zz/RunAny)
+- [Vim 风格的操作辅助工具 - vimdesktop @陌辞寒](https://github.com/goreliu/vimdesktop)
+- [PowerKeys - 键盘瑞士军刀 @知阳](https://powerkeys.github.io/)
+### 网站
+- [AHK文档 中文版 @wyagd001](https://wyagd001.github.io/zh-cn/docs/AutoHotkey.htm)
+- [ 最大最强的 AutoHotkey Lib - @Awesome](https://github.com/ahkscript/awesome-AutoHotkey) 
+- [智能热键网 @河许人](https://www.autoahk.com/)
+- [AHK程序设计 专栏 @心如止水](https://segmentfault.com/blog/ahkprogramdesign)
+- [AHK经验分享 博客 @YuKuan](https://blog.csdn.net/liuyukuan)
 
 ## 创建者信息
 
-<center>
-<img src="https://upload-images.jianshu.io/upload_images/14875935-319e198e74b0496c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-</center>
+- @心如止水 ![心如止水](https://upload-images.jianshu.io/upload_images/14875935-319e198e74b0496c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
