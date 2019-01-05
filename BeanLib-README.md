@@ -34,7 +34,7 @@ emmm...刚刚建站，内容正逐步添加。
 - [RunAny - 一劳永逸的快速启动 @hui-Zz](https://github.com/hui-Zz/RunAny)
 
 ### 网站
-- [AHK文档 汉化版 @wyagd001](https://wyagd001.github.io/zh-cn/docs/AutoHotkey.htm)  [**高速镜像**](http://xrvu_zen.gitee.io/wyagd001.github.io/docs/AutoHotkey.htm)
+- [AHK文档 汉化版 @wyagd001](https://wyagd001.github.io/zh-cn/docs/AutoHotkey.htm)                [**高速镜像**](http://xrvu_zen.gitee.io/wyagd001.github.io/docs/AutoHotkey.htm)
 - [最强 AutoHotkey Lib - @Awesome](https://github.com/ahkscript/awesome-AutoHotkey) 
 - [智能热键网 @河许人](https://www.autoahk.com/)
 - [AHK程序设计 专栏 @心如止水](https://segmentfault.com/blog/ahkprogramdesign)
