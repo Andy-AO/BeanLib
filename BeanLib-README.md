@@ -26,4 +26,6 @@ Lib是可以重复使用的代码，您可以把他们和自己的代码相结�
 
 - [awesome-AutoHotkey](https://github.com/ahkscript/awesome-AutoHotkey)  精选的[ AutoHotkey](https://autohotkey.com/) 库，库分发，脚本，工具和资源的精选列表。
 - [AHK官方文档](https://autohotkey.com/docs/AutoHotkey.htm)  [中文翻译版](https://wyagd001.github.io/zh-cn/docs/AutoHotkey.htm)
+- [智能热键网](https://www.autoahk.com/)
+- [AHK程序设计 专栏](https://segmentfault.com/blog/ahkprogramdesign)
 
