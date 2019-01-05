@@ -1,6 +1,6 @@
 # ![*](https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/AHK%E5%B0%8F%E5%9B%BE%E6%A0%87_20190105183041.png)贡献指南 CONTRIBUTING
 
-`欢迎提交代码，任何贡献者都会被铭记。`[点击	跳转](#jumpGX)
+[欢迎提交代码，任何贡献者都会被铭记。](#jumpGX)
 
 ## 如何贡献？
 
