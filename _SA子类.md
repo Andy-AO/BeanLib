@@ -1,40 +1,40 @@
-    # _SA.StrReplace()
+# _SA.StrReplace()
 
-    **字符串数组内的替换**
+**字符串数组内的替换**
 
 
-    ```autohotkey
-    _SA.StrReplace(StrSA,SearchText,ReplaceText,isRegEx:=false)
-    ```
+```autohotkey
+_SA.StrReplace(StrSA,SearchText,ReplaceText,isRegEx:=false)
+```
 
-    ### Parameters
+### Parameters
 
-    - StrSA
+- StrSA
 
-      输入的字符串数组
+  输入的字符串数组
 
-    - SearchText
+- SearchText
 
-      被替换文本
+  被替换文本
 
-    - ReplaceText
+- ReplaceText
 
-      替换文本
+  替换文本
 
-    - isRegEx
+- isRegEx
 
-      (Optional) 为 true 则为正则模式, SearchText 为正则表达式
+  (Optional) 为 true 则为正则模式, SearchText 为正则表达式
 
-    ### Returns
+### Returns
 
-    SA
+SA
 
-    ### Throws
+### Throws
 
-    待完善
+待完善
 
-    ### Example
+### Example
 
-    ```autohotkey
-    待完善
-    ```
+```autohotkey
+待完善
+```
