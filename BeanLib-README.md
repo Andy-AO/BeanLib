@@ -10,6 +10,9 @@
 
 Lib是可以重复使用的代码，您可以把他们和自己的代码相结合，来创造新的功能。
 
+### 兼容到什么版本?
+[AutoHotKey 1.1.30.00](https://wyagd001.github.io/zh-cn/docs/AHKL_ChangeLog.htm)
+
 ### 如何使用Lib?
 
 - 可使用 `#Include` 命令导入Lib，也可以直接粘贴使用。
@@ -26,3 +29,8 @@ Lib是可以重复使用的代码，您可以把他们和自己的代码相结�
 - [智能热键网](https://www.autoahk.com/)
 - [AHK程序设计 专栏](https://segmentfault.com/blog/ahkprogramdesign)
 
+## 创建者信息
+
+<center>
+<img src="https://upload-images.jianshu.io/upload_images/14875935-319e198e74b0496c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+</center>
