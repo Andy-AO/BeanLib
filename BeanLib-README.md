@@ -16,8 +16,8 @@ Lib是可以重复使用的代码，您可以把他们和自己的代码相结�
 
 ### 如何使用Lib?
 
-- 可使用 `#Include` 命令导入Lib，也可以直接粘贴使用。
-- Lib 的参数/返回值等信息可以在 LibDocs 中查阅，支持全文搜索和评论。
+- 使用 `#Include` 命令导入。
+- Lib 的参数/返回值等信息可在 LibDocs 中查阅，支持全文搜索和评论。
 
 ### 如何下载BeanLib?
 
@@ -34,7 +34,7 @@ emmm...刚刚建站，内容正逐步添加。
 - [RunAny - 一劳永逸的快速启动 @hui-Zz](https://github.com/hui-Zz/RunAny)
 
 ### 网站
-- [AHK文档 汉化版 @wyagd001](https://wyagd001.github.io/zh-cn/docs/AutoHotkey.htm)  [**高速镜像**](http://xrvu_zen.gitee.io/wyagd001.github.io/docs/AutoHotkey.htm)
+- [AHK文档 汉化版 @wyagd001](https://wyagd001.github.io/zh-cn/docs/AutoHotkey.htm)                [**高速镜像**](http://xrvu_zen.gitee.io/wyagd001.github.io/docs/AutoHotkey.htm)
 - [最强 AutoHotkey Lib - @Awesome](https://github.com/ahkscript/awesome-AutoHotkey) 
 - [智能热键网 @河许人](https://www.autoahk.com/)
 - [AHK程序设计 专栏 @心如止水](https://segmentfault.com/blog/ahkprogramdesign)
