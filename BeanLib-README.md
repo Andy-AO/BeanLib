@@ -2,7 +2,7 @@
 
 ## 特点
 
-- 小而美的中文AHKLib，如果你也想贡献代码，请先阅读[CONTRIBUTING.md](贡献指南 CONTRIBUTING.md)
+- 小而美的中文AHKLib，如果你也想贡献代码，请先阅读贡献指南   [CONTRIBUTING.md](贡献指南 CONTRIBUTING.md)
 - BeanLib是完全环保的，不会占用全局变量，不会干扰自动执行段。
 
   ## 使用说明
