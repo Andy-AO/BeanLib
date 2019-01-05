@@ -1,6 +1,12 @@
 {
+    "theme": "gitscm",
     "plugins": [
         "api",
-        "highlight"
-    ]
+        "highlight",
+        "copy-code",
+        "comment"
+    ],
+    "pdf": {
+        "paperSize": "a5"
+    }
 }

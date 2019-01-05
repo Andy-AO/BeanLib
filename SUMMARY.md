@@ -1,2 +1,2 @@
-* [空白目录](default.md)
+* [默认示例](default.md)
 * [_SA](_SA.md)
