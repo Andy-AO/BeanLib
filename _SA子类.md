@@ -1,6 +1,6 @@
 # _SA.StrReplace()
 
-**字符串数组内的替换**
+**字符串数组内的替换x**
 
 
 ```autohotkey
