@@ -29,12 +29,13 @@ emmm...刚刚建站，内容正逐步添加。
 
 ## 其他有用的资源
 ### 软件
-- [RunAny - 一劳永逸的快速启动 @hui-Zz](https://github.com/hui-Zz/RunAny)
-- [Vim 风格的操作辅助工具 - vimdesktop @陌辞寒](https://github.com/goreliu/vimdesktop)
 - [PowerKeys - 键盘瑞士军刀 @知阳](https://powerkeys.github.io/)
+- [Vim 风格的操作辅助工具 - vimdesktop @陌辞寒](https://github.com/goreliu/vimdesktop)
+- [RunAny - 一劳永逸的快速启动 @hui-Zz](https://github.com/hui-Zz/RunAny)
+
 ### 网站
-- [AHK文档 中文版 @wyagd001](https://wyagd001.github.io/zh-cn/docs/AutoHotkey.htm)
-- [ 最大最强的 AutoHotkey Lib - @Awesome](https://github.com/ahkscript/awesome-AutoHotkey) 
+- [AHK文档 汉化版 @wyagd001](https://wyagd001.github.io/zh-cn/docs/AutoHotkey.htm)
+- [最强 AutoHotkey Lib - @Awesome](https://github.com/ahkscript/awesome-AutoHotkey) 
 - [智能热键网 @河许人](https://www.autoahk.com/)
 - [AHK程序设计 专栏 @心如止水](https://segmentfault.com/blog/ahkprogramdesign)
 - [AHK经验分享 博客 @YuKuan](https://blog.csdn.net/liuyukuan)
