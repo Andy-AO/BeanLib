@@ -43,4 +43,7 @@ emmm...刚刚建站，内容正逐步添加。
 - @心如止水 ![心如止水](https://upload-images.jianshu.io/upload_images/14875935-319e198e74b0496c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## 贡献者信息
+
+`欢迎大家提交代码，任何贡献者都会被铭记`
+
 暂无
