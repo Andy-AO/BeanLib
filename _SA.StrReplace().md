@@ -7,7 +7,7 @@
 _SA.StrReplace(StrSA,SearchText,ReplaceText,isRegEx:=false)
 ```
 
-### Parameters
+### 参数 Parameters
 
 - StrSA
 
@@ -25,15 +25,15 @@ _SA.StrReplace(StrSA,SearchText,ReplaceText,isRegEx:=false)
 
   (Optional) 为 true 则为正则模式, SearchText 为正则表达式
 
-### Returns
+### 返回 Returns
 
 SA
 
-### Throws
+### 抛出异常 Throws
 
 待完善
 
-### Example
+### 示例 	Example
 
 ```autohotkey
 待完善
