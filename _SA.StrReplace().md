@@ -30,8 +30,6 @@ SA
 
 ### 抛出异常 Throws
 
-待完善
-
 ### 示例 	Example
 
 ```autohotkey

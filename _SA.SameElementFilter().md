@@ -4,16 +4,11 @@
 _SA.SameElementFilter(StrSA)
 ```
 
-### Parameters
+### 参数 Parameters
 
 - StrSA
 
   输入的字符串数组
 
-### Returns
-
-SA
-
-### Throws
-
-待完善
+### 返回 Returns
+关联数组

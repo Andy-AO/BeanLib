@@ -4,7 +4,7 @@
 _SA.Sort(Array, Order="A")
 ```
 
-### Parameters
+### 参数 Parameters
 
 - Array
 
@@ -14,13 +14,7 @@ _SA.Sort(Array, Order="A")
 
   排列顺序 A: 顺序 D: 倒序 R: 逆序
 
-### Returns
-
+### 返回 Returns
 Null
-
-### Throws
-
-待完善
-
 
 _From https://sites.google.com/site/ahkref/custom-functions/sortarray_
