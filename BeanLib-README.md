@@ -1,10 +1,11 @@
-# ![*](https://i.loli.net/2019/01/05/5c306a647336b.png) BeanLib
+# ![*](https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/AHK%E5%B0%8F%E5%9B%BE%E6%A0%87_20190105183041.png) BeanLib
 
 ## 特点
 
-- 小而美的中文AHKLib，如果你也想贡献代码，请先阅读[CONTRIBUTING.md](x)
+- 小而美的中文AHKLib，如果你也想贡献代码，请先阅读[CONTRIBUTING.md](贡献指南 CONTRIBUTING.md)
 - BeanLib是完全环保的，不会占用全局变量，不会干扰自动执行段。
-## 使用说明
+
+  ## 使用说明
 
 ### Lib是什么?
 
@@ -44,6 +45,6 @@ emmm...刚刚建站，内容正逐步添加。
 
 ## 贡献者信息
 
-`欢迎大家提交代码，任何贡献者都会被铭记`
+`欢迎提交代码，任何贡献者都会被铭记。`
 
 暂无

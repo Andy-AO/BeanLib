@@ -4,4 +4,4 @@
     * [_SA.Sort()](_SA.Sort().md)
     * [_SA.SameElementFilter()](_SA.SameElementFilter().md)
 * [鸣谢](鸣谢.md)
-* [LICENCE](LICENCE(GNULv3).txt)
+* [LICENCE](LICENCE(LGPLv3).txt)
