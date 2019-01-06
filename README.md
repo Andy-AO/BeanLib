@@ -42,13 +42,15 @@ emmm...刚刚建站，内容正逐步添加。
 
 ## 创建者信息
 
-- ![心如止水](https://upload-images.jianshu.io/upload_images/14875935-319e198e74b0496c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)   @心如止水 QQ:3404624865 
+- <img src="https://upload-images.jianshu.io/upload_images/14875935-319e198e74b0496c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" height="80px" width="80px" >   @心如止水 QQ:3404624865 
+
 
 ## <span id="JumpTIGX">[突出贡献者](#JumpTIGX)</span>
 
 [**欢迎提交代码，任何贡献者都会被铭记。**](https://www.kancloud.cn/xrvu_zen/ahk_lib/901895)
+- <img src="https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/Troy_Daniel.png" height="80px" width="80px" >   @Troy_Daniel QQ:1043182080
+  - 感谢 @Troy_Daniel 为文档排版提出了宝贵建议。
 
-Null
 
 ### 所有贡献者
 
