@@ -7,7 +7,7 @@
     * [SA.Uniq()](_SA/_SA.Uniq().md)
     * [SA.ElementCounter()](_SA/_SA.ElementCounter().md)
 * [_EX](_EX.md)
-* [鸣谢 (ACKNOWLEDGEMENT)](鸣谢.md)
+* [鸣谢 (ACKNOWLEDGEMENT)](BeanLib_ACKNOWLEDGEMENT.md)
 * [贡献指南 (CONTRIBUTING)](BeanLib_CONTRIBUTING_贡献指南.md)
 * [常见问题 (FAQ)](BeanLib_FQA.md)
 * [文档模板 (TEMPLATE)](TEMPLATE.md)
