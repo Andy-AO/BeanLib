@@ -32,10 +32,6 @@ Lib是可以重复使用的代码，您可以把他们和自己的代码相结�
 
 从 [码云](https://gitee.com/xrvu_zen/BeanLib) 或 [GitHub](https://github.com/Oilj/BeanLib) 下载
 
-### 为什么内容这么少?下载地址呢?
-
-emmm...刚刚建站，内容正逐步添加。
-
 ## 其他有用的资源
 ### 软件
 - [PowerKeys - 键盘瑞士军刀 @知阳](https://powerkeys.github.io/)
