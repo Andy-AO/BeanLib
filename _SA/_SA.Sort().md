@@ -1,12 +1,12 @@
 **对数组进行排序, 支持顺序, 倒序, 逆序:**
 
 ```
-_SA.Sort(Array, Order="A")
+_SA.Sort(StrSA, Order="A")
 ```
 
 ### 参数 Parameters
 
-- Array: 输入的字符串数组 (数字或英文字符串)
+- StrSA: 输入的字符串数组 (数字或英文字符串)
 
 - Order: 排列顺序 A: 顺序 D: 倒序 R: 逆序
 
