@@ -30,7 +30,7 @@ Lib是可以重复使用的代码，您可以把他们和自己的代码相结�
 
 ### 如何下载BeanLib?
 
-从 [码云](https://gitee.com/xrvu_zen/BeanLib) 或 [GitHub](https://github.com/Oilj/BeanLib) 下载
+从 [码云](https://gitee.com/xrvu_zen/BeanLib) 或 [GitHub](https://github.com/Oilj/BeanLib) 下载，当然，最好的食用方式是 Git Clone 咯。
 
 ### 为什么函数这么少?
 
@@ -40,7 +40,7 @@ Lib是可以重复使用的代码，您可以把他们和自己的代码相结�
 
 你可以说"养肥了再宰"，不过我还是建议你先下手，点点鼠标的事。
 
-反正又不会怀孕，是不是?
+<img src="https://upload-images.jianshu.io/upload_images/14875935-a324c753a1a065b0.GIF?imageMogr2/auto-orient/strip" height="166px" width="173px" >           反正又不会怀孕，是不是?
 
 ## 其他有用的资源
 ### 软件
