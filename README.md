@@ -57,7 +57,7 @@ Lib是可以重复使用的代码，您可以把他们和自己的代码相结�
 
 ## <span id="JumpTIGX">[突出贡献者](#JumpTIGX)</span>
 
-[**欢迎提交代码，任何贡献者都会被铭记。**](https://www.kancloud.cn/xrvu_zen/ahk_lib/901895)
+[**欢迎提交代码，任何贡献者都会被铭记。**](https://www.kancloud.cn/xrvu_zen/ahk_lib/902952)
 - <img src="https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/Troy_Daniel.png" height="80px" width="80px" >   @Troy_Daniel QQ:1043182080
   - 感谢 @Troy_Daniel 为文档排版提出了宝贵建议。
 
