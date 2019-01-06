@@ -32,7 +32,7 @@ Lib是可以重复使用的代码，您可以把他们和自己的代码相结�
 
 从 [码云](https://gitee.com/xrvu_zen/BeanLib) 或 [GitHub](https://github.com/Oilj/BeanLib) 下载，当然，最好的食用方式是 Git Clone 咯。
 
-### 为什么函数这么少?
+### 为什么内容有些少?
 
 因为刚刚建立不久，所以需要大量时间完善。
 
