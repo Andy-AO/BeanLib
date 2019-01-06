@@ -54,6 +54,6 @@ Null
 
 [GitHub](https://github.com/Oilj/BeanLib/graphs/contributors) 
 
-码云 
+[码云](https://gitee.com/xrvu_zen/BeanLib/contributors?ref=master) 
 
 

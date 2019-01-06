@@ -4,6 +4,12 @@
 
 [TOC]
 
+## 为什么三个平台内容不一样?
+
+看云 是最优先更新的平台，在源代码没有更改的情况下，[GitEE](https://gitee.com/xrvu_zen/BeanLib) 和 [GitHub](https://github.com/Oilj/BeanLib) 都不会更新。
+
+所以当内容不一致时，以 [看云](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301) 为准。
+
 ## 为什么函数失效了?
 
 - 检查类是否被覆盖。
