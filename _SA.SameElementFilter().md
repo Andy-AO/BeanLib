@@ -1,5 +1,4 @@
-    
-​	**统计 StrSA 中所有元素出现的次数:**
+**统计 StrSA 中所有元素出现的次数:**
 
 ```autohotkey
 _SA.SameElementFilter(StrSA)
