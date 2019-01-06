@@ -6,6 +6,14 @@
 - BeanLib是环保的，不会占用全局变量，不会干扰自动执行段。
 
 ## 使用说明
+### 特别提示
+- 请在 [**看云(KanCloud)**](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301)  阅读文档，[看云](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301) 是专业的托管平台，支持**全局搜索**，**导航目录**，评论以及CSS渲染，美观易用。
+
+- GitHub 和 GitEE 作为 **提交issue， Pull Request ， 源码下载** 之用。
+
+- [看云](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301) 会优先更新，一切内容以 [看云](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301) 为准。
+
+<img src="https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/%E7%9C%8B%E4%BA%91%E7%A4%BA%E4%BE%8B20190106110326.png" height="215px" width="350px" > 
 
 ### [Lib是什么?](https://wyagd001.github.io/zh-cn/docs/Functions.htm#include)
 
