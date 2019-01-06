@@ -24,7 +24,8 @@ Lib是可以重复使用的代码，您可以把他们和自己的代码相结�
 
 ### 如何使用Lib?
 
-- 可使用 [#Include](https://wyagd001.github.io/zh-cn/docs/Functions.htm#include) 命令导入Lib，也可以直接粘贴使用。
+- 使用 [#Include](https://wyagd001.github.io/zh-cn/docs/Functions.htm#include) 命令导入。
+  - BeanLib 的函数之间可能是相互依赖的，不建议拆分使用。 \#include 并不会影响脚本速度。
 - Lib 的参数/返回值等信息可以在 [LibDocs(看云)](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301) 中查阅，支持全文搜索和评论。
 
 ### 如何下载BeanLib?
