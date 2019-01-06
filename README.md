@@ -43,6 +43,11 @@ Lib是可以重复使用的代码，您可以把他们和自己的代码相结�
 <img src="https://upload-images.jianshu.io/upload_images/14875935-a324c753a1a065b0.GIF?imageMogr2/auto-orient/strip" height="166px" width="173px" >           反正又不会怀孕，是不是?
 
 ## 其他有用的资源
+
+### 经典文章
+
+[AHK 语言介绍 @陌辞寒](https://segmentfault.com/a/1190000005006771)
+
 ### 软件
 - [PowerKeys - 键盘瑞士军刀 @知阳](https://powerkeys.github.io/)
 - [Vim 风格的操作辅助工具 - vimdesktop @陌辞寒](https://github.com/goreliu/vimdesktop)
