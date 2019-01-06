@@ -46,4 +46,4 @@
 ## <span id="jumpGX">贡献者信息在哪？</span>
 - 在 [GitHub页面的 Insights/contributors](https://github.com/Oilj/BeanLib/graphs/contributors) 中查询。
 - 在 [码云 的"贡献者"页面](https://gitee.com/xrvu_zen/BeanLib/repository/stats/master)中查询。
-- [突出贡献者会被展示在README上。](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301#突出贡献者)
+- [突出贡献者会被展示在README上。](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301#JumpTIGX)
