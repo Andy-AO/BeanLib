@@ -38,7 +38,7 @@ Lib是可以重复使用的代码，您可以把他们和自己的代码相结�
 
 又要测试又要写文档，所以...
 
-你可以说"养肥了再宰"，不过我还是建议你先下手，点点鼠标的事。
+可以说"养肥了再宰"，不过为什么不先下手呢，[点点鼠标的事。](https://gitee.com/xrvu_zen/BeanLib)
 
 <img src="https://upload-images.jianshu.io/upload_images/14875935-a324c753a1a065b0.GIF?imageMogr2/auto-orient/strip" height="166px" width="173px" >           反正又不会怀孕，是不是?
 
