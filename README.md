@@ -21,7 +21,7 @@ Lib是可以重复使用的代码，您可以把他们和自己的代码相结�
 
 ### 如何下载BeanLib?
 
-从 码云 或 GitHub 下载
+从 [码云](https://gitee.com/xrvu_zen/BeanLib) 或 [GitHub](https://github.com/Oilj/BeanLib) 下载
 
 ### 为什么内容这么少?下载地址呢?
 
@@ -44,8 +44,16 @@ emmm...刚刚建站，内容正逐步添加。
 
 - ![心如止水](https://upload-images.jianshu.io/upload_images/14875935-319e198e74b0496c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)   @心如止水 QQ:3404624865 
 
-## 贡献者信息
+## 突出贡献者
 
-`欢迎提交代码，任何贡献者都会被铭记。`
+[**欢迎提交代码，任何贡献者都会被铭记。**](https://www.kancloud.cn/xrvu_zen/ahk_lib/901895)
 
-暂无
+Null
+
+### 所有贡献者
+
+[GitHub](https://github.com/Oilj/BeanLib/graphs/contributors) 
+
+码云 
+
+

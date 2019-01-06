@@ -44,5 +44,6 @@
   _LGPLv3是目前使用最广泛的开源协议。_![*](https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/LGPLv3_20190105183651.png)
 
 ## <span id="jumpGX">贡献者信息在哪？</span>
-- 在GitHub页面的 Insights/contributors 中查询。(GitHub页面建设中...)。
+- 在 [GitHub页面的 Insights/contributors](https://github.com/Oilj/BeanLib/graphs/contributors) 中查询。
+- 在 码云 的"贡献者"页面中查询。
 - 突出贡献者会被展示在README上。
