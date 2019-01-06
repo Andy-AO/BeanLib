@@ -9,7 +9,7 @@
 ### 特别提示
 - 请在 [**看云(KanCloud)**](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301)  阅读文档，[看云](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301) 是专业的托管平台，支持**全局搜索**，**导航目录**，评论以及CSS渲染，美观易用。
 
-- GitHub 和 GitEE 作为 **提交issue， Pull Request ， 源码下载** 之用。
+- GitHub 和 GitEE 作为 **提交issue， 发起Pull Request ， 源码下载** 之用。
 
 - [看云](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301) 会优先更新，一切内容以 [看云](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301) 为准。
 
@@ -47,6 +47,11 @@ emmm...刚刚建站，内容正逐步添加。
 - [智能热键网 @河许人](https://www.autoahk.com/)
 - [AHK程序设计 专栏 @心如止水](https://segmentfault.com/blog/ahkprogramdesign)
 - [AHK经验分享 博客 @YuKuan](https://blog.csdn.net/liuyukuan)
+
+### QQ群
+- <img src="https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/QZ_Q%E7%BE%A4.png" height="80px" width="80px" > QZ/VimD/TC/AHK (271105729)   
+- <img src="https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/AHK%E9%AB%98%E6%89%8B%E7%BE%A4_20190106112323.png" height="80px" width="111px" > AHK 高手群 (348016704)   
+
 
 ## 创建者信息
 
