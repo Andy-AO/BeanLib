@@ -10,5 +10,5 @@
 * [鸣谢 (ACKNOWLEDGEMENT)](鸣谢.md)
 * [贡献指南 (CONTRIBUTING)](BeanLib_CONTRIBUTING_贡献指南.md)
 * [常见问题 (FAQ)](BeanLib_FQA.md)
-* [文档模板 (TEMPLATE)](Template.md)
+* [文档模板 (TEMPLATE)](TEMPLATE.md)
 * [开源协议 (LICENCE)](LICENCE)
