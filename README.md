@@ -1,4 +1,4 @@
-# ![*](https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/AHK%E5%B0%8F%E5%9B%BE%E6%A0%87_20190105183041.png) BeanLib
+# ![*](https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/AHK%E5%B0%8F%E5%9B%BE%E6%A0%87_20190105183041.png) [BeanLib](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301)
 
 ## 特点
 
@@ -7,7 +7,7 @@
 
 ## 使用说明
 
-### Lib是什么?
+### [Lib是什么?](https://wyagd001.github.io/zh-cn/docs/Functions.htm#include)
 
 Lib是可以重复使用的代码，您可以把他们和自己的代码相结合，来创造新的功能。
 
@@ -16,8 +16,8 @@ Lib是可以重复使用的代码，您可以把他们和自己的代码相结�
 
 ### 如何使用Lib?
 
-- 可使用 `#Include` 命令导入Lib，也可以直接粘贴使用。
-- Lib 的参数/返回值等信息可以在 LibDocs 中查阅，支持全文搜索和评论。
+- 可使用 [#Include](https://wyagd001.github.io/zh-cn/docs/Functions.htm#include) 命令导入Lib，也可以直接粘贴使用。
+- Lib 的参数/返回值等信息可以在 [LibDocs(看云)](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301) 中查阅，支持全文搜索和评论。
 
 ### 如何下载BeanLib?
 
@@ -44,7 +44,7 @@ emmm...刚刚建站，内容正逐步添加。
 
 - ![心如止水](https://upload-images.jianshu.io/upload_images/14875935-319e198e74b0496c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)   @心如止水 QQ:3404624865 
 
-## 突出贡献者
+## <span id="突出贡献者">突出贡献者</span>
 
 [**欢迎提交代码，任何贡献者都会被铭记。**](https://www.kancloud.cn/xrvu_zen/ahk_lib/901895)
 
