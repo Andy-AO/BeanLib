@@ -8,7 +8,7 @@
     * [SA.ElementCounter()](_SA/_SA.ElementCounter().md)
 * [_EX](_EX.md)
 * [鸣谢 (ACKNOWLEDGEMENT)](BeanLib_ACKNOWLEDGEMENT.md)
-* [贡献指南 (CONTRIBUTING)](BeanLib_CONTRIBUTING_贡献指南.md)
+* [贡献指南 (CONTRIBUTING)](BeanLib_CONTRIBUTING.md)
 * [常见问题 (FAQ)](BeanLib_FQA.md)
 * [文档模板 (TEMPLATE)](TEMPLATE.md)
 * [开源协议 (LICENCE)](LICENCE)
