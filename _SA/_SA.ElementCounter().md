@@ -18,6 +18,5 @@ ElementCounter(StrSA)
 ;示例
 
 NameSA:=["Chris","Joe","Marcy","Chris","Elina","Timothy","Joe","Joe","Joe"]
-NewObj:=_SA.uniq(NameSA)
 NewObj:=_SA.ElementCounter(NameSA)
 ```
