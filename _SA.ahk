@@ -186,33 +186,33 @@ Array:=StrSA
 把StrSA中所有的元素都放入一个Obj,元素是key,元素出现的次数是value
 */
 
-ElementCounter(StrSA){
-	Obj:={}
+ElementCounter(SA){
+	ResultObj:={}
 
-	for i,Str in StrSA{
+	for i,TheObj in SA{
 		if(i=1){
-	obj[Str]:=1
+	ResultObj[TheObj]:=1
 	continue
 }
 
-	for key,value in obj{
-		if(Str=key){
-			obj[key]++
+	for key,value in ResultObj{
+		if(TheObj=key){
+			ResultObj[key]++
 		break
 		}
 	
-		if(A_Index=Obj.count())
+		if(A_Index=ResultObj.count())
 			marker:=true
 	}
 
 	if(marker)
-	obj[Str]:=1
+	ResultObj[TheObj]:=1
 
 	;重置marker
 	marker:=false
 
 	} ;外周循环结束
-return Obj
+return ResultObj
 }
 
 }
