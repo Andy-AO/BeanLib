@@ -22,7 +22,7 @@ static LetterSA:=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P
 static NumberSA:=["1","2","3","4","5","6","7","8","9","0"]
 static TheSA1:=["SA1"]
 static TheSA2:=["SA2"]
-static ObjSA:=[SA1,SA2,SA2,SA2,SA1,SA1]
+static ObjSA:=[_SA.TheSA1,_SA.TheSA2,_SA.TheSA1,_SA.TheSA2,_SA.TheSA1,_SA.TheSA2]
 
 ;---------------------------------------------------------------------- 
 /*!
@@ -189,7 +189,7 @@ Array:=StrSA
 */
 
 ElementCounter(SA){
-	ResultObj:={}
+	ResultObj:={},marker:=false
 
 	for i,TheObj in SA{
 		if(i=1){
