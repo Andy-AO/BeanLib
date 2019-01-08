@@ -10,3 +10,6 @@
 - static RNameSA:=["Chris","Joe","Marcy","Chris","Elina","Timothy","Joe","Joe","Joe"]
 - static LetterSA:=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 - static NumberSA:=["1","2","3","4","5","6","7","8","9","0"]
+- static TheSA1:=["SA1"]
+- static TheSA2:=["SA2"]
+- static ObjSA:=[SA1,SA2,SA2,SA2,SA1,SA1]
