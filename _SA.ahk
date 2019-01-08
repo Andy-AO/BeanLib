@@ -21,24 +21,43 @@ static RNameSA:=["Chris","Joe","Marcy","Chris","Elina","Timothy","Joe","Joe","Jo
 static LetterSA:=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 static NumberSA:=["1","2","3","4","5","6","7","8","9","0"]
 
+
 ;---------------------------------------------------------------------- 
 /*!
-字符串数组去重
+Str数组转换为字符串
 */
-Uniq(StrSA){
-	nameArray:=StrSA
+ToString(Str){
+	TheArrayString:=""
+	TheArrayString.= "["
+	For k, v in Str{
+		TheArrayString.="," v
+	
+	}
+; 去掉尾部多余的","
+	TheArrayString := StrReplace(TheArrayString, "," , "", OutputVarCount,1)
+	TheArrayString.= "]"
 
+	return TheArrayString
+ }
+
+;---------------------------------------------------------------------- 
+/*!
+数组去重
+*/
+Uniq(SA){
+	nameArray:=SA
+	
 	hash := {},MarkObj:={}
 	for i, name in nameArray
-		hash[name] := MarkObj
+		hash[name] := MarkObj 
 
 	trimmedArray := []
 	for name, dummy in hash
-		trimmedArray.Insert(name)
+		trimmedArray.push(name) ;2019年01月08日 从insert 改为push
 	
-	NewStrSA:=trimmedArray
+	NewSA:=trimmedArray
 
-	return NewStrSA
+	return NewSA
 }
 
 ;~ From:https://stackoverflow.com/questions/46432447/how-do-i-remove-duplicates-from-an-autohotkey-array
