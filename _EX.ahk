@@ -18,7 +18,8 @@ LGPLv3
 Class _EX{
 
 ;SAIndex越界异常
-static IndexOutOfBounds:="IndexOutOfBounds"
+static IndexOutOfBounds:="Index Out Of Bounds.数组越界."
+static NoExistMethod:="Call To Nonexistent Method.调用不存在的方法."
 
 }
 
