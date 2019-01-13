@@ -26,6 +26,8 @@
     - 至少有功能/输入/返回值介绍，最好有示例，请使用MD语法，可参考[文档模板](https://www.kancloud.cn/xrvu_zen/ahk_lib/902299)。
 - 支持 AHK_L 或 AHK2。
     - 请不要使用其他分支的特有语法或函数。
+- 禁止触发除 `LocalSameAsGlobal` 外的任何 `#Warn` 警告
+    - 之所以   `LocalSameAsGlobal` 可以，是因为这个实在是太操蛋了。谁用这玩意?简直反人类，我一般都关掉。
 
 ### 一些建议和提醒
 
