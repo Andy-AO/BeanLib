@@ -1,4 +1,5 @@
 * [指南 (README)](README.md)
+* [String Method](StringMethod.md)
 * [_SA](_SA.md)
     * [_SA.StrReplace()](_SA/_SA.StrReplace().md)
     * [_SA.Sort()](_SA/_SA.Sort().md)
