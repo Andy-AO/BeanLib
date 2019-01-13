@@ -51,6 +51,8 @@ Str.ToSA()
 
 转换汉字字符串为首字母汉语拼音字符串
 
+- 提取自 [HotWindows(@刘老六)](https://www.iplaysoft.com/p/hotwindows)
+
 ``` autohotkey
 Zh.py()
 ```
