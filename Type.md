@@ -47,7 +47,7 @@
 
 ## ofCode() - 
 
-输入 类型Code ，获取类型对应的 String。
+获取类型对应的 String。
 
 ``` autohotkey
 ofCode(Type.SA)
