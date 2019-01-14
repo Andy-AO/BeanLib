@@ -23,6 +23,6 @@
 #Include _SA.ahk
 #Include _EX.ahk
 #Include StringMethod.ahk
-#Include ExcelToArray().ahk
+#Include ExcelToSA().ahk
 
 
