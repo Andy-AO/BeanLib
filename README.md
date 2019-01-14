@@ -34,6 +34,15 @@ Lib是可以重复使用的代码，您可以把他们和自己的代码相结�
 
 ### 为什么内容有些少?
 
+##### 现在一点也不少咯
+
+现在一点也不少了，一共大概**三四十个吧**。因为我 HTML 技术不行，所以没法在目录上直接加锚点，所以后期加入的方法都在一个页面里面(AHK帮助文件也这么搞)。- 2019年01月14日 
+
+- 先全文搜索
+- 进到页面之后再用浏览器搜索
+
+---
+
 因为刚刚建立不久，所以需要大量时间完善。
 
 又要测试又要写文档，所以...
@@ -77,7 +86,7 @@ Lib是可以重复使用的代码，您可以把他们和自己的代码相结�
 - <img src="https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/Troy_Daniel.png" height="80px" width="80px" >   @Troy_Daniel QQ:1043182080
   - 感谢 @Troy_Daniel 为文档排版提出了宝贵建议。
 - <img src="https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/%E7%AC%AC%E4%B8%80%E4%B8%AA20190114092615.png" height="80px" width="80px" >   @tmplinshi
-  - 感谢 @tmplinshi，这是 BeanLib 收录的第一个外部函数。
+  - 感谢 @tmplinshi，"ExcelToSA" 是 BeanLib 收录的第一个外部函数。
 ### 所有贡献者
 
 [GitHub](https://github.com/Oilj/BeanLib/graphs/contributors) 

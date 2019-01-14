@@ -24,5 +24,6 @@
 #Include _EX.ahk
 #Include StringMethod.ahk
 #Include ExcelToSA().ahk
+#Include TypeFuncAndClass.ahk
 
 
