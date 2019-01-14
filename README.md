@@ -76,8 +76,8 @@ Lib是可以重复使用的代码，您可以把他们和自己的代码相结�
 
 - <img src="https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/Troy_Daniel.png" height="80px" width="80px" >   @Troy_Daniel QQ:1043182080
   - 感谢 @Troy_Daniel 为文档排版提出了宝贵建议。
-- <img src="https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/YKYuan20190114084726.png" height="80px" width="80px" >   @Yukuan
-  - 感谢 @Yukuan ，提交了 ExcleToSA 函数 ，这个 BeanLib 的第一个贡献者。
+- <img src="https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/%E7%AC%AC%E4%B8%80%E4%B8%AA20190114092615.png" height="80px" width="80px" >   @tmplinshi
+  - 感谢 @tmplinshi，这是 BeanLib 收录的第一个外部函数。
 ### 所有贡献者
 
 [GitHub](https://github.com/Oilj/BeanLib/graphs/contributors) 
