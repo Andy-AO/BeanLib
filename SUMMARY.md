@@ -9,6 +9,7 @@
     * [_SA.ElementCounter()](_SA/_SA.ElementCounter().md)
     * [_SA.ToString()](_SA.ToString().md)
 * [_EX](_EX.md)
+* [ExcelToArray()](ExcelToArray().md)
 * [StringMethod(元编程)](StringMethod.md)
 * [鸣谢 (ACKNOWLEDGEMENT)](BeanLib_ACKNOWLEDGEMENT.md)
 * [贡献指南 (CONTRIBUTING)](BeanLib_CONTRIBUTING.md)
