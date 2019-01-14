@@ -17,7 +17,7 @@
 比如
 
 ```CMD
-mklink "F:AutoHotkey\SciTE\ahk.api" "D:\AHKs\Stable\ahk_lib\ahk.api"
+mklink "F:\AutoHotkey\SciTE\ahk.api" "D:\AHKs\Stable\ahk_lib\ahk.api"
 ```
 
 这个的意思就是，在 "F:AutoHotkey\SciTE\ahk.api" 建立一个指向 "D:\AHKs\Stable\ahk_lib\ahk.api" 的软链接。
