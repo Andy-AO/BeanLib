@@ -15,5 +15,6 @@
 * [贡献指南 (CONTRIBUTING)](BeanLib_CONTRIBUTING.md)
 * [常见问题 (FAQ)](BeanLib_FQA.md)
 * [文档模板 (TEMPLATE)](TEMPLATE.md)
+* [语法高亮(HIGHLIGHTING)](HIGHLIGHTING.md)
 * [开源协议 (LICENCE)](LICENCE)
 * 
