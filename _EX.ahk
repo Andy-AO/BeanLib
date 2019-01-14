@@ -17,8 +17,8 @@ LGPLv3
 
 Class _EX{
 
-;SAIndex越界异常
-static IndexOutOfBounds:="Index Out Of Bounds.数组越界."
+
+static IndexOutOfBounds:="Index Out Of Bounds.数组越界." ;SAIndex越界异常
 static NoExistMethod:="Call To Nonexistent Method.调用不存在的方法."
 static NoExistFile:="File Not Exist.文件不存在."
 static SetConst:="Set Const.写入常量."
