@@ -35,10 +35,14 @@ class StrBase{
 
 		CharAt(aParams){
 			TheIndex:=aParams[1]
+			if (aParams[2]>0)AND(aParams[2]<10)
+				len:=aParams[2]
+			else
+				len:=1
 			if((TheIndex>StrLen(this)) OR (TheIndex<1)){
 			throw Exception(_Ex.IndexOutOfBounds)
 			}
-			Sub:=SubStr(this,TheIndex,1)
+			Sub:=SubStr(this,TheIndex,len)
 			return Sub
 		}
 		

@@ -18,11 +18,17 @@
 
 **Zh:="那里有条美丽的河"**
 
-### CharAt(index) - 提取字符
+### CharAt(index,len:=1) - 提取字符串
 
-提取String中的字符
+提取String中的字符/字符串
 
 - 如果越界会抛出 IndexOutOfBounds 异常
+
+**参数：**
+
+index - 索引
+
+len - 长度
 
 ``` autohotkey
 Str.CharAt(6) ;返回e
