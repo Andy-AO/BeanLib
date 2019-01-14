@@ -3,7 +3,7 @@
 [TOC]
 # 介绍
 1.  是一个依靠[元编程](http://xrvu_zen.gitee.io/wyagd001.github.io/docs/Objects.htm#Meta_Functions)实现的 String 方法，并非类。
-2.  主要包含对于String的各种增强操作, 包括但不限于 获取长度，单个字符，转为字符数组，提取汉字汉语拼音首字母...
+2.  主要包含对于 String 的各种增强操作, 包括但不限于 获取长度，获取单个字符，转为字符数组，提取汉字汉语拼音首字母...
 3.  关于元编程的更多内容，可参考以下文档
     - [AHK官方文档](https://autohotkey.com/docs/Objects.htm#Meta_Functions)
     - [AHK元编程入门系列教程(@心如止水)](https://zhuanlan.zhihu.com/AHKZen)
