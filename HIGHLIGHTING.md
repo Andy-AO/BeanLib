@@ -8,7 +8,7 @@
 
 ## 使用方法
 
-`SciTE4AutoHotkey` 的语法高亮和自动完成分别由 `ahk.api` `ahk.keywords.properties` 两个文件负责。
+`SciTE4AutoHotkey` 的自动完成和语法高亮分别由 `ahk.api` `ahk.keywords.properties` 两个文件负责。
 
 这两个文件目前都已经放在 根目录 了，可以直接 Clone 到本地。
 
