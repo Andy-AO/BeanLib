@@ -54,7 +54,7 @@ ExitApp
 
 Form：https://github.com/tmplinshi/ExcelToArray
 
-在元函数基础上进行了改动
+**对原作进行了改动**
 
 - 使用 Local 变量之前先进行了声明，防止 `#Warn` 报警
 - test.xlsx增加 Sheet2 以便测试更多参数
