@@ -1,11 +1,11 @@
 ﻿; v1.1 (2018-7-19)
 ; https://github.com/tmplinshi/ExcelToArray
 
-ExcelToArray(FileName, nSheet := 1, last_row := "", last_column := ""){
-	return ExcelToArray.DoIt(FileName, nSheet, last_row, last_column)
+ExcelToSA(FileName, nSheet := 1, last_row := "", last_column := ""){
+	return ExcelToArrayClass.DoIt(FileName, nSheet, last_row, last_column)
 }
 
-class ExcelToArray{
+class ExcelToArrayClass{
 	DoIt(FileName, nSheet := 1, last_row := "", last_column := ""){
 		if !FileExist(FileName)
 			throw,_Ex.NoExistFile

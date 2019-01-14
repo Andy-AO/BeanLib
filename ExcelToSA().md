@@ -1,7 +1,7 @@
 **转 Excel 文件为 SA:**
 
 ```autohotkey
-ExcelToArray(FileName, nSheet := 1, last_row := "", last_column := "")
+ExcelToSA(FileName, nSheet := 1, last_row := "", last_column := "")
 ```
 
 ### 参数 Parameters: 
@@ -21,7 +21,7 @@ SA
 
 ```autohotkey
 ;全参数示例
-arr := ExcelToArray("test.xlsx","Sheet2","3","1")
+arr := ExcelToSA("test.xlsx","Sheet2","3","1")
 ```
 
 ```autohotkey
@@ -42,7 +42,7 @@ SplashTextOff
 Return
 
 ImportData:
-	arr := ExcelToArray("test.xlsx")
+	arr := ExcelToSA("test.xlsx")
 
 	for i, dat in arr
 		LV_Add("", dat*)
@@ -58,3 +58,4 @@ Form：https://github.com/tmplinshi/ExcelToArray
 
 - 使用 Local 变量之前先进行了声明，防止 `#Warn` 报警
 - test.xlsx增加 Sheet2 以便测试更多参数
+- 改名为 ExcelToSA()
