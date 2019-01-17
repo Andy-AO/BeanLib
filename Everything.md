@@ -24,7 +24,7 @@
 构造一个 Everything 对象
 
 - 会通过 getDll() 检查 Dll 文件是否存在，如果不存在 `throw Exception("Not Found Everything.DLL/Everything64.DLL.")`
-- 会检查 `ahk_exe Everything.exe`是否存在，如果不存在  `throw Exception("Not Found Everything.DLL/Everything64.DLL.")`
+- 会检查 `ahk_exe Everything.exe`是否存在，如果不存在`throw Exception("ahk_exe Everything.exe is not Exist.")`
 
 ### getDll(DLLPath:="")
 
@@ -49,6 +49,8 @@ return null
 执行搜索动作 (执行后直接返回匹配数)
 
 - aValue - 意义不明，并非必须填写
+
+return null
 
 ###  Count()
 
@@ -82,7 +84,6 @@ StrSA:=[]
 loop,%theLen%{
 StrSA.push(Obj.GetFullPath(A_Index-1))
 }
-
 
 ExitApp
 
