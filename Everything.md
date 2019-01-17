@@ -1,12 +1,14 @@
-# Everthing Class
+# Everything Class
 
-使用 Everthing 进行搜索
+使用 Everything 进行搜索
 
-- Everthing 是一款非常出名的搜索工具，搜索速度极快
-- 使用条件 1.根目录或指定目录下存在 Everthing的DLL  2.Everthing程序正在运行
+- Everything 是一款非常出名的搜索工具，搜索速度极快
+- 使用条件 1.根目录或指定目录下存在 Everything的DLL  2.Everything程序正在运行
+  - 根目录指的是`A_ScriptDir`，并不是`BeanLib`所在的根目录。
+  - DLL 概不提供 自己从 Everything 中提取，或者直接指定本机 Everything 目录。
 - 提取自 RunAny - 一劳永逸的快速启动 @hui-Zz，主要改动如下
   - 精简方法名 
-  - 调用 __New 时直接获取 Dll 信息，检查 Everthing 窗口是否存在
+  - 调用 __New 时直接获取 Dll 信息，检查 Everything 窗口是否存在
 
 ## 域 Field 
 
@@ -19,14 +21,14 @@
 
 ### __New(DLLPath:="")
 
-构造一个 Everthing 对象
+构造一个 Everything 对象
 
-- 会通过 getDll() 检查 Dll 文件是否存在，如果不存在 `throw Exception("Not Found Everthing.DLL/Everthing64.DLL.")`
-- 会检查 `ahk_exe Everything.exe`是否存在，如果不存在  `throw Exception("Not Found Everthing.DLL/Everthing64.DLL.")`
+- 会通过 getDll() 检查 Dll 文件是否存在，如果不存在 `throw Exception("Not Found Everything.DLL/Everything64.DLL.")`
+- 会检查 `ahk_exe Everything.exe`是否存在，如果不存在  `throw Exception("Not Found Everything.DLL/Everything64.DLL.")`
 
 ### getDll(DLLPath:="")
 
-确认Everthing的DLL是否存在
+确认Everything的DLL是否存在
 
 - 如果存在，返回名称，不存在则返回 false
 

@@ -28,7 +28,7 @@
 #Include Analyze().ahk
 #Include Instanof().ahk
 #Include getClass().ahk
-#Include Everthing.ahk
+#Include Everything.ahk
 
 
 
