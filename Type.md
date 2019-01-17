@@ -26,7 +26,7 @@
 	Static ComObj:=160
 ```
 
-#### 变量 variate
+#### 变量 Variate
 
 ```autohotkey
 Static Switcher:=true
@@ -34,9 +34,9 @@ Static Switcher:=true
 ```
 ### 方法 Method
 
-`getClass(Obj)`
+### ofCode(TypeCode)
 
-如果继承自 `Class` 则返回其引用，如果没有，则返回`false`。
+获取 TypeCode 对应的 TypeString。
 
 ### afOn()/afOff()
 
@@ -71,10 +71,6 @@ afOff() - 把变量设为 false ,关闭断言
 #### afFuncObj(Ever) 
 #### afFileObj(Ever) 
 #### afComObj(Ever) 
-
-### ofCode(Ever)
-
-获取类型对应的 String。
 
 ``` autohotkey
 ofCode(Type.SA)

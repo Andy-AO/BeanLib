@@ -6,6 +6,7 @@
     * [_SA.Remove()](_SA/_SA.Remove().md)
     * [_SA.CopyOfRange()](_SA/_SA.CopyOfRange().md)
     * [_SA.Uniq()](_SA/_SA.Uniq().md)
+    * [_SA.Contains()](_SA.Contains().md)
     * [_SA.ElementCounter()](_SA/_SA.ElementCounter().md)
     * [_SA.ToString()](_SA.ToString().md)
 * [_EX](_EX.md)

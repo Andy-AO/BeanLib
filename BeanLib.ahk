@@ -26,5 +26,8 @@
 #Include ExcelToSA().ahk
 #Include TypeFuncAndClass.ahk
 #Include Analyze().ahk
+#Include Instanof().ahk
+#Include getClass().ahk
+
 
 

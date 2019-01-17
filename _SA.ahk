@@ -26,6 +26,16 @@ static TheSA2:=["SA2"]
 static ObjSA:=[_SA.TheSA1,_SA.TheSA2,_SA.TheSA1,_SA.TheSA2,_SA.TheSA1,_SA.TheSA2]
 
 ;---------------------------------------------------------------------- 
+
+Contains(SAorMap,value){
+for k,v in SAorMap{
+if (v=value)
+	return true
+}
+return false
+}
+
+;---------------------------------------------------------------------- 
 /*!
 Str数组转换为字符串
 */
