@@ -1,18 +1,18 @@
 ﻿
 /*
 占用的域
-函数 Type(Everthing)
+函数 Type(Ever)
 类 Type TypeBase
 */
 
-Type(Everthing){ ;提前支持 AHK2 中的特性 ;√	
+Type(Ever){ ;提前支持 AHK2 中的特性 ;√	
 	
 
 	
-	if (IsObject(Everthing))
-		theType:=Type.ObjectType(Everthing)
+	if (IsObject(Ever))
+		theType:=Type.ObjectType(Ever)
 	else
-		theType:=Type.StringType(Everthing)
+		theType:=Type.StringType(Ever)
 	
 		return theType
 }
@@ -20,7 +20,6 @@ Type(Everthing){ ;提前支持 AHK2 中的特性 ;√
 ;---------------------------------------------------------------------- 
 
 Class Type{
-
 
 ;用于测试的，有继承关系的一些 Inter Class
 Class AA extends Type.BB{
@@ -40,13 +39,11 @@ Class DD{
 }
 ;---------------------------------------------------------------------- 
 
-
 	isObj(Obj){ ;isObj直接调用系统函数就行了，不用绕弯子
 		return IsObject(Obj)
 	}
 
 ;---------------------------------------------------------------------- 
-
 
 		static Switcher:=true
 		afOn(){
@@ -57,7 +54,9 @@ Class DD{
 			Type.Switcher:=false
 			return false
 		}
+		
 ;---------------------------------------------------------------------- 
+
 		;通过TypeCode反向查类型值
 		ofCode(Code){
 		theMap:=TypeBase.__Get
@@ -67,7 +66,9 @@ Class DD{
 		}
 		return false		
 		}
-;---------------------------------------------------------------------- ;TypeBase 类的原方法的Base 放在这里了,全局变量能少占一个就少占一个吧
+		
+;---------------------------------------------------------------------- 
+;TypeBase 类的原方法的Base 放在这里了,全局变量能少占一个就少占一个吧
 
 class TypeCallBase{ 
     __Call(aThis,aName,aParams*){	
@@ -99,6 +100,7 @@ class TypeCallBase{
 
 
 ;主要是为了实现保护写入,也就是保证里面的东西是常量(必须Get也原函数实现,没法单独实现Set元函数,因为那样的话会直接复写掉,元函数本质是extends)
+
 class TypeGetBase{ 
     __Call(aThis,aName,aParams*){
 		

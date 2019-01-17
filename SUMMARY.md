@@ -11,6 +11,7 @@
     * [_SA.ToString()](_SA.ToString().md)
 * [_EX](_EX.md)
 * [Type](Type.md)
+* [Everthing(调用外部搜索工具)](Everthing.md)
 * [Type()](Type().md)
 * [Analyze()](Analyze().md)
 * [AnalyzeClassName()](AnalyzeClassName().md)
