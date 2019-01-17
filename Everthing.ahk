@@ -12,14 +12,6 @@
 
 class Everything{
 
-Class Protected{
-__Call(){
-throw Exception(_EX.NoExistMethod)
-return false
-}
-
-}
-
 
 key:="",MatchWholeWord:=false,DLL:=false
 ;---------------------------------------------------------------------- 
@@ -57,7 +49,7 @@ __New(DLLPath:=""){
 	this.Dll:=Dll
 
 	this.hModule := DllCall("LoadLibrary", str, this.DLL)
-	this.base:=Everything.Protected
+
 	return this
 }
 

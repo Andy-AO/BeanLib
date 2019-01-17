@@ -63,3 +63,25 @@ return null
 返回一个文件全路径
 
 - aValue - 文件路径Index
+
+## 示例
+
+```autohotkey
+Obj:=new Everything()
+
+Obj.Setkey("xxx")
+
+Obj.Search()
+theLen:=Obj.Count()
+Str:=Obj.GetFullPath(0)
+
+StrSA:=[]
+
+loop,%theLen%{
+StrSA.push(Obj.GetFullPath(A_Index-1))
+}
+
+
+ExitApp
+
+```
