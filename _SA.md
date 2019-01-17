@@ -13,3 +13,10 @@
 - static TheSA1:=["SA1"]
 - static TheSA2:=["SA2"]
 - static ObjSA:=[SA1,SA2,SA2,SA2,SA1,SA1]
+
+## 内部类
+
++ Class AA,BB,CC,DD
+  + 连续继承的四个内部类：CC继承DD，BB继承CC，AA继承BB
+  + 主要目的在于测试 Analyze()等，类继承关系分析函数。
+

@@ -11,6 +11,8 @@
 * [_EX](_EX.md)
 * [Type](Type.md)
 * [Type()](Type().md)
+* [Analyze()](Analyze().md)
+* [AnalyzeClassName()](AnalyzeClassName().md)
 * [ExcelToSA()](ExcelToSA().md)
 * [鸣谢 (ACKNOWLEDGEMENT)](BeanLib_ACKNOWLEDGEMENT.md)
 * [贡献指南 (CONTRIBUTING)](BeanLib_CONTRIBUTING.md)

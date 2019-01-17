@@ -25,5 +25,6 @@
 #Include StringMethod.ahk
 #Include ExcelToSA().ahk
 #Include TypeFuncAndClass.ahk
+#Include Analyze().ahk
 
 
