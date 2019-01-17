@@ -5,7 +5,9 @@
 类 Type TypeBase
 */
 
-Type(Everthing){ ;提前支持 AHK2 中的特性 ;√		
+Type(Everthing){ ;提前支持 AHK2 中的特性 ;√	
+	
+
 	
 	if (IsObject(Everthing))
 		theType:=Type.ObjectType(Everthing)
@@ -18,6 +20,44 @@ Type(Everthing){ ;提前支持 AHK2 中的特性 ;√
 ;---------------------------------------------------------------------- 
 
 Class Type{
+
+getClass(Obj){
+		
+		Type.afObj(Obj)
+		
+		theBase:=Obj.base
+		if(Type.isClass(theBase))
+			return theBase
+		else return false		
+
+}
+;---------------------------------------------------------------------- 
+
+;用于测试的，有继承关系的一些 Inter Class
+Class AA extends Type.BB{
+
+}
+
+Class BB extends Type.CC{
+
+}
+
+Class CC extends Type.DD{
+
+}
+
+Class DD{
+
+}
+;---------------------------------------------------------------------- 
+
+
+	isObj(Obj){ ;isObj直接调用系统函数就行了，不用绕弯子
+		return IsObject(Obj)
+	}
+
+;---------------------------------------------------------------------- 
+
 
 		static Switcher:=true
 		afOn(){

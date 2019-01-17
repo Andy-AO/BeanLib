@@ -4,10 +4,13 @@
 2.  围绕着`类型`展开，目前支持 **9种类型** 的识别。另，提供类型的 Code 值，判断类型，断言类型等等。
     让 AHK 用出强类型的味道，如果你不懂，那就算了...(手动滑稽)。
 3.  几乎完全用元编程技术编写，所以这里只写出那些实际会用到的域和方法，大多数平常都用不到。
+4.  `Ever` 代表：愿意接受任何类型的参数。
 
 [TOC]
 
-## 常量 Const
+### 域 Field
+
+#### 常量 Const
 
 **如果写入，会 throw _Ex.SetConst**
 
@@ -23,45 +26,53 @@
 	Static ComObj:=160
 ```
 
-## 变量 variate
+#### 变量 variate
 
 ```autohotkey
 Static Switcher:=true
 ;只有当该变量值为 true 这时候,断言才会生效
 ```
+### 方法 Method
 
-## afOn()/afOff()
+`getClass(Obj)`
+
+如果继承自 `Class` 则返回其引用，如果没有，则返回`false`。
+
+### afOn()/afOff()
 
 afOn() - 把变量设为 true ,开启断言
 
-afOff( - 把变量设为 false ,关闭断言
+afOff() - 把变量设为 false ,关闭断言
 
-## is方法(类型判断方法)
+### is方法(类型判断方法)
 
-### isStr() 
-### isNS() 
-### isSA() 
-### isObj() 
-### isClass() 
-### isFuncObj() 
-### isFileObj() 
-### isComObj() 
+#### isStr(Ever) 
+#### isNS(Ever) 
+#### isSA(Ever) 
+#### isObj(Ever) 
+#### isClass(Ever) 
+#### isFuncObj(Ever) 
+#### isFileObj(Ever) 
+#### isComObj(Ever) 
 
-## af方法(断言方法)
+### af方法(断言方法)
 
-- 不知道啥是断言的，可以去[百度百度](https://baike.baidu.com/item/%E6%96%AD%E8%A8%80/13021995)。
-- 之后会实现全局的一键开关，今天累了先算了。
+- **类型断言方法是干什么的？**
+  保证类型安全，也就是确保一个值是你想要的类型。因为类型这个概念在AHK中非常弱，所以如果你没有学习过强类型语言，这里很难跟你说清楚。
+- **能简单说说怎么用吗？**
+  比如，你设计一个给字符串数组排序的函数，你肯定不希望传入的参数是 `FuncObj`，由于`AHK`是弱类型，而且非常弱，所以不会报任何错误，但是程序一定会出现逻辑错误。
+  这时候你就可以在最前面加上一个`Type.afStr(Str)`，一旦发现数组中的数据不是`String`就会直接`Throw`，并告知你类型错误的细节。
 
-### afStr() 
-### afNS() 
-### afSA() 
-### afObj() 
-### afClass() 
-### afFuncObj() 
-### afFileObj() 
-### afComObj() 
+#### afStr(Ever) 
+#### afNS(Ever) 
+#### afSA(Ever) 
+#### afObj(Ever) 
+#### afClass(Ever) 
+#### afFuncObj(Ever) 
+#### afFileObj(Ever) 
+#### afComObj(Ever) 
 
-## ofCode() - 
+### ofCode(Ever)
 
 获取类型对应的 String。
 

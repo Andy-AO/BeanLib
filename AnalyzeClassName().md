@@ -21,5 +21,5 @@ StrSA
 ### 示例 Example
 
 ```autohotkey
-AnalyzeClassName(_SA.AA)
+AnalyzeClassName(Type.AA)
 ```

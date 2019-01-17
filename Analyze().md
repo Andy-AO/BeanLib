@@ -14,5 +14,5 @@ Object SimpleArray
 - afObj()
 ### 示例 Example
 ```autohotkey
-Analyze(_SA.AA)
+Analyze(Type.AA)
 ```
