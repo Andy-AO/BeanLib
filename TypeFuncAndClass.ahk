@@ -18,7 +18,17 @@ Type(Everthing){ ;提前支持 AHK2 中的特性 ;√
 ;---------------------------------------------------------------------- 
 
 Class Type{
-		
+
+		static Switcher:=true
+		afOn(){
+			Type.Switcher:=true
+			return true
+		}
+		afOff(){
+			Type.Switcher:=false
+			return false
+		}
+;---------------------------------------------------------------------- 
 		;通过TypeCode反向查类型值
 		ofCode(Code){
 		theMap:=TypeBase.__Get
@@ -226,8 +236,11 @@ Class TypeBase{
 	}
 	
 	
-	af(TypeCode,aParams,TypeName){ ;断言
-				
+	af(TypeCode,aParams,TypeName){ ;断言.
+		
+	if(Type.Switcher=false) ;如果断言开关关闭,那么就不启用断言
+		return
+	
 	;不能直接调用is,要转接之后调用
 	theIsName:="is" TypeName
 	theInput:=aParams[1]

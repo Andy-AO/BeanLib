@@ -23,6 +23,19 @@
 	Static ComObj:=160
 ```
 
+## 变量 variate
+
+```autohotkey
+Static Switcher:=true
+;只有当该变量值为 true 这时候,断言才会生效
+```
+
+## afOn()/afOff()
+
+afOn() - 把变量设为 true ,开启断言
+
+afOff( - 把变量设为 false ,关闭断言
+
 ## is方法(类型判断方法)
 
 ### isStr() 
