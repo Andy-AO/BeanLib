@@ -29,6 +29,8 @@
 #Include Instanof().ahk
 #Include getClass().ahk
 #Include Everything.ahk
+#Include Bean.ahk
+#Include Function.ahk
 
 
 
