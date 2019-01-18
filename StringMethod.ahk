@@ -15,12 +15,18 @@ class StrCallBase{
 			return OutPut
 		}
 		else{					
-			return ""		
+			Bean.Protect.__Call("")	
+			return
 		}
     }
 }
 
 class StrBase{
+
+
+;~ static __Get:=Bean.Protect.__Get
+;~ static __Set:=Bean.Protect.__Set
+
     class __Call extends StrCallBase{
 ;----------------------------------------------------------------------  Start	
 		length(){

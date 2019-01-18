@@ -1,4 +1,5 @@
 ﻿
+protect(Bean)
 
 Class Bean{
 

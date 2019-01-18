@@ -9,6 +9,8 @@
 ;需要保证:1.根目录或指定目录下存在 Everthing的DLL  2.Everthing程序正在运行
 	;[修改于AHK论坛，IPC方式和everything进行通讯]
 	
+	
+protect(Everything)
 
 class Everything{
 
