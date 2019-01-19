@@ -4,10 +4,15 @@
 */
 
 AnalyzeWin(InputWinTitle,EnableWinText:=false,InputDetectHiddenWindows:=""){
-
+	
+	WinTitle:="",WinClass:="",Winexe:="",WinID:="",WinPath:="",WinText:="*Disabled*",Str:=""
+	
 	;如果用户没有输入，那么默认就是当前的
 	if(InputDetectHiddenWindows="")
 		InputDetectHiddenWindows:=A_DetectHiddenWindows
+	
+	;转换布尔型为 On/Off
+	InputDetectHiddenWindows:=InputDetectHiddenWindows ? "On" : "Off"
 	
 	;先存一下最初的状态
 	tempDetectHiddenWindows:=A_DetectHiddenWindows
@@ -16,21 +21,27 @@ AnalyzeWin(InputWinTitle,EnableWinText:=false,InputDetectHiddenWindows:=""){
 	if (tempDetectHiddenWindows!=InputDetectHiddenWindows){
 		_Win.SwapHidden()
 	}
+
 	
-	local WinTitle:="",WinClass:="",Winexe:="",WinPID:="",WinPath:=""
-	local WinText:="*Disabled*"
-	local Str:=""
+	
+;---------------------所有的操作必须在 隐藏窗口检测状态 第一次切换之后进行------------------------------------------------- 
+
+	;如果窗口不存在就 返回false
+	
+	WinisExist:=WinExist(InputWinTitle)
+	if (Not(WinisExist))
+		return false
 	
 	WinGetTitle,WinTitle,%InputWinTitle%
 	WinGetClass,WinClass,%InputWinTitle%
 	WinGet,Winexe,ProcessName,%InputWinTitle%
-	WinPID:=GetWinID(InputWinTitle)
+	WinID := GetWinID(InputWinTitle)
 	WinGet,WinPath,ProcessPath,%InputWinTitle%	
 	
 	WinTitle := "WinTitle: " WinTitle
 	WinClass := "ahk_class " WinClass
 	Winexe := "ahk_exe " Winexe
-	WinPID := "ahk_id " WinPID
+	WinID := "ahk_id " WinID
 	WinPath := "WinPath: " WinPath
 	
 	if(EnableWinText){
@@ -44,18 +55,18 @@ Str=
 %WinTitle%
 %WinClass%
 %Winexe%
-%WinPID%
+%WinID%
 %WinPath%
 %WinText%
 )
 	
-	theObj:=Object("Str",Str,"WinTitle",WinTitle,"WinClass",WinClass,"Winexe",Winexe,"WinPID",WinPID,"WinPath",WinPath)
+	theObj:=Object("Str",Str,"WinTitle",WinTitle,"WinClass",WinClass,"Winexe",Winexe,"WinID",WinID,"WinPath",WinPath)
 	
 /*
 	DeBugDeepPrintln(WinTitle,"WinTitle >>> ")
 	DeBugDeepPrintln(WinClass,"WinClass >>> ")
 	DeBugDeepPrintln(Winexe,"Winexe >>> ")
-	DeBugDeepPrintln(WinPID,"WinPID >>> ")
+	DeBugDeepPrintln(WinID,"WinID >>> ")
 	DeBugDeepPrintln(WinPath,"WinPath >>> ")
 	DeBugDeepPrintln(WinText,"WinText >>> ")
 */	

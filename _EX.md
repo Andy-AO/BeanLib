@@ -11,4 +11,5 @@
 - static NoExistFile:="File Not Exist.文件不存在"
 - static SetConst:="Set Const.写入常量."
 - static TooFewParas:="Too Few ParaMeters.参数过少."
+- static NoExistWin:="Win is Not Exist.窗口不存在."
 

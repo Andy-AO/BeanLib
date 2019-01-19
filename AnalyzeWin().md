@@ -10,7 +10,9 @@ AnalyzeWin(InputWinTitle,EnableWinText:=false)
 - EnableWinText - 是否检测 `WinText`
 
 ### 返回 Returns: 
-Obj
+Obj 或者 false
+
+- 如果窗口不存在，那么就返回 `false`
 
 - 包含以下 Key
 
