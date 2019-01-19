@@ -15,6 +15,7 @@
 * [Type()](Type().md)
 * [Analyze()](Analyze().md)
 * [AnalyzeClassName()](AnalyzeClassName().md)
+* [AnalyzeWin](AnalyzeWin.md)
 * [Instanof()](Instanof().md)
 * [getClass()](getClass().md)
 * [Protect()](Protect().md)

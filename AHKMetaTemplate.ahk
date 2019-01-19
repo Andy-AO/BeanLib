@@ -13,7 +13,7 @@ Class Test{
 class TestCallBase{ 
     __Call(aThis,aFuncName,aParams*){
 	
-		aNameLen:=StrLen(aName)
+		aNameLen:=StrLen(aFuncName)
 
 		if(ObjHasKey(this,aFuncName)){ ;这里的this指代，真正的元函数本身
 			OutPut :=this[aFuncName].Call(aThis,aParams) ;第一个参数必须是 this ，另外,aParams已经是数组了
