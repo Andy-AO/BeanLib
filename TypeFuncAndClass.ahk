@@ -19,6 +19,9 @@ Type(Ever){ ;提前支持 AHK2 中的特性 ;√
 
 Class Type{
 
+
+
+
 ;用于测试的，有继承关系的一些 Inter Class
 Class AA extends Type.BB{
 

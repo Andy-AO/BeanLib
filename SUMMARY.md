@@ -10,6 +10,7 @@
     * [_SA.ElementCounter()](_SA/_SA.ElementCounter().md)
     * [_SA.ToString()](_SA.ToString().md)
 * [_EX](_EX.md)
+* [_Win](_Win.md)
 * [Type](Type.md)
 * [Everything(调用外部搜索工具)](Everything.md)
 * [af()](af().md)
