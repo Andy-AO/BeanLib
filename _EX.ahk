@@ -21,7 +21,7 @@ Class _EX{
 
 
 static IndexOutOfBounds:="Index Out Of Bounds.数组越界." ;SAIndex越界异常
-static NoExistValue:="Value is not Exsit.值不存在."
+static NoExistVariate:="Variate is not Exsit.变量不存在."
 static NoExistMethod:="Call To Nonexistent Method.调用不存在的方法."
 static NoExistFile:="File Not Exist.文件不存在."
 static SetConst:="Set Const.写入常量."

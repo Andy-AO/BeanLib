@@ -3,7 +3,7 @@
 让不存在的值，不能被读写；不存在的方法，不能被调用。主要目的是减轻 DeBug 的负担。
 
 - Call 不存在的方法 	`throw Exception(_EX.NoExistMethod)`
-- Set/Get 不存在的值	`throw Exception(_EX.NoExistValue)`
+- Set/Get 不存在的值	`throw Exception(_EX.NoExistVariate)`
 - 是通过元编程(继承)实现的，所以如果对象本身就是元编程实现的，那么该方法对其无效。
 
 ```autohotkey
