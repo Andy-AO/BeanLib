@@ -5,9 +5,7 @@
 类 Type TypeBase
 */
 
-Type(Ever){ ;提前支持 AHK2 中的特性 ;√	
-	
-
+Type(Ever){ ;提前支持 AHK2 中的特性 ;√		
 	
 	if (IsObject(Ever))
 		theType:=Type.ObjectType(Ever)
@@ -108,24 +106,27 @@ class TypeGetBase{
 			OutPut :=this[aName]
 			return OutPut
 		}
-		else{					
-			return ""		
+		else{
+			throw Exception(_EX.NoExistVariate) ;如果找不到，那么就抛出值不存在异常
+			return ""			
 		}
     }
 }
 
 ;---------------------------------------------------------------------- 
-		
-;主要是为了实现保护写入,也就是保证里面的东西是常量
 class TypeSetBase{
-    __Call(aParams*){
+    __Call(aThis,aVariateName,aParams*){
 		
-		throw Exception(_EX.SetConst)
-		return ""
+		if(ObjHasKey(TypeBase.__Get,aVariateName)){ 
+			throw Exception(_EX.SetConst) ;如果已经存在,那么就抛出常量写入异常
+			return ""
+		}
+		else{					
+			throw Exception(_EX.NoExistVariate)	;如果找不到，那么就抛出变量不存在异常	
+		}
     }
 }	
-		
-		
+	
 ;---------------------------------------------------------------------- 直接移植过来的，本来在外面,所以缩进不太对,以后改吧
 ObjectType(Obj){ ;检查Obj的类型(主要是分出 SA 和 非SA) ;√
 	;检查一下看看是否为线性的,如果是,那么就是true,不是就返回0
