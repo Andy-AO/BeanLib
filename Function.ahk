@@ -3,22 +3,22 @@
 /*
 获取窗口ID
 */
-GetWinID(WinTitle="A"){ ;没有再目录上写明,因为用不到,没必要
-WinGet,WinID,ID,%WinTitle%
-return WinID
-}
+	GetWinID(WinTitle="A"){ ;没有再目录上写明,因为用不到,没必要
+		WinGet,WinID,ID,%WinTitle%
+		return WinID
+	}
 ;---------------------------------------------------------------------- 
 /*
 通用断言
 */
 	af(Boolean,Mes:="No Info"){
 			
-	if(Type.Switcher=false) ;如果断言开关关闭,那么就不启用断言
-		return
-	
-	if(Boolean) ;如果表达式为true,那么就不触发 throw
-		return Boolean
-	
+		if(Type.Switcher=false) ;如果断言开关关闭,那么就不启用断言
+			return
+		
+		if(Boolean) ;如果表达式为true,那么就不触发 throw
+			return Boolean
+		
 		ExMes:=_EX.Affirm . " Mes : " . Mes
 		throw Exception(ExMes)
 		
