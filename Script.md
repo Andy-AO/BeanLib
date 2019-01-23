@@ -5,7 +5,7 @@
 ### 已知问题
 
 1. 发送消息的脚本,如果是通过 `#SingleInstance force` 重启的,不会执行成功 
-2. 不支持非Unicode字符,会变成乱码,原因未知
+2. 不支持 Unicode字符,原因未知,可能是 AHK元编程 的BUG
 
 [TOC]
 

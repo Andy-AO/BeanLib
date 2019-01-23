@@ -1,15 +1,8 @@
 ﻿
 /*
-AHK元编程模板 - @心如止水_Zen
-(目前还无法支持 UniCode 字符,原因未知)
-- 主要功能:完全控制 __Get __Set __Call , 实现类的高度自定义
-- 小提示:是以"Script"这个类为例子搞的,到时候批量替换成自己的名字就行
-- 关于Class:会创建两个最外层的类,一个是 Script 一个是 ScriptBase ,编程的三个方法也要创建类，但是为了节约外部命名空间,所以放入 Script类 内部了.
-- 如果窗口不存在，会抛出异常
-
 -;已知问题:
  1,发送消息的脚本,如果是通过 #SingleInstance force 重启的,不会执行成功 
- 2,不支持非Unicode字符,会变成乱码,原因未知
+ 2,不支持 Unicode字符,原因未知,可能是 AHK元编程 的BUG
 */
 
 
@@ -155,21 +148,7 @@ Class ScriptBase{
 ;---------------------------------------------------------------------- 	
 
 	Class __Call extends Script.ScriptCallBase{
-	;可以在里面填写各种方法
-	FuncA(){
-		MsgBox,% A_LineNumber " : " A_ThisFunc
-		return
-	}
-	
-	FuncB(){
-		MsgBox,% A_LineNumber " : " A_ThisFunc
-		return
-	}
-	
-	FuncC(){
-		MsgBox,% A_LineNumber " : " A_ThisFunc
-		return
-	}
+;啥也没有,别看了
 	
 	}
 	
