@@ -20,7 +20,6 @@
 * [AnalyzeWin()](AnalyzeWin().md)
 * [Instanof()](Instanof().md)
 * [getClass()](getClass().md)
-* [Protect()](Protect().md)
 * [ExcelToSA()](ExcelToSA().md)
 * [鸣谢 (ACKNOWLEDGEMENT)](BeanLib_ACKNOWLEDGEMENT.md)
 * [贡献指南 (CONTRIBUTING)](BeanLib_CONTRIBUTING.md)
