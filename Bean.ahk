@@ -1,5 +1,5 @@
 ﻿
-protect(Bean)
+;~ protect(Bean)
 
 Class Bean{
 

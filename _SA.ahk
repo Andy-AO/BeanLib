@@ -14,7 +14,7 @@ LGPLv3
 
 */
 
-protect(_SA)
+;~ protect(_SA)
 
 Class _SA{
 

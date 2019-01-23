@@ -10,7 +10,7 @@
 	;[修改于AHK论坛，IPC方式和everything进行通讯]
 	
 	
-protect(Everything)
+;~ protect(Everything)
 
 class Everything{
 

@@ -15,7 +15,7 @@ LGPLv3
 
 */
 
-Protect(_EX)
+;~ Protect(_EX)
 
 Class _EX{
 
