@@ -75,3 +75,4 @@ afOff() - 把变量设为 false ,关闭断言
 ``` autohotkey
 ofCode(Type.SA)
 ```
+

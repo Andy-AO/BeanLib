@@ -2,6 +2,11 @@
 
 1.  用于对 AHK脚本 进行各种操作，比如，重启某个脚本，暂停某个脚本
 
+### 已知问题
+
+1. 发送消息的脚本,如果是通过 `#SingleInstance force` 重启的,不会执行成功 
+2. 不支持非Unicode字符,会变成乱码,原因未知
+
 [TOC]
 
 ## 域 Field 
@@ -59,3 +64,16 @@
 打开CHM帮助文件
 ### WebSite()
 打开 https://www.autohotkey.com
+
+## 示例
+
+```autohotkey
+
+ScriptObj:=new Script("Reloader.ahk")
+^p::
+ScriptObj.Pause()
+return
+^r::
+ScriptObj.Reload()
+return
+```
