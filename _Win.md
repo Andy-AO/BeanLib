@@ -16,5 +16,8 @@
 
 #### SwapHidden()
 
-- 切换`A_DetectHiddenWindows`，也就是"是否匹配隐藏窗口"
+- 切换 `A_DetectHiddenWindows`，也就是"是否匹配隐藏窗口"
+
 - 返回 切换后的 `A_DetectHiddenWindows`
+
+  
