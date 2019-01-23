@@ -22,6 +22,7 @@
 * [Instanof()](Instanof().md)
 * [getClass()](getClass().md)
 * [ExcelToSA()](ExcelToSA().md)
+* [更新历史(CHANGELOG)](更新历史(CHANGELOG).md)
 * [鸣谢 (ACKNOWLEDGEMENT)](BeanLib_ACKNOWLEDGEMENT.md)
 * [贡献指南 (CONTRIBUTING)](BeanLib_CONTRIBUTING.md)
 * [常见问题 (FAQ)](BeanLib_FQA.md)
