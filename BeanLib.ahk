@@ -31,6 +31,7 @@
 #Include Everything.ahk
 #Include Bean.ahk
 #Include Function.ahk
+#Include _Win.ahk
 #Include AnalyzeWin().ahk
 
 

@@ -12,6 +12,7 @@
 * [_EX](_EX.md)
 * [_Win](_Win.md)
 * [Type](Type.md)
+* [Script](Script.md)
 * [Everything(调用外部搜索工具)](Everything.md)
 * [af()](af().md)
 * [Type()](Type().md)
