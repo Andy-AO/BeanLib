@@ -8,4 +8,4 @@
 - 从该版本开始，将使用标准的 Commit Message 格式
 
 - v1.1是第一个 BeanLib  release 版(正式版)
-  - release 版大概会每周更新一次
+  - release 版大概会每月更新一次
