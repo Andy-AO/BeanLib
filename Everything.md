@@ -68,6 +68,9 @@ return null
 
 - aValue - 文件路径Index
 
+### GetVersionString()
+获取 Everything 版本 (@YuKuan贡献)
+
 ## 示例
 
 ```autohotkey
@@ -88,3 +91,4 @@ StrSA.push(Obj.GetFullPath(A_Index-1))
 ExitApp
 
 ```
+
