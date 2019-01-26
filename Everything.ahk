@@ -97,4 +97,13 @@ GetFullPath(aValue,cValue=128){
 	return bValue
 }
 
+;获取 Everything 版本
+GetVersionString(){
+  fmajor := DllCall(this.DLL "\Everything_GetMajorVersion")
+  fminor:=DllCall(this.DLL "\Everything_GetMinorVersion")
+  frevision:=DllCall(this.DLL "\Everything_GetRevision")
+  return Format("{}.{}.{}", fmajor, fminor, frevision)
+}
+
+
 }
