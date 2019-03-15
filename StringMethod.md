@@ -62,3 +62,23 @@ Str.ToSA()
 ``` autohotkey
 Zh.py()
 ```
+
+### ExtractFileNameFromPath() - 从路径中提取文件名(带后缀)
+
+从路径中提取文件名(带后缀)
+
+```autohotkey
+path=D:\BeanLib\StringMethod.ahk
+println(path.ExtractNameFromPath())
+```
+
+### SplitFileName() - 分割带后缀文件名为单纯的文件名和后缀名(提取后缀名)
+
+分割带后缀文件名为单纯的文件名和后缀名(提取后缀名)
+
+```autohotkey
+FileName=chrome.dll
+s:=FileName.SplitFileName()
+println(s[1])
+println(s[2])
+```

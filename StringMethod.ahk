@@ -36,6 +36,28 @@ class StrBase{
 		ToSA(){
 			return StringToCharArray(this)
 		}		
+;---------------------------------------------------------------------- 		
+		ExtractFileNameFromPath(){
+			NeedleRegEx=([^<>/\\\|:""\*\?]+)\.\w+$
+			Haystack:=this
+			FoundPos := RegExMatch(Haystack, NeedleRegEx,FileName)
+			return FileName
+		}	
+;---------------------------------------------------------------------- 		
+		ExtractFileNameFromPathWithOutPostfix(){
+			FileName:=this.ExtractFileNameFromPath()
+			asFileName:=FileName.SplitFileName()
+			pureFileName:=asFileName[1]
+			return pureFileName
+		}		
+;---------------------------------------------------------------------- 		
+		SplitFileName(){
+			NeedleRegEx=^(.*)(\.)(.*)
+			Haystack:=this
+			pureFileName := RegExReplace(Haystack, NeedleRegEx,"$1")
+			postfix := RegExReplace(Haystack, NeedleRegEx,"$3")
+			return [pureFileName,postfix]
+		}		
 		
 ;---------------------------------------------------------------------- 
 
