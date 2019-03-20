@@ -1,6 +1,5 @@
 {
     "plugins": [
-        "api",
         "highlight",
         "copy-code",
         "comment"
