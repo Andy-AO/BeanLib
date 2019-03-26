@@ -1,4 +1,39 @@
-﻿
+﻿/*
+静默执行WindowsCMD命令行
+*/
+UseCMD(command){
+	local
+	CMDreturn:=""
+	cmdFN:="RunAnyCtrlCMD"
+	try{
+		RunWait,% ComSpec " /C " command " > ""%Temp%\" cmdFN ".log""",, Hide
+		FileRead, CMDreturn, %A_Temp%\%cmdFN%.log
+		FileDelete,%A_Temp%\%cmdFN%.log
+	}
+	catch{}
+	return CMDreturn
+}
+; 来源:https://autohotkey.com/boards/viewtopic.php?t=48132&p=215348
+; 【后台静默运行cmd命令缓存文本取值 @hui-Zz】
+;---------------------------------------------------------------------- 
+/*
+定时执行FuncObj
+*/
+
+	SetTimer(aMin,FuncObj){
+		Type.afObj(FuncObj)
+		aMSec:=aMin*1000*60
+		Priority:=50000
+		SetTimer,%FuncObj%,%aMSec%, %Priority%
+		return
+	}
+;---------------------------------------------------------------------- 
+/*
+获取用于检查时间的字符串
+*/
+getCurrentTime(){
+	return A_Hour A_Min
+}
 ;---------------------------------------------------------------------- 
 /*
 获取窗口ID

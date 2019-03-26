@@ -30,6 +30,7 @@
 #Include Instanof().ahk
 #Include getClass().ahk
 #Include Everything.ahk
+#Include APPLocker.ahk
 #Include Bean.ahk
 #Include Function.ahk
 #Include _Win.ahk
