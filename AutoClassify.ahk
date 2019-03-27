@@ -7,11 +7,9 @@ class AutoClassify{
 	sSearchCriteria:=[""],sDestPattern:="",searchResultSA:="",EverthingObj:=""
 	sCheckIntervalMin:=0.5
 ;---------------------------------------------------------------------- 
-	__New(sSearchCriteria,sDestPattern,sCheckIntervalMin:=0.5){
+	__New(sSearchCriteria,sDestPattern){
 		this.sSearchCriteria:=sSearchCriteria
 		this.sDestPattern:=sDestPattern
-		this.sCheckIntervalMin:=sCheckIntervalMin
-		DeBugDeepPrintln(this.sCheckIntervalMin,"this.sCheckIntervalMin >>> ")
 		this.BuildSearchObj()
 		return this
 	}
@@ -25,6 +23,7 @@ class AutoClassify{
 	Search(){
 		this.EverthingObj.Search()
 		this.searchResultSA:=this.EverthingObj.getSearchResultSA()
+		DeBugDeepPrintln(this.searchResultSA,"this.searchResultSA >>> ")
 		return
 	}
 
@@ -42,9 +41,11 @@ class AutoClassify{
 		return	
 	}
 ;---------------------------------------------------------------------- 
-	SetTimer(){
+	SetTimer(sCheckIntervalMin:=0.5){
 		FuncObj:=this.SearchAndRemove.Bind(this)
+		this.sCheckIntervalMin:=sCheckIntervalMin
 		SetTimer(this.sCheckIntervalMin,FuncObj)
+		
 		return
 	}
 }

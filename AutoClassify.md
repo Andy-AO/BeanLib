@@ -18,7 +18,7 @@
 
 ## 方法 Method
 
-### __New(sSearchCriteria,sDestPattern,sCheckIntervalMin)
+### __New(sSearchCriteria,sDestPattern)
 
 构造对象
 
@@ -34,7 +34,7 @@
 
 搜索并且移动文件到目标文件夹
 
-### SetTimer()
+### SetTimer(sCheckIntervalMin)
 
 定时执行SearchAndRemove()
 
@@ -42,11 +42,11 @@
 
 ```autohotkey
 ;电子书自动分类：每两分钟把电子书移动到对应文件夹
-SearchCriteria=!<".lnk">!<"~$">!<"A_暂不分类"> "G:\MyDownload\" .mobi|.azw|.epub
+SearchCriteria="G:\MyDownload\" .mobi|.azw|.epub
 DestPattern:="X:\MyLibrary"	
 
 azwClassify:=new AutoClassify(SearchCriteria,DestPattern)
 azwClassify.SearchAndRemove()
-azwClassify.SetTimer()
+azwClassify.SetTimer(0.3)
 ```
 
