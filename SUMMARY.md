@@ -1,6 +1,6 @@
 * [指南 (README)](README.md)
 * [StringMethod(通过元编程实现)](StringMethod.md)
-* [Class](_SA.md)
+* [Class]
     * [_SA](_SA.md)
         * [_SA.StrReplace()](_SA/_SA.StrReplace().md)
         * [_SA.Sort()](_SA/_SA.Sort().md)
