@@ -168,13 +168,6 @@ Class Type{
 		F1:=Obj.Length=Obj.Length(),F2:=Obj.AtEOF!="",F3:=Obj.Pos!="",FC:=F1+F2+F3=3
 		if (FC)
 			return Type.FileObj
-		
-	/*
-		;检查是否为 ComObj
-		VarType := ComObjType(Obj)  
-		if (VarType)
-			return Type.ComObj
-	*/
 
 		return Type.Obj ;如果都不是那么就认为是 Object
 	}

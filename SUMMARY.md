@@ -30,6 +30,7 @@
 * [SetTimer()](SetTimer.md)
 * [UseCMD()](UseCMD.md)
 * [Instanof()](Instanof().md)
+* [LogPrintln()](LogPrintln().md)
 * [更新历史(CHANGELOG)](更新历史(CHANGELOG).md)
 * [鸣谢 (ACKNOWLEDGEMENT)](BeanLib_ACKNOWLEDGEMENT.md)
 * [贡献指南 (CONTRIBUTING)](BeanLib_CONTRIBUTING.md)

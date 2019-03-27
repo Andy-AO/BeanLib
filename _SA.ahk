@@ -45,7 +45,6 @@ ToString(Str){
 	TheArrayString.= "["
 	For k, v in Str{
 		TheArrayString.="," v
-	
 	}
 ; 去掉尾部多余的","
 	TheArrayString := StrReplace(TheArrayString, "," , "", OutputVarCount,1)

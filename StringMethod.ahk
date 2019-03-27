@@ -24,9 +24,6 @@ class StrCallBase{
 class StrBase{
 
 
-;~ static __Get:=Bean.Protect.__Get
-;~ static __Set:=Bean.Protect.__Set
-
     class __Call extends StrCallBase{
 ;----------------------------------------------------------------------  Start	
 		length(){

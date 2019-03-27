@@ -1,4 +1,26 @@
-﻿/*
+﻿
+/*
+字符串转换为字符数字
+*/
+StringToCharArray(S){
+	
+	TheArray:=[],Sub:=""
+
+	if(S="")
+	return TheArray
+	
+	else{
+	loop,% StrLen(S){
+		Sub:=SubStr(S,A_Index,1)
+		TheArray.Push(Sub)
+	}
+}
+return TheArray
+}
+
+;---------------------------------------------------------------------- 
+
+/*
 批量移动文件
 */
 	bulkMoveFile(aPathSA,aDestPattern){
@@ -106,7 +128,197 @@ Protect(Obj){
 
 */
 
+;--------------***-------------------------------- 
+/*
+说明:打印字符到控制台
+*/
+
+;---------------------------------------------------------------------- 
+stdout(TheText,Encoding:="UTF-8"){
+	FileAppend,% TheText,*,% Encoding
+	return
+}
+;----------------------------------------------------------------------- 
+stdoutln(TheText,Encoding:="UTF-8"){
+	stdout(TheText "`r`n",Encoding)
+	return
+}
+;----------------------------------------------------------------------- 
+print(TheText){
+	stdout(TheText)
+	return
+}
+;---------------------------------------------------------------------- 
+println(TheText){
+	stdoutln(TheText)
+	return
+	;---------------------------------------------------------------------- 
+	text:=TheText "`r`n"
+	print(text)
+	return
+}	
+
+;---------------------------------------------------------------------- 
+
+LogPrintln(Obj:="",prefix:="",postfix:=""){
+	theString:=prefix toString(Obj) postfix
+	println(theString)
+	return
+}
+;---------------------------------------------------------------------- 
+
+DeepPrintln(Obj){
+	println(toString(Obj))
+	return
+}
+
+;----------------------------------------------------------------------- 
+PrintSA(obj){
+	Type.afSA(obj)
+	print(_SA.ToString(obj))
+	return
+ }
+;----------------------------------------------------------------------- 
+DeepPrintSA(SA){
+	theString:=DeepSAtoString(SA)
+	print(theString)
+	return theString
+}
+;---------------------------------------------------------------------- 
+PrintlnSA(obj){
+	Type.afSA(obj)
+	println(_SA.ToString(obj))
+	return
+ }
+;---------------------------------------------------------------------- 
+DeepPrintlnSA(SA){
+	theString:=DeepSAtoString(SA)
+	println(theString)
+	return theString
+}
+;----------------------------------------------------------------------- 
+DeepSAtoString(SA){
+	
+	TheArrayString:=""
+	TheArrayString.= "["
+		
+	for index,v in SA{
+		
+		if (Type.isSA(v))
+			TheArrayString.="," DeepSAtoString(v)
+		
+		else if (Type.isSA(v))
+			TheArrayString.="," v
+		
+		else
+			throw Exception("The " index "th element in the array is invalid.")
+		
+	}
+
+	TheArrayString := StrReplace(TheArrayString, "," , "", OutputVarCount,1)
+	TheArrayString.= "]"
+	return TheArrayString
+}
+
 ;---------------------------------------------------------------------- 
 
 
+toString(Obj){
+	
+	ResultString:="",SAString:="",SAString.= "[",ObjectString:="",ObjectString.="{"
+	
+	if (Type.isStr(Obj)){
+		if(Obj="")
+			return "*NS*"
+		else
+			return Obj
+	}
+		
+;---------------------------------------------------------------------- 
+	
+	if (Type.isObj(Obj)) ;如果是Obj数组,那么开头应该是"{"
+		ResultString:=ObjectString
+;---------------------------------------------------------------------- 
+	
+	if (Type.isSA(Obj)) ;如果是SA,那么开头应该是"["
+		ResultString:=SAString
+
+;---------------------------------------------------------------------- 
+
+	if (Type.isSA(Obj)){
+		
+		for i,v in Obj{
+				
+			if (A_Index!=1)
+				symbol:=","
+			else 
+				symbol:=""
+				
+			if (Type.isObj(v)){ 
+				if (v.count()=0)
+				ResultString.=symbol "{*Object*}"
+				
+				else
+				ResultString.=symbol toString(v)
+			}
+												
+			else if (v="")
+				ResultString.=symbol "*NS*"
+				
+			else
+				ResultString.=symbol v
+		}
+		ResultString.= "]" ;添加右侧的中括号并出厂		 
+		return ResultString
+		
+	}
+	
+
+;---------------------------------------------------------------------- 
+			
+	else if (Type.isObj(Obj)){
+		
+			if (Obj.count()=0)
+				return "{*Object*}"
+			
+			for key,v in Obj{
+					
+				theKey:=toString(Key)
+				
+				if (A_Index!=1)
+					symbol:=","
+				else 
+					symbol:=""
+					
+					
+				if (Type.isObj(v)){ ;key一定是用""包裹的,value则不
+					
+					if (v.count()=0)
+					theV:="{*Object*}"
+					
+					
+					else{
+						theV:=toString(v)
+					}
+
+					TheSubString=%symbol%%theKey%:%theV%
+					ResultString.=TheSubString
+				} 
+				
+				else{
+					if(v="")
+						ds:="*NS*"
+					else
+						ds:=v
+					TheSubString=%symbol%%theKey%:%DS%
+					ResultString.=TheSubString
+				}
+			
+		}
+			ResultString.= "}"
+			return ResultString
+	}
+	
+}
+;--------------***-------------------------------- 
 
