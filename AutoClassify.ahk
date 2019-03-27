@@ -10,6 +10,8 @@ class AutoClassify{
 	__New(sSearchCriteria,sDestPattern,sCheckIntervalMin:=0.5){
 		this.sSearchCriteria:=sSearchCriteria
 		this.sDestPattern:=sDestPattern
+		this.sCheckIntervalMin:=sCheckIntervalMin
+		DeBugDeepPrintln(this.sCheckIntervalMin,"this.sCheckIntervalMin >>> ")
 		this.BuildSearchObj()
 		return this
 	}
