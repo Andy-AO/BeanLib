@@ -1,8 +1,8 @@
 ﻿
+
 /*
 说明:文件自动分类(依赖 Everything Class)
 */
-
 class AutoClassify{
 	sSearchCriteria:=[""],sDestPattern:="",searchResultSA:="",EverthingObj:=""
 	sCheckIntervalMin:=0.5
@@ -24,10 +24,8 @@ class AutoClassify{
 		this.EverthingObj.Setkey(this.sSearchCriteria)
 		this.EverthingObj.Search()
 		this.searchResultSA:=this.EverthingObj.getSearchResultSA()
-		DeBugDeepPrintln(this.searchResultSA,"this.searchResultSA >>> ")
 		return
 	}
-
 ;---------------------------------------------------------------------- 
 	remove(){
 		Counter:=bulkMoveFile(this.searchResultSA,this.sDestPattern)
@@ -50,5 +48,4 @@ class AutoClassify{
 		return
 	}
 }
-
 ;AppLocker Class End

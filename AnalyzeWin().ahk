@@ -1,8 +1,8 @@
 ﻿
+
 /*
 说明:获取窗口参数,可用于窗口操作和调试
 */
-
 AnalyzeWin(InputWinTitle,EnableWinText:=false,InputDetectHiddenWindows:=""){
 	
 	WinTitle:="",WinClass:="",Winexe:="",WinID:="",WinPath:="",WinText:="*Disabled*",Str:=""
@@ -21,11 +21,9 @@ AnalyzeWin(InputWinTitle,EnableWinText:=false,InputDetectHiddenWindows:=""){
 	if (tempDetectHiddenWindows!=InputDetectHiddenWindows){
 		_Win.SwapHidden()
 	}
-
 	
 	
 ;---------------------所有的操作必须在 隐藏窗口检测状态 第一次切换之后进行------------------------------------------------- 
-
 	;如果窗口不存在就 返回false
 	
 	WinisExist:=WinExist(InputWinTitle)
@@ -63,12 +61,6 @@ Str=
 	theObj:=Object("Str",Str,"WinTitle",WinTitle,"WinClass",WinClass,"Winexe",Winexe,"WinID",WinID,"WinPath",WinPath)
 	
 /*
-	DeBugDeepPrintln(WinTitle,"WinTitle >>> ")
-	DeBugDeepPrintln(WinClass,"WinClass >>> ")
-	DeBugDeepPrintln(Winexe,"Winexe >>> ")
-	DeBugDeepPrintln(WinID,"WinID >>> ")
-	DeBugDeepPrintln(WinPath,"WinPath >>> ")
-	DeBugDeepPrintln(WinText,"WinText >>> ")
 */	
 	
 	;如果最初的状态和用户希望的状态是不一样的,那么就切换,现在切换完了再切换回来
