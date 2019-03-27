@@ -18,7 +18,6 @@
     * [Script](Script.md)
     * [AutoClassify](AutoClassify.md)
     * [Everything(调用外部搜索工具)](Everything.md)
-
 * [af()](af().md)
 * [Analyze()](Analyze().md)
 * [AnalyzeClassName()](AnalyzeClassName().md)
@@ -38,4 +37,3 @@
 * [文档模板 (TEMPLATE)](TEMPLATE.md)
 * [语法高亮(HIGHLIGHTING)](HIGHLIGHTING.md)
 * [开源协议 (LICENCE)](LICENCE)
-* 
