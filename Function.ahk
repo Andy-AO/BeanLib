@@ -1,4 +1,19 @@
 ﻿/*
+批量移动文件
+*/
+	bulkMoveFile(aPathSA,aDestPattern){
+		Overwrite:=false
+		type.afObj(aPathSA)
+		for i,v in aPathSA {
+			SourcePattern:=v
+			FileMove, %SourcePattern%, %aDestPattern% , %Overwrite%
+			if ErrorLevel
+				throw Exception(_EX.MoveFailed " : " SourcePattern)
+		}
+		return aPathSA.Length()
+	}
+;---------------------------------------------------------------------- 
+/*
 静默执行WindowsCMD命令行
 */
 UseCMD(command){

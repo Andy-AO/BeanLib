@@ -12,4 +12,6 @@
 - static SetConst:="Set Const.写入常量."
 - static TooFewParas:="Too Few ParaMeters.参数过少."
 - static NoExistWin:="Win is Not Exist.窗口不存在."
+- static Affirm:="Affirm! 断言被触发!"
+- static MoveFailed:="MoveFailed 文件移动失败."
 

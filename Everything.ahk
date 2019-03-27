@@ -35,13 +35,10 @@ getDll(DLLPath:=""){
 ;---------------------------------------------------------------------- 
 
 
-
 __New(DLLPath:=""){
 	
-	if Not(WinExist("ahk_exe Everything.exe")){
-	throw Exception("ahk_exe Everything.exe is not Exist.")
-	}
-	
+
+	this.afEverythingExist()
 	Dll:=this.getDll(DLLPath)
 
 	if Not(Dll){
@@ -60,12 +57,44 @@ __Delete(){
 	return
 }
 
+;---------------------------------------------------------------------- 
+	afEverythingExist(){
+		if Not(this.isEverythingExist()){
+			throw Exception("process ""Everything.exe"" is not Exist.")
+		}
+		return
+	}
+
+;---------------------------------------------------------------------- 
+	isEverythingExist(){
+		Process, Exist , % "Everything.exe"
+		return ErrorLevel
+	}
+;---------------------------------------------------------------------- 
+
+getSearchResultSA(){
+	theLen:=this.Count()
+	Str:=this.GetFullPath(0)
+
+	StrSA:=[]
+
+	loop,%theLen%{
+		StrSA.push(this.GetFullPath(A_Index-1))
+	}
+	return StrSA
+}
+
+;---------------------------------------------------------------------- 
+
 ;设置关键词
 SetKey(aValue){
+	this.afEverythingExist()
 	this.key := aValue
 	DllCall(this.DLL "\Everything_SetSearch",str,this.key)
 	return
 }
+
+;---------------------------------------------------------------------- 
 
 ;设置全字匹配
 SetMatchWholeWord(aValue){
@@ -76,6 +105,7 @@ SetMatchWholeWord(aValue){
 
 ;执行搜索动作 (执行后直接返回匹配数)
 Search(aValue=1){
+	this.afEverythingExist()
 	DllCall(this.DLL "\Everything_Query",int,aValue)
 	return
 }

@@ -71,6 +71,18 @@ return null
 ### GetVersionString()
 获取 Everything 版本 (@YuKuan贡献)
 
+### getSearchResultSA()
+
+获取所有结果组成的数组
+
+### isEverythingExist()
+
+检测 Everything 是否存在
+
+### afEverythingExist()
+
+断言 Everything 存在
+
 ## 示例
 
 ```autohotkey
@@ -92,3 +104,12 @@ ExitApp
 
 ```
 
+```autohotkey
+	Obj:=new Everything()
+
+	thekey="D:\MyDesk" 
+	Obj.Setkey(thekey)
+	Obj.Search()
+	
+	searchResultSA:=Obj.getSearchResultSA()
+```

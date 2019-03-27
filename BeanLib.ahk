@@ -1,4 +1,5 @@
 ﻿
+
 /*
 说明:
 
@@ -28,6 +29,7 @@
 #Include TypeFuncAndClass.ahk
 #Include Analyze().ahk
 #Include Instanof().ahk
+#Include AutoClassify.ahk
 #Include getClass().ahk
 #Include Everything.ahk
 #Include APPLocker.ahk
