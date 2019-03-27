@@ -21,6 +21,7 @@ class AutoClassify{
 	}
 ;---------------------------------------------------------------------- 
 	Search(){
+		this.EverthingObj.Setkey(this.sSearchCriteria)
 		this.EverthingObj.Search()
 		this.searchResultSA:=this.EverthingObj.getSearchResultSA()
 		DeBugDeepPrintln(this.searchResultSA,"this.searchResultSA >>> ")
