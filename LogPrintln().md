@@ -2,6 +2,11 @@
 
 主要用于调试
 
+- count = 0 的 Object 会显示 {\*Object\*}
+- NullString 会显示 \*NS\*
+- count = length 的Object(SA) ，用 [] 包裹
+- count != length 的Object ，用 {} 包裹
+
 ```autohotkey
 LogPrintln(Obj:="",prefix:="",postfix:="")
 ```
@@ -17,7 +22,9 @@ LogPrintln(Obj:="",prefix:="",postfix:="")
   前后缀主要用于打印时解释对象，详见示例
 
 ### 返回 Returns: 
-%返回说明%
+
+null
+
 ### 抛出异常 Throws: 
 ### 示例 Example
 ```autohotkey

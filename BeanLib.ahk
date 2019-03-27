@@ -23,7 +23,6 @@
 ;导入 子Lib (请全部导入,否则容易出现兼容性问题)
 #Include _SA.ahk
 #Include _EX.ahk
-#Include MyTools.ahk
 #Include StringMethod.ahk
 #Include ExcelToSA().ahk
 #Include TypeFuncAndClass.ahk
