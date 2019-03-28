@@ -34,15 +34,15 @@ class StrBase{
 			return StringToCharArray(this)
 		}		
 ;---------------------------------------------------------------------- 		
-		ExtractFileNameFromPath(){
+		ExtractFileNameByPath(){
 			NeedleRegEx=([^<>/\\\|:""\*\?]+)\.\w+$
 			Haystack:=this
 			FoundPos := RegExMatch(Haystack, NeedleRegEx,FileName)
 			return FileName
 		}	
 ;---------------------------------------------------------------------- 		
-		ExtractFileNameFromPathWithOutPostfix(){
-			FileName:=this.ExtractFileNameFromPath()
+		ExtractFileNameByPathWithOutPostfix(){
+			FileName:=this.ExtractFileNameByPath()
 			asFileName:=FileName.SplitFileName()
 			pureFileName:=asFileName[1]
 			return pureFileName

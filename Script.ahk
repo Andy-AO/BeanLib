@@ -16,15 +16,11 @@ Class Script{
 class ScriptCallBase{ 
     __Call(aThis,aFuncName,aParams*){
 
-	TargetDetectHiddenWindows:="On"
+	aDetectHiddenWindows:="On"
+
+	aFuncId:=getFuncId(A_ThisFunc)
+	_Win.SwapDetectHidden(aFuncId,aDetectHiddenWindows)
 	
-	;先存一下最初的状态
-	tempDetectHiddenWindows:=A_DetectHiddenWindows
-	
-	;如果最初的状态和目标状态不符合,那么就会切换
-	if (tempDetectHiddenWindows!=InputDetectHiddenWindows){
-		_Win.SwapHidden()
-	}
 		aNameLen:=StrLen(aFuncName)
 		
 		the__Get:=ObjRawGet(ScriptBase,"__Get") ;为了绕过元函数而用,如果不用，就会陷入死循环
@@ -37,29 +33,23 @@ class ScriptCallBase{
 			InputTitle := aThis.InputTitle
 			
 			ResultTitle := InputTitle " ahk_class AutoHotkey"
-			;~ ResultTitle := InputTitle
-			
-			;~ DeBugDeepPrintln(ResultTitle,"ResultTitle >>> ")
 			
 			;如果没有发现窗口,就抛出异常
 			if(MesObj=false){
 			throw Exception(_EX.NoExistWin)
 			}
 			
-			MesObj:=AnalyzeWin(ResultTitle,false,true)
+			MesObj:=_Win.Analyze(ResultTitle,true,false)
 			
 			MesStr:=MesObj["Str"]
 			
-			;~ DeBugDeepPrintln(MesStr,"MesStr >>> ")
+			ResultWinId := MesObj["WinId"]
 			
-			ResultWinPID := MesObj["WinPID"]
+			PostMessage,%theMsg%,%wParam%,,,%ResultWinId%		
 			
-			PostMessage,%theMsg%,%wParam%,,,%ResultWinPID%		
-			
-	;如果最初的状态和目标状态不符合,那么就会切换
-	if (tempDetectHiddenWindows!=InputDetectHiddenWindows){
-		_Win.SwapHidden()
-	}
+
+		_Win.SwapDetectHidden(aFuncId,aDetectHiddenWindows)
+	
 			return MesObj ;返回对应窗口的信息
 		}
 		else{					

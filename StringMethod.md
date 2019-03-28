@@ -63,7 +63,7 @@ Str.ToSA()
 Zh.py()
 ```
 
-### ExtractFileNameFromPath() - 从路径中提取文件名(带后缀)
+### ExtractFileNameByPath() - 从路径中提取文件名(带后缀)
 
 从路径中提取文件名(带后缀)
 

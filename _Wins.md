@@ -1,45 +1,24 @@
-
-
-# _Win Class
+# _Wins Class
 
 1.  是一个**静态类**, 不提供构造器
-2.  主要包含针对单个窗口的各种操作
+2.  主要包含针对多个窗口的各种操作
     
 
 [TOC]
 
-## 内部类 InnerClass
-
-### Path
-
-Path 类，可以通过及构造方法迅速的获得包含`name`和`path`两种数据的对象。
-
-由于ahk不支持通过路径操作窗口，而支持通过进程名(name)操作，所以将它们绑定在一起非常有利于使用。
-
-构造方法，从外部直接调用比较麻烦，可读性比较差，可以通过 `_Win.getPathObj() ` 调用。
-
--  **Method：**
-
-  __New(aPath)
-
--  **Filed：**
-
-  name:="",path:=""
-
-## 域 Field
-
-### 常量 Const
-
-### 变量 Variate
-
 ## 方法 Method
 
-### Analyze(InputWinTitle,EnableWinText:=false)
+### getIdList(WinTitle,aDetectHiddenWindows:="")
 
-#### 参数 Parameters: 
+获取数组形式窗口ID
 
-- InputWinTitle - 目标窗口的 `WinTitle`
-- EnableWinText - 是否检测 `WinText`
+### Analyze(aWinTitle,aDetectHiddenWindows:="")
+
+获取多维数组形式的 _Win.Analyze()
+
+### AnalyzeByPath(aWinPath,aDetectHiddenWindows:="")
+
+通过路径 _Wins.Analyze()
 
 #### 返回 Returns: 
 Obj 或者 false

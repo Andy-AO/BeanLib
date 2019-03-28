@@ -1,4 +1,44 @@
 ﻿
+;---------------------------------------------------------------------- 
+
+WinActivateByPath(aWinPath,aDetectHiddenWindows:=""){
+		theWinId:=_Win.getIdByPath(aWinPath,aDetectHiddenWindows)
+		WinActivate,%theWinId%
+		LogPrintln(theWinId,"theWinId >>>")
+		return theWinId
+	}
+
+
+
+
+;---------------------------------------------------------------------- 
+
+	SelectWinByPathFromAnalyzeWins(aPathObj,aAnalyzeWins){
+		newAnalyzeWins:=[]
+		for i,v in aAnalyzeWins {
+			theAnalyzeWin:=v
+		
+			if(theAnalyzeWin.WinPath=aPathObj.path)
+				newAnalyzeWins.push(theAnalyzeWin)
+		}	
+		return newAnalyzeWins
+	}
+
+
+;---------------------------------------------------------------------- 
+
+/*
+获取当前线程方案的标识，用于解决多线程操作问题。aThisFunc 参数需要在调用处填写 A_ThisFunc。
+*/
+getFuncId(aThisFunc){
+	String := aThisFunc " : " A_Min A_Sec A_MSec
+	return String
+}
+
+;---------------------------------------------------------------------- 
+
+
+
 /*
 字符串转换为字符数字
 */
@@ -75,9 +115,9 @@ getCurrentTime(){
 /*
 获取窗口ID
 */
-	GetWinID(WinTitle="A"){ ;没有再目录上写明,因为用不到,没必要
-		WinGet,WinID,ID,%WinTitle%
-		return WinID
+	GetWinId(WinTitle="A"){ ;没有再目录上写明,因为用不到,没必要
+		WinGet,WinId,ID,%WinTitle%
+		return "ahk_id " WinId
 	}
 ;---------------------------------------------------------------------- 
 /*
@@ -97,36 +137,6 @@ getCurrentTime(){
 		return Boolean
 	}
 
-;---------------------------------------------------------------------- 
-/*
-对任意对象添加 读/写/调用 保护
-*/
-;01月23日-如果目标 Extends 自其他对象,也会对其他对象造成连带影响;而且,也不能用于 __New 中,会造成第二次的对象生成失败,所以先下架
-/*
-Protect(Obj){
-	
-	thebase:={},baseSA:=[]
-	
-	type.afObj(Obj)
-	
-	baseSA:=Analyze(Obj)
-	baselen:=baseSA.length()
-	
-	if(baselen=1){ ;如果长度只有一的话，那么就直接用Obj即可
-	thebase:=obj
-	}
-	
-	
-	loop,% baselen-1 {
-	thebase:=Obj.base
-	}
-	
-	thebase.base:=Bean.Protect
-	return
-}
-
-
-*/
 
 ;--------------***-------------------------------- 
 /*

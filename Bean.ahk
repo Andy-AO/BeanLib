@@ -5,25 +5,25 @@ Class Bean{
 
 ;---------------------------------------------------------------------- 
 
-Class Protect{
+	Class Protect{
 
-__Call(param*){
-	;~ println("Call保护")
-	throw Exception(_EX.NoExistMethod)
-	return
-}
+	__Call(param*){
+		;~ println("Call保护")
+		throw Exception(_EX.NoExistMethod)
+		return
+	}
 
-__Set(param*){
-	;~ println("Set保护")
-	throw Exception(_EX.NoExistVariate)
-	return
-}
+	__Set(param*){
+		;~ println("Set保护")
+		throw Exception(_EX.NoExistVariate)
+		return
+	}
 
-__Get(param*){
-	;~ println("Get保护")
-	throw Exception(_EX.NoExistVariate)
-	return
-}
+	__Get(param*){
+		;~ println("Get保护")
+		throw Exception(_EX.NoExistVariate)
+		return
+	}
 
 ;---------------------------------------------------------------------- 
 

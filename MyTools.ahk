@@ -36,7 +36,7 @@ SendShortCut(aLinkFileDir){
 	
 	theSrcFilePath:=SuperCopy()
 	
-	theSrcFileName:=theSrcFilePath.ExtractFileNameFromPathWithOutPostfix()
+	theSrcFileName:=theSrcFilePath.ExtractFileNameByPathWithOutPostfix()
 	theLinkFilePath:=aLinkFileDir "\" theSrcFileName
 	
 	FolderName:=theSrcFileName

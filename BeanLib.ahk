@@ -24,19 +24,19 @@
 #Include _SA.ahk
 #Include _EX.ahk
 #Include StringMethod.ahk
-#Include ExcelToSA().ahk
+
 #Include TypeFuncAndClass.ahk
-#Include Analyze().ahk
-#Include Instanof().ahk
+
 #Include AutoClassify.ahk
-#Include getClass().ahk
 #Include Everything.ahk
 #Include APPLocker.ahk
 #Include Bean.ahk
 #Include Function.ahk
 #Include _Win.ahk
+#Include _Wins.ahk
 #Include Script.ahk
-#Include AnalyzeWin().ahk
 
-
-
+#Include ExcelToSA().ahk
+#Include Analyze().ahk
+#Include Instanof().ahk
+#Include getClass().ahk

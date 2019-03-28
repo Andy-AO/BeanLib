@@ -20,12 +20,8 @@ Obj 或者 false
 WinTitle := "WinTitle: " WinTitle
 WinClass := "ahk_class " WinClass
 Winexe := "ahk_exe " Winexe
-WinPID := "ahk_id " WinPID
+WinPId := "ahk_id " WinId
 WinPath := "WinPath: " WinPath
-```
-
-```autohotkey
-Str 上面所有信息加入换行符，并变为字符串输出。主要是为了调试时，直接查看信息的方便。
 ```
 
 ### 抛出异常 Throws: 
@@ -34,5 +30,4 @@ Str 上面所有信息加入换行符，并变为字符串输出。主要是为�
 ### 示例 Example
 ```autohotkey
 Obj:=AnalyzeWin(WinTitle)
-Str:=Obj.Str
 ```
