@@ -21,7 +21,7 @@
 #Include D:\AHKs\Stable\ahk_lib
 
 ;导入 子Lib (请全部导入,否则容易出现兼容性问题)
-#Include _SA.ahk
+#Include _List.ahk
 #Include _EX.ahk
 #Include StringMethod.ahk
 
@@ -34,9 +34,12 @@
 #Include Function.ahk
 #Include _Win.ahk
 #Include _Wins.ahk
+#Include PathObj.ahk
 #Include Script.ahk
+#Include Ini.ahk
+#Include AutoInputBox.ahk
 
-#Include ExcelToSA().ahk
+#Include ExcelToList().ahk
 #Include Analyze().ahk
 #Include Instanof().ahk
 #Include getClass().ahk

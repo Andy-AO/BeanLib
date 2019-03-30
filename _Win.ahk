@@ -11,17 +11,15 @@ Class _Win{
 ;---------------------------------------------------------------------- 
 	
 		originalDetectHiddenWindows:=""
-;---------------------------------------------------------------------- 					
-		Class Path{
-			name:="",path:=""
-			__New(aPath){
-				theName:=aPath.ExtractFileNameByPath()
-				this.name:=theName
-				this.path:=aPath
-				return this
-			}
-		}
 
+;---------------------------------------------------------------------- 
+	/*
+	说明:根据路径获取窗口对应进程的路径
+	*/
+getPath(WinTitle){
+	WinGet,Path,ProcessPath,%WinTitle%
+	return Path
+}
 ;---------------------------------------------------------------------- 
 		
 	/*
@@ -46,7 +44,7 @@ Class _Win{
 	*/
 	Analyze(aWinTitle,aDetectHiddenWindows:="",EnableWinText:=false){
 		
-		WinTitle:="",WinClass:="",Winexe:="",WinId:="",WinPath:="",WinText:="*Disabled*",Str:=""
+		WinTitle:="",WinClass:="",Winexe:="",WinId:="",WinPath:="",WinText:="*DiListbled*",Str:=""
 		
 		aFuncId:=getFuncId(A_ThisFunc)
 		_Win.SwapDetectHidden(aFuncId,aDetectHiddenWindows)
@@ -86,12 +84,6 @@ Class _Win{
 	}
 
 ;---------------------------------------------------------------------- 
-	
-;---------------------------------------------------------------------- 
-		
-	getPathObj(aPath){
-		return _Win.Path.__New(aPath)
-	}
 
 ;---------------------------------------------------------------------- 
 	

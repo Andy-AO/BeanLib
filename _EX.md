@@ -13,6 +13,10 @@
 
 - static NoExistFile:="File Not Exist.文件不存在"
 
+- static TooManyParas:="Too Many ParaMeters.参数过多."
+
+- static NoExistKey:="Key-Value is not Exsit. Key-Value不存在."
+
 - static SetConst:="Set Const.写入常量."
 
 - static TooFewParas:="Too Few ParaMeters.参数过少."

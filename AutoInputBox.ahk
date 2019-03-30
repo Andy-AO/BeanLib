@@ -1,0 +1,49 @@
+﻿
+/*
+说明:固定宽度,且自动根据 prompt 换行的InputBox
+*/
+
+class AutoInputBox{
+
+	aTextPrefix:="",deFaultText:=["UseClipBoard"]
+	
+;---------------------------------------------------------------------- 
+
+	__New(aTitle,aPrompt){
+		this.title:=aTitle
+		this.prompt:=aPrompt
+		return this
+	}
+;---------------------------------------------------------------------- 
+	start(){
+	
+		aTitle:=this.title
+		aPrompt:=this.prompt
+		aWeight:=375
+		
+		lineStringLength:="标题标题标题标题标题标题标题标题标题标题标题".length()
+
+		line:= (aPrompt.length()) / lineStringLength
+		
+		ahight:=150 + (line*30)
+		
+		LogPrintln(this.deFaultText,"this.aDeFaultText >>>")
+		if (IsObject(this.deFaultText))
+			aDeFaultText:=Clipboard
+
+		aDeFaultText:=this.deFaultText
+		
+		InputBox,UserInput,%aTitle%,%aPrompt%,,%aWeight%,%ahight%,,,,,%aDeFaultText%
+			
+			
+		if (ErrorLevel=1){ ;必须立即判断，不能有间隔
+			throw Exception("User Cancel Input")
+		}
+			
+			UserInput:=this.aTextPrefix UserInput ;给用户输入的内容增加前缀
+			Return UserInput
+	}
+
+}
+
+;------class AutoInputBox End

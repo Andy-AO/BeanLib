@@ -1,12 +1,12 @@
 **字符串数组内的替换:**
 
 ```autohotkey
-_SA.StrReplace(StrSA,SearchText,ReplaceText,isRegEx:=false)
+_List.StrReplace(StrList,SearchText,ReplaceText,isRegEx:=false)
 ```
 
 ### 参数 Parameters: 
 
-- StrSA: 输入的字符串数组
+- StrList: 输入的字符串数组
 
 - SearchText: 被替换文本
 
@@ -22,6 +22,6 @@ null
 ```autohotkey
 ;示例
 
-SA:=["123321","123456","ABC123"]
-_SA.StrReplace(SA,"3","×")
+List:=["123321","123456","ABC123"]
+_List.StrReplace(List,"3","×")
 ```

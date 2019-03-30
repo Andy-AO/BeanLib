@@ -8,7 +8,7 @@
 
 - sDestPattern - 文件存放目录
 
-- searchResultSA - 用于存放文件路径的数组
+- searchResultList - 用于存放文件路径的数组
 
 - EverthingObj - 用于执行搜索的Everything对象
 

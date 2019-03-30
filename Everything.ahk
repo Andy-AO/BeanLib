@@ -72,16 +72,16 @@ __Delete(){
 	}
 ;---------------------------------------------------------------------- 
 
-getSearchResultSA(){
+getSearchResultList(){
 	theLen:=this.Count()
 	Str:=this.GetFullPath(0)
 
-	StrSA:=[]
+	StrList:=[]
 
 	loop,%theLen%{
-		StrSA.push(this.GetFullPath(A_Index-1))
+		StrList.push(this.GetFullPath(A_Index-1))
 	}
-	return StrSA
+	return StrList
 }
 
 ;---------------------------------------------------------------------- 

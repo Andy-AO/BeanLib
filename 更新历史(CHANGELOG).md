@@ -14,7 +14,7 @@
 
 1.增加用于调试的LogPrintln()
 2. EverythingClass：修复检测Everything存在性的BUG 
-3. 新增  getSearchResultSA()
+3. 新增  getSearchResultList()
 4. 新增 isEverythingExist() 、 afEverythingExist() 
 5. 新增文件自动分类器 AutoClassify Class
 6. 新增APPLocker、getCurrentTime()、SetTimer()、UseCMD

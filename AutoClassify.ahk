@@ -4,7 +4,7 @@
 说明:文件自动分类(依赖 Everything Class)
 */
 class AutoClassify{
-	sSearchCriteria:=[""],sDestPattern:="",searchResultSA:="",EverthingObj:=""
+	sSearchCriteria:=[""],sDestPattern:="",searchResultList:="",EverthingObj:=""
 	sCheckIntervalMin:=0.5
 ;---------------------------------------------------------------------- 
 	__New(sSearchCriteria,sDestPattern){
@@ -23,12 +23,12 @@ class AutoClassify{
 	Search(){
 		this.EverthingObj.Setkey(this.sSearchCriteria)
 		this.EverthingObj.Search()
-		this.searchResultSA:=this.EverthingObj.getSearchResultSA()
+		this.searchResultList:=this.EverthingObj.getSearchResultList()
 		return
 	}
 ;---------------------------------------------------------------------- 
 	remove(){
-		Counter:=bulkMoveFile(this.searchResultSA,this.sDestPattern)
+		Counter:=bulkMoveFile(this.searchResultList,this.sDestPattern)
 		if(Counter)
 		TrayTip,%A_ScriptName% 提醒,移动完毕!共移动%Counter%个文件.
 		return

@@ -17,7 +17,7 @@
 ```autohotkey
 	Static Str:=10,NS:=11
 	
-	Static SA:=130
+	Static List:=130
 	
 	Static Obj:=100,ExtendsObj:=101,Class:=110
 	
@@ -48,7 +48,7 @@ afOff() - 把变量设为 false ,关闭断言
 
 #### isStr(Ever) 
 #### isNS(Ever) 
-#### isSA(Ever) 
+#### isList(Ever) 
 #### isObj(Ever) 
 #### isClass(Ever) 
 #### isFileObj(Ever) 
@@ -64,12 +64,12 @@ afOff() - 把变量设为 false ,关闭断言
 
 #### afStr(Ever) 
 #### afNS(Ever) 
-#### afSA(Ever) 
+#### afList(Ever) 
 #### afObj(Ever) 
 #### afClass(Ever) 
 #### afFileObj(Ever) 
 #### afComObj(Ever) 
 
 ``` autohotkey
-ofCode(Type.SA)
+ofCode(Type.List)
 ```

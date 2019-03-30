@@ -1,7 +1,7 @@
 ﻿; v1.1 (2018-7-19)
 ; https://github.com/tmplinshi/ExcelToArray
 
-ExcelToSA(FileName, nSheet := 1, last_row := "", last_column := ""){
+ExcelToList(FileName, nSheet := 1, last_row := "", last_column := ""){
 	return ExcelToArrayClass.DoIt(FileName, nSheet, last_row, last_column)
 }
 
@@ -10,12 +10,12 @@ class ExcelToArrayClass{
 		if !FileExist(FileName)
 			throw,_Ex.NoExistFile
 		
-		safeArr := this.GetSafeArrFromXlFile(FileName, nSheet, last_row, last_column)
-		ret := this.SafeArr_To_AHKArr(safeArr)
+		ListfeArr := this.GetListfeArrFromXlFile(FileName, nSheet, last_row, last_column)
+		ret := this.ListfeArr_To_AHKArr(ListfeArr)
 		return ret
 	}
 
-	GetSafeArrFromXlFile(FileName, nSheet := 1, last_row := "", last_column := ""){
+	GetListfeArrFromXlFile(FileName, nSheet := 1, last_row := "", last_column := ""){
 		fPath := this.GetFullPath(FileName),wb:=xlObj:=""
 
 		if this.IsFileInUse(fPath) {
@@ -27,11 +27,11 @@ class ExcelToArrayClass{
 			wb := xlObj.ActiveWorkbook
 		}
 
-		safeArr := this.GetSafeArr(wb, nSheet, last_row, last_column)
+		ListfeArr := this.GetListfeArr(wb, nSheet, last_row, last_column)
 
 		xlObj.Quit
 
-		return safeArr
+		return ListfeArr
 	}
 
 	GetWorkbook(fPath){
@@ -44,18 +44,18 @@ class ExcelToArrayClass{
 		}
 	}
 
-	SafeArr_To_AHKArr(SafeArr){
+	ListfeArr_To_AHKArr(ListfeArr){
 		ret := []
 
-		rowCount := SafeArr.MaxIndex(1)
-		colCount := SafeArr.MaxIndex(2)
+		rowCount := ListfeArr.MaxIndex(1)
+		colCount := ListfeArr.MaxIndex(2)
 
 		Loop, % rowCount {
 			row := A_Index
 
 			arr := []
 			Loop, % colCount {
-				arr.push( SafeArr[row, A_Index] )
+				arr.push( ListfeArr[row, A_Index] )
 			}
 			ret.push(arr)
 		}
@@ -63,7 +63,7 @@ class ExcelToArrayClass{
 		return ret
 	}
 
-	GetSafeArr(oWorkbook, nSheet := 1, last_row := "", last_column := ""){
+	GetListfeArr(oWorkbook, nSheet := 1, last_row := "", last_column := ""){
 		sheet := oWorkbook.Sheets(nSheet)
 
 		if last_row && last_column
@@ -79,7 +79,7 @@ class ExcelToArrayClass{
 		cell_begin := sheet.cells(1, 1)
 		cell_end   := sheet.cells(lastCell.row, lastCell.column)
 
-		return safeArr := sheet.Range(cell_begin, cell_end).FormulaR1C1
+		return ListfeArr := sheet.Range(cell_begin, cell_end).FormulaR1C1
 	}
 
 	GetFullPath(FileName){

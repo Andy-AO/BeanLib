@@ -1,19 +1,19 @@
 **批量移动文件:**
 
 ```autohotkey
-bulkMoveFile(aPathSA,DestPattern)
+bulkMoveFile(aPathList,DestPattern)
 ```
 
 ### 参数 Parameters: 
 
-- aPathSA - 文件路径数组
+- aPathList - 文件路径数组
 
   不支持文件夹
 
 - DestPattern - 目标路径
 
 ### 返回 Returns: 
-- aPathSA.length()
+- aPathList.length()
 
 ### 抛出异常 Throws: 
 - _EX.MoveFailed
@@ -26,11 +26,11 @@ bulkMoveFile(aPathSA,DestPattern)
 	Obj.Setkey(thekey)
 	Obj.Search()
 
-	searchResultSA:=Obj.getSearchResultSA()
-	DeBugDeepPrintln(searchResultSA,"searchResultSA >>> ")
+	searchResultList:=Obj.getSearchResultList()
+	DeBugDeepPrintln(searchResultList,"searchResultList >>> ")
 	
 
 	DestPattern:="D:\MyDesktop\A\"
 	
-	bulkMoveFile(searchResultSA,DestPattern)
+	bulkMoveFile(searchResultList,DestPattern)
 ```

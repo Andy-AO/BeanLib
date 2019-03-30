@@ -6,22 +6,22 @@
 
 ;2019年01月14日 支持部分 BeanLib 语法
 
-_SA
+_List
 .Uniq()
 .Sort()
 .ToString()
 .Remove()
 
 _EX
-ExcelToSA()
+ExcelToList()
 
 ;String Method
-.ToSA ()
+.ToList ()
 .py ()
 .CharAt()
 
 
-#AllowSameLineComments
+#AllowListmeLineComments
 #ClipboardTimeout Milliseconds
 #CommentFlag NewString
 #Delimiter NewChar
@@ -733,7 +733,7 @@ A_IPAddress2
 A_IPAddress3
 A_IPAddress4
 A_Is64bitOS
-A_IsAdmin
+A_IListdmin
 A_IsCompiled
 A_IsCritical
 A_IsPaused
@@ -935,7 +935,7 @@ Check
 UnCheck
 ToggleCheck
 Enable
-Disable
+DiListble
 ToggleEnable
 Default
 NoDefault
@@ -1084,7 +1084,7 @@ ChooseString
 Text
 Pos
 Enabled
-Disabled
+DiListbled
 Visible
 LastFound
 LastFoundExist

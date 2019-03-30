@@ -6,12 +6,15 @@ String Method
 
 
 
+
 "".base.base:=StrBase
 
 class StrCallBase{
     __Call(aStr,aName,aParams*){
-		if(ObjHasKey(this,aName)){ 
-			OutPut :=this[aName].Call(aStr,aParams)
+		if(ObjHasKey(this,aName)){
+			LogPrintln(aStr,"aStr >>>")
+			BoundFunc := AutoBind(this[aName],aParams,aStr) 
+			OutPut := BoundFunc.Call()
 			return OutPut
 		}
 		else{					
@@ -29,12 +32,28 @@ class StrBase{
 		length(){
 			return StrLen(this)
 		}
+
+;---------------------------------------------------------------------- 
+
+	isRegExMatch(aRegEx,aRegExOption:="i)"){
+		aString:=this
+		RegExMatch(aString,aRegExOption aRegEx,MatchedPart)
+		return (MatchedPart=aString)
+	}
+
 ;---------------------------------------------------------------------- 		
-		ToSA(){
+		ToList(){
 			return StringToCharArray(this)
 		}		
 ;---------------------------------------------------------------------- 		
 		ExtractFileNameByPath(){
+			NeedleRegEx=([^<>/\\\|:""\*\?]+)\.\w+$
+			Haystack:=this
+			FoundPos := RegExMatch(Haystack, NeedleRegEx,FileName)
+			return FileName
+		}	
+;---------------------------------------------------------------------- 		
+		SplitPath(){
 			NeedleRegEx=([^<>/\\\|:""\*\?]+)\.\w+$
 			Haystack:=this
 			FoundPos := RegExMatch(Haystack, NeedleRegEx,FileName)
@@ -58,22 +77,19 @@ class StrBase{
 		
 ;---------------------------------------------------------------------- 
 
-		CharAt(aParams){
-			TheIndex:=aParams[1]
-			if (aParams[2]>0)AND(aParams[2]<10)
-				len:=aParams[2]
-			else
-				len:=1
-			if((TheIndex>StrLen(this)) OR (TheIndex<1)){
+	CharAt(aIndex){
+		len:=1
+		if((aIndex>StrLen(this)) OR (aIndex<1)){
 			throw Exception(_Ex.IndexOutOfBounds)
-			}
-			Sub:=SubStr(this,TheIndex,len)
-			return Sub
 		}
 		
+		Sub:=SubStr(this,aIndex,len)
+		return Sub
+	}
+	
 		
 ;---------------------------------------------------------------------- 
-		py(aParams){
+		py(){
 	Str:=this,newStr:=""
 	static FirstTable  := [ 0xB0C5, 0xB2C1, 0xB4EE, 0xB6EA, 0xB7A2, 0xB8C1, 0xB9FE, 0xBBF7, 0xBFA6, 0xC0AC, 0xC2E8
 		, 0xC4C3, 0xC5B6, 0xC5BE, 0xC6DA, 0xC8BB, 0xC8F6, 0xCBFA, 0xCDDA, 0xCEF4, 0xD1B9, 0xD4D1, 0xD7FA ]
@@ -155,6 +171,42 @@ class StrBase{
 
 
 
+;---------------------------------------------------------------------- 
+
+/*
+断言参数长度是否符合 Func 的需求
+*/
+
+afParaLength(aFunc,aParaList){
+	Type.afObj(aFunc),Type.afObj(aParaList)
+	
+	tooFew:= (aParaList.Length()<aFunc.MinParams)
+	tooMany:= (aParaList.Length()>aFunc.MaxParams) AND NOT(aFunc.IsVariadic)
+	
+	if (tooFew)
+		throw Exception(_EX.TooFewParas)
+	if (tooMany)
+		throw Exception(_EX.TooManyParas)
+	return
+}
+
+
+;---------------------------------------------------------------------- 
+
+/*
+自动为 Func 绑定参数
+*/
+
+AutoBind(aFunc,aParaList,aFirstPara:=""){
+		
+	if(aFirstPara!="")
+		aParaList.InsertAt(1,aFirstPara)
+	
+	afParaLength(aFunc,aParaList)
+
+	BoundFunc:=aFunc.Bind(aParaList*)
+	return BoundFunc
+}
 
 
 

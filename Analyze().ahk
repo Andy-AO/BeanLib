@@ -6,26 +6,26 @@
 ;---------------------------------------------------------------------- 
 
 AnalyzeClassName(Obj){ ;返回Obj的所有Base的ClassName
-	StrSA:=[],ObjSA:=Analyze(Obj)
-	for i,Obj in ObjSA{
+	StrList:=[],ObjList:=Analyze(Obj)
+	for i,Obj in ObjList{
 		TheStr:=Obj.__Class
 		if((isObject(Obj))AND(TheStr=""))
-			StrSA.Push("*NotClass*")
+			StrList.Push("*NotClass*")
 		else if(TheStr="")
-			StrSA.Push("*NS*")
+			StrList.Push("*NS*")
 		else
-		StrSA.Push(TheStr)
+		StrList.Push(TheStr)
 	}
-	return StrSA
+	return StrList
 }
 ;---------------------------------------------------------------------- 
 Analyze(Obj){ ;返回元素的所有Base
-	SA:=[],ObjSA:=[],ObjSA[1]:=Obj,StrSA:=[],StrSA[1]:=Obj.__Class,counter:=1
+	List:=[],ObjList:=[],ObjList[1]:=Obj,StrList:=[],StrList[1]:=Obj.__Class,counter:=1
 	type.afObj(Obj)
 	loop{	
-		TheBase:=ObjSA[A_Index].base
+		TheBase:=ObjList[A_Index].base
 		if(counter>1)
-			return ObjSA
+			return ObjList
 		if(TheBase="") OR (TheBase.__Class=""){ ;除了检查base之外,还必须检查其__Class
 			counter++
 			continue
@@ -34,11 +34,11 @@ Analyze(Obj){ ;返回元素的所有Base
 		else
 			counter:=1		
 		
-		ObjSA.push(TheBase)
+		ObjList.push(TheBase)
 		
 	}
 	
-	return ObjSA
+	return ObjList
 }
 
 ;---------------------------------------------------------------------- 

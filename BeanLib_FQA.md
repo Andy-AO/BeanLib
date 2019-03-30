@@ -65,7 +65,7 @@ Clone Git 之后，你可以建立一个属于自己的"中心式"Lib文件，�
 - 检查是否开启强制Local。
     - Class 默认为"强制全局"，但如果函数体的第一行是Local，那么 Class 的"强制全局"会失效。
       您可以取消Local，或者在Local后声明 Class 为全局，格式为 `Global ClassName`。
-    - 如果您开启Local是为了避免收到 LocalSameGlobal 警告，那么也可以单独关闭该警告。
+    - 如果您开启Local是为了避免收到 LocalListmeGlobal 警告，那么也可以单独关闭该警告。
       在`#Warn`后方添加，`#Warn LocalSameAsGlobal, Off`，即可。
 
 - 检查输入值/返回值。

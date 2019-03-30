@@ -4,13 +4,13 @@
 */
 
 Instanof(Obj,Super){
-	theSA:=""	
+	theList:=""	
 	if (Type.isStr(Super)){
-		theSA:=AnalyzeClassName(Obj)
-		return _SA.Contains(theSA,Super)
+		theList:=AnalyzeClassName(Obj)
+		return _List.Contains(theList,Super)
 	}
 	else {
-		theSA:=Analyze(Obj)
-		return _SA.Contains(theSA,Super)
+		theList:=Analyze(Obj)
+		return _List.Contains(theList,Super)
 	}
 }

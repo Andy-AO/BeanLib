@@ -18,17 +18,15 @@
 
 **Zh:="那里有条美丽的河"**
 
-### CharAt(index,len:=1) - 提取字符串
+### CharAt(index) - 提取字符
 
-提取String中的字符/字符串
+提取String中的字符
 
 - 如果越界会抛出 IndexOutOfBounds 异常
 
 **参数：**
 
 index - 索引
-
-len - 长度
 
 ``` autohotkey
 Str.CharAt(6) ;返回e
@@ -44,12 +42,12 @@ Str.CharAt(0) ;抛出异常
 Str.Length()
 ```
 
-### ToSA() - 转为数组
+### ToList() - 转为数组
 
 提取String中的字符
 
 ``` autohotkey
-Str.ToSA()
+Str.ToList()
 ```
 
 
@@ -81,4 +79,26 @@ FileName=chrome.dll
 s:=FileName.SplitFileName()
 println(s[1])
 println(s[2])
+```
+
+### isRegExMatch(aRegEx,aRegExOption:="i)")
+
+检查字符串是否能完全匹配正则表达式。
+
+`PathObj` 中的路径合法性检查就是依赖这个实现的，如下：
+
+```autohotkey
+	af(){
+		aPath:=this.path
+		aRegEx=^[a-zA-Z]:\\(((?![<>:"/\\|?*]).)+((?<![ .])\\)?)*$
+		
+		absolutePathResult:=aPath.isRegExMatch(aRegEx)
+		
+		if Not(absolutePathResult){
+			Mes:=InvalidPara . "1"
+			throw Exception(Mes)
+		}
+		
+		return
+	}
 ```

@@ -1,5 +1,5 @@
 ﻿/*!
-Class: _SA
+Class: _List
 数组的增强操作
 
 Author:
@@ -14,22 +14,22 @@ LGPLv3
 
 */
 
-;~ protect(_SA)
+;~ protect(_List)
 
-Class _SA{
+Class _List{
 
 
-static RNameSA:=["Chris","Joe","Marcy","Chris","Elina","Timothy","Joe","Joe","Joe"]
-static LetterSA:=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
-static NumberSA:=["1","2","3","4","5","6","7","8","9","0"]
-static TheSA1:=["SA1"]
-static TheSA2:=["SA2"]
-static ObjSA:=[_SA.TheSA1,_SA.TheSA2,_SA.TheSA1,_SA.TheSA2,_SA.TheSA1,_SA.TheSA2]
+static RNameList:=["Chris","Joe","Marcy","Chris","Elina","Timothy","Joe","Joe","Joe"]
+static LetterList:=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+static NumberList:=["1","2","3","4","5","6","7","8","9","0"]
+static TheList1:=["List1"]
+static TheList2:=["List2"]
+static ObjList:=[_List.TheList1,_List.TheList2,_List.TheList1,_List.TheList2,_List.TheList1,_List.TheList2]
 
 ;---------------------------------------------------------------------- 
 
-Contains(SAorMap,value){
-for k,v in SAorMap{
+Contains(ListorMap,value){
+for k,v in ListorMap{
 if (v=value)
 	return true
 }
@@ -57,8 +57,8 @@ ToString(Str){
 /*!
 数组去重
 */
-Uniq(SA){
-	nameArray:=SA
+Uniq(List){
+	nameArray:=List
 	
 	hash := {},MarkObj:={}
 	for i, name in nameArray
@@ -68,9 +68,9 @@ Uniq(SA){
 	for name, dummy in hash
 		trimmedArray.push(name) ;2019年01月08日 从insert 改为push
 	
-	NewSA:=trimmedArray
+	NewList:=trimmedArray
 
-	return NewSA
+	return NewList
 }
 
 ;~ From:https://stackoverflow.com/questions/46432447/how-do-i-remove-duplicates-from-an-autohotkey-array
@@ -81,13 +81,13 @@ Uniq(SA){
 字符串数组内的替换
 */
 
-StrReplace(StrSA,SearchText,ReplaceText,isRegEx:=false){
-for i,v in StrSA{
+StrReplace(StrList,SearchText,ReplaceText,isRegEx:=false){
+for i,v in StrList{
 	if(isRegEx)
 Newv:=RegExReplace(v,SearchText,ReplaceText)
 else
 	Newv:=StrReplace(v,SearchText,ReplaceText)
-StrSA[i]:=Newv
+StrList[i]:=Newv
 }
 return
 }
@@ -99,22 +99,22 @@ return
 按照Index批量移除数组中的元素
 */
 
-Remove(SA,IndexSA){
+Remove(List,IndexList){
 
-	SALength:=SA.length() ;得到数组初始长度
+	ListLength:=List.length() ;得到数组初始长度
 	MarkObj:={} ;得到标记数组
 	Counter:=0 ;计数器
 
-	loop,% IndexSA.length(){ ;填充MarkObj
-		SA[IndexSA[A_Index]]:=MarkObj
+	loop,% IndexList.length(){ ;填充MarkObj
+		List[IndexList[A_Index]]:=MarkObj
 	}
-	;~ DeBugDeepPrintln(SA,"SA >>> ")
-	loop,%SALength%{
+	;~ DeBugDeepPrintln(List,"List >>> ")
+	loop,%ListLength%{
 	;~ DeBugDeepPrintln(A_Index,"A_Index >>> ")
 	TheIndex:=A_Index-Counter
 	;~ DeBugDeepPrintln(TheIndex,"TheIndex >>> ")
-		if(SA[TheIndex]=MarkObj){
-			SA.RemoveAt(TheIndex)
+		if(List[TheIndex]=MarkObj){
+			List.RemoveAt(TheIndex)
 			Counter++
 		}	
 	}
@@ -128,11 +128,11 @@ return
 复制并返回数组的一部分
 */
 
-CopyOfRange(SA,FromIndex,ToIndex){
+CopyOfRange(List,FromIndex,ToIndex){
 
-	NewSA:=[]
+	NewList:=[]
 
-	if (FromIndex<1) OR (ToIndex>SA.Length()){
+	if (FromIndex<1) OR (ToIndex>List.Length()){
 		throw Exception (_EX.IndexOutOfBounds)
 	}
 
@@ -140,12 +140,12 @@ CopyOfRange(SA,FromIndex,ToIndex){
 		throw Exception ("FromIndex is bigger than ToIndex.")
 	}
 
-	for index,v in SA{
+	for index,v in List{
 		if ((index>=FromIndex) AND (index<=ToIndex))
-			NewSA.push(v)
+			NewList.push(v)
 }
 
-return NewSA
+return NewList
 }
 
 ;----------------------------------------------------------------------
@@ -157,8 +157,8 @@ return NewSA
 ;From https://sites.google.com/site/ahkref/custom-functions/sortarray
 
 
-Sort(StrSA, Order="A") {
-Array:=StrSA
+Sort(StrList, Order="A") {
+Array:=StrList
 	MaxIndex := ObjMaxIndex(Array)
 	if (Order = "R") {
 		count := 0
@@ -195,14 +195,14 @@ Array:=StrSA
 ;----------------------------------------------------------------------
 
 /*!
-统计StrSA中所有元素出现的次数
-把StrSA中所有的元素都放入一个Obj,元素是key,元素出现的次数是value
+统计StrList中所有元素出现的次数
+把StrList中所有的元素都放入一个Obj,元素是key,元素出现的次数是value
 */
 
-ElementCounter(SA){
+ElementCounter(List){
 	ResultObj:={},marker:=false
 
-	for i,TheObj in SA{
+	for i,TheObj in List{
 		if(i=1){
 	ResultObj[TheObj]:=1
 	continue

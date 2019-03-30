@@ -1,7 +1,7 @@
 **转换Str数组为字符串:**
 
 ```autohotkey
-_SA.ToString(Str)
+_List.ToString(Str)
 ```
 
 ### 参数 Parameters: 
@@ -14,6 +14,6 @@ TheArrayString
 - null
 ### 示例 Example
 ```autohotkey
-SA:=_SA.RNameSA
-MsgBox,% _SA.ToString(SA)
+List:=_List.RNameList
+MsgBox,% _List.ToString(List)
 ```

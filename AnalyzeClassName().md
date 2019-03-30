@@ -12,7 +12,7 @@ AnalyzeClassName(Obj)
 
 ### 返回 Returns: 
 
-StrSA
+StrList
 
 ### 抛出异常 Throws: 
 

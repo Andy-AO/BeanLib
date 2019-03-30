@@ -1,5 +1,18 @@
 ﻿
 ;---------------------------------------------------------------------- 
+/*
+根据 Keys* 生成空的 Map
+*/
+getEmptyMap(aKeys*){
+	theParaList:=[]
+	for i,v in aKeys {
+		theParaList.push(v)
+		theParaList.push("")
+	}
+	return Object(theParaList*)
+}
+
+;---------------------------------------------------------------------- 
 
 WinActivateByPath(aWinPath,aDetectHiddenWindows:=""){
 		theWinId:=_Win.getIdByPath(aWinPath,aDetectHiddenWindows)
@@ -63,16 +76,16 @@ return TheArray
 /*
 批量移动文件
 */
-	bulkMoveFile(aPathSA,aDestPattern){
+	bulkMoveFile(aPathList,aDestPattern){
 		Overwrite:=false
-		type.afObj(aPathSA)
-		for i,v in aPathSA {
+		type.afObj(aPathList)
+		for i,v in aPathList {
 			SourcePattern:=v
 			FileMove, %SourcePattern%, %aDestPattern% , %Overwrite%
 			if ErrorLevel
 				throw Exception(_EX.MoveFailed " : " SourcePattern)
 		}
-		return aPathSA.Length()
+		return aPathList.Length()
 	}
 ;---------------------------------------------------------------------- 
 /*
@@ -183,41 +196,41 @@ DeepPrintln(Obj){
 }
 
 ;----------------------------------------------------------------------- 
-PrintSA(obj){
-	Type.afSA(obj)
-	print(_SA.ToString(obj))
+PrintList(obj){
+	Type.afList(obj)
+	print(_List.ToString(obj))
 	return
  }
 ;----------------------------------------------------------------------- 
-DeepPrintSA(SA){
-	theString:=DeepSAtoString(SA)
+DeepPrintList(List){
+	theString:=DeepListtoString(List)
 	print(theString)
 	return theString
 }
 ;---------------------------------------------------------------------- 
-PrintlnSA(obj){
-	Type.afSA(obj)
-	println(_SA.ToString(obj))
+PrintlnList(obj){
+	Type.afList(obj)
+	println(_List.ToString(obj))
 	return
  }
 ;---------------------------------------------------------------------- 
-DeepPrintlnSA(SA){
-	theString:=DeepSAtoString(SA)
+DeepPrintlnList(List){
+	theString:=DeepListtoString(List)
 	println(theString)
 	return theString
 }
 ;----------------------------------------------------------------------- 
-DeepSAtoString(SA){
+DeepListtoString(List){
 	
 	TheArrayString:=""
 	TheArrayString.= "["
 		
-	for index,v in SA{
+	for index,v in List{
 		
-		if (Type.isSA(v))
-			TheArrayString.="," DeepSAtoString(v)
+		if (Type.isList(v))
+			TheArrayString.="," DeepListtoString(v)
 		
-		else if (Type.isSA(v))
+		else if (Type.isList(v))
 			TheArrayString.="," v
 		
 		else
@@ -235,7 +248,7 @@ DeepSAtoString(SA){
 
 toString(Obj){
 	
-	ResultString:="",SAString:="",SAString.= "[",ObjectString:="",ObjectString.="{"
+	ResultString:="",ListString:="",ListString.= "[",ObjectString:="",ObjectString.="{"
 	
 	if (Type.isStr(Obj)){
 		if(Obj="")
@@ -250,12 +263,12 @@ toString(Obj){
 		ResultString:=ObjectString
 ;---------------------------------------------------------------------- 
 	
-	if (Type.isSA(Obj)) ;如果是SA,那么开头应该是"["
-		ResultString:=SAString
+	if (Type.isList(Obj)) ;如果是List,那么开头应该是"["
+		ResultString:=ListString
 
 ;---------------------------------------------------------------------- 
 
-	if (Type.isSA(Obj)){
+	if (Type.isList(Obj)){
 		
 		for i,v in Obj{
 				

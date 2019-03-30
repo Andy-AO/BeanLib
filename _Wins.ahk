@@ -26,7 +26,7 @@ Class _Wins{
 
 ;---------------------------------------------------------------------- 
 	/*
-	获取窗口ID(HWND)列表收集器(数组形式)
+	获取数组形式窗口ID
 	*/
 	getIdList(WinTitle,aDetectHiddenWindows:=""){
 		
@@ -59,7 +59,7 @@ Class _Wins{
 	*/
 	
 	AnalyzeByPath(aWinPath,aDetectHiddenWindows:=""){
-		thePathObj:=_Win.getPathObj(aWinPath)
+		thePathObj:=new PathObj(aWinPath)
 		theAnalyzeWins:=_Wins.Analyze("ahk_exe" thePathObj.name,aDetectHiddenWindows)
 
 		return SelectWinByPathFromAnalyzeWins(thePathObj,theAnalyzeWins)

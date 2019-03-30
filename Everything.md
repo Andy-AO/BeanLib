@@ -71,7 +71,7 @@ return null
 ### GetVersionString()
 获取 Everything 版本 (@YuKuan贡献)
 
-### getSearchResultSA()
+### getSearchResultList()
 
 获取所有结果组成的数组
 
@@ -94,10 +94,10 @@ Obj.Search()
 theLen:=Obj.Count()
 Str:=Obj.GetFullPath(0)
 
-StrSA:=[]
+StrList:=[]
 
 loop,%theLen%{
-StrSA.push(Obj.GetFullPath(A_Index-1))
+StrList.push(Obj.GetFullPath(A_Index-1))
 }
 
 ExitApp
@@ -111,5 +111,5 @@ ExitApp
 	Obj.Setkey(thekey)
 	Obj.Search()
 	
-	searchResultSA:=Obj.getSearchResultSA()
+	searchResultList:=Obj.getSearchResultList()
 ```

@@ -4,7 +4,7 @@
 
 - count = 0 的 Object 会显示 {\*Object\*}
 - NullString 会显示 \*NS\*
-- count = length 的Object(SA) ，用 [] 包裹
+- count = length 的Object(List) ，用 [] 包裹
 - count != length 的Object ，用 {} 包裹
 
 ```autohotkey
@@ -28,8 +28,8 @@ null
 ### 抛出异常 Throws: 
 ### 示例 Example
 ```autohotkey
-theSA:=Object(_SA.TheSA1,[_SA.TheSA2,"D"],[],"D")
-LogPrintln(theSA,"theSA >" ">> ")
+theList:=Object(_List.TheList1,[_List.TheList2,"D"],[],"D")
+LogPrintln(theList,"theList >" ">> ")
 ```
 
 ![运行效果](https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/image_4.png)

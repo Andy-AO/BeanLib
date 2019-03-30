@@ -131,7 +131,7 @@ Class Type{
 	}	
 		
 ;---------------------------------------------------------------------- 直接移植过来的，本来在外面,所以缩进不太对,以后改吧
-	ObjectType(Obj){ ;检查Obj的类型(主要是分出 SA 和 非SA) ;√
+	ObjectType(Obj){ ;检查Obj的类型(主要是分出 List 和 非List) ;√
 		;检查一下看看是否为线性的,如果是,那么就是true,不是就返回0
 		
 		
@@ -144,7 +144,7 @@ Class Type{
 		
 		keyCount:=Obj.Count() ;计算长度和Key键数,如果一致,而且均非零非空,那么必定是SimpleArray
 		if ((len=keyCount) AND (len!="") AND (keyCount!="") AND (keyCount!=0) AND (len!=0)){
-			theType:=Type.SA
+			theType:=Type.List
 		}
 			
 		else 
@@ -186,7 +186,7 @@ Class Type{
 ;---------------------------------------------------------------------- 
 		
 		
-		;这个函数的用处就是转换Code,因为有一些Code覆盖面非常大，主要是Obj,还有Str(覆盖NS)和SA(覆盖StrSA),这些就不能直接比对先去进行转换
+		;这个函数的用处就是转换Code,因为有一些Code覆盖面非常大，主要是Obj,还有Str(覆盖NS)和List(覆盖StrList),这些就不能直接比对先去进行转换
 		Swap(TypeCode,aInputTypeCode){
 		
 			if(TypeCode=Type["Obj"]){
@@ -229,7 +229,7 @@ Class TypeBase{
 	
 	Static Str:=10,NS:=11
 	
-	Static SA:=130
+	Static List:=130
 	
 	Static Obj:=100,ExtendsObj:=101,Class:=110
 	
