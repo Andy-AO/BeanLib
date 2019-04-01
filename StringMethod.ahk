@@ -1,18 +1,13 @@
-﻿/*
+﻿
+/*
 String Method
 1. 是一个依靠[元编程](http://xrvu_zen.gitee.io/wyagd001.github.io/docs/Objects.htm#Meta_Functions)实现的 String 方法，并非类。
 2. 主要包含对于String的各种增强操作, 包括但不限于 获取长度，单个字符，转为字符数组，提取汉语拼音首字母...
 */
-
-
-
-
 "".base.base:=StrBase
-
 class StrCallBase{
     __Call(aStr,aName,aParams*){
 		if(ObjHasKey(this,aName)){
-			LogPrintln(aStr,"aStr >>>")
 			BoundFunc := AutoBind(this[aName],aParams,aStr) 
 			OutPut := BoundFunc.Call()
 			return OutPut
@@ -23,24 +18,72 @@ class StrCallBase{
 		}
     }
 }
-
 class StrBase{
+	
+	class ListSpliter{
+;---------------------------------------------------------------------- 
+	
+		initialize(){
+			this.enableDeWeight:=true
+			this.enablePreTrimDelimiter:=true
+			this.enableTrimBlankAndTab:=true 
+			return
+		}
+		
+;---------------------------------------------------------------------- 
+		
+		__New(aHayStack,aDelimiter){
+			this.initialize()
+			this.HayStack:=aHayStack
+			this.Delimiter:=aDelimiter
+			return this
+		}
+		;---------------------------------------------------------------------- 
+			split(){
+							
+				Type.afStr(this.HayStack)
+				if NOT InStr(this.HayStack, this.Delimiter){
+						throw Exception("Error01:Not Find Delimiter in this.HayStack`r`n在输入的字符串中，没有发现分隔符.")
+				}
+				if (this.enableDeWeight){
+					this.DelimiterInRegex:=RegexEscape(this.Delimiter) 
+					this.HayStack := RegExReplace(this.HayStack,this.DelimiterInRegex "{2,}" ,this.Delimiter)
+				}
+			
+				if (this.enablePreTrimDelimiter){
+					this.HayStack :=  Trim(this.HayStack,this.Delimiters)
+					}
+				
+				OmitChars:=""
+				if (this.enableTrimBlankAndTab){
+					OmitChars:=" `t"
+				}
 
-
+				
+				theList := StrSplit(this.HayStack , this.Delimiter, OmitChars)
+				
+				return theList
+			}
+;---------------------------------------------------------------------- 
+		
+	}
+	
+	;------- inner class ListSpliter End
     class __Call extends StrCallBase{
 ;----------------------------------------------------------------------  Start	
 		length(){
 			return StrLen(this)
 		}
-
 ;---------------------------------------------------------------------- 
-
 	isRegExMatch(aRegEx,aRegExOption:="i)"){
 		aString:=this
 		RegExMatch(aString,aRegExOption aRegEx,MatchedPart)
 		return (MatchedPart=aString)
 	}
-
+;---------------------------------------------------------------------- 
+	getListSpliter(Delimiters:="`|"){
+		return StrBase.ListSpliter.__New(this,Delimiters)
+	}
 ;---------------------------------------------------------------------- 		
 		ToList(){
 			return StringToCharArray(this)
@@ -76,7 +119,6 @@ class StrBase{
 		}		
 		
 ;---------------------------------------------------------------------- 
-
 	CharAt(aIndex){
 		len:=1
 		if((aIndex>StrLen(this)) OR (aIndex<1)){
@@ -85,6 +127,11 @@ class StrBase{
 		
 		Sub:=SubStr(this,aIndex,len)
 		return Sub
+	}
+	;---------------------------------------------------------------------- 
+	isNumber(){
+		aRegEx:="[0-9]+"		
+		return this.isRegExMatch(aRegEx,aRegExOption:="i)")
 	}
 	
 		
@@ -126,12 +173,9 @@ class StrBase{
 		, StrSplit("CTXMZYSCTLKPHTXHTLBJXJLXSCDQXCBBTJFQZFSLTJBTKQBXXJJLJCHCZDBZJDCZJDCPRNPQCJPFCZLCLZXZDMXMPHJSGZ")
 		, StrSplit("GSZZQLYLWTJPFSYASMCJBTZYYCWMYTZSJJLJCQLWZMALBXYFBPNLSFHTGJWEJJXXGLLJSTGSHJQLZFKCGNNNSZFDEQFHBS")
 		, StrSplit("AQTGYLBXMMYGSZLDYDQMJJRGBJTKGDHGKBLQKBDMBYLXWCXYTTYBKMRTJZXQJBHLMHMJJZMQASLDCYXYQDLQCAFYWYXQHZ") ]
-
-
 	static nothing := VarSetCapacity(var, 2)
 	if !RegExMatch(str, "[^\x{00}-\x{ff}]")
 		return str
-
 	loop, Parse, str
 	{
 		StrPut(A_LoopField, &var, "CP936")
@@ -142,7 +186,6 @@ class StrBase{
 			newStr .= A_LoopField
 			continue
 		}
-
 		if (H < 0xD8)//(H >= 0xB0 && H <=0xD7)
 		{
 			W := (H << 8) | L
@@ -158,25 +201,15 @@ class StrBase{
 		else
 			newStr .= SecondTable[ H - 0xD8 + 1 ][ L - 0xA1 + 1 ]
 	}
-
 	return newStr
 }
-
 ;----------------------------------------------------------------------  End		
 	}	
-
 }
-
-
-
-
-
 ;---------------------------------------------------------------------- 
-
 /*
 断言参数长度是否符合 Func 的需求
 */
-
 afParaLength(aFunc,aParaList){
 	Type.afObj(aFunc),Type.afObj(aParaList)
 	
@@ -189,30 +222,16 @@ afParaLength(aFunc,aParaList){
 		throw Exception(_EX.TooManyParas)
 	return
 }
-
-
 ;---------------------------------------------------------------------- 
-
 /*
 自动为 Func 绑定参数
 */
-
 AutoBind(aFunc,aParaList,aFirstPara:=""){
 		
 	if(aFirstPara!="")
 		aParaList.InsertAt(1,aFirstPara)
 	
 	afParaLength(aFunc,aParaList)
-
 	BoundFunc:=aFunc.Bind(aParaList*)
 	return BoundFunc
 }
-
-
-
-
-
-
-
-
-

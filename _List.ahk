@@ -54,6 +54,18 @@ ToString(Str){
  }
 
 ;---------------------------------------------------------------------- 
+;返回匹配的元素的indexList
+MatchIndexList(list,aRegEx){
+	indexList:=[]
+	for i,v in list{
+		LogPrintln(v,"v >>>")
+		if(v.isRegExMatch(aRegEx))
+			indexList.push(i)
+	}
+		return indexList
+}
+
+;---------------------------------------------------------------------- 
 /*!
 数组去重
 */
