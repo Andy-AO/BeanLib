@@ -19,7 +19,7 @@ class AppLocker{
 	
 ;---------------------------------------------------------------------- 
 
-	Lock(){
+	UnLock(){
 		Commends:="echo Y|cacls " this.asPath[1] " /p everyone:" "F"
 		;~ TrayTip,%A_ScriptName% 提醒,已开锁
 		UseCmd(Commends)
@@ -28,10 +28,10 @@ class AppLocker{
 	
 ;---------------------------------------------------------------------- 
 
-	UnLock(){
+	Lock(){
 		Commends:="echo Y|cacls " this.asPath[1] " /p everyone:" "N"
 		;~ TrayTip,%A_ScriptName% 提醒,已上锁
-		;~ DeBugDeepPrintln(Commends,"Commends >>> ")
+		LogPrintln(Commends,"Commends >>>")
 		UseCmd(Commends)
 		return
 }
@@ -41,9 +41,9 @@ class AppLocker{
 		targetTime:=getCurrentTime()
 		isUnLockTime:=this.CheckTime(targetTime,this.asUnLockTime)
 		if(isUnLockTime)
-			this.lock()
+			this.unlock()
 		else
-			this.unLock()
+			this.Lock()
 		return
 }
 
