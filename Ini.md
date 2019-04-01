@@ -28,31 +28,17 @@
 
 ```autohotkey
 	aIniPath:=A_ScriptDir "\test.ini"
-	
-	LogPrintln(aIniPath,"aIniPath >>>")
-	
 	aSection:="test"
 	newIni:=new Ini(aIniPath)
 	newSection:=newIni.getSection(aSection)
 	
-	A:=newSection.read("A")
-	B:=newSection.read("B")
-	C:=newSection.read("C")
-	F:=newSection.read("F")
+	theMap:=newSection.getMap("A","B","C","F")
 	
-	
-	LogPrintln(A,"A >>>")
-	LogPrintln(B,"B >>>")
-	LogPrintln(C,"C >>>")
-	LogPrintln(F,"F >>>")
+	LogPrintln(theMap,"theMap >>>")
 ```
 
 ```autohotkey
-A_ScriptName >>> TDD_AutoIni.ahk
-aIniPath >>>D:\AHKs\Dev\test.ini
-aStr >>>D:\AHKs\Dev\test.ini
-A >>>1
-B >>>2
-C >>>3
-F >>>*NS*
+A_ScriptName >>> TDD_getMap().ahk
+theMap >>>{A:1,B:2,C:3,F:*NS*}
+
 ```
