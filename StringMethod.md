@@ -102,3 +102,13 @@ println(s[2])
 		return
 	}
 ```
+
+### isNumber()
+
+检查字符串是否为数字
+
+其实就是检查是否能够完全匹配RegEx=[0-9]+
+
+```autohotkey
+LogPrintln("555".isNumber(),"""555"".isNumber() >>>")
+```

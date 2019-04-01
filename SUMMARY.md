@@ -10,6 +10,7 @@
         * [_List.Contains()](_List.Contains().md)
         * [_List.ElementCounter()](_List/_List.ElementCounter().md)
         * [_List.ToString()](_List.ToString().md)
+        * [MatchIndexList()](MatchIndexList().md)
     * [_EX](_EX.md)
     * [_Win](_Win.md)
     * [_Wins](_Wins.md)
