@@ -145,7 +145,12 @@ Class Type{
 		keyCount:=Obj.Count() ;计算长度和Key键数,如果一致,而且均非零非空,那么必定是 List
 		
 		if ((len=keyCount) AND (len!="") AND (keyCount!="") AND (keyCount!=0) AND (len!=0)){
-			theType:=Type.List
+			return Type.List
+		} 
+		
+		else if(obj.isAction){
+			return Type.Action
+		}
 		
 		else
 			theType:=Type.ObjectSpecificType(Obj)
@@ -257,7 +262,7 @@ Class TypeBase{
 		Static List:=130
 
 		Static ObjEndCode := 199
-		Static Obj:=100,ExtendsObj:=101,Class:=110,FuncObj:=120
+		Static Obj:=100,ExtendsObj:=101,Class:=110,FuncObj:=120,Action:=125
 		
 		Static FileObj:=150
 		

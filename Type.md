@@ -48,11 +48,13 @@ afOff() - 把变量设为 false ,关闭断言
 
 #### isStr(Ever) 
 #### isNS(Ever) 
+#### isNumber(Ever) 
 #### isList(Ever) 
 #### isObj(Ever) 
 #### isClass(Ever) 
 #### isFileObj(Ever) 
 #### isFuncObj(Ever) 
+#### isAction(Ever) 
 #### isComObj(Ever) 
 
 ### af方法(断言方法)
@@ -65,11 +67,13 @@ afOff() - 把变量设为 false ,关闭断言
 
 #### afStr(Ever) 
 #### afNS(Ever) 
+#### afNumber(Ever) 
 #### afList(Ever) 
 #### afObj(Ever) 
 #### afClass(Ever) 
 #### afFileObj(Ever) 
 #### afFuncObj(Ever) 
+#### afAction(Ever) 
 #### afComObj(Ever) 
 
 ``` autohotkey

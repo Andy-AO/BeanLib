@@ -26,14 +26,13 @@
 #Include _Map.ahk
 #Include _Container.ahk
 #Include StringMethod.ahk
-
+#Include Action.ahk
 #Include TypeFuncAndClass.ahk
 
 #Include AutoClassify.ahk
 #Include Everything.ahk
 #Include APPLocker.ahk
 #Include Bean.ahk
-#Include Action.ahk
 #Include Function.ahk.
 #Include Control.ahk.
 #Include Win.ahk

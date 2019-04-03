@@ -4,7 +4,8 @@
 */
 
 class Action{
-
+	
+	isAction:=true
 	func:="",name:=""
 	conditions := Object("before","","after","")
 	onErrorAction := ""
@@ -64,7 +65,10 @@ class Action{
 	;---------------------------------------------------------------------- 
 		initFunc(aFunc){
 			if(type.isObj(aFunc)){
-				this.thethis.func:=aFunc
+				if(type.isFuncObj(aFunc))
+					this.thethis.func:=aFunc
+				else
+					throw Exception(_Ex.InvalidPara "1 : " "不接受除FuncObj之外的其他Obj.")
 			}
 			else{
 				this.thethis.func:=getFunc(aFunc)
