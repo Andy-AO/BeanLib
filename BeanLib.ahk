@@ -26,9 +26,10 @@
 #Include _Map.ahk
 #Include _Container.ahk
 #Include StringMethod.ahk
-#Include Action.ahk
+
 #Include TypeFuncAndClass.ahk
 
+#Include Action.ahk
 #Include AutoClassify.ahk
 #Include Everything.ahk
 #Include APPLocker.ahk
