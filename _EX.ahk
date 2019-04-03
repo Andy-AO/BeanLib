@@ -24,6 +24,7 @@ static IndexOutOfBounds:="Index Out Of Bounds.数组越界." ;ListIndex越界异
 static NoExistVariate:="Variate is not Exsit.变量不存在."
 static NoExistKey:="Key-Value is not Exsit. Key-Value不存在."
 static NoExistMethod:="Call To Nonexistent Method.调用不存在的方法."
+static NoExistFunctionName:="No Exist FunctionName.不存在的函数名."
 static NoExistFile:="File is Not Exist.文件不存在."
 static NoExistWin:="Win is Not Exist.窗口不存在."
 static SetConst:="Set Const.写入常量."

@@ -18,11 +18,13 @@
 */
 
 ;定义 #Include 的工作目录
-#Include D:\AHKs\Stable\ahk_lib
+#Include D:\AHKs\ahk_lib
 
 ;导入 子Lib (请全部导入,否则容易出现兼容性问题)
 #Include _List.ahk
 #Include _EX.ahk
+#Include _Map.ahk
+#Include _Container.ahk
 #Include StringMethod.ahk
 
 #Include TypeFuncAndClass.ahk
@@ -31,13 +33,19 @@
 #Include Everything.ahk
 #Include APPLocker.ahk
 #Include Bean.ahk
-#Include Function.ahk
+#Include Action.ahk
+#Include Function.ahk.
+#Include Control.ahk.
+#Include Win.ahk
 #Include _Win.ahk
 #Include _Wins.ahk
 #Include PathObj.ahk
+#Include Condition.ahk
+#Include AutoGUI.ahk
 #Include Script.ahk
 #Include Ini.ahk
 #Include AutoInputBox.ahk
+#Include Spliter.ahk
 
 #Include ExcelToList().ahk
 #Include Analyze().ahk

@@ -226,9 +226,8 @@ afParaLength(aFunc,aParaList){
 /*
 自动为 Func 绑定参数
 */
-AutoBind(aFunc,aParaList,aFirstPara:=""){
+AutoBind(aFunc,aParaList,aFirstPara){
 		
-	if(aFirstPara!="")
 		aParaList.InsertAt(1,aFirstPara)
 	
 	afParaLength(aFunc,aParaList)

@@ -21,11 +21,11 @@
 
 ## 1.2.1 - 2019年04月01日
 
- 1.StringMethod
+1. StringMethod
 
--  isNumber()  - 检测字符串是否为纯数字
--   isRegExMatch() - 检测String是否匹配某正则
-- 去掉了CharAt 的第二个参数 
+    - isNumber()  - 检测字符串是否为纯数字
+    - isRegExMatch() - 检测String是否匹配某正则
+    - 去掉了CharAt 的第二个参数 
 
 2. "SA"改为"List"，放弃"SimpleArray"这种叫法. 
 3. _List类新增 MatchIndexList(list,aRegEx) - 找出数组中所有匹配正则表达式的元素

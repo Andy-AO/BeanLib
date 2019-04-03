@@ -1,16 +1,12 @@
 ﻿
+
 /*
 说明:基本可以直接使用的一些函数
 特别提示:这是我的私人工具箱
 */
-
 ;---------------------------------------------------------------------- 
-
 class MyTools{
-
-
 ;---------------------------------------------------------------------- 
-
 	/*
 	说明:文件重命名
 	*/
@@ -30,7 +26,6 @@ class MyTools{
 	}
 	
 ;---------------------------------------------------------------------- 
-
 	/*
 	说明:文件重命名
 	*/
@@ -47,7 +42,6 @@ class MyTools{
 		newName:=boxObj.start()
 		
 		aAfterPath := dir "\" newName
-				LogPrintln(aAfterPath,"aAfterPath >>>")
 		FileMove,%aBeforePath%,%aAfterPath%
 		
 		if(ErrorLevel){
@@ -63,8 +57,6 @@ class MyTools{
 /*
 说明:发送快捷方式
 */
-
-
 SendShortCut(aLinkFileDir){
 	
 	theSrcFilePath:=SuperCopy()
@@ -81,17 +73,15 @@ SendShortCut(aLinkFileDir){
 	return
 }
 ;------------------	class MyTools End
-
 }
 
 
-;--------------
+;---------------------------------------------------------------------- 
 
 /*
 说明:注入专用
 */
 class Inject{
-
 		SearchWithOutAira2(){
 		
 		this.EverthingObj.Setkey(this.sSearchCriteria)
@@ -109,7 +99,206 @@ class Inject{
 		return
 	}	
 }
-
-
-
 ;------------class Inject End
+/*
+说明:超星图书下载自动化
+*/
+class AutoPDG{
+	
+	dir := "D:\MyDocs\重要文档\超星自动下载数据"
+	map := {}
+	
+	WinTitle:="修改、新建CX BOOK 下载任务"
+	报文Control:="TMemo1"
+	页数Control:="TEdit11"
+	标题Control:="TEdit10"
+	;~ 确定Control:="TButton5"
+	确定Control:="x981 y270"
+	CxCandyEnt新建Control:="x452 y73"
+	CxCandyEntWinTiTle:="CxCandyEnt 1.8.9 build 111012"
+;---------------------------------------------------------------------- 
+	__New(){
+		this.initIni()
+		this.resetTempMap()
+		return this
+	}
+;---------------------------------------------------------------------- 
+	
+	autoFill(){		
+		Critical,on
+		this.iniMap:=this.ini.getMap()		
+		this.load()			
+		return
+	}
+	
+;---------------------------------------------------------------------- 
+		
+		loadMapFromFile(map){
+			this.loadMap:=map
+			FileRead, theMes, % map["mesPath"]
+			this.loadMap["mes"]:=theMes
+			return
+		}
+
+;---------------------------------------------------------------------- 
+	load(){
+		
+		Critical,on
+		
+		theMap := this.iniMap
+		LogPrintln(theMap,"theMap >>>")
+		
+		
+		
+		
+		for i,v in theMap {
+			
+			this.loadMapFromFile(v)
+			this.fill()
+			
+			loop{
+				if WinExist("检测到重名"){
+					WinActivate
+					Sleep 500
+					Send,{Enter}
+				}	
+				else{
+					break
+				}
+			}
+
+
+			Sleep 200
+			
+			WinActivate ,% this.CxCandyEntWinTiTle
+			ControlClick,% this.CxCandyEnt新建Control,% this.CxCandyEntWinTiTle
+			
+			this.fill()
+			
+			Sleep 600
+		}
+
+
+		return
+	}
+				
+;---------------------------------------------------------------------- 
+		fill(){
+			Critical,on
+			
+			WinActivate ,% this.WinTitle
+			Sleep 150
+			ControlSetText , % this.标题Control, % this.loadMap["title"], % this.WinTitle
+			Sleep 50
+			ControlSetText , % this.页数Control, % this.loadMap["page"], % this.WinTitle
+			Sleep 50
+			ControlClick , % this.报文Control, % this.WinTitle
+			Sleep 50
+			SendByClip(this.loadMap["mes"])
+			Sleep 50
+			
+			WinActivate ,% this.WinTitle
+			Sleep 150
+			
+			ClassNN:=GetActiveControlIsOfClass("ClassNN")
+			ControlClick,% this.确定Control,% this.WinTitle	
+			Sleep 250
+			winClose,% this.WinTitle
+										
+			Sleep,1200			
+			return
+		}
+;---------------------------------------------------------------------- 
+	initIni(){
+		Critical,on
+		theIniPath:=this.dir "\data.ini"
+		this.ini:=new Ini(theIniPath)
+		return
+	}
+;---------------------------------------------------------------------- 
+	processInput(aInput){
+		if(aInput.isNumber()){
+			this.tempMap["Page"]:=aInput
+			showToolTip("页码被成功捕获: " this.tempMap["Page"] "`n" "当前标题: " this.tempMap["title"])
+		}
+		
+		else{
+			this.tempMap["title"]:=this.tempMap["title"] aInput "_"
+			showToolTip("当前标题: " this.tempMap["title"])
+		}
+		
+		return
+	}
+;---------------------------------------------------------------------- 
+	makeBook(){
+		this.checkInput()
+		this.mes:=this.getMes()
+		this.write()
+		this.resetTempMap()
+		return
+	}
+;---------------------------------------------------------------------- 
+	makeMap(){
+		this.tempMap["mes"]:=this.mes
+		this.tempMap["mesPath"] := this.dir "\报文\" this.tempMap["title"] ".txt"
+		showToolTip("已生成: " this.tempMap["title"])
+		palyMesSound()
+		return
+	}
+		
+;---------------------------------------------------------------------- 
+	writeMesInText(){
+		FileAppend , % this.tempMap["mes"], % this.tempMap["mesPath"]
+		return
+	}
+;---------------------------------------------------------------------- 
+	writeMapInIni(){
+		theSectionName := this.tempMap["title"]
+		theSection:=this.Ini.getSection(theSectionName)
+		this.deleteMesKeyValue()
+		theSection.writeByMap(this.tempMap)
+		return
+	}
+;---------------------------------------------------------------------- 
+	
+	write(){
+		this.makeMap()		
+		this.writeMesInText()
+		this.writeMapInIni()
+		return
+	}
+;---------------------------------------------------------------------- 
+			
+	deleteMesKeyValue(){
+		this.tempMap.Delete("mes")
+		return
+	}
+;---------------------------------------------------------------------- 
+	
+	resetTempMap(){
+		this.tempMap:=Object("title","","Page","","mes","","mesPath","")		
+		return
+	}
+;---------------------------------------------------------------------- 
+	checkInput(){
+		if(this.tempMap["title"]=""){
+			throw 标题不存在
+		}
+		if(this.tempMap["Page"]=""){
+			throw 页码不存在
+		}
+		else{
+			this.tempMap["title"].=this.tempMap["Page"] "页"
+		}
+		return
+	}
+	;---------------------------------------------------------------------- 
+	getMes(){
+		WinTitle:="百发百中报文嗅探器"
+		if Not WinExist(WinTitle)
+			throw Exception(_EX.NoExistWin)
+		ControlClick, Button1, %WinTitle%
+		ControlGetText, theMes , Edit1, %WinTitle%
+		return theMes
+	}
+} 	;-------------------- class AutoPDG End

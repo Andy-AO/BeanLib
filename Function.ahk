@@ -1,4 +1,15 @@
 ﻿
+/*
+如果扑空会抛出异常的 FuncObj 获取器
+*/
+getFunc(aFuncName){
+	type.afStr(aFuncName)
+	theFunc := Func(aFuncName)
+	if Not(IsObject(theFunc)){
+		throw Exception(_Ex.NoExistFunctionName)
+	}
+	return theFunc
+}
 ;---------------------------------------------------------------------- 
 /*
 根据 Keys* 生成空的 Map

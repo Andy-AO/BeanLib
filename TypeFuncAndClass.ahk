@@ -142,12 +142,17 @@ Class Type{
 			return Type.ComObj
 		}
 		
-		keyCount:=Obj.Count() ;计算长度和Key键数,如果一致,而且均非零非空,那么必定是SimpleArray
+		keyCount:=Obj.Count() ;计算长度和Key键数,如果一致,而且均非零非空,那么必定是 List
+		
 		if ((len=keyCount) AND (len!="") AND (keyCount!="") AND (keyCount!=0) AND (len!=0)){
 			theType:=Type.List
 		}
 			
-		else 
+		else if (_Map.merge()){
+			
+		}
+		
+		else
 			theType:=Type.ObjectSpecificType(Obj)
 		
 		return theType
@@ -163,11 +168,7 @@ Class Type{
 		while ObjBase := Obj.base
 			if ObjHasKey(ObjBase, "__Class") ;检查是否继承自 Class
 				return Type.ExtendsObj
-		
-		;检查是否为 FuncObj 抽检两个字段，基本上就可以断定
-		if ((Obj.Name!="") AND (Obj.IsOptional(1)!=""))
-			return Type.FuncObj
-		
+				
 		;检查是否为 FileObj 主要的方法就是抽检其中的三个字段
 		F1:=Obj.Length=Obj.Length(),F2:=Obj.AtEOF!="",F3:=Obj.Pos!="",FC:=F1+F2+F3=3
 		if (FC)
@@ -182,6 +183,13 @@ Class Type{
 		
 		if (Str="")
 			return Type.NS
+		else if(Str.isNumber()){
+			if((Str=1)Or(Str=0))
+				return Type.Boolean
+			else
+				return Type.Number
+		}
+			
 		else
 			return Type.Str
 	}
@@ -192,9 +200,10 @@ Class Type{
 		
 		;这个函数的用处就是转换Code,因为有一些Code覆盖面非常大，主要是Obj,还有Str(覆盖NS)和List(覆盖StrList),这些就不能直接比对先去进行转换
 		Swap(TypeCode,aInputTypeCode){
-		
-			if(TypeCode=Type["Obj"]){
-			if ((aInputTypeCode>=Type["Obj"])AND(aInputTypeCode<=Type["ComObj"]))
+					
+		if(TypeCode=Type["Obj"]){
+				
+			if ((aInputTypeCode>=Type["Obj"])AND(aInputTypeCode <= Type.ObjEndCode))
 				return TypeCode
 			else 
 				return aInputTypeCode
@@ -202,11 +211,22 @@ Class Type{
 		}				
 		
 		else if(TypeCode=Type["Str"]){
-			if ((aInputTypeCode>=Type["Str"])AND(aInputTypeCode<=Type["NS"]))
+			if ((aInputTypeCode>=Type["Str"])AND(aInputTypeCode <= Type.StrEndCode))
 				return TypeCode
 			else 
 				return aInputTypeCode
-		}			
+		}
+		
+		else if(TypeCode=Type["Number"]){
+			if ((aInputTypeCode>=Type["Number"])AND(aInputTypeCode <= Type.NumberEndCode))
+				return TypeCode
+			else 
+				return aInputTypeCode
+		}
+			
+		else
+			return aInputTypeCode
+			
 		
 	}
 	
@@ -228,18 +248,21 @@ Class TypeBase{
 	}	
 	
 	Class __Get extends Type.TypeGetBase{
-	
-	;这些东西必须是静态的,不要以为最后还要__New,这个域是 "__Get" 的
-	
-	Static Str:=10,NS:=11
-	
-	Static List:=130
-	
-	Static Obj:=100,ExtendsObj:=101,Class:=110
-	
-	Static FileObj:=150
-	
-	Static ComObj:=160
+		
+		;这些东西必须是静态的,不要以为最后还要__New,这个域是 "__Get" 的
+		
+		Static StrEndCode := 19,NumberEndCode := 14
+		
+		Static Str:=10,NS:=11,Number:=12,Boolean:=13
+		
+		Static List:=130
+
+		Static ObjEndCode := 199
+		Static Obj:=100,ExtendsObj:=101,Class:=110,FuncObj:=120
+		
+		Static FileObj:=150
+		
+		Static ComObj:=160
 	}	
 	
 ;---------------------------------------------------------------------- 
@@ -255,7 +278,7 @@ Class TypeBase{
 		theInput:=aParams[1]
 		aInputTypeCode:=Type(theInput)
 		
-		if ((TypeCode=Type["Obj"]) OR (TypeCode=Type["Str"])) ;对于这两个范围很大的特殊优待
+
 		aInputTypeCode:=Type.Swap(TypeCode,aInputTypeCode)
 		
 		Result:=TypeCode=aInputTypeCode

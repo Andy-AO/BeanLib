@@ -87,6 +87,19 @@ Drive , Label|Lock|Unlock|Eject [, Drive, Value]
 DriveGet , OutputVar, Cmd [, Value]
 DriveSpaceFree , OutputVar, Path
 Edit
+Instanof
+Action
+Ini
+Condition
+Conditions
+_Wins
+Bean
+_Win
+AutoInputBox
+_Map
+_Container
+Spliter
+AutoGui 
 else
 EnvAdd , Var, Value [, TimeUnits]
 EnvDiv , Var, Value
@@ -312,6 +325,13 @@ GetKeyVK (Key)
 GetKeySC (Key)
 IsByRef (Var)
 IsFunc (FunctionName)
+.getFunc ()
+.equal (Obj)
+.getName ()
+equal
+boolean
+isBoolean ()
+afBoolean ()
 IsLabel (LabelName)
 IsObject (Param)
 NumGet (VarOrAddress [, Offset, "UInt|Int|Int64|Short|UShort|Char|UChar|Double|Float|Ptr|UPtr"])
