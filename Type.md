@@ -19,7 +19,7 @@
 	
 	Static List:=130
 	
-	Static Obj:=100,ExtendsObj:=101,Class:=110
+	Static Obj:=100,ExtendsObj:=101,Class:=110,func:=120
 	
 	Static FileObj:=150
 	
@@ -52,6 +52,7 @@ afOff() - 把变量设为 false ,关闭断言
 #### isObj(Ever) 
 #### isClass(Ever) 
 #### isFileObj(Ever) 
+#### isFuncObj(Ever) 
 #### isComObj(Ever) 
 
 ### af方法(断言方法)
@@ -68,6 +69,7 @@ afOff() - 把变量设为 false ,关闭断言
 #### afObj(Ever) 
 #### afClass(Ever) 
 #### afFileObj(Ever) 
+#### afFuncObj(Ever) 
 #### afComObj(Ever) 
 
 ``` autohotkey
