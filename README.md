@@ -34,25 +34,6 @@ Lib是可以重复使用的代码，您可以把他们和自己的代码相结�
 
 从 [GitHub](https://github.com/Oilj/BeanLib) 直接 Clone
 
-### 为什么内容有些少?
-
-##### 现在一点也不少咯
-
-现在一点也不少了，一共大概**三四十个吧**。因为我 HTML 技术不行，所以没法在目录上直接加锚点，所以后期加入的方法都在一个页面里面(AHK帮助文件也这么搞)。- 2019年01月14日 
-
-- 先全文搜索
-- 进到页面之后再用浏览器搜索
-
----
-
-因为刚刚建立不久，所以需要大量时间完善。
-
-又要测试又要写文档，所以...
-
-可以说"养肥了再宰"，不过为什么不先下手呢，[点点鼠标的事。](https://gitee.com/xrvu_zen/BeanLib)
-
-<img src="https://upload-images.jianshu.io/upload_images/14875935-a324c753a1a065b0.GIF?imageMogr2/auto-orient/strip" height="166px" width="173px" >           反正又不会怀孕，是不是?
-
 ## 其他有用的资源
 
 ### 经典文章
