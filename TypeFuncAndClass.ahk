@@ -163,7 +163,11 @@ Class Type{
 		while ObjBase := Obj.base
 			if ObjHasKey(ObjBase, "__Class") ;检查是否继承自 Class
 				return Type.ExtendsObj
-				
+		
+		;检查是否为 FuncObj 抽检两个字段，基本上就可以断定
+		if ((Obj.Name!="") AND (Obj.IsOptional(1)!=""))
+			return Type.FuncObj
+		
 		;检查是否为 FileObj 主要的方法就是抽检其中的三个字段
 		F1:=Obj.Length=Obj.Length(),F2:=Obj.AtEOF!="",F3:=Obj.Pos!="",FC:=F1+F2+F3=3
 		if (FC)
