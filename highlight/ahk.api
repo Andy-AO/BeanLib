@@ -78,6 +78,7 @@ ControlGetText , OutputVar [, Control, WinTitle, WinText, ExcludeTitle, ExcludeT
 ControlMove , Control, X, Y, Width, Height [, WinTitle, WinText, ExcludeTitle, ExcludeText]
 ControlSend [, Control, Keys, WinTitle, WinText, ExcludeTitle, ExcludeText]
 ControlSendRaw [, Control, Keys, WinTitle, WinText, ExcludeTitle, ExcludeText]
+.funcThis
 ControlSetText [, Control, NewText, WinTitle, WinText, ExcludeTitle, ExcludeText]
 CoordMode , ToolTip|Pixel|Mouse|Caret|Menu [, Screen|Relative|Window|Client]
 Critical [, On|Off]

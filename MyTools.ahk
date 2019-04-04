@@ -111,22 +111,67 @@ class AutoPDG{
 	WinTitle:="修改、新建CX BOOK 下载任务"
 	报文Control:="TMemo1"
 	页数Control:="TEdit11"
-	标题Control:="TEdit10"
-	;~ 确定Control:="TButton5"
-	确定Control:="x981 y270"
+	
+	ClassNN:=Object("booktitle","TEdit10")
+	
 	CxCandyEnt新建Control:="x452 y73"
 	CxCandyEntWinTiTle:="CxCandyEnt 1.8.9 build 111012"
+
+;---------------------------------------------------------------------- 
+
+	initWinObj(){
+		this.downLoadWinObj := new Win(this.WinTitle)
+		LogPrintln(this.downLoadWinObj,"this.downLoadWinObj >>>")
+		return
+	}
+
+;---------------------------------------------------------------------- 
+	initControlObj(){
+		this.bookTitleControl :=New Control(this.downLoadWinObj,this.ClassNN.booktitle)
+		LogPrintln(this.bookTitleControl,"this.bookTitleControl >>>")
+		return
+	}
+
+;---------------------------------------------------------------------- 
+
+	SetTitle(){
+	LogPrintln(this.bookTitleControl,"this.bookTitleControl >>>")
+		LogPrintln(this.tempMap.title,"this.tempMap.title >>>")
+		this.bookTitleControl.setText("测试")
+		return
+	}
+;---------------------------------------------------------------------- 
+
+initAction(){
+	this.SetTitleAction := new Action(this,this.SetTitle)	
+	return
+}
+;---------------------------------------------------------------------- 
+
+initClickOkAction(){
+
+	okButtonPos := DownLoadWinObj.getPosObj(981,270)
+	okButtonPos.aNotActivate:=true
+	this.clickOkAction := new Action(okButtonPos.click)	
+	return
+}
+
 ;---------------------------------------------------------------------- 
 	__New(){
 		this.initIni()
-		this.resetTempMap()
+		
+		this.initWinObj()
+		this.initControlObj()
+		
+		this.initAction()
+
 		return this
 	}
 ;---------------------------------------------------------------------- 
 	
 	autoFill(){		
 		Critical,on
-		this.iniMap:=this.ini.getMap()		
+		;~ this.iniMap:=this.ini.getMap()		
 		this.load()			
 		return
 	}
@@ -140,43 +185,29 @@ class AutoPDG{
 			return
 		}
 
+
+;---------------------------------------------------------------------- 
+
+	loadFakeData(){
+		theMesPath = D:\MyDocs\重要文档\超星自动下载数据\测试用报文.txt
+		this.loadMap["title"]:=getCurrentTime() A_Sec A_MSec 
+		FileRead, theMes, %theMesPath%
+		this.loadMap["mes"] := theMes
+	}
+
 ;---------------------------------------------------------------------- 
 	load(){
 		
 		Critical,on
-		
-		theMap := this.iniMap
-		LogPrintln(theMap,"theMap >>>")
-		
-		
-		
-		
-		for i,v in theMap {
 			
-			this.loadMapFromFile(v)
-			this.fill()
-			
-			loop{
-				if WinExist("检测到重名"){
-					WinActivate
-					Sleep 500
-					Send,{Enter}
-				}	
-				else{
-					break
-				}
-			}
+		this.loadFakeData(v)
+		
+		this.fill()
 
-
-			Sleep 200
-			
-			WinActivate ,% this.CxCandyEntWinTiTle
-			ControlClick,% this.CxCandyEnt新建Control,% this.CxCandyEntWinTiTle
-			
-			this.fill()
-			
-			Sleep 600
-		}
+		Sleep 200
+		
+		WinActivate ,% this.CxCandyEntWinTiTle
+		ControlClick,% this.CxCandyEnt新建Control,% this.CxCandyEntWinTiTle
 
 
 		return
@@ -184,28 +215,17 @@ class AutoPDG{
 				
 ;---------------------------------------------------------------------- 
 		fill(){
-			Critical,on
+			SetWinDelay, 200	
 			
-			WinActivate ,% this.WinTitle
-			Sleep 150
+			WinActivate ,% this.WinTitle	
+			; return			
+			this.SetTitleAction.Call()
+					
+			return
 			ControlSetText , % this.标题Control, % this.loadMap["title"], % this.WinTitle
-			Sleep 50
-			ControlSetText , % this.页数Control, % this.loadMap["page"], % this.WinTitle
-			Sleep 50
 			ControlClick , % this.报文Control, % this.WinTitle
-			Sleep 50
-			SendByClip(this.loadMap["mes"])
-			Sleep 50
-			
+			SendByClip(this.loadMap["mes"])	
 			WinActivate ,% this.WinTitle
-			Sleep 150
-			
-			ClassNN:=GetActiveControlIsOfClass("ClassNN")
-			ControlClick,% this.确定Control,% this.WinTitle	
-			Sleep 250
-			winClose,% this.WinTitle
-										
-			Sleep,1200			
 			return
 		}
 ;---------------------------------------------------------------------- 

@@ -227,10 +227,17 @@ afParaLength(aFunc,aParaList){
 自动为 Func 绑定参数
 */
 AutoBind(aFunc,aParaList,aFirstPara){
-		
-		aParaList.InsertAt(1,aFirstPara)
-	
+	aParaList.InsertAt(1,aFirstPara)
 	afParaLength(aFunc,aParaList)
 	BoundFunc:=aFunc.Bind(aParaList*)
 	return BoundFunc
+}
+;---------------------------------------------------------------------- 
+/*
+SmartCall 智能运行
+*/
+SmartCall(aFunc,aParaList*){
+	afParaLength(aFunc,aParaList)
+	result := %aFunc%(aParaList*)
+	return result
 }

@@ -6,108 +6,50 @@
 class Action{
 	
 	isAction:=true
-	func:="",name:=""
-	conditions := Object("before","","after","")
-	onErrorAction := ""
+	func:="",funcThis:=""
+	static funcObjCalledName:=["Call",""]
+	static objectMethodName:=["_NewEnum","count","length","Push"]
 ;---------------------------------------------------------------------- 
 
 	class meta{
-		thethis:=""
+		actionThis:=""
 ;---------------------------------------------------------------------- 
-	onError(){
-		if(IsObject(this.onErrorAction)){
-			this.onErrorAction.Call()
-		}
-		else{
-		}
-		return
-	}
-;---------------------------------------------------------------------- 
-	onBefore(){
-		try{
-			this.thethis.conditions.before.Call()
-		}
-		catch{
-			this.onError()
-		}
-		return
-	}
-;---------------------------------------------------------------------- 
-	onAfter(){
-		try{
-			this.thethis.conditions.after.Call()
-		}
-		catch{
-			this.onError()
-		}
-		return
-	}
-;---------------------------------------------------------------------- 
-;---------------------------------------------------------------------- 
-	call(){
-		this.onBefore()
-		resultFuncObj := this.thethis.func
-		theResult := %resultFuncObj%()
-		this.onAfter()
-		return theResult
-	}
-;---------------------------------------------------------------------- 
-		initName(aName){
-			if(aName!=""){
-				this.thethis.name:=aName
-			}
-			else{
-				this.getNameByFunc()			
-			}
+		initFunc(aFuncThis,aFunc){
+			type.afFuncObj(aFunc)
+			this.actionThis.func:=aFunc
+			this.actionThis.funcThis:=aFuncThis
 			return
 		}
-
-	;---------------------------------------------------------------------- 
-		initFunc(aFunc){
-			if(type.isObj(aFunc)){
-				if(type.isFuncObj(aFunc))
-					this.thethis.func:=aFunc
-				else
-					throw Exception(_Ex.InvalidPara "1 : " "不接受除FuncObj之外的其他Obj.")
-			}
-			else{
-				this.thethis.func:=getFunc(aFunc)
-			}
-			return
-		}
-
 ;---------------------------------------------------------------------- 
-	getNameByFunc(){
-		theName:=this.thethis.func.Name
-			if(theName!=""){
-				this.thethis.name:=theName
-			}
-			else{
-				throw Exception(_Ex.InvalidPara "2 : " "未输入Action Name")
-			}	
-		return
-	}
-
-;---------------------------------------------------------------------- 
+		
 	} ;------class Meta   End
+	
 ;---------------------------------------------------------------------- 	
-	__call(methodName,aParams*){
-        if (methodName = "")
-            methodName = call
-		theMeta:=this.meta
-		if(ObjHasKey(theMeta,methodName)){
-			BoundFunc := AutoBind(theMeta[methodName],aParams,theMeta)
-			result := %BoundFunc%()
-			return result
+	__call(aMethodName,aParams*){
+
+        if(_List.Contains(Action.funcObjCalledName,aMethodName)){
+			aParams.InsertAt(1,this.funcThis)
+			return SmartCall(this.func,aParams*)			
+		}
+		
+		else if(ObjHasKey(this.meta,aMethodName)){
+			aParams.InsertAt(1,this.meta)
+			return SmartCall(this.meta[aMethodName],aParams*)
 		}		
+		else if (_List.Contains(Action.objectMethodName,aMethodName)){
+			return false
+		}
+		
+		else{
+			throw Exception(_EX.NoExistMethod)
+		}
 		return
 	}
 ;---------------------------------------------------------------------- 
-	__New(aFunc,aName:=""){
-			this.meta.theThis := this
-			type.afStr(aName)
-			this.initFunc(aFunc)
-			this.initName(aName)
+	__New(aFuncThis,aFunc){
+			LogPrintln(aFuncThis,"aFuncThis >>>")
+			this.meta.actionThis := this
+			this.initFunc(aFuncThis,aFunc)
 			return this
 	}
 } ;---------class Action End
