@@ -2,7 +2,7 @@
 ;~ protect(Bean)
 
 Class Bean{
-static ObjectMetaMethodName:=["_NewEnum","__Init","__New","__Delete","__Get","__Set","Count","Length"]
+static ObjectMetaMethodName:=["_NewEnum","__Init","__New","__Delete","__Get","__call","__Set","Count","Length"]
 
 ;---------------------------------------------------------------------- 
 

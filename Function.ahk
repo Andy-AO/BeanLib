@@ -1,4 +1,28 @@
-﻿;---------------------------------------------------------------------- 
+﻿rawCall(aThis,aMethodName,aParams*){
+		if(ObjHasKey(aThis.base,aMethodName)){
+			aParams.InsertAt(1,aThis)
+			return SmartCall(aThis.base[aMethodName],aParams*)
+		}		
+		else{
+			throw Exception(_EX.NoExistMethod)
+		}
+		return
+}
+/*
+;---------------------------------------------------------------------- 
+
+loadFunc(this){
+	this.func:={},class:=this.base
+	for name,Obj in class {
+		pullIt := (type.isFuncObj(obj)) AND (Bean.notMeta(name))
+		if(pullIt){
+			this.func[name] := obj
+		}
+	}
+	return 
+}
+*/
+;---------------------------------------------------------------------- 
 
 loadAction(this){
 	this.action:={},class:=this.base
