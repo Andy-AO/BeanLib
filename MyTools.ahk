@@ -131,7 +131,9 @@ class AutoPDG{
 ;---------------------------------------------------------------------- 
 
 initAction(){
-	;~ this.SetTitle.before := new Condition(this.chechDownloadWinActive)
+	theCondition := new Condition(this.chechDownloadWinActive)
+	LogPrintln(theCondition,"theCondition >>>")
+	this.action.SetTitle.conditions["before"] := theCondition
 	return
 }
 ;---------------------------------------------------------------------- 
@@ -199,11 +201,8 @@ initClickOkAction(){
 				
 ;---------------------------------------------------------------------- 
 		fill(){
-			SetWinDelay, 200	
+			SetWinDelay, 200
 			
-			WinActivate ,% this.WinTitle	
-			
-			;~ 这个填写就要设置WinActivate的前提了
 			this.action.setTitle.Call()
 			
 					

@@ -18,18 +18,34 @@ class Action{
 			this.funcThis:=aFuncThis
 			return
 		}
-	
+		onError(){
+			throw Exception("onError！ onError！ onError！	")
+			return
+		}
+;---------------------------------------------------------------------- 
+		onBefore(){
+			LogPrintln("onBefore运行中！","onBefore运行中！ onBefore运行中！运行中！")
+			LogPrintln(this.conditions.before,"this.conditions.before >>>")
+			result := this.conditions.before.call()
+			if (result = false)
+				rawCall(this,"onError")
+			return
+		}
+;---------------------------------------------------------------------- 
+		call(aParams*){
+			rawCall(this,"onBefore")
+			result := SmartCall(this.funcThis,this.func,aParams*)
+			return result
+		}
 ;---------------------------------------------------------------------- 	
 	__call(aMethodName,aParams*){
 
         if(Bean.isCall(aMethodName)){
-			aParams.InsertAt(1,this.funcThis)
-			return SmartCall(this.func,aParams*)			
+			rawCall(this,"call",aParams*)
 		}
 		else if (Bean.isMeta(aMethodName)){
 			return false
 		}
-		
 		else{
 			throw Exception(_EX.NoExistMethod)
 		}

@@ -17,7 +17,7 @@ false(aParas*){
 ;---------------------------------------------------------------------- 
 	
 	isFunc(aObj){
-		if((type.isActive(aCheckObj))OR(type.isFuncObj(aCheckObj))){
+		if((type.isAction(aObj))OR(type.isFuncObj(aObj))){
 			return true
 		}
 		else{

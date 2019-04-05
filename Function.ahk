@@ -1,7 +1,6 @@
 ﻿rawCall(aThis,aMethodName,aParams*){
 		if(ObjHasKey(aThis.base,aMethodName)){
-			aParams.InsertAt(1,aThis)
-			return SmartCall(aThis.base[aMethodName],aParams*)
+			return SmartCall(aThis,aThis.base[aMethodName],aParams*)
 		}		
 		else{
 			throw Exception(_EX.NoExistMethod)

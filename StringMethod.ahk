@@ -8,8 +8,7 @@ String Method
 class StrCallBase{
     __Call(aStr,aName,aParams*){
 		if(ObjHasKey(this,aName)){
-			aParams.InsertAt(1,aStr)
-			return SmartCall(this[aName],aParams*)
+			return SmartCall(aStr,this[aName],aParams*)
 		}
 		else{					
 			Bean.Protect.__Call("")	
@@ -235,8 +234,9 @@ AutoBind(aFunc,aParaList,aFirstPara){
 /*
 SmartCall 智能运行
 */
-SmartCall(aFunc,aParaList*){
-	afParaLength(aFunc,aParaList)
-	result := %aFunc%(aParaList*)
+SmartCall(aThis,aFunc,aParams*){
+	aParams.InsertAt(1,aThis)
+	afParaLength(aFunc,aParams)
+	result := %aFunc%(aParams*)
 	return result
 }
