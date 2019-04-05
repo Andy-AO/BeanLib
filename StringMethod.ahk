@@ -8,9 +8,8 @@ String Method
 class StrCallBase{
     __Call(aStr,aName,aParams*){
 		if(ObjHasKey(this,aName)){
-			BoundFunc := AutoBind(this[aName],aParams,aStr) 
-			OutPut := BoundFunc.Call()
-			return OutPut
+			aParams.InsertAt(1,aStr)
+			return SmartCall(this[aName],aParams*)
 		}
 		else{					
 			Bean.Protect.__Call("")	

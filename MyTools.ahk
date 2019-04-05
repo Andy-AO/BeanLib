@@ -104,46 +104,34 @@ class Inject{
 说明:超星图书下载自动化
 */
 class AutoPDG{
-	
-	dir := "D:\MyDocs\重要文档\超星自动下载数据"
-	map := {}
-	
-	WinTitle:="修改、新建CX BOOK 下载任务"
-	报文Control:="TMemo1"
-	页数Control:="TEdit11"
-	
-	ClassNN:=Object("booktitle","TEdit10")
-	
-	CxCandyEnt新建Control:="x452 y73"
-	CxCandyEntWinTiTle:="CxCandyEnt 1.8.9 build 111012"
-
-;---------------------------------------------------------------------- 
-
+	ClassNN := Object("booktitle","TEdit10")
+	downLoadWinTitle := "修改、新建CX BOOK 下载任务"
+;------------------------------------------------------------------ 
 	initWinObj(){
-		this.downLoadWinObj := new Win(this.WinTitle)
-		LogPrintln(this.downLoadWinObj,"this.downLoadWinObj >>>")
+		this.downLoadWinObj := new Win(this.downLoadWinTitle)
 		return
 	}
-
 ;---------------------------------------------------------------------- 
 	initControlObj(){
 		this.bookTitleControl :=New Control(this.downLoadWinObj,this.ClassNN.booktitle)
-		LogPrintln(this.bookTitleControl,"this.bookTitleControl >>>")
 		return
 	}
 
 ;---------------------------------------------------------------------- 
 
 	SetTitle(){
-	LogPrintln(this.bookTitleControl,"this.bookTitleControl >>>")
-		LogPrintln(this.tempMap.title,"this.tempMap.title >>>")
 		this.bookTitleControl.setText("测试")
 		return
+	}
+
+;---------------------------------------------------------------------- 
+	chechDownloadWinActive(){
+		return this.downLoadWinObj.isActive()
 	}
 ;---------------------------------------------------------------------- 
 
 initAction(){
-	this.SetTitleAction := new Action(this,this.SetTitle)	
+	;~ this.SetTitle.before := new Condition(this.chechDownloadWinActive)
 	return
 }
 ;---------------------------------------------------------------------- 
@@ -158,20 +146,16 @@ initClickOkAction(){
 
 ;---------------------------------------------------------------------- 
 	__New(){
-		this.initIni()
-		
+		loadAction(this)
 		this.initWinObj()
 		this.initControlObj()
-		
 		this.initAction()
-
 		return this
 	}
 ;---------------------------------------------------------------------- 
 	
 	autoFill(){		
-		Critical,on
-		;~ this.iniMap:=this.ini.getMap()		
+		Critical,on	
 		this.load()			
 		return
 	}
@@ -218,8 +202,10 @@ initClickOkAction(){
 			SetWinDelay, 200	
 			
 			WinActivate ,% this.WinTitle	
-			; return			
-			this.SetTitleAction.Call()
+			
+			;~ 这个填写就要设置WinActivate的前提了
+			this.action.setTitle.Call()
+			
 					
 			return
 			ControlSetText , % this.标题Control, % this.loadMap["title"], % this.WinTitle
@@ -228,13 +214,7 @@ initClickOkAction(){
 			WinActivate ,% this.WinTitle
 			return
 		}
-;---------------------------------------------------------------------- 
-	initIni(){
-		Critical,on
-		theIniPath:=this.dir "\data.ini"
-		this.ini:=new Ini(theIniPath)
-		return
-	}
+
 ;---------------------------------------------------------------------- 
 	processInput(aInput){
 		if(aInput.isNumber()){

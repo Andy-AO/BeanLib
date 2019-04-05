@@ -25,6 +25,7 @@
 #Include _EX.ahk
 #Include _Map.ahk
 #Include _Container.ahk
+#Include Bean.ahk
 #Include StringMethod.ahk
 
 #Include TypeFuncAndClass.ahk
@@ -33,7 +34,6 @@
 #Include AutoClassify.ahk
 #Include Everything.ahk
 #Include APPLocker.ahk
-#Include Bean.ahk
 #Include Function.ahk.
 #Include Control.ahk.
 #Include Win.ahk

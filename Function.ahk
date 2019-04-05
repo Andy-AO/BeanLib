@@ -1,4 +1,16 @@
-﻿
+﻿;---------------------------------------------------------------------- 
+
+loadAction(this){
+	this.action:={},class:=this.base
+	for name,Obj in class {
+		pullIt := (type.isFuncObj(obj)) AND (Bean.notMeta(name))
+		if(pullIt){
+			this.action[name] := new Action(this,obj)
+		}
+	}
+	return 
+}
+;----------------------------------------------------------------------
 /*
 如果扑空会抛出异常的 FuncObj 获取器
 */

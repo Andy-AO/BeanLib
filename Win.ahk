@@ -23,6 +23,17 @@ class Win{
 		return result
 	}
 ;---------------------------------------------------------------------- 
+	isActive(){
+		return WinActive(this.title)
+	}
+	
+	;---------------------------------------------------------------------- 
+	isExist(){
+		return WinExist(this.title)
+	}
+	
+	
+;---------------------------------------------------------------------- 
 	getPosObj(aX,aY){
 		return this.Pos.__New(this,aX,aY)
 	}

@@ -61,7 +61,6 @@ Class _Wins{
 	AnalyzeByPath(aWinPath,aDetectHiddenWindows:=""){
 		thePathObj:=new PathObj(aWinPath)
 		theAnalyzeWins:=_Wins.Analyze("ahk_exe" thePathObj.name,aDetectHiddenWindows)
-
 		return SelectWinByPathFromAnalyzeWins(thePathObj,theAnalyzeWins)
 	}
 ;---------------------------------------------------------------------- 
