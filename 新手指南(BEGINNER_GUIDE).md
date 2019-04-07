@@ -23,7 +23,7 @@ Clone 就是『克隆』，类似『复制』或者『下载』的意思。
 
 3. 等待 Clone 完成。
 
-# 3.导入 Include
+# 3. 导入 Include
 
 1. 复制 BeanLib.ahk 的路径
 
@@ -36,14 +36,27 @@ Clone 就是『克隆』，类似『复制』或者『下载』的意思。
 
   ```autohotkey
   #Include C:\Users\Administrator\Desktop\BeanLib\BeanLib.ahk
-  logPrintln("Hello World")
+  logPrintln("Hello World！")
   
-   ```
+  ```
 4. 按下 Ctrl+N 讲脚本保存到本地，并且按下 F5 运行脚本。
-	如无意外，脚本会运行失败，在 SciTE4AutoHotkey 下方会显示错误。
-   ![显示错误](https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/image_26.png)
+    如无意外，脚本会运行失败，在 SciTE4AutoHotkey 下方会显示错误。
+    ![显示错误](https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/image_26.png)
+
 5. 双击该错误行，程序自动打开 BeanLib.ahk
    你需要将 #Include D:\AHKs\Stable\ahk_lib 替换为自己的目录。
    比如，替换成 #Include C:\Users\Administrator\Desktop\BeanLib
     ![BeanLib.ahk](https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/20190407101441.png)
-6. 重新回到刚刚的界面，再次按下 F5 运行脚本
+
+6. 重新回到刚刚的界面，再次按下 F5 运行脚本。
+
+   出现 HelloWorld 表示库已经部署成功。
+   
+
+
+   ![成功](https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/20190407102303.png)
+
+# 4. 后续
+- 在需要导入的脚本的最顶部加入 Include 命令，即可调用库类和函数。
+- 使用库时，遇到问题请先先查阅文档，大多数的问题都已经有解决方案。如果无法解决也可以联系我。
+- 可以导入代码高亮，如果不导入也不影响库的使用，相关内容请查看「代码高亮」的说明文档。
