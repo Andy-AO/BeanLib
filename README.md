@@ -29,7 +29,7 @@ BeanLib 最低兼容  [AutoHotKey 1.1.30.00](https://wyagd001.github.io/zh-cn/do
 
 - 可选项：也可以为 BeanLib 中的函数添加语法高亮，不过这并非必须，详见『语法高亮』章节。
 
-如果你是新手，可以戳这里查看详细的图文教程。
+如果你是新手，可以戳[新手指南(BEGINNER_GUIDE)](%E6%96%B0%E6%89%8B%E6%8C%87%E5%8D%97(BEGINNER_GUIDE).md)查看详细的图文教程。
 
 BeanLib 的函数之间可能是相互依赖的，不建议拆分使用。
 
