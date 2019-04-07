@@ -20,7 +20,9 @@ class StrCallBase{
     }
 }
 class StrBase{
-	
+
+;---------------Inner Class ListSpliter
+
 	class ListSpliter{
 ;---------------------------------------------------------------------- 
 	
@@ -40,29 +42,7 @@ class StrBase{
 			return this
 		}
 
-;---------------------------------------------------------------------- 
-RegexEscape(){
-	aRegEx := this
-	regexList:=[".","?","+","$","^","[","]","(",")","{","}","*","/","|"]
-	return this.Escape(regexList)
-}
-;---------------------------------------------------------------------- 
 
-Escape(aCharList,aTargetChar:="\"){
-	String := this
-	Type.afStr(aTargetChar),Type.afStr(String),Type.afList(aCharList)
-	if (String="")
-		return
-	
-	aCharList.InsertAt(1,aTargetChar) 
-	for index,p in aCharList{
-		if instr(String,p){
-			Newp:="\" . p
-			String:=StrReplace(String,p,Newp)
-		}
-	}
-	return String
-}
 ;---------------------------------------------------------------------- 
 			split(){
 							
@@ -93,8 +73,31 @@ Escape(aCharList,aTargetChar:="\"){
 		
 	}
 	
-	;------- inner class ListSpliter End
+;------- inner class ListSpliter End
     class __Call extends StrCallBase{
+;---------------------------------------------------------------------- 
+RegexEscape(){
+	aRegEx := this
+	regexList:=[".","?","+","$","^","[","]","(",")","{","}","*","/","|"]
+	return this.Escape(regexList)
+}
+;---------------------------------------------------------------------- 
+
+Escape(aCharList,aTargetChar:="\"){
+	String := this
+	Type.afStr(aTargetChar),Type.afStr(String),Type.afList(aCharList)
+	if (String="")
+		return
+	
+	aCharList.InsertAt(1,aTargetChar) 
+	for index,p in aCharList{
+		if instr(String,p){
+			Newp:="\" . p
+			String:=StrReplace(String,p,Newp)
+		}
+	}
+	return String
+}
 ;----------------------------------------------------------------------  Start	
 		length(){
 			return StrLen(this)
