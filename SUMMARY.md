@@ -35,6 +35,7 @@
 * [UseCMD()](UseCMD.md)
 * [Instanof()](Instanof().md)
 * [LogPrintln()](LogPrintln().md)
+* [新手指南(BEGINNER_GUIDE)](新手指南(BEGINNER_GUIDE).md)
 * [更新历史(CHANGELOG)](更新历史(CHANGELOG).md)
 * [鸣谢 (ACKNOWLEDGEMENT)](BeanLib_ACKNOWLEDGEMENT.md)
 * [贡献指南 (CONTRIBUTING)](BeanLib_CONTRIBUTING.md)

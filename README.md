@@ -8,31 +8,51 @@
 - BeanLib是环保的，不会占用全局变量，不会干扰自动执行段。
 
 ## 使用说明
-### 特别提示
-- 请在 [**看云(KanCloud)**](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301)  阅读文档，[看云](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301) 是专业的托管平台，支持**全局搜索**，**导航目录**，评论以及CSS渲染，美观易用。
-
-- GitHub 和 GitEE 作为 **提交issue， 发起Pull Request ， 源码下载** 之用。
-
-- [看云](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301) 会优先更新，一切内容以 [看云](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301) 为准。
-
-<img src="https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/%E7%9C%8B%E4%BA%91%E7%A4%BA%E4%BE%8B20190106110326.png" height="215px" width="350px" > 
 
 ### [Lib是什么?](https://wyagd001.github.io/zh-cn/docs/Functions.htm#include)
 
 Lib是可以重复使用的代码，您可以把他们和自己的代码相结合，来创造新的功能。
+BeanLib 最低兼容  [AutoHotKey 1.1.30.00](https://wyagd001.github.io/zh-cn/docs/AHKL_ChangeLog.htm)，仅确保对 Unicode-32bit 版本的支持。
 
-### 兼容到什么版本?
-[AutoHotKey 1.1.30.00](https://wyagd001.github.io/zh-cn/docs/AHKL_ChangeLog.htm)
+### 更新平台
 
-### 如何使用Lib?
+- 请在 [看云(KanCloud)](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301)  阅读文档，看云 是专业的托管平台，支持**全局搜索**，**导航目录**，评论以及CSS渲染，美观易用。
 
-- 使用 [#Include](https://wyagd001.github.io/zh-cn/docs/Functions.htm#include) 命令导入。
-  - BeanLib 的函数之间可能是相互依赖的，不建议拆分使用。 \#include 并不会影响脚本速度。
-- Lib 的参数/返回值等信息可以在 [LibDocs(看云)](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301) 中查阅，支持全文搜索和评论。
+- [GitHub](https://github.com/Oilj/BeanLib)  作为 **提交issue， 发起Pull Request ， 源码下载** 之用。
 
-### 如何下载BeanLib?
 
-从 [GitHub](https://github.com/Oilj/BeanLib) 直接 Clone
+### 如何使用?
+
+- 先下载：从 [GitHub](https://github.com/Oilj/BeanLib) 直接 Clone。
+
+- 之后导入：使用 [#Include](https://wyagd001.github.io/zh-cn/docs/Functions.htm#include) 命令导入 `BeanLib.ahk` 即可。
+
+- 可选项：也可以为 BeanLib 中的函数添加语法高亮，不过这并非必须，详见『语法高亮』章节。
+
+如果你是新手，可以戳这里查看详细的图文教程。
+
+BeanLib 的函数之间可能是相互依赖的，不建议拆分使用。
+
+
+## 创建者信息
+
+- <img src="https://upload-images.jianshu.io/upload_images/14875935-319e198e74b0496c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" height="80px" width="80px" >   @心如止水 QQ:3404624865 
+
+
+## <span id="JumpTIGX">[突出贡献者](#JumpTIGX)</span>
+
+[**欢迎提交代码，任何贡献者都会被铭记。**](https://www.kancloud.cn/xrvu_zen/ahk_lib/902952)
+
+- <img src="https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/Troy_Daniel.png" height="80px" width="80px" >   @Troy_Daniel QQ:1043182080
+  - 感谢 @Troy_Daniel 为文档排版提出了宝贵建议。
+- <img src="https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/%E7%AC%AC%E4%B8%80%E4%B8%AA20190114092615.png" height="80px" width="80px" >   @tmplinshi
+  - 感谢 @tmplinshi，"ExcelToList" 是 BeanLib 收录的第一个外部函数。
+- <img src="https://github.com/Oilj/GitHubPictureBed/raw/master/YKYuan20190114084726.png" height="80px" width="80px" >   @YuKuan
+  - 感谢 @YuKuan，贡献了第一个非创始人 Push
+### 所有贡献者
+
+[GitHub](https://github.com/Oilj/BeanLib/graphs/contributors) 
+
 
 ## 其他有用的资源
 
@@ -55,27 +75,3 @@ Lib是可以重复使用的代码，您可以把他们和自己的代码相结�
 ### QQ群
 - <img src="https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/QZ_Q%E7%BE%A4.png" height="80px" width="80px" > QZ/VimD/TC/AHK (271105729)   
 - <img src="https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/AHK%E9%AB%98%E6%89%8B%E7%BE%A4_20190106112323.png" height="80px" width="111px" > AHK 高手群 (348016704)   
-
-
-## 创建者信息
-
-- <img src="https://upload-images.jianshu.io/upload_images/14875935-319e198e74b0496c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" height="80px" width="80px" >   @心如止水 QQ:3404624865 
-
-
-## <span id="JumpTIGX">[突出贡献者](#JumpTIGX)</span>
-
-[**欢迎提交代码，任何贡献者都会被铭记。**](https://www.kancloud.cn/xrvu_zen/ahk_lib/902952)
-
-- <img src="https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/Troy_Daniel.png" height="80px" width="80px" >   @Troy_Daniel QQ:1043182080
-  - 感谢 @Troy_Daniel 为文档排版提出了宝贵建议。
-- <img src="https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/%E7%AC%AC%E4%B8%80%E4%B8%AA20190114092615.png" height="80px" width="80px" >   @tmplinshi
-  - 感谢 @tmplinshi，"ExcelToList" 是 BeanLib 收录的第一个外部函数。
-- <img src="https://github.com/Oilj/GitHubPictureBed/raw/master/YKYuan20190114084726.png" height="80px" width="80px" >   @YuKuan
-  - 感谢 @YuKuan，贡献了第一个非创始人 Push
-### 所有贡献者
-
-[GitHub](https://github.com/Oilj/BeanLib/graphs/contributors) 
-
-[码云](https://gitee.com/xrvu_zen/BeanLib/contributors?ref=master) 
-
-
