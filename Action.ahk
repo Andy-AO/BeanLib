@@ -7,7 +7,7 @@ class Action{
 	
 	isAction:=true
 	func:="",funcThis:=""
-	conditions := Object("before","","after","")
+	before:="",after:=""
 
 ;---------------------------------------------------------------------- 
 
@@ -24,12 +24,69 @@ class Action{
 		}
 ;---------------------------------------------------------------------- 
 		onBefore(){
-			LogPrintln("onBefore运行中！","onBefore运行中！ onBefore运行中！运行中！")
-			LogPrintln(this.conditions.before,"this.conditions.before >>>")
-			result := this.conditions.before.call()
+			theObj := this.before
+			type.afObj(theObj)
+			LogPrintln(theObj,"theObj >>>")
+			result := theObj.call()
 			if (result = false)
 				rawCall(this,"onError")
 			return
+		}
+
+;---------------------------------------------------------------------- 
+
+name[]{
+    get {
+		theName := this.func.name
+		if(theName="")
+			return "NS*"
+		else
+			return theName
+    }
+    set {
+	return False
+    }
+}
+;---------------------------------------------------------------------- 
+
+beforeName[]{
+    get {
+		theObj := this.before
+		if (type.isFuncObj(theObj)){
+			return theObj.name
+		}
+		else{
+			return toString(theObj)
+		}
+    }
+    set {
+	return False
+    }
+}
+;---------------------------------------------------------------------- 
+
+afterName[]{
+    get {
+		theObj := this.after
+		if (type.isFuncObj(theObj)){
+			return theObj.name
+		}
+		else{
+			return toString(theObj)
+		}
+    }
+    set {
+	return False
+    }
+}
+;---------------------------------------------------------------------- 
+		toString(){			
+			theFuncName := this.name
+			theBeforeName := this.beforeName
+			theAfterName := this.afterName
+			theClassName := this.__Class
+			resultString = {Type:%theClassName%,Func:%theFuncName%,Before:%theBeforeName%,After:%theAfterName%}
+			return resultString
 		}
 ;---------------------------------------------------------------------- 
 		call(aParams*){
@@ -41,7 +98,12 @@ class Action{
 	__call(aMethodName,aParams*){
 
         if(Bean.isCall(aMethodName)){
-			rawCall(this,"call",aParams*)
+			result := rawCall(this,"call",aParams*)
+			return result
+		}
+		else if (aMethodName = "toString"){
+			result := rawCall(this,"toString",aParams*)
+			return result
 		}
 		else if (Bean.isMeta(aMethodName)){
 			return false

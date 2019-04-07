@@ -39,7 +39,7 @@ aLinkFileDir - 指定目录
 
 ``` autohotkey
 ^r::
-SendShortCut("D:\MyLibrary")
+SendShortCut("H:\MyLibrary")
 return
 ```
 

@@ -126,12 +126,13 @@ class AutoPDG{
 
 ;---------------------------------------------------------------------- 
 	chechDownloadWinActive(){
+		LogPrintln(this.downLoadWinObj,"this.downLoadWinObj >>>")
 		return this.downLoadWinObj.isActive()
 	}
 ;---------------------------------------------------------------------- 
 
 initAction(){
-	theCondition := new Condition(this.chechDownloadWinActive)
+	theCondition := new Condition(this.action.chechDownloadWinActive)
 	LogPrintln(theCondition,"theCondition >>>")
 	this.action.SetTitle.conditions["before"] := theCondition
 	return

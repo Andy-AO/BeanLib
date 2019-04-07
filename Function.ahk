@@ -1,4 +1,34 @@
-﻿rawCall(aThis,aMethodName,aParams*){
+﻿
+/*
+methodsToString(aObjMap*){
+		type.afList(aObjList)
+		
+		codeString:=""
+		for key,value in aObjList {
+			innerString := methodToString(value)
+			%key%:%innerString%
+		}
+			theCheckName := methodToString(this.Check)
+			theRepairName := methodToString(this.Repair)
+			
+			resultString = {check:%theCheckName%,Repair:%theRepairName%}
+}
+*/
+
+;---------------------------------------------------------------------- 
+
+methodToString(aObj){
+	if (type.isFuncObj(aObj)){
+		return aObj.name
+	}
+	else{
+		return "*NotFunc*:"toString(aObj)
+	}	
+}
+
+;---------------------------------------------------------------------- 
+
+rawCall(aThis,aMethodName,aParams*){
 		if(ObjHasKey(aThis.base,aMethodName)){
 			return SmartCall(aThis,aThis.base[aMethodName],aParams*)
 		}		
@@ -7,20 +37,7 @@
 		}
 		return
 }
-/*
-;---------------------------------------------------------------------- 
 
-loadFunc(this){
-	this.func:={},class:=this.base
-	for name,Obj in class {
-		pullIt := (type.isFuncObj(obj)) AND (Bean.notMeta(name))
-		if(pullIt){
-			this.func[name] := obj
-		}
-	}
-	return 
-}
-*/
 ;---------------------------------------------------------------------- 
 
 loadAction(this){
