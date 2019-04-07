@@ -10,8 +10,11 @@ class StrCallBase{
 		if(ObjHasKey(this,aName)){
 			return SmartCall(aStr,this[aName],aParams*)
 		}
-		else{					
-			Bean.Protect.__Call("")	
+		else{
+			if(aStr = "")
+				throw Exception("为空字符串调用不存在的方法！")
+			else
+				throw Exception("为字符串 " aStr " 调用不存在的方法！")
 			return
 		}
     }
@@ -36,7 +39,31 @@ class StrBase{
 			this.Delimiter:=aDelimiter
 			return this
 		}
-		;---------------------------------------------------------------------- 
+
+;---------------------------------------------------------------------- 
+RegexEscape(){
+	aRegEx := this
+	regexList:=[".","?","+","$","^","[","]","(",")","{","}","*","/","|"]
+	return this.Escape(regexList)
+}
+;---------------------------------------------------------------------- 
+
+Escape(aCharList,aTargetChar:="\"){
+	String := this
+	Type.afStr(aTargetChar),Type.afStr(String),Type.afList(aCharList)
+	if (String="")
+		return
+	
+	aCharList.InsertAt(1,aTargetChar) 
+	for index,p in aCharList{
+		if instr(String,p){
+			Newp:="\" . p
+			String:=StrReplace(String,p,Newp)
+		}
+	}
+	return String
+}
+;---------------------------------------------------------------------- 
 			split(){
 							
 				Type.afStr(this.HayStack)
@@ -44,7 +71,7 @@ class StrBase{
 						throw Exception("Error01:Not Find Delimiter in this.HayStack`r`n在输入的字符串中，没有发现分隔符.")
 				}
 				if (this.enableDeWeight){
-					this.DelimiterInRegex:=RegexEscape(this.Delimiter) 
+					this.DelimiterInRegex:=this.Delimiter.RegexEscape()
 					this.HayStack := RegExReplace(this.HayStack,this.DelimiterInRegex "{2,}" ,this.Delimiter)
 				}
 			
