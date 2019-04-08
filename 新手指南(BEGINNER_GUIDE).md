@@ -39,7 +39,7 @@ Clone 就是『克隆』，类似『复制』或者『下载』的意思。
   logPrintln("Hello World！")
   
   ```
-4. 按下 Ctrl+N 讲脚本保存到本地，并且按下 F5 运行脚本。
+4. 按下 Ctrl+N 将脚本保存到本地，并按下 F5 运行脚本。
     如无意外，脚本会运行失败，在 SciTE4AutoHotkey 下方会显示错误。
     ![显示错误](https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/image_26.png)
 
@@ -51,7 +51,6 @@ Clone 就是『克隆』，类似『复制』或者『下载』的意思。
 6. 重新回到刚刚的界面，再次按下 F5 运行脚本。
 
    出现 HelloWorld 表示库已经部署成功。
-   
 
 
    ![成功](https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/20190407102303.png)
