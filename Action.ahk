@@ -10,6 +10,12 @@ class Action{
 	before:="",after:=""
 
 ;---------------------------------------------------------------------- 
+	
+	_NewEnum(){
+		return new BeanEnum(Object("func",this.func,"funcThis",this.funcThis,"before",this.before,"after",this.after))
+	}
+
+;---------------------------------------------------------------------- 
 
 		initFunc(aFuncThis,aFunc){
 			LogPrintln("InitFunc运行中","""InitFunc运行中"" >>>")
@@ -115,6 +121,7 @@ afterName[]{
 	}
 ;---------------------------------------------------------------------- 
 	__New(aFuncThis,aFunc){
+			this._NewEnum:=this.base._NewEnum
 			rawCall(this,"initFunc",aFuncThis,aFunc)
 			return this
 	}

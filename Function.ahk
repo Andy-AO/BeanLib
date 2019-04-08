@@ -1,8 +1,18 @@
 ﻿
+showMethod(aObj){
+	theMap:= Object("__Class",aObj.base.__Class)
+	for key,value in aObj {
+		if(Bean.isFunc(value))
+			theMap[key]:=value.name
+	}	
+	return theMap
+}
+
 /*
+;---------------------------------------------------------------------- 
+
 methodsToString(aObjMap*){
-		type.afList(aObjList)
-		
+		type.afList(aObjList)		
 		codeString:=""
 		for key,value in aObjList {
 			innerString := methodToString(value)
@@ -12,7 +22,9 @@ methodsToString(aObjMap*){
 			theRepairName := methodToString(this.Repair)
 			
 			resultString = {check:%theCheckName%,Repair:%theRepairName%}
+		return
 }
+
 */
 
 ;---------------------------------------------------------------------- 

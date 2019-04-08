@@ -4,6 +4,21 @@
 说明:线性数组List和关联数组Map的通用处理静态类
 */
 class _Container{
+
+
+;----------------------------------------------------------------------
+/*!
+提取Map分别为两个List(Key和Value两个链条,一一对应)
+*/
+mapToList(aMap){
+	listKey:=[],listValue:=[]
+	for Key,v in aMap {
+		listKey[A_Index]:=Key
+		listValue[A_Index]:=v
+	}
+	return Object("key",listKey,"Value",listValue)
+}
+
 ;----------------------------------------------------------------------
 /*!
 脱壳,也就是,如果容器中的元素如果是List,而且只有一个元素,那么就把数组换成元素本身.不能递归.

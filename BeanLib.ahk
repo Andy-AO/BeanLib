@@ -37,6 +37,7 @@
 #Include Function.ahk.
 #Include Control.ahk.
 #Include Win.ahk
+#Include BeanEnum.ahk
 #Include _Win.ahk
 #Include _Wins.ahk
 #Include PathObj.ahk

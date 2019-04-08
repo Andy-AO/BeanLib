@@ -44,12 +44,9 @@ checkName[]{
 ;---------------------------------------------------------------------- 
 
 		toString(){
-			;~ return methodsToString(this.Check,this.Repair)
-			
 			
 			theCheckName := methodToString(this.Check)
-			theRepairName := methodToString(this.Repair)
-			
+			theRepairName := methodToString(this.Repair)			
 			
 			theClassName := this.__Class
 			resultString = {Type:%theClassName%,check:%theCheckName%,Repair:%theRepairName%}
