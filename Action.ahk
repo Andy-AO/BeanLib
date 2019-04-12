@@ -8,7 +8,7 @@ class Action{
 	isAction:=true
 	func:="",funcThis:=""
 	before:="",after:=""
-
+	__toString := []
 ;---------------------------------------------------------------------- 
 	
 	_NewEnum(){

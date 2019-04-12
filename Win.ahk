@@ -5,6 +5,13 @@
 
 
 class Win{
+	__toString := ["title"]
+/*
+	_NewEnum(){
+		return new BeanEnum(Object("title",this.title))
+	}
+*/
+
 	title:=""
 	__New(atitle){
 		this.title:=atitle

@@ -1,31 +1,29 @@
 ﻿
-showMethod(aObj){
+;---------------------------------------------------------------------- 
+
+showObj(aObj,aList:=""){
+
+;---------------------------------------------------------------------- 
+
 	theMap:= Object("__Class",aObj.base.__Class)
+
+;---------------------------------------------------------------------- 
+	
 	for key,value in aObj {
 		if(Bean.isFunc(value))
 			theMap[key]:=value.name
+	}		
+
+;---------------------------------------------------------------------- 
+		
+	if(type.isList(aList)){
+		for index,value in aList {
+				theMap[value]:=aObj[value]
+		}	
 	}	
+	
 	return theMap
 }
-
-/*
-;---------------------------------------------------------------------- 
-
-methodsToString(aObjMap*){
-		type.afList(aObjList)		
-		codeString:=""
-		for key,value in aObjList {
-			innerString := methodToString(value)
-			%key%:%innerString%
-		}
-			theCheckName := methodToString(this.Check)
-			theRepairName := methodToString(this.Repair)
-			
-			resultString = {check:%theCheckName%,Repair:%theRepairName%}
-		return
-}
-
-*/
 
 ;---------------------------------------------------------------------- 
 
@@ -322,6 +320,17 @@ DeepListtoString(List){
 
 
 toString(Obj){
+	
+	if(ObjHasKey(Obj,"__toString")){
+		if(type.isList(theList:=Obj.__toString)){
+			mapwinObj := showObj(Obj,theList)
+			return toString(mapwinObj)		
+		}
+		else{
+			mapwinObj := showObj(Obj)
+			return toString(mapwinObj)	
+		}
+	}
 	
 	ResultString:="",ListString:="",ListString.= "[",ObjectString:="",ObjectString.="{"
 	
