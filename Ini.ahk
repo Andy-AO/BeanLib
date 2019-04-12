@@ -30,7 +30,7 @@ class Ini {
 	dividedBySection(){	
 		theLineSpliter:=new Spliter(this.allIni,"`r`n")
 		List:=theLineSpliter.split()		
-		theSectionIndexList:=_List.MatchIndexList(List,"\[.*\]")		
+		theSectionIndexList:=_List.Match(List,"\[.*\]")		
 		_List.RegExReplace(List,"\[(.*)\]","$1")					
 		this.theMap:=_List.getMapByIndex(List,theSectionIndexList*)	
 		return

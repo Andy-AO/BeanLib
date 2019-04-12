@@ -28,7 +28,7 @@
     - 去掉了CharAt 的第二个参数 
 
 2. "SA"改为"List"，放弃"SimpleArray"这种叫法. 
-3. _List类新增 MatchIndexList(list,aRegEx) - 找出数组中所有匹配正则表达式的元素
+3. _List类新增 Match(list,aRegEx) - 找出数组中所有匹配正则表达式的元素
 4. .fix : 修复APPLocker类中,UnLock与Lock函数名错误问题.
 5. _Ex 增加 TooManyParas , NoExistKey 
 6. 新增 ini 类 ,用于批量读取 Ini 内容

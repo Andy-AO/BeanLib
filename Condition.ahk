@@ -46,8 +46,8 @@ checkName[]{
 
 		toString(){
 			
-			theCheckName := methodToString(this.Check)
-			theRepairName := methodToString(this.Repair)			
+			theCheckName := funcObjToString(this.Check)
+			theRepairName := funcObjToString(this.Repair)			
 			
 			theClassName := this.__Class
 			resultString = {Type:%theClassName%,check:%theCheckName%,Repair:%theRepairName%}

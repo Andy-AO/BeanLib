@@ -13,6 +13,26 @@ Class _Win{
 		originalDetectHiddenWindows:=""
 
 ;---------------------------------------------------------------------- 
+
+/*
+允许在 WinTitle 的匹配结果中再叠加排除多个 WinTitle
+*/
+getIdExclude(WinTitle,WinTitleExcludes){
+	wins := _Wins.Analyze(WinTitle)
+	if(wins.length()=0){
+		return false
+	}
+	titleList := _Container.ExtractSameElements(wins,"WinTitle")
+	result := _List.exclude(titleList,WinTitleExcludes)
+	theWinId := wins[result[1]].WinId
+	
+	if(theWinId="")
+		return false
+		
+	return theWinId	
+}
+
+;---------------------------------------------------------------------- 
 	/*
 	说明:根据路径获取窗口对应进程的路径
 	*/

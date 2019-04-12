@@ -26,6 +26,28 @@ if (v=value)
 }
 return false
 }
+
+;---------------------------------------------------------------------- 
+
+excludeRegEx(ExList){
+	RegExString:=""
+	for i,v in ExList {
+		v := v.RegexEscape()
+		if(i=ExList.length()){
+			RegExString .= v
+		}
+		else
+			RegExString .= v "|"
+	}
+	result = ^(?!.*(%RegExString%)).*$
+	return result
+}
+;---------------------------------------------------------------------- 
+exclude(DataList,ExList){
+	RegEx := _List.excludeRegEx(ExList)
+	LogPrintln(RegEx,"RegEx >>>")
+	return _List.Match(DataList,RegEx)
+}
 ;---------------------------------------------------------------------- 
 /*!
 Str数组转换为字符串
@@ -43,7 +65,7 @@ ToString(Str){
  }
 ;---------------------------------------------------------------------- 
 ;返回匹配的元素的indexList
-MatchIndexList(list,aRegEx){
+Match(list,aRegEx){
 	indexList:=[]
 	for i,v in list{
 		if(v.isRegExMatch(aRegEx))

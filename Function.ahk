@@ -11,7 +11,7 @@ showObj(aObj,aList:=""){
 	
 	for key,value in aObj {
 		if(Bean.isFunc(value))
-			theMap[key]:=value.name
+			theMap[key]:=value
 	}		
 
 ;---------------------------------------------------------------------- 
@@ -27,9 +27,9 @@ showObj(aObj,aList:=""){
 
 ;---------------------------------------------------------------------- 
 
-methodToString(aObj){
+funcObjToString(aObj){
 	if (type.isFuncObj(aObj)){
-		return aObj.name
+		return aObj.name "()"
 	}
 	else{
 		return "*NotFunc*:"toString(aObj)
@@ -90,7 +90,6 @@ getEmptyMap(aKeys*){
 WinActivateByPath(aWinPath,aDetectHiddenWindows:=""){
 		theWinId:=_Win.getIdByPath(aWinPath,aDetectHiddenWindows)
 		WinActivate,%theWinId%
-		LogPrintln(theWinId,"theWinId >>>")
 		return theWinId
 	}
 
@@ -340,6 +339,13 @@ toString(Obj){
 		else
 			return Obj
 	}
+	
+		
+	if (Type.isFuncObj(Obj)){
+		return funcObjToString(Obj)
+	}
+	
+	
 		
 ;---------------------------------------------------------------------- 
 	

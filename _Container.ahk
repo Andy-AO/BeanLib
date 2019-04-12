@@ -5,6 +5,22 @@
 */
 class _Container{
 
+/*!
+提取所有相同的元素 比如:[{A:1,B:1},{A:2,B:2}]，可以提取A，就变成了 [1,2]
+*/
+ExtractSameElements(aList,aKey){
+	Type.afList(aList)
+	result := []
+	for i0,map in aList {
+		for theKey,v in map {
+			if(theKey = akey){
+				result.Push(v)
+			}
+		}
+	}
+	return result
+}
+
 
 ;----------------------------------------------------------------------
 /*!

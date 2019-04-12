@@ -1,7 +1,7 @@
 **检查数组中的每个元素，返回符合正则的 Index:**
 
 ```autohotkey
-MatchIndexList(list,aRegEx)
+Match(list,aRegEx)
 ```
 
 ### 参数 Parameters: 
@@ -14,5 +14,5 @@ MatchIndexList(list,aRegEx)
 ### 抛出异常 Throws: 
 ### 示例 Example
 ```autohotkey
-indexList:=_List.MatchIndexList(ListTilteAndPageNumber,"[0-9]+")
+indexList:=_List.Match(ListTilteAndPageNumber,"[0-9]+")
 ```

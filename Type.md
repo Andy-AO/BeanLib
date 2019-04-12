@@ -15,15 +15,18 @@
 **如果写入，会 throw _Ex.SetConst**
 
 ```autohotkey
-	Static Str:=10,NS:=11
-	
-	Static List:=130
-	
-	Static Obj:=100,ExtendsObj:=101,Class:=110,func:=120
-	
-	Static FileObj:=150
-	
-	Static ComObj:=160
+		Static StrEndCode := 19,NumberEndCode := 14
+		
+		Static Str:=10,NS:=11,Number:=12,Boolean:=13
+		
+		Static List:=130
+
+		Static ObjEndCode := 199
+		Static Obj:=100,ExtendsObj:=101,Class:=110,FuncObj:=120,Action:=125
+		
+		Static FileObj:=150
+		
+		Static ComObj:=160
 ```
 
 #### 变量 Variate
@@ -49,6 +52,9 @@ afOff() - 把变量设为 false ,关闭断言
 #### isStr(Ever) 
 #### isNS(Ever) 
 #### isNumber(Ever) 
+
+#### isBoolean(Ever) 
+
 #### isList(Ever) 
 #### isObj(Ever) 
 #### isClass(Ever) 
@@ -68,6 +74,9 @@ afOff() - 把变量设为 false ,关闭断言
 #### afStr(Ever) 
 #### afNS(Ever) 
 #### afNumber(Ever) 
+
+#### afBoolean(Ever) 
+
 #### afList(Ever) 
 #### afObj(Ever) 
 #### afClass(Ever) 
