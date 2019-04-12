@@ -62,11 +62,9 @@ getPath(WinTitle){
 		WinId := GetWinId(aWinTitle)
 		WinGet,WinPath,ProcessPath,%aWinTitle%	
 		
-		WinTitle := "WinTitle: " WinTitle
 		WinClass := "ahk_class " WinClass
 		Winexe := "ahk_exe " Winexe
 		WinId :=WinId
-		WinPath := WinPath
 		
 		if(EnableWinText){
 			WinGetText,WinText,%aWinTitle%	
