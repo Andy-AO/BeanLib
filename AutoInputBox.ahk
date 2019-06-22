@@ -5,7 +5,7 @@
 
 class AutoInputBox{
 
-	aTextPrefix:="",deFaultText:=["UseClipBoard"]
+	aTextPrefix:="",deFaultText:=["UseClipBoard"],AlwaysOnTop:=false
 	
 ;---------------------------------------------------------------------- 
 
@@ -32,9 +32,12 @@ class AutoInputBox{
 			aDeFaultText:=Clipboard
 
 		aDeFaultText:=this.deFaultText
+		if(this.AlwaysOnTop){
+			Gui + LastFound + OwnDialogs + AlwaysOnTop
+		}
 		
 		InputBox,UserInput,%aTitle%,%aPrompt%,,%aWeight%,%ahight%,,,,,%aDeFaultText%
-			
+
 			
 		if (ErrorLevel=1){ ;必须立即判断，不能有间隔
 			throw Exception("User Cancel Input")

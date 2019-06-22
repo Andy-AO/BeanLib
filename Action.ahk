@@ -30,12 +30,12 @@ class Action{
 		}
 ;---------------------------------------------------------------------- 
 		onBefore(){
-			theObj := this.before
-			type.afObj(theObj)
-			LogPrintln(theObj,"theObj >>>")
-			result := theObj.call()
-			if (result = false)
-				rawCall(this,"onError")
+			;~ theObj := this.before
+			;~ type.afObj(theObj)
+			;~ LogPrintln(theObj,"theObj >>>")
+			;~ result := theObj.call()
+			;~ if (result = false)
+				;~ rawCall(this,"onError")
 			return
 		}
 
@@ -101,9 +101,9 @@ afterName[]{
 			return result
 		}
 ;---------------------------------------------------------------------- 	
-	__call(aMethodName,aParams*){
-
-        if(Bean.isCall(aMethodName)){
+	__call(aMethodName:="",aParams*){
+		iscall := Bean.isCall(aMethodName,this)
+        if(iscall){
 			result := rawCall(this,"call",aParams*)
 			return result
 		}

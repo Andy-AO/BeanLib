@@ -7,10 +7,10 @@ Instanof(Obj,Super){
 	theList:=""	
 	if (Type.isStr(Super)){
 		theList:=AnalyzeClassName(Obj)
-		return _List.Contains(theList,Super)
+		return _Container.Contains(theList,Super)
 	}
 	else {
 		theList:=Analyze(Obj)
-		return _List.Contains(theList,Super)
+		return _Container.Contains(theList,Super)
 	}
 }

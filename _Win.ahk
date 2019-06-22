@@ -7,12 +7,60 @@
 Class _Win{
 
 		
+;------------------------------
 
+getMonitorWorkArea(){
+	SysGet, OutputVar, MonitorWorkArea
+	Obj := Object("Top",OutputVarTop,"Bottom",OutputVarBottom,"Left",OutputVarLeft,"Right",OutputVarRight)
+	return Obj
+}
 ;---------------------------------------------------------------------- 
 	
 		originalDetectHiddenWindows:=""
 
 ;---------------------------------------------------------------------- 
+
+toRight(WinTitle:="A",ExcludeTitle:=""){
+	MonitorWorkArea := _Win.getMonitorWorkArea()
+	HalfScreenWidth:=(MonitorWorkArea.Right/2)
+	theHeight:=MonitorWorkArea.Bottom
+	X:=HalfScreenWidth
+	Y:=0
+	if(ExcludeTitle=""){
+		WinActivate,%WinTitle%
+		Sleep 100
+		WinMove, %WinTitle%, , %X%, %Y% , %HalfScreenWidth% , %theHeight%
+	}
+	else{
+		WinActivate,%WinTitle%,,%ExcludeTitle%
+		Sleep 100
+		WinMove, %WinTitle%, , %X%, %Y% , %HalfScreenWidth% , %theHeight%, %ExcludeTitle%
+	}
+
+	return
+}
+
+;------------------------------
+
+toLeft(WinTitle:="A",ExcludeTitle:=""){
+	HalfScreenWidth:=A_ScreenWidth/2
+	theHeight:=A_ScreenHeight
+	X:=0
+	Y:=0
+	if(ExcludeTitle=""){
+		WinActivate,%WinTitle%
+		Sleep 100
+		WinMove, %WinTitle%, , %X%, %Y% , %HalfScreenWidth% , %theHeight%
+	}
+	else{
+		LogPrintln(ExcludeTitle,"ExcludeTitle >>>")
+		WinActivate,%WinTitle%,,%ExcludeTitle%
+		Sleep 100
+		WinMove, %WinTitle%, , %X%, %Y% , %HalfScreenWidth% , %theHeight%, %ExcludeTitle%
+	}
+	return
+}
+;------------------------------
 
 /*
 允许在 WinTitle 的匹配结果中再叠加排除多个 WinTitle
@@ -110,10 +158,10 @@ getPath(WinTitle){
 			
 			if (aConfig="")
 				return
-			else if ((aConfig="On") Or (aaConfig=true)){
+			else if ((aConfig="On") Or (aConfig=true)){
 			
 			}
-			else if ((aConfig="Off") Or (aaConfig=false)){
+			else if ((aConfig="Off") Or (aConfig=false)){
 			
 			}
 			else

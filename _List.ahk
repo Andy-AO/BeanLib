@@ -18,14 +18,6 @@ static NumberList:=["1","2","3","4","5","6","7","8","9","0"]
 static TheList1:=["List1"]
 static TheList2:=["List2"]
 static ObjList:=[_List.TheList1,_List.TheList2,_List.TheList1,_List.TheList2,_List.TheList1,_List.TheList2]
-;---------------------------------------------------------------------- 
-Contains(ListorMap,value){
-for k,v in ListorMap{
-if (v=value)
-	return true
-}
-return false
-}
 
 ;---------------------------------------------------------------------- 
 

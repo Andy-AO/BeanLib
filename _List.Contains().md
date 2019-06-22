@@ -15,6 +15,6 @@ Boolean
 - null
 ### 示例 Example
 ```autohotkey
-Result1:=_List.Contains(_List.LetterList,"A")
-Result2:=_List.Contains(_List.LetterList,"0")
+Result1:=_Container.Contains(_List.LetterList,"A")
+Result2:=_Container.Contains(_List.LetterList,"0")
 ```

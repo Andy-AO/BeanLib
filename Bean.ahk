@@ -36,7 +36,7 @@ false(aParas*){
 ;---------------------------------------------------------------------- 
 	
 	isMeta(aMethodName){
-		result := _List.Contains(Bean.ObjectMetaMethodName,aMethodName)
+		result := _Container.Contains(Bean.ObjectMetaMethodName,aMethodName)
 		return result
 	}
 
@@ -49,7 +49,12 @@ false(aParas*){
 ;---------------------------------------------------------------------- 
 		
 		
-	isCall(aMethodName){
+	isCall(aMethodName,athis:=""){
+		if (IsObject(aMethodName) AND IsObject(athis)){					
+			result := _Container.Contains(aMethodName,athis)
+			return result
+		}
+			 
 		result := ((aMethodName = "")OR(aMethodName = "Call"))
 		return result
 	}

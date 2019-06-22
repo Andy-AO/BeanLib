@@ -368,10 +368,6 @@ toString(Obj){
 				symbol:=""
 				
 			if (Type.isObj(v)){ 
-				if (v.count()=0)
-				ResultString.=symbol "{*Object*}"
-				
-				else
 				ResultString.=symbol toString(v)
 			}
 												
@@ -392,7 +388,7 @@ toString(Obj){
 	else if (Type.isObj(Obj)){
 		
 			if (Obj.count()=0)
-				return "{*Object*}"
+				return "{*Obj*}"
 			
 			for key,v in Obj{
 					
@@ -405,14 +401,9 @@ toString(Obj){
 					
 					
 				if (Type.isObj(v)){ ;key一定是用""包裹的,value则不
-					
-					if (v.count()=0)
-					theV:="{*Object*}"
-					
-					
-					else{
+
 						theV:=toString(v)
-					}
+
 
 					TheSubString=%symbol%%theKey%:%theV%
 					ResultString.=TheSubString

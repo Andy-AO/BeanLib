@@ -13,23 +13,31 @@ loadAction(this)
 - this - 方法的this参数
 
 ### 返回 Returns: 
-%返回说明%
+null
 ### 抛出异常 Throws: 
 - null
 ### 示例 Example
 ```autohotkey
-class loadTest{
-;-----------------------------
-
-initClickOkAction(){
-	return "initClickOkAction!"
-}
-
-;---------------------------------------------------------------------- 
+class Test{
+	mes := "Test！"
 	__New(){
 		loadAction(this)
-		return
+		return this
 	}
-	
+	A(){
+		LogPrintln(this.mes,"this.mes >>>")
+	}
 }
+
+theObj := new Test()
+theObj.action.A()
+theAct:=theObj.action.A
+%theAct%()
+
+```
+
+```autohotkey
+"InitFunc运行中" >>>InitFunc运行中
+this.mes >>>Test！
+this.mes >>>Test！
 ```

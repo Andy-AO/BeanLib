@@ -4,6 +4,18 @@
 说明:线性数组List和关联数组Map的通用处理静态类
 */
 class _Container{
+/*!
+检查容器中是否包含指定元素？
+*/
+Contains(ListorMap,value){
+	for k,v in ListorMap{
+	if (v=value)
+		return true
+	}
+	return false
+}
+
+;---------------------------------------------------------------------- 
 
 /*!
 提取所有相同的元素 比如:[{A:1,B:1},{A:2,B:2}]，可以提取A，就变成了 [1,2]

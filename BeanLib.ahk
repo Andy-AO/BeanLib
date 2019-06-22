@@ -39,6 +39,7 @@
 #Include Win.ahk
 #Include BeanEnum.ahk
 #Include _Win.ahk
+#Include GUI.ahk
 #Include _Wins.ahk
 #Include PathObj.ahk
 #Include Condition.ahk

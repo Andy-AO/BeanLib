@@ -100,6 +100,7 @@ AutoInputBox
 _Map
 _Container
 Spliter
+ahk_parent
 AutoGui 
 else
 EnvAdd , Var, Value [, TimeUnits]
