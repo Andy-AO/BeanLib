@@ -1,8 +1,8 @@
 ﻿
+
 /*
 说明:BeanLib内的通用函数/方法对象
 */
-
 class Action{
 	
 	isAction:=true
@@ -16,21 +16,14 @@ class Action{
 		if(this.__class != "Action"){
 			theTipString = this出错
 			TrayTip,%A_ScriptName%,%theTipString% 
-		return
-		}
-		else{
-			theTipString = this正确
-			TrayTip,%A_ScriptName%,%theTipString% 
+			return
 		}
 ;现在看来是枚举类的设计有问题
 		return new BeanEnum(Object("func",this.func,"funcThis",this.funcThis,"before",this.before,"after",this.after))
 	}
-
 ;~ */
 ;---------------------------------------------------------------------- 
-
 		initFunc(aFuncThis,aFunc){
-			LogPrintln("InitFunc运行中","""InitFunc运行中"" >>>")
 			type.afFuncObj(aFunc)
 			this.func:=aFunc
 			this.funcThis:=aFuncThis ;是不是因为这个地方出了问题呢？
@@ -42,12 +35,9 @@ class Action{
 		}
 ;---------------------------------------------------------------------- 
 		onBefore(){
-
 			return
 		}
-
 ;---------------------------------------------------------------------- 
-
 name[]{
     get {
 		theName := this.func.name
@@ -61,7 +51,6 @@ name[]{
     }
 }
 ;---------------------------------------------------------------------- 
-
 beforeName[]{
     get {
 		theObj := this.before
@@ -77,7 +66,6 @@ beforeName[]{
     }
 }
 ;---------------------------------------------------------------------- 
-
 afterName[]{
     get {
 		theObj := this.after
