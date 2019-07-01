@@ -48,9 +48,7 @@ class Ini {
 	;引
 	swapToMap(){
 		_Container.swapToMap(this.theMap)	
-		LogPrintln(this.theMap,"this.theMap >>>")	
 		_Container.shuck(this.theMap)
-		LogPrintln(this.theMap,"this.theMap >>>")	
 		_Container.swapToMaps(this.theMap)
 		return
 	}
@@ -58,15 +56,10 @@ class Ini {
 ;---------------------------------------------------------------------- 
 	getMap(){
 		this.readAllIni()
-		LogPrintln(this.theMap,"this.theMap >>>")
 		this.dividedBySection()
-		LogPrintln(this.theMap,"this.theMap >>>")
 		this.trimBlankLine()
-		LogPrintln(this.theMap,"this.theMap >>>")
 		this.dividedByKeyValue()
-		LogPrintln(this.theMap,"this.theMap >>>")
 		this.swapToMap()	
-		;~ LogPrintln(this.theMap,"this.theMap >>>")		
 		return this.theMap
 	}
 ;---------------------------------------------------------------------- 
