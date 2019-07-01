@@ -14,7 +14,7 @@ class BeanEnum {
 	CurrentIndex:=1
 ;---------------------------------------------------------------------- 
 	__New(aMap){
-		LogPrintln("NewAEnum","""NewAEnum"" >>>")
+		LogPrintln("NewAEnum(BeanEnum)","""NewAEnum"" >>>")
 		this.Map := _Container.mapToList(aMap)
 		this.MaxIndex := this.Map.key.length()
 		this.next:=this.base.next

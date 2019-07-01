@@ -11,17 +11,29 @@ class Action{
 	__toString := []
 ;---------------------------------------------------------------------- 
 	
+;~ /*
 	_NewEnum(){
+		if(this.__class != "Action"){
+			theTipString = this出错
+			TrayTip,%A_ScriptName%,%theTipString% 
+		return
+		}
+		else{
+			theTipString = this正确
+			TrayTip,%A_ScriptName%,%theTipString% 
+		}
+;现在看来是枚举类的设计有问题
 		return new BeanEnum(Object("func",this.func,"funcThis",this.funcThis,"before",this.before,"after",this.after))
 	}
 
+;~ */
 ;---------------------------------------------------------------------- 
 
 		initFunc(aFuncThis,aFunc){
 			LogPrintln("InitFunc运行中","""InitFunc运行中"" >>>")
 			type.afFuncObj(aFunc)
 			this.func:=aFunc
-			this.funcThis:=aFuncThis
+			this.funcThis:=aFuncThis ;是不是因为这个地方出了问题呢？
 			return
 		}
 		onError(){
@@ -30,12 +42,7 @@ class Action{
 		}
 ;---------------------------------------------------------------------- 
 		onBefore(){
-			;~ theObj := this.before
-			;~ type.afObj(theObj)
-			;~ LogPrintln(theObj,"theObj >>>")
-			;~ result := theObj.call()
-			;~ if (result = false)
-				;~ rawCall(this,"onError")
+
 			return
 		}
 
@@ -122,6 +129,7 @@ afterName[]{
 ;---------------------------------------------------------------------- 
 	__New(aFuncThis,aFunc){
 			this._NewEnum:=this.base._NewEnum
+			this.theThis := this
 			rawCall(this,"initFunc",aFuncThis,aFunc)
 			return this
 	}

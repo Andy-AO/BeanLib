@@ -5,7 +5,7 @@ showObj(aObj,aList:=""){
 
 ;---------------------------------------------------------------------- 
 
-	theMap:= Object("__Class",aObj.base.__Class)
+	theMap:= Object("__Class",aObj.base.__Class) ;DeBug
 
 ;---------------------------------------------------------------------- 
 	
@@ -49,6 +49,7 @@ rawCall(aThis,aMethodName,aParams*){
 }
 
 ;---------------------------------------------------------------------- 
+;~ /*
 
 loadAction(this){
 	this.action:={},class:=this.base
@@ -60,6 +61,7 @@ loadAction(this){
 	}
 	return 
 }
+;~ */
 ;----------------------------------------------------------------------
 /*
 如果扑空会抛出异常的 FuncObj 获取器
@@ -256,7 +258,7 @@ println(TheText){
 ;---------------------------------------------------------------------- 
 
 LogPrintln(Obj:="",prefix:="",postfix:=""){
-	theString:=prefix toString(Obj) postfix
+	theString:=prefix toString(Obj) postfix ;DeBug
 	println(theString)
 	return
 }
@@ -345,16 +347,18 @@ toString(Obj){
 		return funcObjToString(Obj)
 	}
 	
-	
-		
-;---------------------------------------------------------------------- 
-	
-	if (Type.isObj(Obj)) ;如果是Obj数组,那么开头应该是"{"
-		ResultString:=ObjectString
-;---------------------------------------------------------------------- 
+	;---------------------------------------------------------------------- 
 	
 	if (Type.isList(Obj)) ;如果是List,那么开头应该是"["
 		ResultString:=ListString
+	else {
+		if (Type.isObj(Obj)) ;如果是Obj数组,那么开头应该是"{"
+		ResultString:=ObjectString
+	}	
+;---------------------------------------------------------------------- 
+	
+
+
 
 ;---------------------------------------------------------------------- 
 
@@ -392,7 +396,7 @@ toString(Obj){
 			
 			for key,v in Obj{
 					
-				theKey:=toString(Key)
+				theKey:=toString(Key) 
 				
 				if (A_Index!=1)
 					symbol:=","
@@ -402,7 +406,7 @@ toString(Obj){
 					
 				if (Type.isObj(v)){ ;key一定是用""包裹的,value则不
 
-						theV:=toString(v)
+						theV:=toString(v) ;DeBug
 
 
 					TheSubString=%symbol%%theKey%:%theV%
