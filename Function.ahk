@@ -242,16 +242,16 @@ stdoutln(TheText,Encoding:="UTF-8"){
 }
 ;----------------------------------------------------------------------- 
 print(TheText){
-	stdout(TheText)
+	if(Bean.LogEnable){
+		stdout(TheText)
+	}
 	return
 }
 ;---------------------------------------------------------------------- 
 println(TheText){
-	stdoutln(TheText)
-	return
-	;---------------------------------------------------------------------- 
-	text:=TheText "`r`n"
-	print(text)
+	if(Bean.LogEnable){
+		stdoutln(TheText)
+	}
 	return
 }	
 

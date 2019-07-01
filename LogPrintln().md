@@ -1,6 +1,6 @@
 **将任何对象转换为字符串，并且打印到标准输出:**
 
-主要用于调试
+主要用于调试。执行的必要条件是 `Bean.LogEnable = true`，默认值为 `false`。
 
 - count = 0 的 Object 会显示 {\*Object\*}
 - NullString 会显示 \*NS\*
