@@ -16,51 +16,50 @@
 
     -   [语法高亮(HIGHLIGHTING)](HIGHLIGHTING.md)
 
-
 -   [Class](Action.md)
 
-    -   [Action](Action.md)
-
-    -   [\_EX](_EX.md)
-
-    -   [\_List](_List.md)
-
-        -   [\_List.CopyOfRange()](_List/_List.CopyOfRange().md)
-
-        -   [\_List.ElementCounter()](_List/_List.ElementCounter().md)
-
-        -   [\_List.Match()](Match().md)
-
-        -   [\_List.Remove()](_List/_List.Remove().md)
-
-        -   [\_List.Sort()](_List/_List.Sort().md)
-
-        -   [\_List.StrReplace()](_List/_List.StrReplace().md)
-
-        -   [\_List.ToString()](_List.ToString().md)
-
-        -   [\_List.Uniq()](_List/_List.Uniq().md)
-
-    -   [\_Win](_Win.md)
-
-    -   [\_Wins](_Wins.md)
-
-    -   [APPLocker](APPLocker.md)
-
-    -   [AutoClassify](AutoClassify.md)
-
-    -   [Everything(调用外部搜索工具)](Everything.md)
-
-    -   [Ini](Ini.md)
-
-    -   [ParaChecker](ParaChecker.md)
-
-    -   [PathObj](PathObj.md)
-
-    -   [Script](Script.md)
-
-    -   [Type](Type.md)
-
+-   [Action](Action.md)
+    
+-   [\_EX](_EX.md)
+    
+-   [\_List](_List.md)
+    
+    -   [\_List.CopyOfRange()](_List/_List.CopyOfRange().md)
+    
+    -   [\_List.ElementCounter()](_List/_List.ElementCounter().md)
+    
+    -   [\_List.Match()](Match().md)
+    
+    -   [\_List.Remove()](_List/_List.Remove().md)
+    
+    -   [\_List.Sort()](_List/_List.Sort().md)
+    
+    -   [\_List.StrReplace()](_List/_List.StrReplace().md)
+    
+    -   [\_List.ToString()](_List.ToString().md)
+    
+    -   [\_List.Uniq()](_List/_List.Uniq().md)
+    
+-   [\_Win](_Win.md)
+    
+-   [\_Wins](_Wins.md)
+    
+-   [APPLocker](APPLocker.md)
+    
+-   [AutoClassify](AutoClassify.md)
+    
+-   [Everything(调用外部搜索工具)](Everything.md)
+    
+-   [Ini](Ini.md)
+    
+-   [ParaChecker](ParaChecker.md)
+    
+-   [PathObj](PathObj.md)
+    
+-   [Script](Script.md)
+    
+-   [Type](Type.md)
+    
 -   [Function](Function.md)
 
     -   [af()](af().md)
