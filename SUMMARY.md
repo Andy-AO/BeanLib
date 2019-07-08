@@ -29,7 +29,7 @@
     -   [PathObj](PathObj.md)
     -   [Script](Script.md)
     -   [Type](Type.md)
-    -   [Function](Function.md)
+-   [Function](Function.md)
 		-   [af()](af().md)
 		-   [Analyze()](Analyze().md)
 		-   [AnalyzeClassName()](AnalyzeClassName().md)
