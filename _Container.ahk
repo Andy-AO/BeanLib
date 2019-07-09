@@ -114,6 +114,22 @@ shuck(aContainer){
 		return 
 	}
 ;---------------------------------------------------------------------- 
+/*
+;根据Func的结果,批量删除Container中的元素(非递归,只删除最顶层)
+	DeleteByFunc(aContainer,Func){
+		Type.afObj(Func)
+		Type.afObj(aContainer)
+		indexList:=[]
+		for k,v in aContainer {
+			result := Func(k,v)
+			if(result){
+				indexList.Push(k)
+			}
+		}
+	}
+*/
+	
+	;---------------------------------------------------------------------- 
 ;递归删除被正则表达式匹配的元素
 	deepDelete(aContainer,aRegEx){
 		theIndexList:=[]
@@ -136,7 +152,7 @@ shuck(aContainer){
 		return
 	}
 ;---------------------------------------------------------------------- 
-;List和Map自动判断的通用删除工具
+;List和Map自动判断的通用批量移除工具
 	remove(aContainer,aIndexList){
 		type.afObj(aContainer)
 		type.afList(aIndexList)

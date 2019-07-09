@@ -1,4 +1,8 @@
 ﻿
+	GetKeyPhysicalState(key){
+		result  := GetKeyState(key,"P")
+		return result
+	}
 ;---------------------------------------------------------------------- 
 
 showObj(aObj,aList:=""){
@@ -184,13 +188,14 @@ UseCMD(command){
 定时执行FuncObj
 */
 
-	SetTimer(aMin,FuncObj){
+	SetTimer(aMSec,FuncObj){
+		;~ aMSec := aMSec*6000
 		Type.afObj(FuncObj)
-		aMSec:=aMin*1000*60
+		Type.afNumber(aMSec)
 		Priority:=50000
 		SetTimer,%FuncObj%,%aMSec%, %Priority%
 		return
-	}
+	}	
 ;---------------------------------------------------------------------- 
 /*
 获取用于检查时间的字符串

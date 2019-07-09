@@ -5,7 +5,7 @@
 */
 class AutoClassify{
 	sSearchCriteria:=[""],sDestPattern:="",searchResultList:="",EverthingObj:=""
-	sCheckIntervalMin:=0.5
+	sCheckIntervalMsec:=0.5
 ;---------------------------------------------------------------------- 
 	__New(sSearchCriteria,sDestPattern){
 		this.sSearchCriteria:=sSearchCriteria
@@ -40,10 +40,10 @@ class AutoClassify{
 		return	
 	}
 ;---------------------------------------------------------------------- 
-	SetTimer(sCheckIntervalMin:=0.5){
+	SetTimer(sCheckIntervalMsec){
 		FuncObj:=this.SearchAndRemove.Bind(this)
-		this.sCheckIntervalMin:=sCheckIntervalMin
-		SetTimer(this.sCheckIntervalMin,FuncObj)
+		this.sCheckIntervalMsec:=sCheckIntervalMsec
+		SetTimer(this.sCheckIntervalMsec,FuncObj)
 		
 		return
 	}
