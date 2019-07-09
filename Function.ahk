@@ -1,4 +1,8 @@
 ﻿
+	GetKeyPhysicalState(key){
+		result  := GetKeyState(key,"P")
+		return result
+	}
 ;---------------------------------------------------------------------- 
 
 showObj(aObj,aList:=""){
