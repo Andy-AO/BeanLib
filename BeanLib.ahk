@@ -11,10 +11,6 @@
 
 当然,你也可以自己搞一个"中心Lib",位置你来定,之后在其他任意脚本中 #Include 即可。
 
-关于该方法的详细介绍请参阅帮助文档。
-
-如果你有更通用的导入方法还请告知。^_^。
-
 */
 
 ;定义 #Include 的工作目录
@@ -40,7 +36,9 @@
 #Include BeanEnum.ahk
 #Include _Win.ahk
 #Include GUI.ahk
+#Include UMSS.ahk
 #Include _Wins.ahk
+#Include HotString.ahk 
 #Include PathObj.ahk
 #Include Condition.ahk
 #Include AutoGUI.ahk
