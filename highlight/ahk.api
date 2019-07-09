@@ -11,6 +11,7 @@ _List
 .Sort()
 .ToString()
 .Remove()
+.Extract()
 
 _EX
 ExcelToList()
@@ -19,6 +20,7 @@ ExcelToList()
 .ToList ()
 .py ()
 .CharAt()
+.when()
 
 
 #AllowListmeLineComments
@@ -65,6 +67,7 @@ AutoTrim , On|Off
 BlockInput , On|Off|Send|Mouse|SendAndMouse|Default|MouseMove|MouseMoveOff
 break [, LoopLabel]
 Click [, Value1, Value2, Value3, Value4]
+ObjHasKey , Object, Key
 ClipWait [, SecondsToWait, 1]
 catch [, OutputVar]
 continue [, LoopLabel]

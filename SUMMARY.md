@@ -10,6 +10,8 @@
 -   [Class](Action.md)
     -   [Action](Action.md)
     -   [\_EX](_EX.md)
+    -   [HotString](HotString.md)
+    -   [HotStringMaps](HotStringMaps.md)
     -   [\_List](_List.md)
         -   [\_List.CopyOfRange()](_List/_List.CopyOfRange().md)
         -   [\_List.ElementCounter()](_List/_List.ElementCounter().md)

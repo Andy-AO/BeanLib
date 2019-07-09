@@ -32,7 +32,7 @@ class StrBase{
 			this.enableTrimBlankAndTab:=true 
 			return
 		}
-		
+
 ;---------------------------------------------------------------------- 
 		
 		__New(aHayStack,aDelimiter){
@@ -98,6 +98,21 @@ Escape(aCharList,aTargetChar:="\"){
 	}
 	return String
 }
+	;---------------------------------------------------------------------- 
+
+	minToMSec(){ ;isObj直接调用系统函数就行了，不用绕弯子
+		min := this
+		Type.afNumber(min)
+		Sec := min * 60
+		return (Sec.SecToMSec())
+	}
+;------------------------------
+
+	SecToMSec(){ ;isObj直接调用系统函数就行了，不用绕弯子
+		sec := this
+		Type.afNumber(sec)
+		return (Sec*1000)
+	}
 ;----------------------------------------------------------------------  Start	
 		length(){
 			return StrLen(this)
@@ -233,14 +248,13 @@ Escape(aCharList,aTargetChar:="\"){
 }
 ;----------------------------------------------------------------------  End		
 	}	
-}
+}	
 ;---------------------------------------------------------------------- 
 /*
 断言参数长度是否符合 Func 的需求
 */
 afParaLength(aFunc,aParaList){
 	Type.afObj(aFunc),Type.afObj(aParaList)
-	
 	tooFew:= (aParaList.Length()<aFunc.MinParams)
 	tooMany:= (aParaList.Length()>aFunc.MaxParams) AND NOT(aFunc.IsVariadic)
 	

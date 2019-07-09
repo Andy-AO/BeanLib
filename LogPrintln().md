@@ -17,7 +17,7 @@ LogPrintln(Obj:="",prefix:="",postfix:="")
 
 - prefix - 打印的前缀字符串
 
-- prefix - 打印的后缀字符串
+- postfix- 打印的后缀字符串
 
   前后缀主要用于打印时解释对象，详见示例
 
@@ -33,3 +33,20 @@ LogPrintln(theList,"theList >" ">> ")
 ```
 
 ![运行效果](https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/image_4.png)
+
+```autohotkey
+#If WinActive("ahk_exe SciTE.exe") Or WinActive(".ahk - Notepad++")
+
+;一键生成调试语句
+^RButton::
+	TheName:=SuperCopy(20,0),TheNameAfterEscape:=StrReplace(TheName,"""","""""") 
+	;主要是为了防止清理调试语句时候被清除,所以用两端分开再合起来的办法
+	logPosfix1="%TheNameAfterEscape% >
+	logPosfix2=>>"
+	logPosfix:=logPosfix1 . logPosfix2
+	OutString=LogPrintln(%TheName%,%logPosfix%)
+	ClipBoard:=OutString
+	TrayTip,一键生成调试语句,%TheName% 的 DeepPrintln 形式已经放到剪切板中了.
+return
+#If
+```

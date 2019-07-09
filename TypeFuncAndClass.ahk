@@ -1,11 +1,11 @@
 ﻿
+
 /*
 占用的域
 函数 Type(Ever)
 类 Type TypeBase
 */
-
-Type(Ever){ ;提前支持 AHK2 中的特性 ;√		
+Type(Ever){ 
 	
 	if (IsObject(Ever))
 		theType:=Type.ObjectType(Ever)
@@ -14,38 +14,23 @@ Type(Ever){ ;提前支持 AHK2 中的特性 ;√
 	
 		return theType
 }
-
 ;---------------------------------------------------------------------- 
-
 Class Type{
-
-
-
-
 	;用于测试的，有继承关系的一些 Inter Class
 	Class AA extends Type.BB{
-
 	}
-
 	Class BB extends Type.CC{
-
 	}
-
 	Class CC extends Type.DD{
-
 	}
-
 	Class DD{
-
 	}
 ;---------------------------------------------------------------------- 
-
 	isObj(Obj){ ;isObj直接调用系统函数就行了，不用绕弯子
 		return IsObject(Obj)
 	}
-
+	
 ;---------------------------------------------------------------------- 
-
 		static Switcher:=true
 		afOn(){
 			Type.Switcher:=true
@@ -57,7 +42,6 @@ Class Type{
 		}
 		
 ;---------------------------------------------------------------------- 
-
 		;通过TypeCode反向查类型值
 		ofCode(Code){
 		theMap:=TypeBase.__Get
@@ -70,7 +54,6 @@ Class Type{
 		
 ;---------------------------------------------------------------------- 
 ;TypeBase 类的原方法的Base 放在这里了,全局变量能少占一个就少占一个吧
-
 	class TypeCallBase{ 
 		__Call(aThis,aName,aParams*){	
 			aNameLen:=StrLen(aName)
@@ -79,7 +62,6 @@ Class Type{
 			if ((aNameLen<4) OR (aNameLen="")){
 			throw Exception(_Ex.NoExistMethod)
 			}
-			
 			;获取目标的代号
 			
 			TypeName:=SubStr(aName,BeginIndex:=3,aNameLen)
@@ -96,12 +78,8 @@ Class Type{
 			}
 		}
 	}
-
 ;---------------------------------------------------------------------- 
-
-
 	;主要是为了实现保护写入,也就是保证里面的东西是常量(必须Get也原函数实现,没法单独实现Set元函数,因为那样的话会直接复写掉,元函数本质是extends)
-
 	class TypeGetBase{ 
 		__Call(aThis,aName,aParams*){
 			
@@ -115,7 +93,6 @@ Class Type{
 			}
 		}
 	}
-
 ;---------------------------------------------------------------------- 
 	class TypeSetBase{
 		__Call(aThis,aVariateName,aParams*){
@@ -157,8 +134,6 @@ Class Type{
 		
 		return theType
 	}
-
-
 	ObjectSpecificType(Obj){ ;详细检查Obj的类型
 		
 		ObjBase:=""
@@ -177,12 +152,8 @@ Class Type{
 		F1:=Obj.Length=Obj.Length(),F2:=Obj.AtEOF!="",F3:=Obj.Pos!="",FC:=F1+F2+F3=3
 		if (FC)
 			return Type.FileObj
-
 		return Type.Obj ;如果都不是那么就认为是 Object
 	}
-
-
-
 	StringType(Str){ ;检查String的类型 ;√
 		
 		if (Str="")
@@ -197,8 +168,6 @@ Class Type{
 		else
 			return Type.Str
 	}
-
-
 ;---------------------------------------------------------------------- 
 		
 		
@@ -235,18 +204,11 @@ Class Type{
 	}
 	
 ;---------------------------------------------------------------------- 
-
 }  ;Type Class End
-
 ;---------------------------------------------------------------------- 
-
 Type.base:=new TypeBase()
-
 ;---------------------------------------------------------------------- 
-
-
 Class TypeBase{
-
 	
 	Class __Set extends Type.TypeSetBase{
 	}	
@@ -260,7 +222,6 @@ Class TypeBase{
 		Static Str:=10,NS:=11,Number:=12,Boolean:=13
 		
 		Static List:=130
-
 		Static ObjEndCode := 199
 		Static Obj:=100,ExtendsObj:=101,Class:=110,FuncObj:=120,Action:=125
 		
@@ -270,9 +231,7 @@ Class TypeBase{
 	}	
 	
 ;---------------------------------------------------------------------- 
-
 	
-
 	Class __Call extends Type.TypeCallBase{
 		
 		is(TypeCode,aParams,TypeName){
@@ -282,7 +241,6 @@ Class TypeBase{
 		theInput:=aParams[1]
 		aInputTypeCode:=Type(theInput)
 		
-
 		aInputTypeCode:=Type.Swap(TypeCode,aInputTypeCode)
 		
 		Result:=TypeCode=aInputTypeCode
@@ -290,7 +248,7 @@ Class TypeBase{
 		return Result
 		}
 		
-		
+;------------------------------
 		af(TypeCode,aParams,TypeName){ ;断言.
 			
 		if(Type.Switcher=false) ;如果断言开关关闭,那么就不启用断言
@@ -309,12 +267,30 @@ Class TypeBase{
 		}		
 		Result:=this.isisis(TypeCode,aParams) 
 		return Result
+		}		
+;------------------------------
+		pa(TypeCode,aParams,TypeName){ ;参数设置
+		listIndex := 2
+		result := ObjHasKey(aParams,listIndex)
+		LogPrintln(aParams,"aParams >>>")
+		LogPrintln(result,"result >>>")
+		if(result){
+			theIsName:="is" TypeName
+			theInput:=aParams[1]
+			LogPrintln(theInput,"theInput >>>")
+			Result:=this[theIsName](theInput)
+			if(Result)
+				return theInput
+			else{
+				Default := aParams[2]
+				return Default
+			}
+
 		}
+		else{
+			throw Exception(_Ex.TooFewParas)
+		}
+	}
 	
 	}	
-
 } ;TypeBase Class End
-
-
-
-
