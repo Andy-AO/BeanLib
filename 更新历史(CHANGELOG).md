@@ -37,4 +37,10 @@
 ## 1.3 - 2019年07月08日
 
 1. 目录：(1)层级更明确 (2)整齐排序
-2. 
+2.  UMSS ：让任何按键变成修饰键的类，代码全面重构，对效率和稳定性进行了大幅优化
+3. HotString类和HotStringMaps类：可以从更接近底层的地方掌控HotString，从而实现各种批量化操作。
+4. .feat : 
+   (1)Contain:增加 DeleteByFunc，根据对象运行的返回值来删除容器元素.
+   (2)_Ex :增加 InvalidPara 等多个常用异常
+   (3)FuncTion: 修改SetTimer函数,从接收分钟变成毫秒
+   (4)StringMethod:为配合(3)，加入分钟和秒转毫秒的方法,
