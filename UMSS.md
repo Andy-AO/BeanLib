@@ -1,4 +1,4 @@
-# Type Class
+# UMSS Class
 
 1.  实例类
 2.	让 Tab/Space 等，并非修饰键的按键，拥有修饰键的类似效果。

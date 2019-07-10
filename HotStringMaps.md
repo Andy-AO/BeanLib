@@ -1,4 +1,4 @@
-# Type Class
+# HotStringMaps Class
 
 1.  静态类
 2.	开发目的：接收并组织 `HotString` 对象，提供 有序的 String-HotString 关联数组。
@@ -18,10 +18,8 @@ List 放置 String-HotString 关联数组 。
 ![](https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/20190709100419.png)
 
 ```autohotkey
+HotStringMaps.List := [SciTE,FileLocator,TotalControl]
 
-
-
-​```autohotkey
 HotStringMaps.List[2]["SearchInAHKWithOutTTD"] := HotString.create(Trigger := "::;ahknd"
 ,FuncObj:=HotStringMaps.List[2].OpenInTheTab.bind("ahk","H:\MyLibrary\FileLocator搜索条件\搜索非TDD的AHK内容.srf")
 ,Remarks:=	"搜索非TDD的AHK内容"

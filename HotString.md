@@ -1,4 +1,4 @@
-# Type Class
+# HotString Class
 
 1.  实例类
 2.  全面接管HotString，以便于实现自动化提示等等等，高度自定义的内容。
@@ -24,6 +24,8 @@ Premise ：Func  语境约束。与 #if 的效果一样
 ![](https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/20190709100419.png)
 
 ```autohotkey
+HotStringMaps.List := [SciTE,FileLocator,TotalControl]
+
 HotStringMaps.List[2]["SearchInAHKWithOutTTD"] := HotString.create(Trigger := "::;ahknd"
 ,FuncObj:=HotStringMaps.List[2].OpenInTheTab.bind("ahk","H:\MyLibrary\FileLocator搜索条件\搜索非TDD的AHK内容.srf")
 ,Remarks:=	"搜索非TDD的AHK内容"
