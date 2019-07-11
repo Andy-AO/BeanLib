@@ -436,8 +436,7 @@ toString(Obj){
 ;--------------***-------------------------------- 
 
 
-Traceback(actual:=false)
-{
+Traceback(actual:=false){
 	r := [], i := 0, n := actual ? 0 : A_AhkVersion<"2" ? 1 : 2
 	Loop
 	{
@@ -454,17 +453,15 @@ Traceback(actual:=false)
 
 StackTrace(){
 		out := "Stack trace:"
-		for i, info in Traceback()
+		Traceback := Traceback()
+		headStr := "`r`n" "-Stack Trace ~ ~~" "`r`n"
+		stdoutln(headStr,Encoding:="UTF-8")
+		for i, info in Traceback
 		{
-			out .= Format("
-			(LTrim Join`r`n
-			`r`n
-			Offset: {}
-			File:   {}
-			Line:   {}
-			Caller: {}
-			)", info.offset, info.file, info.line, info.caller)
+			Snippet := info.File "(" info.line ")" " : ==> " "offset:" info.offset " "  "caller:" info.caller " "
+			stdoutln(Snippet,Encoding:="UTF-8")
 		}
+
 		return out
 }
 
@@ -476,12 +473,10 @@ StackTrace(){
 			TrayTip,%A_ScriptName%,%theTipString% 
 			return
 		}
-		out := StackTrace()
-		out := "`r`n`r`nMes:" Mes "`r`n`r`n" out
-		LogPrintln(out,"StackTraceOut >>" " >>")
+		StackTrace()
 		if(EnableEx){
-			throwWithSt(Mes)
+			throw,Exception(Mes)
 		}
-		return out
+		return 
 	}
 	
