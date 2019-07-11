@@ -13,6 +13,7 @@ static List := []
 	}
 ;------------------------------
 	Extract(theHotStringMap){
+		local String := ""
 		for k,v in theHotStringMap {
 			result := HotString.isHotString(v)
 			if(result){
