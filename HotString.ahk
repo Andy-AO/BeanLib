@@ -34,16 +34,17 @@ static List := []
 } ;HotStringMaps End
 ;------------------------------
 class HotString{
-isHotString(Obj){
-	isHasMark := ObjHasKey(Obj,"Mark")
-	if(isHasMark){
-		isHotString := Obj.Mark = "HotString"
-		 return isHotString
+isHotString(HotStringObj){
+	try{
+		result := Instanof(HotStringObj,HotString)
 	}
-	return false
+	catch Ex{
+		return false
+	}
+	return result
 }
 ;------------------------------
-	mark := "HotString"
+	;~ mark := "HotString"
 	Trigger  := behavior := Remarks := ""
 	static On := "On",Toggle := "Toggle",Off := "Off"
 ;------------------------------
