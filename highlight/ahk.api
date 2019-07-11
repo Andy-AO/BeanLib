@@ -12,7 +12,7 @@ _List
 .ToString()
 .Remove()
 .Extract()
-
+objhaskey(Object , Key)
 _EX
 ExcelToList()
 
@@ -66,8 +66,7 @@ ExcelToList()
 AutoTrim , On|Off
 BlockInput , On|Off|Send|Mouse|SendAndMouse|Default|MouseMove|MouseMoveOff
 break [, LoopLabel]
-Click [, Value1, Value2, Value3, Value4]
-ObjHasKey , Object, Key
+Click [, Value1, Value2, Value3, Value4]
 ClipWait [, SecondsToWait, 1]
 catch [, OutputVar]
 continue [, LoopLabel]
