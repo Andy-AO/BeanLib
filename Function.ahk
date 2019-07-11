@@ -448,13 +448,14 @@ Traceback(actual:=false){
 	return r
 }
 
+ ;~ From：https://www.autohotkey.com/boards/viewtopic.php?t=6001
 
 ;------------------------------
 
-StackTrace(){
+StackTrace(Mes){
 		out := "Stack trace:"
 		Traceback := Traceback()
-		headStr := "`r`n" "-Stack Trace ~ ~~" "`r`n"
+		headStr := "`r`n" "-Stack Trace ~ ~~" "  " "Mes:" Mes "`r`n"
 		stdoutln(headStr,Encoding:="UTF-8")
 		for i, info in Traceback
 		{
@@ -473,7 +474,7 @@ StackTrace(){
 			TrayTip,%A_ScriptName%,%theTipString% 
 			return
 		}
-		StackTrace()
+		StackTrace(Mes)
 		if(EnableEx){
 			throw,Exception(Mes)
 		}
