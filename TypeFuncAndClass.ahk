@@ -250,23 +250,20 @@ Class TypeBase{
 		
 ;------------------------------
 		af(TypeCode,aParams,TypeName){ ;断言.
-			
 		if(Type.Switcher=false) ;如果断言开关关闭,那么就不启用断言
 			return
+		theIsName:="is" TypeName	
 		
-		;不能直接调用is,要转接之后调用
-		theIsName:="is" TypeName
-		theInput:=aParams[1]
-		Result:=this[theIsName](theInput)
-		if (Result)
-			return Result
-		else{
-			aInputTypeCode:=Type(theInput),ActualTypes:=Type.ofCode(aInputTypeCode)
-			Mess=Affirm! GoalType : "%TypeName%"  ActualTypes : "%ActualTypes%"  
-			throw Exception(Mess)
-		}		
-		Result:=this.isisis(TypeCode,aParams) 
-		return Result
+		for i,v in aParams {
+			theInput:=v
+			Result:=this[theIsName](theInput)
+			if (NOT(Result)){
+					aInputTypeCode:=Type(theInput),ActualTypes:=Type.ofCode(aInputTypeCode)
+					Mess=Affirm! GoalType : "%TypeName%"  ActualTypes : "%ActualTypes%"  
+					throw Exception(Mess)
+			}
+		}
+		return true
 		}		
 ;------------------------------
 		pa(TypeCode,aParams,TypeName){ ;参数设置

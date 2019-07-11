@@ -65,26 +65,26 @@ afOff() - 把变量设为 false ,关闭断言
 
 ### af方法(断言方法)
 
+- af方法都是**可变参数**，支持检测多个变量。
+
 - **类型断言方法是干什么的？**
-  保证类型安全，也就是确保一个值是你想要的类型。因为类型这个概念在AHK中非常弱，所以如果你没有学习过强类型语言，这里很难跟你说清楚。
-- **能简单说说怎么用吗？**
-  比如，你设计一个给字符串数组排序的函数，你肯定不希望传入的参数是 `FuncObj`，由于`AHK`是弱类型，而且非常弱，所以不会报任何错误，但是程序一定会出现逻辑错误。
-  这时候你就可以在最前面加上一个`Type.afStr(Str)`，一旦发现数组中的数据不是`String`就会直接`Throw`，并告知你类型错误的细节。
+  比如，你设计一个给字符串数组排序的函数，你肯定不希望传入的参数是 `FuncObj`，由于`AHK`是弱类型，所以不会报任何错误，但是程序可能会有逻辑错误。
+  如果预先使用`Type.afStr(Str)`，就可以避免此类问题，并告知你类型错误的细节。
 
-#### afStr(Ever) 
-#### afNS(Ever) 
-#### afNumber(Ever) 
+#### afStr(Ever*) 
+#### afNS(Ever*) 
+#### afNumber(Ever*) 
 
-#### afBoolean(Ever) 
+#### afBoolean(Ever*) 
 
-#### afList(Ever) 
-#### afObj(Ever) 
-#### afClass(Ever) 
-#### afFileObj(Ever) 
-#### afFuncObj(Ever) 
-#### afAction(Ever) 
-#### afComObj(Ever) 
+#### afList(Ever*) 
+#### afObj(Ever*) 
+#### afClass(Ever*) 
+#### afFileObj(Ever*) 
+#### afFuncObj(Ever*) 
+#### afAction(Ever*) 
+#### afComObj(Ever*) 
 
-``` autohotkey
-ofCode(Type.List)
-```
+### ofCode(Type.List)
+
+通过TypeCode反向查类型值
