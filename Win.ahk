@@ -85,7 +85,7 @@ getNAString(boolean){
 			return "x" this.x " y" this.y
 		}
 		set {
-			throw Exception(_EX.SetConst)
+			throwWithSt(_EX.SetConst)
 			return
 		}
 	}

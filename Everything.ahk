@@ -42,7 +42,7 @@ __New(DLLPath:=""){
 	Dll:=this.getDll(DLLPath)
 
 	if Not(Dll){
-	throw Exception("Not Found Everthing.DLL/Everthing64.DLL.")
+	throwWithSt("Not Found Everthing.DLL/Everthing64.DLL.")
 	}
 	
 	this.Dll:=Dll
@@ -60,7 +60,7 @@ __Delete(){
 ;---------------------------------------------------------------------- 
 	afEverythingExist(){
 		if Not(this.isEverythingExist()){
-			throw Exception("process ""Everything.exe"" is not Exist.")
+			throwWithSt("process ""Everything.exe"" is not Exist.")
 		}
 		return
 	}

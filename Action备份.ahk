@@ -65,7 +65,7 @@ class Action{
 			return SmartCall(this.meta[aMethodName],aParams*)
 		}
 		else{
-			throw Exception(_EX.NoExistMethod)
+			throwWithSt(_EX.NoExistMethod)
 		}
 		return
 	}

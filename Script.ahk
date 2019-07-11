@@ -36,7 +36,7 @@ class ScriptCallBase{
 			
 			;如果没有发现窗口,就抛出异常
 			if(MesObj=false){
-			throw Exception(_EX.NoExistWin)
+			throwWithSt(_EX.NoExistWin)
 			}
 			
 			MesObj:=_Win.Analyze(ResultTitle,true,false)
@@ -53,7 +53,7 @@ class ScriptCallBase{
 			return MesObj ;返回对应窗口的信息
 		}
 		else{					
-			throw Exception(_Ex.NoExistMethod)	;找不到方法,就抛出异常
+			throwWithSt(_Ex.NoExistMethod)	;找不到方法,就抛出异常
 		}
 		
     }
@@ -69,7 +69,7 @@ class ScriptGetBase{
 			return OutPut
 		}
 		else{
-			throw Exception(_EX.NoExistVariate) ;如果找不到，那么就抛出值不存在异常
+			throwWithSt(_EX.NoExistVariate) ;如果找不到，那么就抛出值不存在异常
 			return ""		
 		}
     }
@@ -85,11 +85,11 @@ class ScriptSetBase{
 		the__Get:=ObjRawGet(ScriptBase,"__Get") ;为了绕过元函数而用,如果不用，就会陷入死循环
 		
 		if(ObjHasKey(the__Get,aVariateName)){ 
-			throw Exception(_EX.SetConst) ;如果已经存在,那么就抛出常量写入异常
+			throwWithSt(_EX.SetConst) ;如果已经存在,那么就抛出常量写入异常
 			return ""
 		}
 		else{					
-			throw Exception(_EX.NoExistVariate)	;如果找不到，那么就抛出变量不存在异常	
+			throwWithSt(_EX.NoExistVariate)	;如果找不到，那么就抛出变量不存在异常	
 		}
     }
 }	

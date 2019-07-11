@@ -60,7 +60,7 @@ Class Type{
 			aFuncName:=SubStr(aName,aFuncNameBegin:=1,aFuncNameLen:=2)
 			;检查一下方法名,如果 少于4 那么肯定是错的，这里没有少于四个字符的方法名
 			if ((aNameLen<4) OR (aNameLen="")){
-			throw Exception(_Ex.NoExistMethod)
+			throwWithSt(_Ex.NoExistMethod)
 			}
 			;获取目标的代号
 			
@@ -74,7 +74,7 @@ Class Type{
 				return OutPut
 			}
 			else{					
-				throw Exception(_Ex.NoExistMethod)	;如果发现不是is或者af,那么就说找不到方法
+				throwWithSt(_Ex.NoExistMethod)	;如果发现不是is或者af,那么就说找不到方法
 			}
 		}
 	}
@@ -88,7 +88,7 @@ Class Type{
 				return OutPut
 			}
 			else{
-				throw Exception(_EX.NoExistVariate) ;如果找不到，那么就抛出值不存在异常
+				throwWithSt(_EX.NoExistVariate) ;如果找不到，那么就抛出值不存在异常
 				return ""			
 			}
 		}
@@ -98,11 +98,11 @@ Class Type{
 		__Call(aThis,aVariateName,aParams*){
 			
 			if(ObjHasKey(TypeBase.__Get,aVariateName)){ 
-				throw Exception(_EX.SetConst) ;如果已经存在,那么就抛出常量写入异常
+				throwWithSt(_EX.SetConst) ;如果已经存在,那么就抛出常量写入异常
 				return ""
 			}
 			else{					
-				throw Exception(_EX.NoExistVariate)	;如果找不到，那么就抛出变量不存在异常	
+				throwWithSt(_EX.NoExistVariate)	;如果找不到，那么就抛出变量不存在异常	
 			}
 		}
 	}	
@@ -149,7 +149,7 @@ Class Type{
 			return Type.FuncObj
 				
 		;检查是否为 Exception 抽检两个字段，基本上就可以断定
-		if (Objhaskey(Obj,"Message") AND (Objhaskey(Obj,"Line")))
+		if (Objhaskey(Obj,"Message") AND (Objhaskey(Obj,"Line")) AND (Objhaskey(Obj,"what")))
 			return Type.Exception
 
 		;检查是否为 FileObj 主要的方法就是抽检其中的三个字段
@@ -241,7 +241,7 @@ Class TypeBase{
 		is(TypeCode,aParams,TypeName){
 			
 		if (aParams.length()<1)
-			throw Exception(_Ex.TooFewParas)
+			throwWithSt(_Ex.TooFewParas)
 		theInput:=aParams[1]
 		aInputTypeCode:=Type(theInput)
 		
@@ -263,8 +263,8 @@ Class TypeBase{
 			Result:=this[theIsName](theInput)
 			if (NOT(Result)){
 					aInputTypeCode:=Type(theInput),ActualTypes:=Type.ofCode(aInputTypeCode)
-					Mess=Affirm! GoalType : "%TypeName%"  ActualTypes : "%ActualTypes%"  
-					throw Exception(Mess)
+					Mes=Affirm! GoalType : "%TypeName%"  ActualTypes : "%ActualTypes%"  
+					throwWithSt(Mes)
 			}
 		}
 		return true
@@ -273,8 +273,6 @@ Class TypeBase{
 		pa(TypeCode,aParams,TypeName){ ;参数设置
 		listIndex := 2
 		result := ObjHasKey(aParams,listIndex)
-		LogPrintln(aParams,"aParams >>>")
-		LogPrintln(result,"result >>>")
 		if(result){
 			theIsName:="is" TypeName
 			theInput:=aParams[1]
@@ -289,7 +287,7 @@ Class TypeBase{
 
 		}
 		else{
-			throw Exception(_Ex.TooFewParas)
+			throwWithSt(_Ex.TooFewParas)
 		}
 	}
 	

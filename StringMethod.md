@@ -96,7 +96,7 @@ println(s[2])
 		
 		if Not(absolutePathResult){
 			Mes:=InvalidPara . "1"
-			throw Exception(Mes)
+			throwWithSt(Mes)
 		}
 		
 		return

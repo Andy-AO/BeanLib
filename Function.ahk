@@ -47,7 +47,7 @@ rawCall(aThis,aMethodName,aParams*){
 			return SmartCall(aThis,aThis.base[aMethodName],aParams*)
 		}		
 		else{
-			throw Exception(_EX.NoExistMethod)
+			throwWithSt(_EX.NoExistMethod)
 		}
 		return
 }
@@ -74,7 +74,7 @@ getFunc(aFuncName){
 	type.afStr(aFuncName)
 	theFunc := Func(aFuncName)
 	if Not(IsObject(theFunc)){
-		throw Exception(_Ex.NoExistFunctionName)
+		throwWithSt(_Ex.NoExistFunctionName)
 	}
 	return theFunc
 }
@@ -161,7 +161,7 @@ return TheArray
 			SourcePattern:=v
 			FileMove, %SourcePattern%, %aDestPattern% , %Overwrite%
 			if ErrorLevel
-				throw Exception(_EX.MoveFailed " : " SourcePattern)
+				throwWithSt(_EX.MoveFailed " : " SourcePattern)
 		}
 		return aPathList.Length()
 	}
@@ -224,7 +224,7 @@ getCurrentTime(){
 			return Boolean
 		
 		ExMes:=_EX.Affirm . " Mes : " . Mes
-		throw Exception(ExMes)
+		throwWithSt(ExMes)
 		
 		return Boolean
 	}
@@ -313,7 +313,7 @@ DeepListtoString(List){
 			TheArrayString.="," v
 		
 		else
-			throw Exception("The " index "th element in the array is invalid.")
+			throwWithSt("The " index "th element in the array is invalid.")
 		
 	}
 
@@ -435,3 +435,53 @@ toString(Obj){
 }
 ;--------------***-------------------------------- 
 
+
+Traceback(actual:=false)
+{
+	r := [], i := 0, n := actual ? 0 : A_AhkVersion<"2" ? 1 : 2
+	Loop
+	{
+		theEx := Exception(".", offset := -(A_Index + n))
+		if (theEx.What == offset)
+			break
+		r[++i] := { "file": theEx.file, "line": theEx.Line, "caller": theEx.What, "offset": offset + n }
+	}
+	return r
+}
+
+
+;------------------------------
+
+StackTrace(){
+		out := "Stack trace:"
+		for i, info in Traceback()
+		{
+			out .= Format("
+			(LTrim Join`r`n
+			`r`n
+			Offset: {}
+			File:   {}
+			Line:   {}
+			Caller: {}
+			)", info.offset, info.file, info.line, info.caller)
+		}
+		return out
+}
+
+;------------------------------
+
+	throwWithSt(Mes,EnableEx := true){ 
+		if(IsObject(Mes)){
+			theTipString = %A_ThisFunc% : Mes 暂时仅支持Str类型.
+			TrayTip,%A_ScriptName%,%theTipString% 
+			return
+		}
+		out := StackTrace()
+		out := "`r`n`r`nMes:" Mes "`r`n`r`n" out
+		LogPrintln(out,"StackTraceOut >>" " >>")
+		if(EnableEx){
+			throwWithSt(Mes)
+		}
+		return out
+	}
+	

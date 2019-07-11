@@ -15,7 +15,7 @@ Check(){
 		type.afObj(v)
 		result := v.Call()
 		if(Not(result)){
-			throw Exception("条件" i "不符合.")
+			throwWithSt("条件" i "不符合.")
 		}
 	}
 	return
@@ -28,7 +28,7 @@ CheckAnd(){
 		type.afObj(v)
 		result := v.Call()
 		if(Not(result)){
-			throw Exception("第" i "个条件不符合.")
+			throwWithSt("第" i "个条件不符合.")
 		}
 	}
 	

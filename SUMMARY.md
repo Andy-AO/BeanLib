@@ -49,5 +49,6 @@
 	-   [SetTimer()](SetTimer.md)
 	-   [showObj()](showObj().md)
 	-   [Type()](Type().md)
+	-   [throwWithSt](throwWithSt.md)
 	-   [UseCMD()](UseCMD.md)
 -   [StringMethod](StringMethod.md)

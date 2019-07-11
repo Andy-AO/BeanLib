@@ -33,7 +33,7 @@
 		
 		if Not(absolutePathResult){
 			Mes:=_EX.InvalidPara . "1"
-			throw Exception(Mes)
+			throwWithSt(Mes)
 		}
 		
 		return

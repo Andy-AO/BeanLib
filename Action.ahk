@@ -30,7 +30,7 @@ class Action{
 			return
 		}
 		onError(){
-			throw Exception("onError！ onError！ onError！	")
+			throwWithSt("onError！ onError！ onError！	")
 			return
 		}
 ;---------------------------------------------------------------------- 
@@ -110,7 +110,7 @@ afterName[]{
 			return false
 		}
 		else{
-			throw Exception(_EX.NoExistMethod)
+			throwWithSt(_EX.NoExistMethod)
 		}
 		return
 	}

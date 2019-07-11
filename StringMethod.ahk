@@ -12,9 +12,9 @@ class StrCallBase{
 		}
 		else{
 			if(aStr = "")
-				throw Exception("为空字符串调用不存在的方法！")
+				throwWithSt("为空字符串调用不存在的方法！")
 			else
-				throw Exception("为字符串 " aStr " 调用不存在的方法！")
+				throwWithSt("为字符串 " aStr " 调用不存在的方法！")
 			return
 		}
     }
@@ -48,7 +48,7 @@ class StrBase{
 							
 				Type.afStr(this.HayStack)
 				if NOT InStr(this.HayStack, this.Delimiter){
-						throw Exception("Error01:Not Find Delimiter in this.HayStack`r`n在输入的字符串中，没有发现分隔符.")
+						throwWithSt("Error01:Not Find Delimiter in this.HayStack`r`n在输入的字符串中，没有发现分隔符.")
 				}
 				if (this.enableDeWeight){
 					this.DelimiterInRegex:=this.Delimiter.RegexEscape()
@@ -165,7 +165,7 @@ Escape(aCharList,aTargetChar:="\"){
 	CharAt(aIndex){
 		len:=1
 		if((aIndex>StrLen(this)) OR (aIndex<1)){
-			throw Exception(_Ex.IndexOutOfBounds)
+			throwWithSt(_Ex.IndexOutOfBounds)
 		}
 		
 		Sub:=SubStr(this,aIndex,len)
@@ -259,9 +259,9 @@ afParaLength(aFunc,aParaList){
 	tooMany:= (aParaList.Length()>aFunc.MaxParams) AND NOT(aFunc.IsVariadic)
 	
 	if (tooFew)
-		throw Exception(_EX.TooFewParas)
+		throwWithSt(_EX.TooFewParas)
 	if (tooMany)
-		throw Exception(_EX.TooManyParas)
+		throwWithSt(_EX.TooManyParas)
 	return
 }
 ;---------------------------------------------------------------------- 

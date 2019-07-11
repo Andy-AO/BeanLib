@@ -128,7 +128,7 @@ class FileLocator{
 		else{
 			if(onlycheck){
 				TrayTip,% FileLocator.窗口未能激活
-				throw Exception(_Ex.NoExistWin)
+				throwWithSt(_Ex.NoExistWin)
 			}
 			WinActivate,% FileLocator.WinTitle
 			Sleep 50
@@ -250,7 +250,7 @@ class FileLocator{
 			return
 		else{
 			TrayTip,% FileLocator.窗口不存在
-			throw Exception(_Ex.NoExistWin)
+			throwWithSt(_Ex.NoExistWin)
 		}
 			
 		return

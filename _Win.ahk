@@ -165,7 +165,7 @@ getPath(WinTitle){
 			
 			}
 			else
-				throw Exception(InvalidPara "1")
+				throwWithSt(InvalidPara "1")
 			
 			if(_Win.originalDetectHiddenWindows[aFuncId]=""){
 				_Win.originalDetectHiddenWindows[aFuncId]:=A_DetectHiddenWindows

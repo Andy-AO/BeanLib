@@ -82,7 +82,7 @@ class Ini {
 			IniRead, OutVar, % this.theIni.path,  % this.section, %aKey% , %aDefault%
 			
 			if (aDefault="") AND (OutVar="ERROR")
-				throw Exception(_Ex.NoExistKey)
+				throwWithSt(_Ex.NoExistKey)
 			
 			return OutVar
 		}		

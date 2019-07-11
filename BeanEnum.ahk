@@ -20,7 +20,7 @@ class BeanEnum {
 		if(methodName = "")or(methodName="next")
 			return this.next(k,v)
 		else
-			throw Exception(_Ex.NoExistMethod)
+			throwWithSt(_Ex.NoExistMethod)
 	}
 ;---------------------------------------------------------------------- 
 	next(byref k:="", byref v:=""){

@@ -40,7 +40,7 @@ class AutoInputBox{
 
 			
 		if (ErrorLevel=1){ ;必须立即判断，不能有间隔
-			throw Exception("User Cancel Input")
+			throwWithSt("User Cancel Input")
 		}
 			
 			UserInput:=this.aTextPrefix UserInput ;给用户输入的内容增加前缀

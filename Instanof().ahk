@@ -5,6 +5,8 @@
 
 Instanof(Obj,Super){
 	theList:=""	
+	if(Not(IsObject(Obj)))
+		return false
 	if (Type.isStr(Super)){
 		theList:=AnalyzeClassName(Obj)
 		return _Container.Contains(theList,Super)

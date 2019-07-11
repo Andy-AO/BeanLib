@@ -20,7 +20,7 @@ class TestCallBase{
 			return OutPut
 		}
 		else{					
-			throw Exception(_Ex.NoExistMethod)	;找不到方法,就抛出异常
+			throwWithSt(_Ex.NoExistMethod)	;找不到方法,就抛出异常
 		}
 		
     }
@@ -36,7 +36,7 @@ class TestGetBase{
 			return OutPut
 		}
 		else{
-			throw Exception(_EX.NoExistVariate) ;如果找不到，那么就抛出值不存在异常
+			throwWithSt(_EX.NoExistVariate) ;如果找不到，那么就抛出值不存在异常
 			return ""		
 		}
     }
@@ -50,11 +50,11 @@ class TestSetBase{
     __Call(aThis,aVariateName,aParams*){
 		
 		if(ObjHasKey(TestBase.__Get,aVariateName)){ 
-			throw Exception(_EX.SetConst) ;如果已经存在,那么就抛出常量写入异常
+			throwWithSt(_EX.SetConst) ;如果已经存在,那么就抛出常量写入异常
 			return ""
 		}
 		else{					
-			throw Exception(_EX.NoExistVariate)	;如果找不到，那么就抛出变量不存在异常	
+			throwWithSt(_EX.NoExistVariate)	;如果找不到，那么就抛出变量不存在异常	
 		}
     }
 }	

@@ -34,7 +34,7 @@ quotationMarkPack(Str){
 	afFunc(aObj){
 		theTypeString := Type.ofCode(Type(aObj))
 		if (NOT(Bean.isFunc(aObj))){
-				throw Exception(_EX.InvalidPara "1 : 参数不是FuncObj或Active,而是 " theTypeString)			
+				throwWithSt(_EX.InvalidPara "1 : 参数不是FuncObj或Active,而是 " theTypeString)			
 		}
 		return
 	}
@@ -76,19 +76,19 @@ quotationMarkPack(Str){
 
 		__Call(param*){
 			;~ println("Call保护")
-			throw Exception(_EX.NoExistMethod)
+			throwWithSt(_EX.NoExistMethod)
 			return
 		}
 
 		__Set(param*){
 			;~ println("Set保护")
-			throw Exception(_EX.NoExistVariate)
+			throwWithSt(_EX.NoExistVariate)
 			return
 		}
 
 		__Get(param*){
 			;~ println("Get保护")
-			throw Exception(_EX.NoExistVariate)
+			throwWithSt(_EX.NoExistVariate)
 			return
 		}
 
