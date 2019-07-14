@@ -204,6 +204,7 @@ getCurrentTime(){
 	return A_Hour A_Min
 }
 ;---------------------------------------------------------------------- 
+
 /*
 获取窗口ID
 */
@@ -211,6 +212,8 @@ getCurrentTime(){
 		WinGet,WinId,ID,%WinTitle%
 		return "ahk_id " WinId
 	}
+	
+
 ;---------------------------------------------------------------------- 
 /*
 通用断言
@@ -481,3 +484,28 @@ StackTrace(Mes){
 		return 
 	}
 	
+	;------------------------------
+
+	throw(Mes,EnableEx := true){ 
+		throwWithSt(Mes,EnableEx)
+		return 
+	}
+	
+;------------------------------
+TrayTip(aTitle,aTipString){
+	TrayTip,%aTitle%,%theTipString% 
+	return
+}
+
+;------------------------------
+	
+InstanceCheck(this){
+	if(this.InstanceExist){
+		throw(_Ex.SingletonClass)
+		return false
+	}
+	else{
+		this.InstanceExist := true
+		return true
+	}
+}
