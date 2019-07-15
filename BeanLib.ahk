@@ -46,6 +46,7 @@
 #Include Ini.ahk
 #Include AutoInputBox.ahk
 #Include Spliter.ahk
+#Include TimeChecker.ahk
 
 #Include ExcelToList().ahk
 #Include Analyze().ahk

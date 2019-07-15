@@ -112,3 +112,8 @@ println(s[2])
 ```autohotkey
 LogPrintln("555".isNumber(),"""555"".isNumber() >>>")
 ```
+### minToMSec()
+分钟转毫秒
+
+### secToMSec()
+秒转毫秒

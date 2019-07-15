@@ -38,6 +38,7 @@ static ParaIsEmpty:="Para Is Empty 参数为空:"
 static Affirm:="Affirm! 断言被触发!"
 static MoveFailed:="MoveFailed 文件移动失败."
 static NotOverride:="theObj in Class is Not Override 类中对象未被复写."
+static SingletonClass:="Instance Singleton Class 实例化单例类."
 
 }
 

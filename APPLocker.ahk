@@ -5,12 +5,13 @@
 */
 class AppLocker{
 	asPath := [""]
-	asUnLockTime := ["",""]
 	sCheckIntervalSec := "5".MinToMsec()
+	TimeCheckerObj:=""
 ;---------------------------------------------------------------------- 
 	__New(aPath,asUnLockTime){
+		this.TimeCheckerObj :=new TimeChecker()
+		this.TimeCheckerObj.WhiteList := asUnLockTime
 		this.asPath[1]:=aPath
-		this.asUnLockTime:=asUnLockTime
 		return this
 	}
 	
@@ -32,8 +33,8 @@ class AppLocker{
 ;---------------------------------------------------------------------- 
 		
 	AutoLock(){
-		targetTime:=getCurrentTime()
-		isUnLockTime:=this.CheckTime(targetTime,this.asUnLockTime)
+		isUnLockTime:=this.TimeCheckerObj.CheckByWhiteList()
+		LogPrintln(isUnLockTime,"isUnLockTime >>>")
 		if(isUnLockTime)
 			this.unlock()
 		else
@@ -41,9 +42,10 @@ class AppLocker{
 		return
 }
 ;---------------------------------------------------------------------- 
-	CheckTime(targetTime,asUnLockTime){
-		b1:=targetTime>=asUnLockTime[1]
-		b2:=targetTime<=asUnLockTime[2]
+	CheckTime(asUnLockTime){
+		currentTime:=getCurrentTime()
+		b1:=currentTime>=asUnLockTime[1]
+		b2:=currentTime<=asUnLockTime[2]
 		if(b1 AND b2)
 			return true
 		else
