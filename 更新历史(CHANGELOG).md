@@ -47,15 +47,18 @@
 
 ## 1.3.5 - 2019年07月15日
 
-1. Type：
+1. WinEvent Class：
+   新增「热窗口」(ShellHook)功能
+   我们已经有了强大的「热键」和「热字串」，现在我们又有了「热窗口」。
+2. Type：
    (1)断言方法支持多参数 (2)加入 Exception 类型
-2. Function 
+3. Function 
    (1)加入堆栈追踪方法 throw() 、throwWithSt()
    (2)InstanceCheck (单例类测试工具) 
    (3)新增InstanceCheck(),主要用于「单例模式」
-3. 新增TimeChecker Class：
+4. 新增TimeChecker Class：
    (1)用于「检查当前时间是否位于规定范围内」,支持黑、白名单两种检查方
-4. APPLock重构
+5. APPLock重构
    使用TimeChecker Class作为新的检查机制 
-5.  _Ex
+6.  _Ex
    增加关于「单例类重复实例化」的ExceptionMes
