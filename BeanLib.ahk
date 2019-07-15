@@ -39,6 +39,7 @@
 #Include UMSS.ahk
 #Include _Wins.ahk
 #Include HotString.ahk 
+#Include WinEvent.ahk
 #Include PathObj.ahk
 #Include Condition.ahk
 #Include AutoGUI.ahk

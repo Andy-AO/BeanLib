@@ -23,6 +23,7 @@
         -   [\_List.Uniq()](_List/_List.Uniq().md)
     -   [\_Win](_Win.md)
     -   [\_Wins](_Wins.md)
+    -   [WinEvent](WinEvent.md)
     -   [APPLocker](APPLocker.md)
     -   [AutoClassify](AutoClassify.md)
     -   [Everything(调用外部搜索工具)](Everything.md)
