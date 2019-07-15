@@ -493,7 +493,9 @@ StackTrace(Mes){
 	
 ;------------------------------
 TrayTip(aTitle,aTipString){
-	TrayTip,%aTitle%,%theTipString% 
+	LogPrintln(aTitle,"aTitle >>>")
+	LogPrintln(aTipString,"aTipString >>>")
+	TrayTip,%aTitle%,%aTipString% 
 	return
 }
 
