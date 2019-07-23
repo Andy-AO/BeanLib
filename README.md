@@ -1,4 +1,4 @@
-# [BeanLib](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301) 
+# [BeanLib](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301)
 
 ![](https://raw.githubusercontent.com/Oilj/GitHubPictureBed/master/%E5%B0%8F%E8%80%8C%E7%BE%8E%E7%9A%84%E4%B8%AD%E6%96%87AHKLib%E6%A8%AA%E5%B9%85_BeanLib.png)
 
