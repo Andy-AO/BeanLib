@@ -8,7 +8,6 @@
     -   [新手指南(BEGINNER\_GUIDE)](新手指南(BEGINNER_GUIDE).md)
     -   [语法高亮(HIGHLIGHTING)](HIGHLIGHTING.md)
 -   [Class](Action.md)
-    -   [Action](Action.md)
     -   [\_EX](_EX.md)
     -   [HotString](HotString.md)
     -   [HotStringMaps](HotStringMaps.md)

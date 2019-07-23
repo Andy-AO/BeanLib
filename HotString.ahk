@@ -1,5 +1,5 @@
 ﻿class HotStringMaps{
-static List := []
+	static List := []
 ;------------------------------
 	HotStringCheck(){
 		for i,v in HotStringMaps.List {
@@ -35,17 +35,16 @@ static List := []
 } ;HotStringMaps End
 ;------------------------------
 class HotString{
-isHotString(HotStringObj){
-	try{
-		result := Instanof(HotStringObj,HotString)
+	isHotString(HotStringObj){
+		try{
+			result := Instanof(HotStringObj,HotString)
+		}
+		catch Ex{
+			return false
+		}
+		return result
 	}
-	catch Ex{
-		return false
-	}
-	return result
-}
 ;------------------------------
-	;~ mark := "HotString"
 	Trigger  := behavior := Remarks := ""
 	static On := "On",Toggle := "Toggle",Off := "Off"
 ;------------------------------
