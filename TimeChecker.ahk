@@ -15,7 +15,7 @@ BlackList_Base := "",WhiteList_Base := ""
 				return this.BlackList_Base[index]
 		}
 		set {
-			Type.afList(value)
+			Type.assertList(value)
 			return this.BlackList_Base:=value
 		}
 	}
@@ -30,13 +30,13 @@ BlackList_Base := "",WhiteList_Base := ""
 				return this.WhiteList_Base[index]
 		}
 		set {
-			Type.afList(value)
+			Type.assertList(value)
 			return this.WhiteList_Base:=value
 		}
 	}
 ;------------------------------
 	CheckByBlackList(){
-		Type.afList(this.BlackList)
+		Type.assertList(this.BlackList)
 		currentTime:=getCurrentTime()
 		b1:=currentTime<this.BlackList[1]
 		b2:=currentTime>this.BlackList[2]
@@ -47,7 +47,7 @@ BlackList_Base := "",WhiteList_Base := ""
 	}
 ;------------------------------
 	CheckByWhiteList(){
-		Type.afList(this.WhiteList)
+		Type.assertList(this.WhiteList)
 		currentTime:=getCurrentTime()
 		b1:=currentTime>=this.WhiteList[1]
 		b2:=currentTime<=this.WhiteList[2]

@@ -27,7 +27,7 @@ winObj := new Win("春我部防卫队")
 
 act := new Action(winObj,winObj.equal)
 
-act.after := Bean.true
+act.assertter := Bean.true
 act.before := Bean.False
 
 map := showObj(act)

@@ -19,12 +19,12 @@ class Action{
 			return
 		}
 ;现在看来是枚举类的设计有问题
-		return new BeanEnum(Object("func",this.func,"funcThis",this.funcThis,"before",this.before,"after",this.after))
+		return new BeanEnum(Object("func",this.func,"funcThis",this.funcThis,"before",this.before,"after",this.assertter))
 	}
 ;~ */
 ;---------------------------------------------------------------------- 
 		initFunc(aFuncThis,aFunc){
-			type.afFuncObj(aFunc)
+			type.assertFuncObj(aFunc)
 			this.func:=aFunc
 			this.funcThis:=aFuncThis ;是不是因为这个地方出了问题呢？
 			return
@@ -68,7 +68,7 @@ beforeName[]{
 ;---------------------------------------------------------------------- 
 afterName[]{
     get {
-		theObj := this.after
+		theObj := this.assertter
 		if (type.isFuncObj(theObj)){
 			return theObj.name
 		}
@@ -84,7 +84,7 @@ afterName[]{
 		toString(){			
 			theFuncName := this.name
 			theBeforeName := this.beforeName
-			theAfterName := this.afterName
+			theAfterName := this.assertterName
 			theClassName := this.__Class
 			resultString = {Type:%theClassName%,Func:%theFuncName%,Before:%theBeforeName%,After:%theAfterName%}
 			return resultString

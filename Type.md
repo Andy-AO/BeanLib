@@ -41,11 +41,11 @@ Static Switcher:=true
 
 获取 TypeCode 对应的 TypeString。
 
-### afOn()/afOff()
+### assertOn()/assertOff()
 
-afOn() - 把变量设为 true ,开启断言
+assertOn() - 把变量设为 true ,开启断言
 
-afOff() - 把变量设为 false ,关闭断言
+assertOff() - 把变量设为 false ,关闭断言
 
 ### is方法(类型判断方法)
 
@@ -63,27 +63,27 @@ afOff() - 把变量设为 false ,关闭断言
 #### isAction(Ever) 
 #### isComObj(Ever) 
 
-### af方法(断言方法)
+### assert方法(断言方法)
 
-- af方法都是**可变参数**，支持检测多个变量。
+- assert方法都是**可变参数**，支持检测多个变量。
 
 - **类型断言方法是干什么的？**
   比如，你设计一个给字符串数组排序的函数，你肯定不希望传入的参数是 `FuncObj`，由于`AHK`是弱类型，所以不会报任何错误，但是程序可能会有逻辑错误。
-  如果预先使用`Type.afStr(Str)`，就可以避免此类问题，并告知你类型错误的细节。
+  如果预先使用`Type.assertStr(Str)`，就可以避免此类问题，并告知你类型错误的细节。
 
-#### afStr(Ever*) 
-#### afNS(Ever*) 
-#### afNumber(Ever*) 
+#### assertStr(Ever*) 
+#### assertNS(Ever*) 
+#### assertNumber(Ever*) 
 
-#### afBoolean(Ever*) 
+#### assertBoolean(Ever*) 
 
-#### afList(Ever*) 
-#### afObj(Ever*) 
-#### afClass(Ever*) 
-#### afFileObj(Ever*) 
-#### afFuncObj(Ever*) 
-#### afAction(Ever*) 
-#### afComObj(Ever*) 
+#### assertList(Ever*) 
+#### assertObj(Ever*) 
+#### assertClass(Ever*) 
+#### assertFileObj(Ever*) 
+#### assertFuncObj(Ever*) 
+#### assertAction(Ever*) 
+#### assertComObj(Ever*) 
 
 ### ofCode(Type.List)
 

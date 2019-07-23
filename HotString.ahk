@@ -60,7 +60,7 @@ class HotString{
 	}
 ;------------------------------
 	__New(Trigger,behavior,Remarks,Premise){
-		type.afStr(Trigger),type.afStr(Remarks),type.afObj(Premise)
+		type.assertStr(Trigger),type.assertStr(Remarks),type.assertObj(Premise)
 		this.Premise := Premise,this.Trigger := Trigger,this.behavior := behavior,this.Remarks := Remarks		
 		return this
 	}

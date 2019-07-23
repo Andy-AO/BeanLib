@@ -75,7 +75,7 @@ getNAString(boolean){
 ;---------------------------------------------------------------------- 
 	
 	setPos(aX,aY){
-		Type.afNumber(aX),Type.afNumber(aY)
+		Type.assertNumber(aX),Type.assertNumber(aY)
 		this.x:=aX,this.y:=aY
 		return
 	}

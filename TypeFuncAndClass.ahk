@@ -32,11 +32,11 @@ Class Type{
 	
 ;---------------------------------------------------------------------- 
 		static Switcher:=true
-		afOn(){
+		assertOn(){
 			Type.Switcher:=true
 			return true
 		}
-		afOff(){
+		assertOff(){
 			Type.Switcher:=false
 			return false
 		}
@@ -55,26 +55,45 @@ Class Type{
 ;---------------------------------------------------------------------- 
 ;TypeBase 类的原方法的Base 放在这里了,全局变量能少占一个就少占一个吧
 	class TypeCallBase{ 
+		static isLen:=2,assertLen:=6,head:=1
 		__Call(aThis,aName,aParams*){	
-			aNameLen:=StrLen(aName)
-			aFuncName:=SubStr(aName,aFuncNameBegin:=1,aFuncNameLen:=2)
+			;获取长度和类型(if或者assert)
+			aFuncNameLen:=StrLen(aName)
 			;检查一下方法名,如果 少于4 那么肯定是错的，这里没有少于四个字符的方法名
-			if ((aNameLen<4) OR (aNameLen="")){
-			throwWithSt(_Ex.NoExistMethod)
+			if ((aFuncNameLen<4) OR (aFuncNameLen="")){
+				throwWithSt(_Ex.NoExistMethod)
 			}
-			;获取目标的代号
 			
-			TypeName:=SubStr(aName,BeginIndex:=3,aNameLen)
+
+			ifSub:=SubStr(aName,Type.TypeCallBase.head,len:=Type.TypeCallBase.isLen)
+			assertSub:=SubStr(aName,Type.TypeCallBase.head,len:=Type.TypeCallBase.assertLen)
+
+			if(ifSub="is"){
+				aFuncName:="is"
+				BeginIndex:=Type.TypeCallBase.isLen + 1
+			}
+
+			else if(assertSub="assert"){
+				aFuncName:="assert"
+				BeginIndex:=Type.TypeCallBase.assertLen + 1
+			}
+			else
+				throw(_Ex.NoExistMethod)
+
+			TypeName:=SubStr(aName,BeginIndex,aFuncNameLen)
+
+			;获取目标的代号
 			TypeCode:=Type[TypeName]
+
 			;~ return aFuncName
-			;获取代号之后传递过去,根据情况使用断言af或者判断is
+			;获取代号之后传递过去,根据情况使用断言assert或者判断is
 			
 			if(ObjHasKey(this,aFuncName)){ 
 				OutPut :=this[aFuncName].Call(aThis,TypeCode,aParams,TypeName)
 				return OutPut
 			}
 			else{					
-				throwWithSt(_Ex.NoExistMethod)	;如果发现不是is或者af,那么就说找不到方法
+				throwWithSt(_Ex.NoExistMethod)	;如果发现不是is或者assert,那么就说找不到方法
 			}
 		}
 	}
@@ -253,7 +272,7 @@ Class TypeBase{
 		}
 		
 ;------------------------------
-		af(TypeCode,aParams,TypeName){ ;断言.
+		assert(TypeCode,aParams,TypeName){ ;断言.
 		if(Type.Switcher=false) ;如果断言开关关闭,那么就不启用断言
 			return
 		theIsName:="is" TypeName	
@@ -263,7 +282,9 @@ Class TypeBase{
 			Result:=this[theIsName](theInput)
 			if (NOT(Result)){
 					aInputTypeCode:=Type(theInput),ActualTypes:=Type.ofCode(aInputTypeCode)
-					Mes=Affirm! GoalType : "%TypeName%"  ActualTypes : "%ActualTypes%"  
+					MesHead := _Ex.Assert
+					Mes = GoalType : "%TypeName%"  ActualTypes : "%ActualTypes%" 
+					Mes := MesHead . Mes
 					throwWithSt(Mes)
 			}
 		}

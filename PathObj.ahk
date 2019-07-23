@@ -7,7 +7,7 @@
 		
 		__New(aPath){
 				this.path:=aPath
-				this.af()
+				this.assert()
 				this.split()
 			return this
 		}

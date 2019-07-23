@@ -14,7 +14,7 @@ getClass(Obj)
 
 如果对象没有继承自 Class，则返回Boolean
 ### 抛出异常 Throws: 
-- Type.afObj(Obj)
+- Type.assertObj(Obj)
 ### 示例 Example
 ```autohotkey
 getClass(type.BB)

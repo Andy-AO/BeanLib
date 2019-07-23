@@ -12,7 +12,7 @@ mainFunc:="",List_condition:={}
 Check(){
 	List_condition := this.List_condition
 	for i,v in List_condition {
-		type.afObj(v)
+		type.assertObj(v)
 		result := v.Call()
 		if(Not(result)){
 			throwWithSt("条件" i "不符合.")
@@ -25,7 +25,7 @@ Check(){
 CheckAnd(){
 	List_condition := this.List_condition
 	for i,v in List_condition {
-		type.afObj(v)
+		type.assertObj(v)
 		result := v.Call()
 		if(Not(result)){
 			throwWithSt("第" i "个条件不符合.")
@@ -44,7 +44,7 @@ CheckAnd(){
 ;---------------------------------------------------------------------- 
 
 	start(){
-		type.afObj(this.mainFunc)
+		type.assertObj(this.mainFunc)
 		result := this.mainFunc.Call()
 		return result
 	}

@@ -55,10 +55,10 @@ checkName[]{
 		}
 ;---------------------------------------------------------------------- 
 	__New(aCheckObj,aRepairObj:=""){
-		Bean.afFunc(aCheckObj)
+		Bean.assertFunc(aCheckObj)
 		this.check := aCheckObj
 		if(aRepairObj!=""){
-			Bean.afFunc(aRepairObj)
+			Bean.assertFunc(aRepairObj)
 			this.repair := aRepairObj
 		}
 		return this

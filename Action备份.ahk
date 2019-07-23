@@ -35,7 +35,7 @@ class Action{
 ;---------------------------------------------------------------------- 
 	onAfter(){
 		try{
-			this.thethis.conditions.after.Call()
+			this.thethis.conditions.assertter.Call()
 		}
 		catch{
 			this.onError()
@@ -44,7 +44,7 @@ class Action{
 	}
 	;---------------------------------------------------------------------- 
 		initFunc(aFuncThis,aFunc){
-			type.afFuncObj(aFunc)
+			type.assertFuncObj(aFunc)
 			this.thethis.func:=aFunc
 			this.thethis.funcThis:=aFunc
 			return

@@ -46,7 +46,7 @@ class StrBase{
 ;---------------------------------------------------------------------- 
 			split(){
 							
-				Type.afStr(this.HayStack)
+				Type.assertStr(this.HayStack)
 				if NOT InStr(this.HayStack, this.Delimiter){
 						throwWithSt("Error01:Not Find Delimiter in this.HayStack`r`n在输入的字符串中，没有发现分隔符.")
 				}
@@ -85,7 +85,7 @@ RegexEscape(){
 
 Escape(aCharList,aTargetChar:="\"){
 	String := this
-	Type.afStr(aTargetChar),Type.afStr(String),Type.afList(aCharList)
+	Type.assertStr(aTargetChar),Type.assertStr(String),Type.assertList(aCharList)
 	if (String="")
 		return
 	
@@ -102,7 +102,7 @@ Escape(aCharList,aTargetChar:="\"){
 
 	minToMSec(){ ;isObj直接调用系统函数就行了，不用绕弯子
 		min := this
-		Type.afNumber(min)
+		Type.assertNumber(min)
 		Sec := min * 60
 		return (Sec.SecToMSec())
 	}
@@ -110,7 +110,7 @@ Escape(aCharList,aTargetChar:="\"){
 
 	SecToMSec(){ ;isObj直接调用系统函数就行了，不用绕弯子
 		sec := this
-		Type.afNumber(sec)
+		Type.assertNumber(sec)
 		return (Sec*1000)
 	}
 ;----------------------------------------------------------------------  Start	
@@ -253,8 +253,8 @@ Escape(aCharList,aTargetChar:="\"){
 /*
 断言参数长度是否符合 Func 的需求
 */
-afParaLength(aFunc,aParaList){
-	Type.afObj(aFunc),Type.afObj(aParaList)
+assertParaLength(aFunc,aParaList){
+	Type.assertObj(aFunc),Type.assertObj(aParaList)
 	tooFew:= (aParaList.Length()<aFunc.MinParams)
 	tooMany:= (aParaList.Length()>aFunc.MaxParams) AND NOT(aFunc.IsVariadic)
 	
@@ -270,7 +270,7 @@ afParaLength(aFunc,aParaList){
 */
 AutoBind(aFunc,aParaList,aFirstPara){
 	aParaList.InsertAt(1,aFirstPara)
-	afParaLength(aFunc,aParaList)
+	assertParaLength(aFunc,aParaList)
 	BoundFunc:=aFunc.Bind(aParaList*)
 	return BoundFunc
 }
@@ -280,7 +280,7 @@ SmartCall 智能运行
 */
 SmartCall(aThis,aFunc,aParams*){
 	aParams.InsertAt(1,aThis)
-	afParaLength(aFunc,aParams)
+	assertParaLength(aFunc,aParams)
 	result := %aFunc%(aParams*)
 	return result
 }

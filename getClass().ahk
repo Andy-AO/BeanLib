@@ -5,7 +5,7 @@
 
 getClass(Obj){
 	
-	Type.afObj(Obj)
+	Type.assertObj(Obj)
 	
 	theBase:=Obj.base
 	if(Type.isClass(theBase))

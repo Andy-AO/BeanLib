@@ -21,7 +21,7 @@ AnalyzeClassName(Obj){ ;返回Obj的所有Base的ClassName
 ;---------------------------------------------------------------------- 
 Analyze(Obj){ ;返回元素的所有Base
 	List:=[],ObjList:=[],ObjList[1]:=Obj,StrList:=[],StrList[1]:=Obj.__Class,counter:=1
-	type.afObj(Obj)
+	type.assertObj(Obj)
 	loop{	
 		TheBase:=ObjList[A_Index].base
 		if(counter>1)

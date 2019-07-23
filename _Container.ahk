@@ -21,7 +21,7 @@ Contains(ListorMap,value){
 提取所有相同的元素 比如:[{A:1,B:1},{A:2,B:2}]，可以提取A，就变成了 [1,2]
 */
 ExtractSameElements(aList,aKey){
-	Type.afList(aList)
+	Type.assertList(aList)
 	result := []
 	for i0,map in aList {
 		for theKey,v in map {
@@ -117,8 +117,8 @@ shuck(aContainer){
 /*
 ;根据Func的结果,批量删除Container中的元素(非递归,只删除最顶层)
 	DeleteByFunc(aContainer,Func){
-		Type.afObj(Func)
-		Type.afObj(aContainer)
+		Type.assertObj(Func)
+		Type.assertObj(aContainer)
 		indexList:=[]
 		for k,v in aContainer {
 			result := Func(k,v)
@@ -154,8 +154,8 @@ shuck(aContainer){
 ;---------------------------------------------------------------------- 
 ;List和Map自动判断的通用批量移除工具
 	remove(aContainer,aIndexList){
-		type.afObj(aContainer)
-		type.afList(aIndexList)
+		type.assertObj(aContainer)
+		type.assertList(aIndexList)
 		if(type.isList(aContainer))
 			_list.Remove(aContainer,aIndexList)
 		else{
@@ -168,7 +168,7 @@ shuck(aContainer){
 ;---------------------------------------------------------------------- 
 ;List和Map自动判断的通用删除工具
 	delete(aContainer,aIndex){
-		type.afObj(aContainer)
+		type.assertObj(aContainer)
 		if(type.isList(aContainer))
 			aContainer.RemoveAt(aIndex)
 		else

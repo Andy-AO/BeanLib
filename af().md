@@ -16,7 +16,7 @@ af(Boolean,Mes:="No Info")
 
 ### 抛出异常 Throws: 
 - ```autohotkey
-  ExMes:=_EX.Affirm . " Mes : " . Mes
+  ExMes:=_EX.assertfirm . " Mes : " . Mes
   throwWithSt(ExMes)
   ```
 ### 示例 Example

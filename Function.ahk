@@ -71,7 +71,7 @@ loadAction(this){
 如果扑空会抛出异常的 FuncObj 获取器
 */
 getFunc(aFuncName){
-	type.afStr(aFuncName)
+	type.assertStr(aFuncName)
 	theFunc := Func(aFuncName)
 	if Not(IsObject(theFunc)){
 		throwWithSt(_Ex.NoExistFunctionName)
@@ -156,7 +156,7 @@ return TheArray
 */
 	bulkMoveFile(aPathList,aDestPattern){
 		Overwrite:=false
-		type.afObj(aPathList)
+		type.assertObj(aPathList)
 		for i,v in aPathList {
 			SourcePattern:=v
 			FileMove, %SourcePattern%, %aDestPattern% , %Overwrite%
@@ -190,8 +190,8 @@ UseCMD(command){
 
 	SetTimer(aMSec,FuncObj){
 		;~ aMSec := aMSec*6000
-		Type.afObj(FuncObj)
-		Type.afNumber(aMSec)
+		Type.assertObj(FuncObj)
+		Type.assertNumber(aMSec)
 		Priority:=50000
 		SetTimer,%FuncObj%,%aMSec%, %Priority%
 		return
@@ -226,7 +226,7 @@ getCurrentTime(){
 		if(Boolean) ;如果表达式为true,那么就不触发 throw
 			return Boolean
 		
-		ExMes:=_EX.Affirm . " Mes : " . Mes
+		ExMes:=_EX.assertfirm . " Mes : " . Mes
 		throwWithSt(ExMes)
 		
 		return Boolean
@@ -279,7 +279,7 @@ DeepPrintln(Obj){
 
 ;----------------------------------------------------------------------- 
 PrintList(obj){
-	Type.afList(obj)
+	Type.assertList(obj)
 	print(_List.ToString(obj))
 	return
  }
@@ -291,7 +291,7 @@ DeepPrintList(List){
 }
 ;---------------------------------------------------------------------- 
 PrintlnList(obj){
-	Type.afList(obj)
+	Type.assertList(obj)
 	println(_List.ToString(obj))
 	return
  }

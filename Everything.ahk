@@ -38,7 +38,7 @@ getDll(DLLPath:=""){
 __New(DLLPath:=""){
 	
 
-	this.afEverythingExist()
+	this.assertEverythingExist()
 	Dll:=this.getDll(DLLPath)
 
 	if Not(Dll){
@@ -88,7 +88,7 @@ getSearchResultList(){
 
 ;设置关键词
 SetKey(aValue){
-	this.afEverythingExist()
+	this.assertEverythingExist()
 	this.key := aValue
 	DllCall(this.DLL "\Everything_SetSearch",str,this.key)
 	return
@@ -105,7 +105,7 @@ SetMatchWholeWord(aValue){
 
 ;执行搜索动作 (执行后直接返回匹配数)
 Search(aValue=1){
-	this.afEverythingExist()
+	this.assertEverythingExist()
 	DllCall(this.DLL "\Everything_Query",int,aValue)
 	return
 }

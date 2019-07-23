@@ -17,7 +17,7 @@ Protect(Obj)
 ### 返回 Returns: 
 null
 ### 抛出异常 Throws: 
-- type.afObj(Obj)
+- type.assertObj(Obj)
 ### 示例 Example
 ```autohotkey
 ;给任意对象添加保护
