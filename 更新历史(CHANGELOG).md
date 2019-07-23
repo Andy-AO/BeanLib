@@ -62,3 +62,7 @@
    使用TimeChecker Class作为新的检查机制 
 6.  _Ex
    增加关于「单例类重复实例化」的ExceptionMes
+
+## 1.3.6 - 2019年07月23日
+
+更换 type 类下的所有"af"方法为"assert"方法，功能不变。
