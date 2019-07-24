@@ -16,9 +16,7 @@ false(aParas*){
 	return false
 }
 
-quotationMarkPack(Str){
-	return """" Str """"
-}
+
 ;---------------------------------------------------------------------- 
 	
 	isFunc(aObj){
