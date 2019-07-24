@@ -77,8 +77,10 @@ class WinEvent{
 	ShellHook(){
 		Gui +LastFound
 		hWnd := WinExist() ;返回脚本自身窗口的ID(hWnd)
-		DllCall("RegisterShellHookWindow",UInt,hWnd)
+		MsgNum1 := DllCall("RegisterShellHookWindow",UInt,hWnd) 
+		LogPrintln(MsgNum1,"MsgNum1 >>>")
 		MsgNum := DllCall("RegisterWindowMessage", Str,"SHELLHOOK")
+		LogPrintln(MsgNum,"MsgNum >>>")
 		ShellMessageAction := new Action(this,this.ShellMessage_Base)
 		OnMessage(MsgNum,ShellMessageAction)
 		return

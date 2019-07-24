@@ -1,55 +1,56 @@
 ﻿
-
-/*
-说明:
-
-这是"中心式导入"的示例。
-
-导入方法有很多种,只要把所有 子Lib 导入某脚本中 BeanLib 即可。
-
-如果要使用"中心式导入",可以直接移动 本地Git仓库 到示例位置,这是最省事的方法。
-
-当然,你也可以自己搞一个"中心Lib",位置你来定,之后在其他任意脚本中 #Include 即可。
-
-*/
-
 ;定义 #Include 的工作目录
 #Include D:\AHKs\ahk_lib
 
-;导入 子Lib (请全部导入,否则容易出现兼容性问题)
-#Include _List.ahk
-#Include _EX.ahk
-#Include _Map.ahk
-#Include _Container.ahk
-#Include Bean.ahk
-#Include StringMethod.ahk
+;Core Pack 必须全部导入
 
-#Include TypeFuncAndClass.ahk
+#Include Core\Bean.ahk
+#Include Core\_Container.ahk
+#Include Core\_EX.ahk
+#Include Core\_List.ahk
+#Include Core\_Map.ahk
+#Include Core\Analyze().ahk
+#Include Core\Function.ahk
+#Include Core\getClass().ahk
+#Include Core\Instanof().ahk
+#Include Core\StringMethod.ahk
+#Include Core\TypeFuncAndClass.ahk
 
-#Include Action.ahk
+;APP Pack
 #Include AutoClassify.ahk
-#Include Everything.ahk
 #Include APPLocker.ahk
-#Include Function.ahk.
-#Include Control.ahk.
-#Include Win.ahk
-#Include BeanEnum.ahk
-#Include _Win.ahk
-#Include GUI.ahk
-#Include UMSS.ahk
-#Include _Wins.ahk
-#Include HotString.ahk 
-#Include WinEvent.ahk
-#Include PathObj.ahk
-#Include Condition.ahk
-#Include AutoGUI.ahk
-#Include Script.ahk
-#Include Ini.ahk
-#Include AutoInputBox.ahk
-#Include Spliter.ahk
 #Include TimeChecker.ahk
+#Include Script.ahk
 
+;Everthing Pack
+#Include Everything.ahk
+
+;GUI Pack
+#Include GUI.ahk
+#Include Win.ahk
+#Include _Win.ahk
+#Include _Wins.ahk
+#Include Control.ahk
+
+;FuncObj  Pack
+#Include Action.ahk
+	#Include BeanEnum.ahk
+	#Include Condition.ahk
+#Include WinEvent.ahk
+#Include AutoGUI.ahk
+#Include AutoInputBox.ahk
+
+
+;UMSS Pack
+#Include UMSS.ahk
+
+;HotString Pack
+#Include HotString.ahk 
+
+;String Pack
+#Include PathObj.ahk
+#Include Spliter.ahk
+
+;I/O Pack
+#Include Ini.ahk
 #Include ExcelToList().ahk
-#Include Analyze().ahk
-#Include Instanof().ahk
-#Include getClass().ahk
