@@ -17,7 +17,7 @@
 		for k,v in theHotStringMap {
 			result := HotString.isHotString(v)
 			if(result){
-				String .= v.Trigger "  " v.Remarks "`r`n"
+				String .= v.Trigger "`t" v.Remarks "`r`n"
 			}
 			}
 		 return String
@@ -35,6 +35,11 @@
 } ;HotStringMaps End
 ;------------------------------
 class HotString{
+
+	ContextMatch(){
+		return this.PremiseBindFunc.call()
+	}
+
 	isHotString(HotStringObj){
 		try{
 			result := Instanof(HotStringObj,HotString)
@@ -47,9 +52,10 @@ class HotString{
 ;------------------------------
 	Trigger  := behavior := Remarks := ""
 	static On := "On",Toggle := "Toggle",Off := "Off"
+	Premise := PremiseBindFunc := Object("Null","Null")
 ;------------------------------
 	IFOn(){
-		theFunc := this.Premise.bind(this)
+		theFunc := this.PremiseBindFunc
 		Hotkey, If, % theFunc
 		return ErrorLevel
 	}
@@ -61,6 +67,7 @@ class HotString{
 ;------------------------------
 	__New(Trigger,behavior,Remarks,Premise){
 		type.assertStr(Trigger),type.assertStr(Remarks),type.assertObj(Premise)
+		this.PremiseBindFunc := this.Premise.bind(this)
 		this.Premise := Premise,this.Trigger := Trigger,this.behavior := behavior,this.Remarks := Remarks		
 		return this
 	}
