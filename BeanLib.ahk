@@ -2,7 +2,10 @@
 ;定义 #Include 的工作目录
 #Include D:\AHKs\ahk_lib
 
-;Core Pack 必须全部导入
+/*
+Core Pack 必须全部导入
+其余 Pack 按需导入
+*/
 
 #Include Core\Bean.ahk
 #Include Core\_Container.ahk
@@ -15,6 +18,11 @@
 #Include Core\Instanof().ahk
 #Include Core\StringMethod.ahk
 #Include Core\TypeFuncAndClass.ahk
+
+
+;示例:
+
+/*
 
 ;APP Pack
 #Include AutoClassify.ahk
@@ -54,3 +62,4 @@
 ;I/O Pack
 #Include Ini.ahk
 #Include ExcelToList().ahk
+*/

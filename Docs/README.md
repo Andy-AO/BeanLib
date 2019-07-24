@@ -24,7 +24,7 @@ BeanLib 最低兼容  [AutoHotKey 1.1.30.00](https://wyagd001.github.io/zh-cn/do
 
 - 先下载：从 [GitHub](https://github.com/Oilj/BeanLib) 直接 Clone。
 
-- 之后导入：使用 [#Include](https://wyagd001.github.io/zh-cn/docs/Functions.htm#include) 命令导入 `BeanLib.ahk` 即可。
+- 之后导入：使用 [#Include](https://wyagd001.github.io/zh-cn/docs/Functions.htm#include) 命令导入 `BeanLib.ahk` 即可。默认只导入`Core`包，其他包按需导入。
 
 - 可选项：也可以为 BeanLib 中的函数添加语法高亮，不过这并非必须，详见『语法高亮』章节。
 
