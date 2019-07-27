@@ -13,3 +13,6 @@ Obj := ObjLoad(FilePath)
 ```autohotkey
 同ObjDump()
 ```
+
+ From：<https://www.autohotkey.com/boards/viewtopic.php?f=6&t=3573>
+
