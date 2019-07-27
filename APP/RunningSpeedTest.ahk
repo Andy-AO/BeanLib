@@ -21,4 +21,4 @@ class RunningSpeedTest{
 		return result
 	}
 }
- From：https://wyagd001.github.io/zh-cn/docs/commands/DllCall.htm#QPC
+ ;~ From：https://wyagd001.github.io/zh-cn/docs/commands/DllCall.htm#QPC
