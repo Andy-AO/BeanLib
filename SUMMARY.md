@@ -29,6 +29,7 @@
     -   [Ini](Docs/Ini.md)
     -   [ParaChecker](Docs/ParaChecker.md)
     -   [PathObj](Docs/PathObj.md)
+    -   [RunningSpeedTest](Docs/RunningSpeedTest.md)
     -   [Script](Docs/Script.md)
     -   [TimeChecker](Docs/TimeChecker.md)
     -   [Type](Docs/Type.md)
