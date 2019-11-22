@@ -11,6 +11,8 @@
     -   [_EX](Docs/_EX.md)
     -   [HotString](Docs/HotString.md)
     -   [HotStringMaps](Docs/HotStringMaps.md)
+    -   [JSON](Docs/JSON.md)
+    -   [JsonFile](Docs/JsonFile.md)
     -   [_List](Docs/_List.md)
         -   [_List.CopyOfRange()](Docs/_List/_List.CopyOfRange().md)
         -   [_List.ElementCounter()](Docs/_List/_List.ElementCounter().md)
