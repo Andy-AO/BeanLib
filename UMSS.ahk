@@ -40,7 +40,6 @@ behavior(FuncObj){
 ;------------------------------
 	__New(key){
 		if(isObject(UMSS.keys[key])){
-			LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "UMSS.keys[key]！！ `r`n")
 			return UMSS.keys[key]
 		}
 		else{
