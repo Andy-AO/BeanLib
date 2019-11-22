@@ -84,9 +84,23 @@ getIdExclude(WinTitle,WinTitleExcludes){
 	/*
 	说明:根据路径获取窗口对应进程的路径
 	*/
-getPath(WinTitle){
-	WinGet,Path,ProcessPath,%WinTitle%
+	
+getPath(aWinTitle){
+	WinGet,Path,ProcessPath,%aWinTitle%
 	return Path
+}	
+
+;------------------------------
+
+getTitle(aWinTitle){
+	WinGetTitle,WinTitle,%aWinTitle%
+	return WinTitle
+}
+;------------------------------
+
+getProcessName(aWinTitle){
+	WinGet,WinProcessName,ProcessName,%aWinTitle%
+	return WinProcessName
 }
 ;---------------------------------------------------------------------- 
 		
@@ -112,7 +126,7 @@ getPath(WinTitle){
 	*/
 	Analyze(aWinTitle,aDetectHiddenWindows:="",EnableWinText:=false){
 		
-		WinTitle:="",WinClass:="",Winexe:="",WinId:="",WinPath:="",WinText:="*DiListbled*",Str:=""
+		WinTitle:="",WinClass:="",WinProcessName:="",WinId:="",WinPath:="",WinText:="*DiListbled*",Str:=""
 		
 		aFuncId:=getFuncId(A_ThisFunc)
 		_Win.SwapDetectHidden(aFuncId,aDetectHiddenWindows)
@@ -124,14 +138,14 @@ getPath(WinTitle){
 		if (Not(WinisExist))
 			return false
 		
-		WinGetTitle,WinTitle,%aWinTitle%
+		WinTitle := _Win.getTitle(aWinTitle)
 		WinGetClass,WinClass,%aWinTitle%
-		WinGet,Winexe,ProcessName,%aWinTitle%
+		WinProcessName := _Win.getProcessName(aWinTitle)
 		WinId := GetWinId(aWinTitle)
-		WinGet,WinPath,ProcessPath,%aWinTitle%	
+		WinPath := _Win.getPath(aWinTitle)
 		
 		WinClass := "ahk_class " WinClass
-		Winexe := "ahk_exe " Winexe
+		WinProcessName := "ahk_exe " WinProcessName
 		WinId :=WinId
 		
 		if(EnableWinText){
@@ -141,7 +155,7 @@ getPath(WinTitle){
 			WinText := "WinText: " WinText
 
 		
-		theObj:=Object("WinTitle",WinTitle,"WinClass",WinClass,"Winexe",Winexe,"WinId",WinId,"WinPath",WinPath)
+		theObj:=Object("WinTitle",WinTitle,"WinClass",WinClass,"WinProcessName",WinProcessName,"WinId",WinId,"WinPath",WinPath)
 
 		_Win.SwapDetectHidden(aFuncId,aDetectHiddenWindows)
 		
