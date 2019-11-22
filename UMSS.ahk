@@ -1,5 +1,6 @@
 class UMSS{
 Count := 0,key:=""
+static keys := Object()
 ;------------------------------
 	IFOn(){
 		theFunc := this.Premise.bind(this)
@@ -38,9 +39,16 @@ behavior(FuncObj){
 	 }
 ;------------------------------
 	__New(key){
-		this.key := key
-		this.registerNewKey()
-		return this
+		if(isObject(UMSS.keys[key])){
+			LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "UMSS.keys[key]！！ `r`n")
+			return UMSS.keys[key]
+		}
+		else{
+			this.key := key
+			this.registerNewKey()
+			UMSS.keys[key] := this
+			return this
+		}
 	}
 ;------------------------------
 										
