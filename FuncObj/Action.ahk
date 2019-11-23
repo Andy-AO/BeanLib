@@ -34,17 +34,10 @@ class Action{
 
 ;---------------------------------------------------------------------- 
 	
-;~ /*
 	_NewEnum(){
-		if(this.__class != "Action"){
-			theTipString = this出错
-			TrayTip,%A_ScriptName%,%theTipString% 
-			return
-		}
-;现在看来是枚举类的设计有问题
 		return new BeanEnum(Object("func",this.func,"funcThis",this.funcThis))
 	}
-;~ */
+
 ;---------------------------------------------------------------------- 
 		initFunc(aFuncThis,aFunc){
 			type.assertFuncObj(aFunc)
