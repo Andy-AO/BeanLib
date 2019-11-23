@@ -14,7 +14,7 @@ static keys := Object()
 	}
 ;------------------------------
 	premise(){
-		return GetKeyPhysicalState("Tab")
+		return GetKeyPhysicalState(this.key)
 	}
 ;------------------------------
 behavior(FuncObj){
