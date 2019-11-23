@@ -5,13 +5,22 @@
 */
 class Action{
 
-;------------------------------
-
-	;当方法不依赖于this的时候,可以直接调用Action的For方法,传入一个参数就可以,简洁而方便
-	static for(Obj){
-		Type.assertObj(Obj)
-		return new Action(Obj,Obj)
+	;为了实现Action类的静态方法,参考自 JSON类 的设计,这是解决静态方法问题的一个不错的解决方案
+	;这也能说明阅读他人代码的重要性
+	class Functor{
+		__Call(theAction, ByRef arg, args*){
+			return (new this).Call(theAction, arg, args*)
+		}
 	}
+;------------------------------
+	
+	;当方法不依赖于this的时候,可以直接调用Action的For方法,传入一个参数就可以,简洁而方便
+	class for extends Action.Functor{
+		Call(theAction, ByRef Obj,args*){
+			Type.assertObj(Obj)
+			return new Action(Obj,Obj)
+		} 
+	} ;---------class for End
 
 ;------------------------------
 
