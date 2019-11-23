@@ -34,6 +34,7 @@ class Action{
 
 ;---------------------------------------------------------------------- 
 	
+	;枚举时只返回 func 和 funcThis
 	_NewEnum(){
 		return new BeanEnum(Object("func",this.func,"funcThis",this.funcThis))
 	}
@@ -57,10 +58,6 @@ class Action{
 		iscall := Bean.isCall(aMethodName,this)
         if(iscall){
 			result := rawCall(this,"call",aParams*)
-			return result
-		}
-		else if (aMethodName = "toString"){
-			result := rawCall(this,"toString",aParams*)
 			return result
 		}
 		else if (Bean.isMeta(aMethodName)){

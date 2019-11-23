@@ -331,7 +331,7 @@ DeepListtoString(List){
 toString(Obj){
 	
 	if(ObjHasKey(Obj,"__toString")){
-		if(type.isList(theList:=Obj.__toString)){
+		if(type.isList(theList := Obj.__toString)){
 			mapwinObj := showObj(Obj,theList)
 			return toString(mapwinObj)		
 		}
