@@ -14,7 +14,7 @@ class Action{
 	}
 ;------------------------------
 	
-	;当方法不依赖于this的时候,可以直接调用Action的For方法,传入一个参数就可以,简洁而方便
+	;当方法不依赖于this的时候,可以直接调用 Action 的 For 方法,传入一个参数就可以,简洁而方便
 	class for extends Action.Functor{
 		Call(theAction, ByRef Obj,args*){
 			Type.assertObj(Obj)
@@ -46,14 +46,6 @@ class Action{
 			type.assertFuncObj(aFunc)
 			this.func:=aFunc
 			this.funcThis:=aFuncThis ;是不是因为这个地方出了问题呢？
-			return
-		}
-		onError(){
-			throwWithSt("onError！ onError！ onError！	")
-			return
-		}
-;---------------------------------------------------------------------- 
-		onBefore(){
 			return
 		}
 ;---------------------------------------------------------------------- 
@@ -110,7 +102,6 @@ afterName[]{
 		}
 ;---------------------------------------------------------------------- 
 		call(aParams*){
-			rawCall(this,"onBefore")
 			result := SmartCall(this.funcThis,this.func,aParams*)
 			return result
 		}
