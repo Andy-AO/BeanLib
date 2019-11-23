@@ -26,7 +26,7 @@ class Action{
 
 	isAction:=true
 	func:="",funcThis:=""
-	before:="",after:=""
+	after:=""
 	__toString := []
 ;---------------------------------------------------------------------- 
 	
@@ -38,7 +38,7 @@ class Action{
 			return
 		}
 ;现在看来是枚举类的设计有问题
-		return new BeanEnum(Object("func",this.func,"funcThis",this.funcThis,"before",this.before,"after",this.assertter))
+		return new BeanEnum(Object("func",this.func,"funcThis",this.funcThis,"after",this.assertter))
 	}
 ;~ */
 ;---------------------------------------------------------------------- 
@@ -62,21 +62,6 @@ name[]{
     }
 }
 ;---------------------------------------------------------------------- 
-beforeName[]{
-    get {
-		theObj := this.before
-		if (type.isFuncObj(theObj)){
-			return theObj.name
-		}
-		else{
-			return toString(theObj)
-		}
-    }
-    set {
-	return False
-    }
-}
-;---------------------------------------------------------------------- 
 afterName[]{
     get {
 		theObj := this.assertter
@@ -94,10 +79,9 @@ afterName[]{
 ;---------------------------------------------------------------------- 
 		toString(){			
 			theFuncName := this.name
-			theBeforeName := this.beforeName
 			theAfterName := this.assertterName
 			theClassName := this.__Class
-			resultString = {Type:%theClassName%,Func:%theFuncName%,Before:%theBeforeName%,After:%theAfterName%}
+			resultString = {Type:%theClassName%,Func:%theFuncName%,After:%theAfterName%}
 			return resultString
 		}
 ;---------------------------------------------------------------------- 
@@ -105,6 +89,8 @@ afterName[]{
 			result := SmartCall(this.funcThis,this.func,aParams*)
 			return result
 		}
+		;为了使得Action称为Func,所以通过__call接管,并且使用rawCall调用
+		;是否有第二条道路,已经忘记,之前忽略注释是个错误,要在变量名尽量体现原意的前提下再尽量使用注释
 ;---------------------------------------------------------------------- 	
 	__call(aMethodName:="",aParams*){
 		iscall := Bean.isCall(aMethodName,this)
