@@ -25,8 +25,13 @@ class Action{
 ;------------------------------
 
 	isAction:=true
-	func:="",funcThis:=""
+	;可能是表示这个ClassInstance支持toString()方法
 	__toString := []
+	;Action的主角:Func
+	func:=""
+	;Function的第一个参数(this参数)
+	funcThis:=""
+
 ;---------------------------------------------------------------------- 
 	
 ;~ /*
@@ -44,7 +49,7 @@ class Action{
 		initFunc(aFuncThis,aFunc){
 			type.assertFuncObj(aFunc)
 			this.func:=aFunc
-			this.funcThis:=aFuncThis ;是不是因为这个地方出了问题呢？
+			this.funcThis:=aFuncThis
 			return
 		}
 ;---------------------------------------------------------------------- 
