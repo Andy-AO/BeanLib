@@ -53,27 +53,6 @@ class Action{
 			return
 		}
 ;---------------------------------------------------------------------- 
-name[]{
-    get {
-		theName := this.func.name
-		if(theName="")
-			return "NS*"
-		else
-			return theName
-    }
-    set {
-	return False
-    }
-}
-
-;---------------------------------------------------------------------- 
-		toString(){
-			theFuncName := this.name
-			theClassName := this.__Class
-			resultString = {Type:%theClassName%,Func:%theFuncName%}
-			return resultString
-		}
-;---------------------------------------------------------------------- 
 		call(aParams*){
 			result := SmartCall(this.funcThis,this.func,aParams*)
 			return result
