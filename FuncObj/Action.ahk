@@ -4,7 +4,17 @@
 说明:BeanLib内的通用函数/方法对象
 */
 class Action{
-	
+
+;------------------------------
+
+	;当方法不依赖于this的时候,可以直接调用Action的For方法,传入一个参数就可以,简洁而方便
+	static for(Obj){
+		Type.assertObj(Obj)
+		return new Action(Obj,Obj)
+	}
+
+;------------------------------
+
 	isAction:=true
 	func:="",funcThis:=""
 	before:="",after:=""
