@@ -26,7 +26,6 @@ class Action{
 
 	isAction:=true
 	func:="",funcThis:=""
-	after:=""
 	__toString := []
 ;---------------------------------------------------------------------- 
 	
@@ -38,7 +37,7 @@ class Action{
 			return
 		}
 ;现在看来是枚举类的设计有问题
-		return new BeanEnum(Object("func",this.func,"funcThis",this.funcThis,"after",this.assertter))
+		return new BeanEnum(Object("func",this.func,"funcThis",this.funcThis))
 	}
 ;~ */
 ;---------------------------------------------------------------------- 
@@ -61,27 +60,12 @@ name[]{
 	return False
     }
 }
+
 ;---------------------------------------------------------------------- 
-afterName[]{
-    get {
-		theObj := this.assertter
-		if (type.isFuncObj(theObj)){
-			return theObj.name
-		}
-		else{
-			return toString(theObj)
-		}
-    }
-    set {
-	return False
-    }
-}
-;---------------------------------------------------------------------- 
-		toString(){			
+		toString(){
 			theFuncName := this.name
-			theAfterName := this.assertterName
 			theClassName := this.__Class
-			resultString = {Type:%theClassName%,Func:%theFuncName%,After:%theAfterName%}
+			resultString = {Type:%theClassName%,Func:%theFuncName%}
 			return resultString
 		}
 ;---------------------------------------------------------------------- 
