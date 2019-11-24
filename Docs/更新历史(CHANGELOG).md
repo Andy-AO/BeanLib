@@ -66,3 +66,19 @@
 ## 1.3.6 - 2019年07月23日
 
 更换 type 类下的所有"af"方法为"assert"方法，功能不变。
+
+## 1.3.7 - 2019年11月24日
+
+.feat
+
+1. Action Class：用于替代 Bind() 方法，提供良好的内部可见性，为单独使用方法(Method)提供了便利。
+2. JSON：加入 JSON 字符串读写类和 JsonFile 文件读写类。
+3. RunningSpeedTest Class ：用于高精度计时。
+4. 增加了序列化 ObjLoad() 函数 与反序列化 ObjDump() 函数。
+
+.fix
+
+1. UMSS Class：修复只能注册 `Tab` 键的BUG。
+
+
+
