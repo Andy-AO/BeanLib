@@ -15,7 +15,7 @@ BeanLib 最低兼容  [AutoHotKey 1.1.30.00](https://wyagd001.github.io/zh-cn/do
 
 ### 更新平台
 
-- 请在 [看云(KanCloud)](https://www.kancloud.cn/xrvu_zen/ahk_lib/902301)  阅读文档
+- 请在 [看云(KanCloud)](https://www.kancloud.cn/xrvu_zen/ahk_lib/content)  阅读文档
 
 - [GitHub](https://github.com/Oilj/BeanLib)  作为 **提交issue， 发起Pull Request ， 下载** 之用。
 
