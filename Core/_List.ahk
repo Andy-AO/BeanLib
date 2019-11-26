@@ -21,6 +21,19 @@ static ObjList:=[_List.TheList1,_List.TheList2,_List.TheList1,_List.TheList2,_Li
 
 ;---------------------------------------------------------------------- 
 
+merge(aList1,aList2){
+	result := []
+	for i,v in aList1 {
+		result.push(v)
+	}
+	for i,v in aList2 {
+		result.push(v)
+	}
+	return result
+}
+
+;---------------------------------------------------------------------- 
+
 excludeRegEx(ExList){
 	RegExString:=""
 	for i,v in ExList {
@@ -37,7 +50,6 @@ excludeRegEx(ExList){
 ;---------------------------------------------------------------------- 
 exclude(DataList,ExList){
 	RegEx := _List.excludeRegEx(ExList)
-	LogPrintln(RegEx,"RegEx >>>")
 	return _List.Match(DataList,RegEx)
 }
 ;---------------------------------------------------------------------- 

@@ -5,23 +5,11 @@
 */
 class Method{
 
-	;为了实现Method类的静态方法,参考自 JSON类 的设计,这是解决静态方法问题的一个不错的解决方案
-	;这也能说明阅读他人代码的重要性
-	class Functor{
-		__Call(theMethod, ByRef arg, args*){
-			return (new this).Call(theMethod, arg, args*)
-		}
-	}
-;------------------------------
-	
-	;当方法不依赖于this的时候,可以直接调用 Method 的 For 方法,传入一个参数就可以,简洁而方便
-	class for extends Method.Functor{
-		Call(theMethod, ByRef Obj,args*){
-			Type.assertObj(Obj)
-			return new Method(Obj,Obj)
-		} 
-	} ;---------class for End
 
+	for(ByRef obj){
+		Type.assertObj(Obj)
+		return new Method(Obj,Obj)	
+	}
 ;------------------------------
 
 	isMethod:=true
