@@ -1,11 +1,11 @@
-**在对象中生成 action 数组:**
+**在对象中生成 Method 数组:**
 
-- 把该对象 base 中的所有 FuncObj 与 当前 this 作为参数生成 action，并且形成 actionMap 写入当前对象。
+- 把该对象 base 中的所有 FuncObj 与 当前 this 作为参数生成 Method，并且形成 MethodMap 写入当前对象。
 - 默认不生成Meta方法。
 - 主要用于函数式编程中传递方法。
 
 ```autohotkey
-loadAction(this)
+loadMethod(this)
 ```
 
 ### 参数 Parameters: 
@@ -21,7 +21,7 @@ null
 class Test{
 	mes := "Test！"
 	__New(){
-		loadAction(this)
+		loadMethod(this)
 		return this
 	}
 	A(){
@@ -30,8 +30,8 @@ class Test{
 }
 
 theObj := new Test()
-theObj.action.A()
-theAct:=theObj.action.A
+theObj.Method.A()
+theAct:=theObj.Method.A
 %theAct%()
 
 ```

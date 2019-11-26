@@ -20,7 +20,7 @@ false(aParas*){
 ;---------------------------------------------------------------------- 
 	
 	isFunc(aObj){
-		if((type.isAction(aObj))OR(type.isFuncObj(aObj))){
+		if((type.isMethod(aObj))OR(type.isFuncObj(aObj))){
 			return true
 		}
 		else{

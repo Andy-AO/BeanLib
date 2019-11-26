@@ -22,7 +22,7 @@ rawCall(aMethodName,aThis,aParams*)
 - %异常说明%
 ### 示例 Example
 ```autohotkey
-class Action{
+class Method{
 
 initFunc(){
 		return "initFunc"
@@ -36,5 +36,5 @@ initFunc(){
 	rawCall(this,"initFunc",aFuncThis,aFunc)
 			return this
 	}
-} ;---------class Action End
+} ;---------class Method End
 ```

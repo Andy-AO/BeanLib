@@ -91,7 +91,7 @@ DriveGet , OutputVar, Cmd [, Value]
 DriveSpaceFree , OutputVar, Path
 Edit
 Instanof
-Action
+Method
 Ini
 Condition
 Conditions

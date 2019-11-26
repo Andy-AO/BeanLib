@@ -25,7 +25,7 @@ showObj(aObj,aList:="")
 ```autohotkey
 winObj := new Win("春我部防卫队")
 
-act := new Action(winObj.equal,winObj)
+act := new Method(winObj.equal,winObj)
 
 act.assertter := Bean.true
 act.before := Bean.False
@@ -35,5 +35,5 @@ LogPrintln(map,"map >>>")
 ```
 
 ```autohotkey
-map >>>{__Class:Action,after:Bean.true,before:Bean.false,func:Win.equal}
+map >>>{__Class:Method,after:Bean.true,before:Bean.false,func:Win.equal}
 ```

@@ -22,7 +22,7 @@
 		Static List:=130
 
 		Static ObjEndCode := 199
-		Static Obj:=100,ExtendsObj:=101,Class:=110,FuncObj:=120,Action:=125
+		Static Obj:=100,ExtendsObj:=101,Class:=110,FuncObj:=120,Method:=125
 		
 		Static FileObj:=150
 		
@@ -60,7 +60,7 @@ assertOff() - 把变量设为 false ,关闭断言
 #### isClass(Ever) 
 #### isFileObj(Ever) 
 #### isFuncObj(Ever) 
-#### isAction(Ever) 
+#### isMethod(Ever) 
 #### isComObj(Ever) 
 
 ### assert方法(断言方法)
@@ -82,7 +82,7 @@ assertOff() - 把变量设为 false ,关闭断言
 #### assertClass(Ever*) 
 #### assertFileObj(Ever*) 
 #### assertFuncObj(Ever*) 
-#### assertAction(Ever*) 
+#### assertMethod(Ever*) 
 #### assertComObj(Ever*) 
 
 ### ofCode(Type.List)

@@ -144,8 +144,8 @@ Class Type{
 			return Type.List
 		} 
 		
-		else if(obj.isAction){
-			return Type.Action
+		else if(obj.isMethod){
+			return Type.Method
 		}
 		
 		else
@@ -246,7 +246,7 @@ Class TypeBase{
 		
 		Static List:=130
 		Static ObjEndCode := 199
-		Static Obj:=100,ExtendsObj:=101,Class:=110,FuncObj:=120,Exception:=121,Action:=125
+		Static Obj:=100,ExtendsObj:=101,Class:=110,FuncObj:=120,Exception:=121,Method:=125
 		
 		Static FileObj:=150
 		

@@ -71,7 +71,7 @@
 
 .feat
 
-1. Action Class：用于替代 Bind() 方法，提供良好的内部可见性，为单独使用方法(Method)提供了便利。
+1. Method Class：用于替代 Bind() 方法，提供良好的内部可见性，为单独使用方法(Method)提供了便利。
 2. JSON：加入 JSON 字符串读写类和 JsonFile 文件读写类。
 3. RunningSpeedTest Class ：用于高精度计时。
 4. 增加了序列化 ObjLoad() 函数 与反序列化 ObjDump() 函数。

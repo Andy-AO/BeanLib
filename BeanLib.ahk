@@ -41,7 +41,7 @@ Core Pack 必须全部导入
 #Include Control.ahk
 
 ;FuncObj  Pack
-#Include Action.ahk
+#Include Method.ahk
 	#Include BeanEnum.ahk
 	#Include Condition.ahk
 #Include WinEvent.ahk

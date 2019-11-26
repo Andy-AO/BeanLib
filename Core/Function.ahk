@@ -55,12 +55,12 @@ rawCall(aMethodName,aThis,aParams*){
 ;---------------------------------------------------------------------- 
 ;~ /*
 
-loadAction(this){
-	this.action:={},class:=this.base
+loadMethod(this){
+	this.Method:={},class:=this.base
 	for name,Obj in class {
 		pullIt := (type.isFuncObj(obj)) AND (Bean.notMeta(name))
 		if(pullIt){
-			this.action[name] := new Action(obj,this)
+			this.Method[name] := new Method(obj,this)
 		}
 	}
 	return 
