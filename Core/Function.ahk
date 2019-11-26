@@ -5,7 +5,7 @@
 	}
 ;---------------------------------------------------------------------- 
 
-showObj(aObj,aList:=""){
+	showObj(aObj,aList:=""){
 
 ;---------------------------------------------------------------------- 
 
@@ -616,3 +616,20 @@ ObjLoad(addr,objects:=0){
   }
   return obj
 }
+;------------------------------
+class Function{
+
+	func := Object()
+	bindParas := Object()
+	
+	__New(aMethodName,aBindParas*){
+		this.func := getFunc(aMethodName)
+		this.bindParas := aBindParas
+		return this
+	}
+	;------------------------------
+	call(aCallParas*){
+		paras := _List.merge(this.bindParas,aCallParas)
+		return SmartCallForFunction(this.func,paras*)
+	}
+} ;---------class Function End

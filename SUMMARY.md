@@ -9,6 +9,7 @@
     -   [语法高亮(HIGHLIGHTING)](Docs/HIGHLIGHTING.md)
 -   [Class](Docs/Method.md)
     -   [_EX](Docs/_EX.md)
+    -   [Function](Docs/Function.md)
     -   [HotString](Docs/HotString.md)
     -   [HotStringMaps](Docs/HotStringMaps.md)
     -   [JSON](Docs/JSON.md)

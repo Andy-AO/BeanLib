@@ -19,6 +19,7 @@ Core Pack 必须全部导入
 #Include Core\StringMethod.ahk
 #Include Core\TypeFuncAndClass.ahk
 #Include Core\Method.ahk
+#Include Core\Function.ahk
 
 
 ;示例:
