@@ -284,3 +284,13 @@ SmartCall(aFunc,aThis,aParams*){
 	result := %aFunc%(aParams*)
 	return result
 }
+;---------------------------------------------------------------------- 
+/*
+SmartCallForFunction 智能运行
+与SmartCall的区别是这个并不带有this参数
+*/
+SmartCallForFunction(aFunc,aParams*){
+	assertParaLength(aFunc,aParams)
+	result := %aFunc%(aParams*)
+	return result
+}
