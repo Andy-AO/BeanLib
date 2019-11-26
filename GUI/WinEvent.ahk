@@ -81,7 +81,7 @@ class WinEvent{
 		LogPrintln(MsgNum1,"MsgNum1 >>>")
 		MsgNum := DllCall("RegisterWindowMessage", Str,"SHELLHOOK")
 		LogPrintln(MsgNum,"MsgNum >>>")
-		ShellMessageAction := new Action(this,this.ShellMessage_Base)
+		ShellMessageAction := new Action(this.ShellMessage_Base,this)
 		OnMessage(MsgNum,ShellMessageAction)
 		return
 	}

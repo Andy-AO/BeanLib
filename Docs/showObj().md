@@ -25,7 +25,7 @@ showObj(aObj,aList:="")
 ```autohotkey
 winObj := new Win("春我部防卫队")
 
-act := new Action(winObj,winObj.equal)
+act := new Action(winObj.equal,winObj)
 
 act.assertter := Bean.true
 act.before := Bean.False

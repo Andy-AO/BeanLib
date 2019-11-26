@@ -60,7 +60,7 @@ loadAction(this){
 	for name,Obj in class {
 		pullIt := (type.isFuncObj(obj)) AND (Bean.notMeta(name))
 		if(pullIt){
-			this.action[name] := new Action(this,obj)
+			this.action[name] := new Action(obj,this)
 		}
 	}
 	return 
