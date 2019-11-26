@@ -7,7 +7,7 @@
 
 最简单的方法是对 FuncObj 使用 bind，但是 bind 对象内部完全是不可见的，就为调试带来了诸多麻烦，Method 方法就是为了解决这一问题而生的，它的内部通透性非常好。
 
-目前 Method 还不支持 this 参数之外的参数绑定，但是之后会支持。
+通过 __New 方法的最后一个可变参数，提供Bind()功能。
 
 ## 静态方法 Static Method
 
@@ -19,9 +19,10 @@
 
 ## 方法 Method
 
-### __New(aFunc,aFuncThis)
+### __New(aFunc,aFuncThis,aBindParas*)
 
 用于带有 this 参数的实例方法
 
 - aFunc - 需要被封装的实例方法
 - aFuncThis - aFunc 的 this 参数
+- aBindParas - 需要绑定的参数
