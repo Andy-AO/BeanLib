@@ -7,13 +7,13 @@
 机制很简单，就是直接从 base 中拿到 Func。
 
 ```autohotkey
-rawCall(aThis,aMethodName,aParams*)
+rawCall(aMethodName,aThis,aParams*)
 ```
 
 ### 参数 Parameters: 
 
-- aThis - 执行Method的this环境
 - aMethodName - 方法名
+- aThis - 执行Method的this环境
 - aParams* - 参数列表 
 
 ### 返回 Returns: 

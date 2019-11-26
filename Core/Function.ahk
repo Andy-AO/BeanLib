@@ -42,7 +42,7 @@ funcObjToString(aObj){
 
 ;---------------------------------------------------------------------- 
 
-rawCall(aThis,aMethodName,aParams*){
+rawCall(aMethodName,aThis,aParams*){
 		if(ObjHasKey(aThis.base,aMethodName)){
 			return SmartCall(aThis,aThis.base[aMethodName],aParams*)
 		}		

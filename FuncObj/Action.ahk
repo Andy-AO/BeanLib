@@ -57,7 +57,7 @@ class Action{
 	__call(aMethodName:="",aParams*){
 		iscall := Bean.isCall(aMethodName,this)
         if(iscall){
-			result := rawCall(this,"call",aParams*)
+			result := rawCall("call",this,aParams*)
 			return result
 		}
 		else if (Bean.isMeta(aMethodName)){
@@ -72,7 +72,7 @@ class Action{
 	__New(aFunc,aFuncThis){
 			this._NewEnum:=this.base._NewEnum
 			this.theThis := this
-			rawCall(this,"initFunc",aFuncThis,aFunc)
+			rawCall("initFunc",this,aFuncThis,aFunc)
 			return this
 	}
 } ;---------class Action End
