@@ -48,7 +48,7 @@ class Action{
 		}
 ;---------------------------------------------------------------------- 
 		call(aParams*){
-			result := SmartCall(this.funcThis,this.func,aParams*)
+			result := SmartCall(this.func,this.funcThis,aParams*)
 			return result
 		}
 		;为了使得Action称为Func,所以通过__call接管,并且使用rawCall调用

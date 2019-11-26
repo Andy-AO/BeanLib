@@ -44,7 +44,7 @@ funcObjToString(aObj){
 
 rawCall(aMethodName,aThis,aParams*){
 		if(ObjHasKey(aThis.base,aMethodName)){
-			return SmartCall(aThis,aThis.base[aMethodName],aParams*)
+			return SmartCall(aThis.base[aMethodName],aThis,aParams*)
 		}		
 		else{
 			throwWithSt(_EX.NoExistMethod)

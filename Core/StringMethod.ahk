@@ -8,7 +8,7 @@ String Method
 class StrCallBase{
     __Call(aStr,aName,aParams*){
 		if(ObjHasKey(this,aName)){
-			return SmartCall(aStr,this[aName],aParams*)
+			return SmartCall(this[aName],aStr,aParams*)
 		}
 		else{
 			if(aStr = "")
@@ -278,7 +278,7 @@ AutoBind(aFunc,aParaList,aFirstPara){
 /*
 SmartCall 智能运行
 */
-SmartCall(aThis,aFunc,aParams*){
+SmartCall(aFunc,aThis,aParams*){
 	aParams.InsertAt(1,aThis)
 	assertParaLength(aFunc,aParams)
 	result := %aFunc%(aParams*)
