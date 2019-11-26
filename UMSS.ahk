@@ -20,7 +20,7 @@ static keys := Object()
 behavior(FuncObj){
 	this.DiscardCacheEvent()
 	this.Count++
-	result := %FuncObj%()
+	result := FuncObj.Call()
 	return result
 }
 ;------------------------------
