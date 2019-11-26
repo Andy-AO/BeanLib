@@ -20,7 +20,7 @@
     -   [WinEvent](Docs/WinEvent.md)
     -   [APPLocker](Docs/APPLocker.md)
     -   [AutoClassify](Docs/AutoClassify.md)
-    -   [Everything(调用外部搜索工具)](Docs/Everything.md)
+    -   [Everything](Docs/Everything.md)
     -   [Ini](Docs/Ini.md)
     -   [ParaChecker](Docs/ParaChecker.md)
     -   [PathObj](Docs/PathObj.md)
