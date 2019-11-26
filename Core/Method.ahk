@@ -5,7 +5,6 @@
 */
 class Method{
 
-
 	for(ByRef obj){
 		Type.assertObj(Obj)
 		return new Method(Obj,Obj)	
@@ -16,9 +15,10 @@ class Method{
 	;可能是表示这个ClassInstance支持toString()方法
 	__toString := []
 	;Method的主角:Func
-	func:=""
 	;Function的第一个参数(this参数)
 	funcThis:=""
+	func := Object()
+	bindParas := Object()
 
 ;---------------------------------------------------------------------- 
 	
@@ -28,19 +28,18 @@ class Method{
 	}
 
 ;---------------------------------------------------------------------- 
-		initFunc(aFuncThis,aFunc){
-			type.assertFuncObj(aFunc)
-			this.func:=aFunc
-			this.funcThis:=aFuncThis
-			return
-		}
+	initFunc(aFuncThis,aFunc){
+		type.assertFuncObj(aFunc)
+		this.func:=aFunc
+		this.funcThis:=aFuncThis
+		return
+	}
 ;---------------------------------------------------------------------- 
-		call(aParams*){
-			result := SmartCall(this.func,this.funcThis,aParams*)
-			return result
-		}
-		;为了使得Method称为Func,所以通过__call接管,并且使用rawCall调用
-		;是否有第二条道路,已经忘记,之前忽略注释是个错误,要在变量名尽量体现原意的前提下再尽量使用注释
+	call(aParams*){
+		aParams := _List.merge(this.bindParas,aParams)
+		result := SmartCall(this.func,this.funcThis,aParams*)
+		return result
+	}
 ;---------------------------------------------------------------------- 	
 	__call(aMethodName:="",aParams*){
 		iscall := Bean.isCall(aMethodName,this)
@@ -57,9 +56,10 @@ class Method{
 		return
 	}
 ;---------------------------------------------------------------------- 
-	__New(aFunc,aFuncThis){
+	__New(aFunc,aFuncThis,aBindParas*){
 			this._NewEnum:=this.base._NewEnum
 			this.theThis := this
+			this.bindParas := aBindParas
 			rawCall("initFunc",this,aFuncThis,aFunc)
 			return this
 	}
