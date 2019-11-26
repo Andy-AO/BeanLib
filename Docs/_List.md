@@ -30,9 +30,6 @@
 
 **检查数组中是否包含某值:**
 
-```autohotkey
-Contains(ListorMap,value)
-```
 
 #### 参数 Parameters: 
 
@@ -53,10 +50,6 @@ Result2:=_Container.Contains(_List.LetterList,"0")
 **StrList去重:**
 
 2019年01月08日 - 这个去重方法是靠写入 Key-Value，一开始我猜 key 不能是 Obj ，后来才知道错了。那么这个方法就是通用的，特此改正。
-
-```autohotkey
-Uniq(List)
-```
 
 #### 参数 Parameters: 
 
@@ -93,9 +86,6 @@ https://stackoverflow.com/questions/46432447/how-do-i-remove-duplicates-from-an-
 
 **字符串数组内的替换:**
 
-```autohotkey
-_List.StrReplace(StrList,SearchText,ReplaceText,isRegEx:=false)
-```
 
 #### 参数 Parameters: 
 
@@ -122,9 +112,6 @@ _List.StrReplace(List,"3","×")
 
 **对数组进行排序, 支持顺序, 倒序, 逆序:**
 
-```
-_List.Sort(StrList, Order="A")
-```
 
 #### 参数 Parameters
 
@@ -168,10 +155,6 @@ _List.sort(InputList)
 
 **按照Index批量移除数组中的元素:**
 
-```autohotkey
-_List.Remove(List,IndexList)
-```
-
 #### 参数 Parameters: 
 
 - List - 输入的数组
@@ -194,9 +177,6 @@ _List.Remove(List,IndexList)
 **统计List中所有元素出现的次数:**
 把List中所有的元素都放入一个Obj,元素是key,元素出现的次数是value
 
-```autohotkey
-ElementCounter(List)
-```
 
 #### 参数 Parameters: 
 
@@ -223,10 +203,6 @@ EList:=_List.ElementCounter(Lists)
 ### CopyOfRange(List,FromIndex,ToIndex)
 
 **复制并返回数组的一部分:**
-
-```autohotkey
-_List.CopyOfRange(List,FromIndex,ToIndex)
-```
 
 #### 参数 Parameters: 
 
@@ -256,9 +232,6 @@ SubList:=_List.CopyOfRange(InputList,FromIndex,ToIndex)
 
 **转换Str数组为字符串:**
 
-```autohotkey
-_List.ToString(Str)
-```
 
 #### 参数 Parameters: 
 
@@ -272,4 +245,24 @@ TheArrayString
 ```autohotkey
 List:=_List.RNameList
 MsgBox,% _List.ToString(List)
+```
+
+### merge(aList1,aList2)
+
+**合并两个List:**
+
+
+#### 参数 Parameters: 
+
+- aList1 - 在前方的数组
+- aList2 - 在后方的数组
+
+#### 返回 Returns: 
+TheArray
+#### 抛出异常 Throws: 
+- null
+#### 示例 Example
+```autohotkey
+result := _List.merge(_List.NumberList,_List.LetterList)
+LogPrintln(result,A_LineFile  "("  A_LineNumber  ")"  " : " "result >>> `r`n")
 ```
