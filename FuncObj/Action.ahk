@@ -69,7 +69,7 @@ class Action{
 		return
 	}
 ;---------------------------------------------------------------------- 
-	__New(aFuncThis,aFunc){
+	__New(aFunc,aFuncThis){
 			this._NewEnum:=this.base._NewEnum
 			this.theThis := this
 			rawCall(this,"initFunc",aFuncThis,aFunc)

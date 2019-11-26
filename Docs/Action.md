@@ -19,13 +19,9 @@
 
 ## 方法 Method
 
-### __New(aFuncThis,aFunc)
+### __New(aFunc,aFuncThis)
 
 用于带有 this 参数的实例方法
 
-- aFuncThis - aFunc 的 this 参数
 - aFunc - 需要被封装的实例方法
-
-
-
-
+- aFuncThis - aFunc 的 this 参数
