@@ -18,6 +18,7 @@ Core Pack 必须全部导入
 #Include Core\Instanof().ahk
 #Include Core\StringMethod.ahk
 #Include Core\TypeFuncAndClass.ahk
+#Include Core\Method.ahk
 
 
 ;示例:
