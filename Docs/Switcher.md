@@ -52,7 +52,7 @@ Run命令的Options，默认是"Max"，也就是以最大化窗口形式运行�
 #### 示例 Example
 
 ```autohotkey
-		switcher.switch("ahk_exe SourceTree.exe","C:\Users\Administrator\AppData\Local\SourceTree\app-3.1.2\SourceTree.exe")
+		Switcher.switch("ahk_exe SourceTree.exe","C:\Users\Administrator\AppData\Local\SourceTree\app-3.1.2\SourceTree.exe")
 ```
 
 ### toggle(aWinTitle)
@@ -88,6 +88,6 @@ null
 #### 示例 Example
 
 ```autohotkey
-		switcher.toggle("ahk_exe SourceTree.exe","C:\Users\Administrator\AppData\Local\SourceTree\app-3.1.2\SourceTree.exe")
+		Switcher.toggle("ahk_exe SourceTree.exe","C:\Users\Administrator\AppData\Local\SourceTree\app-3.1.2\SourceTree.exe")
 ```
 
