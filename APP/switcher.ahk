@@ -41,6 +41,7 @@ class Switcher{
 		}
 		else{
 			WinActivate,%aWinTitle%
+			this.p_ifJavaSwingReDraw(aWinTitle)
 		}
 		return
 	}
@@ -51,5 +52,11 @@ class Switcher{
 		return OutputVarPID
 	}
 	;------------------------------
+	p_ifJavaSwingReDraw(aWinTitle){
+		if(WinActive("ahk_class SunAwtFrame")){ 
+			WinSet, Redraw ,,%aWinTitle%
+		}
+		return
+	}
 }
 
