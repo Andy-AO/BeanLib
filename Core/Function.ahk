@@ -330,6 +330,9 @@ DeepListtoString(List){
 
 toString(Obj){
 	
+		
+	ResultString:="",ListString := "[",ObjectString:="{"
+	
 	if(ObjHasKey(Obj,"__toString")){
 		if(type.isList(theList := Obj.__toString)){
 			mapwinObj := showObj(Obj,theList)
@@ -340,8 +343,7 @@ toString(Obj){
 			return toString(mapwinObj)	
 		}
 	}
-	
-	ResultString:="",ListString:="",ListString.= "[",ObjectString:="",ObjectString.="{"
+
 	
 	if (Type.isStr(Obj)){
 		if(Obj="")
@@ -363,12 +365,6 @@ toString(Obj){
 		if (Type.isObj(Obj)) ;如果是Obj数组,那么开头应该是"{"
 		ResultString:=ObjectString
 	}	
-;---------------------------------------------------------------------- 
-	
-
-
-
-;---------------------------------------------------------------------- 
 
 	if (Type.isList(Obj)){
 		
@@ -394,13 +390,16 @@ toString(Obj){
 		
 	}
 	
-
-;---------------------------------------------------------------------- 
-			
+	
 	else if (Type.isObj(Obj)){
 		
 			if (Obj.count()=0)
 				return "{*Obj*}"
+			
+			;如果发现是实例,那么增加实例提示
+			if (ObjHasKey(Obj.base,"__Class")){
+				ResultString .= "__Instance:" . Obj.base.__Class . ","
+			}
 			
 			for key,v in Obj{
 					
