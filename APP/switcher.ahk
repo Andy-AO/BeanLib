@@ -1,5 +1,5 @@
 ﻿
-class switcher{
+class Switcher{
 	static Options := "Max"
 	/*
 		TODO: 可以为每个 switcher 提供额外的配置,如果想用默认的，那就直接用switcher.xx(),如果想使用一个额外的配置，那么就switcher.xx().xx(),这包含了一些常用的预设配置;如果要完全自定义，那么就 theSwitcher := new switcher(); theSwitcher.xxx();

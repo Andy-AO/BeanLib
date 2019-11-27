@@ -27,6 +27,7 @@
     -   [PathObj](Docs/PathObj.md)
     -   [RunningSpeedTest](Docs/RunningSpeedTest.md)
     -   [Script](Docs/Script.md)
+    -   [Switcher](Docs/Switcher.md)
     -   [TimeChecker](Docs/TimeChecker.md)
     -   [Type](Docs/Type.md)
     -   [UMSS](Docs/UMSS.md)
