@@ -38,8 +38,16 @@
 示例：注册组合热键 Tab & j 和 Tab & .
 
 ```autohotkey
+class Print{
+	P1(){
+		LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
+	}
+	P2(){
+		LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
+	}
+} ;---------class Print End
+
 TabUMSS := new UMSS("Tab")
-theFunc := Func("ExActivateAndOpen").bind("ahk_exe SourceTree.exe","C:\SourceTree.exe")
-TabUMSS.register("j",theFunc)
-TabUMSS.register(".",Func("ActivateBaiDuNetDesk"))
+TabUMSS.register("j",new Method(Print.P1,Print))
+TabUMSS.register(".",new Method(Print.P2,Print))
 ```
