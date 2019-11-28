@@ -333,7 +333,7 @@ toString(Obj){
 		
 	ResultString:="",ListString := "[",ObjectString:="{"
 	
-	if(ObjHasKey(Obj,"__toString")){
+	if((!ObjHasKey(Obj,"__toString")) && Obj.__toString != ""){
 		if(type.isList(theList := Obj.__toString)){
 			mapwinObj := showObj(Obj,theList)
 			return toString(mapwinObj)		
