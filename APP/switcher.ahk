@@ -15,6 +15,7 @@ class Switcher{
 	}
 	;------------------------------
 	switch(aWinTitle,aPathOrFuncObj){
+		FuncObjReturn := ""
 		if(WinExist(aWinTitle)){
 			this.p_ActivateOrMini(aWinTitle)
 		}
