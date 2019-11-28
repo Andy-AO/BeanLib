@@ -460,6 +460,7 @@ FileOpen (Filename, Flags [, Encoding])
 .Close ()
 .Encoding ([Encoding])
 .__Handle ()
+.__Class
 
 Array ([Value1, Value2, ..., Value_n])
 Object (Obj)
