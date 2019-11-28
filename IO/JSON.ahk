@@ -1,6 +1,6 @@
 class JsonFile{
 	path := ""
-;------------------------------
+	;------------------------------
 	store(jsonObj){
 		if(FileExist(this.path))
 			FileDelete,% this.path
@@ -8,14 +8,23 @@ class JsonFile{
 		FileAppend,% content, % this.path,UTF-8
 		return content
 	}
-;------------------------------
+	;------------------------------
 	load(){
 		FileRead, content , % this.path
 		return JSON.load(content)
 	}
-;------------------------------
+	;------------------------------
+	
+	checkFileExist(){
+		if(FileExist(this.path)=""){
+			throw _Ex.NoExistFile
+		}
+		return
+	}
+	;------------------------------
 	__New(path){
 		this.path := path
+		this.checkFileExist()
 		return this
 	}
 } ;---------class JsonFile End
