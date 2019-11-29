@@ -24,11 +24,16 @@ Count := 0,key:=""
 static keys := Object()
 premiseFunc := ""
 ;------------------------------
+	empty(){
+		return
+	}
+;------------------------------
 	Unregister(keyName){
 		if(this.premiseFunc != ""){
 			LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
 			this.IFOn()
-			Hotkey,% keyName,OFF
+			theFunc := new Method(this.empty,this)
+			hotkey,% keyName,% theFunc
 			this.IFOff()
 		}
 		return
