@@ -1,10 +1,17 @@
 
 class UMSS extends UMSSWithOutDestroy{
+	theUMSSWithOutDestroy := ""
+	;------------------------------
+	__New(aKey){
+		this.theUMSSWithOutDestroy := new UMSSWithOutDestroy(aKey)
+		return this
+	}
+	;------------------------------
 	registeredKeys := Object()
 	;------------------------------
 	register(keyName,theFunc,Options:=""){
-		registeredKeys[keyName] := theFunc
-		this.base.base.register(keyName,theFunc,Options)
+		this.registeredKeys[keyName] := theFunc
+		this.theUMSSWithOutDestroy.register(keyName,theFunc,Options)
 		return
 	}
 	;------------------------------
