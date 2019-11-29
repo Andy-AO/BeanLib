@@ -17,6 +17,13 @@ class UMSS extends UMSSWithOutDestroy{
 		this.base.base.Unregister(keyName)
 		return
 	}
+	;------------------------------
+	destroy(){
+		for keyName,v in this.registeredKeys {
+			this.Unregister(keyName)
+		}
+		return
+	}
 } ;---------class UMSS End
 
 class UMSSWithOutDestroy{
