@@ -20,15 +20,22 @@ class UMSS extends UMSSWithOutDestroy{
 } ;---------class UMSS End
 
 class UMSSWithOutDestroy{
-Count := 0,key:=""
+Count := 0,key:="",PremiseFunc := ""
 static keys := Object()
 ;------------------------------
 	Unregister(keyName){
+		LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
+		this.IFOn()
+		hotkey,%keyName%,Off
+		this.IFOff()
 		return
 	}
 ;------------------------------
 	IFOn(){
-		theFunc := this.Premise.bind(this)
+		if(this.PremiseFunc != ""){
+			this.PremiseFunc := this.Premise.bind(this)
+		}
+		theFunc := this.PremiseFunc
 		Hotkey, If, % theFunc
 		return
 	}
