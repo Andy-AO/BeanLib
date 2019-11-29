@@ -32,8 +32,7 @@ premiseFunc := ""
 		if(this.premiseFunc != ""){
 			LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
 			this.IFOn()
-			theFunc := new Method(this.empty,this)
-			hotkey,% keyName,% theFunc
+			hotkey,% keyName,OFF
 			this.IFOff()
 		}
 		return
@@ -66,7 +65,7 @@ premiseFunc := ""
 	register(keyName,theFunc,Options:=""){
 		Func := this.behavior.Bind(this,theFunc)
 		this.IFOn()
-		hotkey,% keyName,% Func,% Options
+		hotkey,% keyName,% Func,% "On" " " Options
 		this.IFOff()
 		return
 	}
