@@ -1,6 +1,16 @@
 
 class UMSS extends UMSSWithOutDestroy{
-
+	registeredKeys := Object()
+	;------------------------------
+	register(keyName,theFunc,Options:=""){
+		registeredKeys[keyName] := theFunc
+		this.base.base.register(keyName,theFunc,Options)
+		return
+	}
+	;------------------------------
+	Unregister(){
+		return
+	}
 } ;---------class UMSS End
 
 class UMSSWithOutDestroy{
