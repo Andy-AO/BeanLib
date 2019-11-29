@@ -22,13 +22,20 @@ class UMSS extends UMSSWithOutDestroy{
 class UMSSWithOutDestroy{
 Count := 0,key:=""
 static keys := Object()
+premiseFunc := ""
 ;------------------------------
 	Unregister(keyName){
+		if(this.premiseFunc != ""){
+			this.IFOn()
+			this.IFOff()
+		}
 		return
 	}
 ;------------------------------
 	IFOn(){
-		theFunc := this.Premise.bind(this)
+		if(this.premiseFunc == "")
+			this.premiseFunc := this.Premise.bind(this)
+		theFunc := this.premiseFunc
 		Hotkey, If, % theFunc
 		return
 	}
