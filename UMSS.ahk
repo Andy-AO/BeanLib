@@ -13,7 +13,8 @@ class UMSS extends UMSSWithOutDestroy{
 		return
 	}
 	;------------------------------
-	Unregister(){
+	Unregister(keyName){
+		this.base.base.Unregister(keyName)
 		return
 	}
 } ;---------class UMSS End
@@ -21,6 +22,10 @@ class UMSS extends UMSSWithOutDestroy{
 class UMSSWithOutDestroy{
 Count := 0,key:=""
 static keys := Object()
+;------------------------------
+	Unregister(keyName){
+		return
+	}
 ;------------------------------
 	IFOn(){
 		theFunc := this.Premise.bind(this)
