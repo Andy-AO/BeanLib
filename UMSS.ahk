@@ -15,6 +15,7 @@ class UMSS extends UMSSWithOutDestroy{
 	;------------------------------
 	Unregister(keyName){
 		this.base.base.Unregister(keyName)
+		this.registeredKeys.Delete(keyName)
 		return
 	}
 	;------------------------------
@@ -22,6 +23,7 @@ class UMSS extends UMSSWithOutDestroy{
 		for keyName,v in this.registeredKeys {
 			this.Unregister(keyName)
 		}
+		this.registeredKeys := Object()
 		return
 	}
 } ;---------class UMSS End
