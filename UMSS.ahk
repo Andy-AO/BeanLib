@@ -1,4 +1,9 @@
-class UMSS{
+
+class UMSS extends UMSSWithOutDestroy{
+
+} ;---------class UMSS End
+
+class UMSSWithOutDestroy{
 Count := 0,key:=""
 static keys := Object()
 ;------------------------------
@@ -39,13 +44,13 @@ behavior(FuncObj){
 	 }
 ;------------------------------
 	__New(key){
-		if(isObject(UMSS.keys[key])){
-			return UMSS.keys[key]
+		if(isObject(UMSSWithOutDestroy.keys[key])){
+			return UMSSWithOutDestroy.keys[key]
 		}
 		else{
 			this.key := key
 			this.registerNewKey()
-			UMSS.keys[key] := this
+			UMSSWithOutDestroy.keys[key] := this
 			return this
 		}
 	}
@@ -82,4 +87,4 @@ SendSrcKeyWhenItIsUp(){
 		Thread, Priority, %thePriority%
 		return
 	}
-} ;---------class UMSS End
+} ;---------class UMSSWithOutDestroy End
