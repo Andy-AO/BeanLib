@@ -37,12 +37,12 @@ static keys := Object()
 		return GetKeyPhysicalState(this.key)
 	}
 ;------------------------------
-behavior(FuncObj){
-	this.DiscardCacheEvent()
-	this.Count++
-	result := FuncObj.Call()
-	return result
-}
+	behavior(FuncObj){
+		this.DiscardCacheEvent()
+		this.Count++
+		result := FuncObj.Call()
+		return result
+	}
 ;------------------------------
 	register(keyName,theFunc,Options:=""){
 		Func := this.behavior.Bind(this,theFunc)
