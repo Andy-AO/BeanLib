@@ -26,7 +26,9 @@ premiseFunc := ""
 ;------------------------------
 	Unregister(keyName){
 		if(this.premiseFunc != ""){
+			LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
 			this.IFOn()
+			Hotkey,% keyName,OFF
 			this.IFOff()
 		}
 		return
