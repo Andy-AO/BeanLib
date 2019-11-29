@@ -1,6 +1,7 @@
 
 class UMSS extends UMSSWithOutDestroy{
 	theUMSSWithOutDestroy := ""
+	registeredKeys := Object()
 	;------------------------------
 	__New(aKey){
 		this.theUMSSWithOutDestroy := new UMSSWithOutDestroy(aKey)
@@ -9,7 +10,7 @@ class UMSS extends UMSSWithOutDestroy{
 	;------------------------------
 	registeredKeys := Object()
 	;------------------------------
-	register(keyName,theFunc,Options:=""){
+	register(keyName,theFunc,Options:=""){ 
 		this.registeredKeys[keyName] := theFunc
 		this.theUMSSWithOutDestroy.register(keyName,theFunc,Options)
 		return
