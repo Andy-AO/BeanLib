@@ -17,6 +17,22 @@ Contains(ListorMap,value){
 	return false
 }
 
+;------------------------------
+/*!
+依照aKeyList提取元素
+LogPrintln(Extract(_Container.LetterAndNumberMap,["A","B","C"]),A_LineFile  "("  A_LineNumber  ")"  " : " "Extract(_Container.LetterAndNumberMap,[""A"",""B"",""C""]) >>> `r`n")
+*/
+Extract(aContainer,aKeyList){
+	Type.assertObj(aContainer)
+	Type.assertObj(aKeyList)
+	aContainerKeyList := _Container.mapToList(aContainer)["Key"]
+	result := Object()
+	for i,key in aKeyList {
+		if(_Container.Contains(aContainerKeyList,key))
+			result[key] := aContainer[key]
+	}
+	return result
+}
 ;---------------------------------------------------------------------- 
 
 /*!
