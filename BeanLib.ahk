@@ -20,6 +20,7 @@ Core Pack 必须全部导入
 #Include Core\TypeFuncAndClass.ahk
 #Include Core\Method.ahk
 #Include Core\Function.ahk
+#Include Core\ObservableMap.ahk
 
 
 ;示例:
