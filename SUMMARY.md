@@ -16,6 +16,7 @@
     -   [JsonFile](Docs/JsonFile.md)
     -   [_List](Docs/_List.md)
     -   [Method](Docs/Method.md)
+    -   [ObservableMap](Docs/ObservableMap.md)
     -   [_Win](Docs/_Win.md)
     -   [_Wins](Docs/_Wins.md)
     -   [WinEvent](Docs/WinEvent.md)
