@@ -11,7 +11,6 @@ class Method{
 	}
 ;------------------------------
 
-	isMethod:=true
 	;可能是表示这个ClassInstance支持toString()方法
 	__toString := []
 	;Method的主角:Func

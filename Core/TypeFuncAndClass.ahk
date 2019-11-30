@@ -143,11 +143,7 @@ Class Type{
 		if ((len=keyCount) AND (len!="") AND (keyCount!="") AND (keyCount!=0) AND (len!=0)){
 			return Type.List
 		} 
-		
-		else if(obj.isMethod){
-			return Type.Method
-		}
-		
+
 		else
 			theType:=Type.ObjectSpecificType(Obj)
 		
@@ -246,8 +242,8 @@ Class TypeBase{
 		
 		Static List:=130
 		Static ObjEndCode := 199
-		Static Obj:=100,ExtendsObj:=101,Class:=110,FuncObj:=120,Exception:=121,Method:=125
-		
+		Static Obj:=100,ExtendsObj:=101,Class:=110,FuncObj:=120,Exception:=121
+				
 		Static FileObj:=150
 		
 		Static ComObj:=160
