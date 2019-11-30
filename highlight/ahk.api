@@ -21,6 +21,10 @@ ExcelToList()
 .py ()
 .CharAt()
 .when()
+.clear()
+.put()
+.addListener()
+ObservableMap
 
 
 #AllowListmeLineComments
