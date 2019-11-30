@@ -8,7 +8,6 @@
 class Condition{
 check := ""
 repair := Bean.false
-__toString := []
 ;---------------------------------------------------------------------- 
 
 repairName[]{

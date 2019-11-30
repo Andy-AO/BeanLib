@@ -5,32 +5,6 @@
 	}
 ;---------------------------------------------------------------------- 
 
-	showObj(aObj,aList:=""){
-
-;---------------------------------------------------------------------- 
-
-	theMap:= Object("__Class",aObj.base.__Class) ;DeBug
-
-;---------------------------------------------------------------------- 
-	
-	for key,value in aObj {
-		if(Bean.isFunc(value))
-			theMap[key]:=value
-	}		
-
-;---------------------------------------------------------------------- 
-		
-	if(type.isList(aList)){
-		for index,value in aList {
-				theMap[value]:=aObj[value]
-		}	
-	}	
-	
-	return theMap
-}
-
-;---------------------------------------------------------------------- 
-
 funcObjToString(aObj){
 	if (type.isFuncObj(aObj)){
 		return aObj.name "()"
@@ -330,22 +304,7 @@ DeepListtoString(List){
 
 toString(Obj){
 	
-		
 	ResultString:="",ListString := "[",ObjectString:="{"
-	
-/*
-	if((!ObjHasKey(Obj,"__toString")) && Obj.__toString != ""){
-		if(type.isList(theList := Obj.__toString)){
-			mapwinObj := showObj(Obj,theList)
-			return toString(mapwinObj)		
-		}
-		else{
-			mapwinObj := showObj(Obj)
-			return toString(mapwinObj)	
-		}
-	}
-*/
-
 	
 	if (Type.isStr(Obj)){
 		if(Obj="")
@@ -353,8 +312,7 @@ toString(Obj){
 		else
 			return Obj
 	}
-	
-		
+
 	if (Type.isFuncObj(Obj)){
 		return funcObjToString(Obj)
 	}

@@ -10,9 +10,6 @@ class Method{
 		return new Method(Obj,Obj)	
 	}
 ;------------------------------
-
-	;可能是表示这个ClassInstance支持toString()方法
-	__toString := []
 	;Method的主角:Func
 	;Function的第一个参数(this参数)
 	funcThis:=""
