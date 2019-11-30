@@ -10,6 +10,7 @@ class JsonFile{
 	}
 	;------------------------------
 	load(){
+		this.checkFileExist()
 		FileRead, content , % this.path
 		return JSON.load(content)
 	}
@@ -24,7 +25,6 @@ class JsonFile{
 	;------------------------------
 	__New(path){
 		this.path := path
-		this.checkFileExist()
 		return this
 	}
 } ;---------class JsonFile End
