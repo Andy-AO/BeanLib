@@ -1,4 +1,5 @@
 
+
 class UMSS extends UMSSWithOutDestroy{
 	registeredKeys := Object()
 	;------------------------------
@@ -27,7 +28,6 @@ class UMSS extends UMSSWithOutDestroy{
 		return
 	}
 } ;---------class UMSS End
-
 class UMSSWithOutDestroy{
 Count := 0,key:=""
 static keys := Object()
@@ -39,7 +39,6 @@ premiseFunc := ""
 ;------------------------------
 	Unregister(keyName){
 		if(this.premiseFunc != ""){
-			LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
 			this.IFOn()
 			hotkey,% keyName,OFF
 			this.IFOff()
