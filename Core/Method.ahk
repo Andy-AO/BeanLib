@@ -23,6 +23,13 @@ class Method{
 		return new BeanEnum(Object("func",this.func,"funcThis",this.funcThis))
 	}
 
+;------------------------------
+	toString(){
+		func := toString(this.func)
+		funcThis := toString(this.funcThis)
+		result = {__Instance:Method,func:%func%,funcThis:%funcThis%}
+		return result
+	}
 ;---------------------------------------------------------------------- 
 	initFunc(aFuncThis,aFunc){
 		type.assertFuncObj(aFunc)
@@ -41,6 +48,10 @@ class Method{
 		iscall := Bean.isCall(aMethodName,this)
         if(iscall){
 			result := rawCall("call",this,aParams*)
+			return result
+		}        
+		if((aMethodName="toString")){
+			result := rawCall("toString",this)
 			return result
 		}
 		else if (Bean.isMeta(aMethodName)){
