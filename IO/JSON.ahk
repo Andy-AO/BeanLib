@@ -17,7 +17,7 @@ class JsonFile{
 	
 	checkFileExist(){
 		if(FileExist(this.path)=""){
-			throw _Ex.NoExistFile
+			throwWithST(_Ex.NoExistFile)
 		}
 		return
 	}
