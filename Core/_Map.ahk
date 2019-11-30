@@ -5,9 +5,13 @@
 
 class _Map{
 	merge(aFirMap,aSecMap){
-		for i,v in aSecMap {
-			aFirMap[i]:=v
+		result := Object()
+		for i,v in aFirMap {
+			result[i]:=v
 		}
-		return
+		for i,v in aSecMap {
+			result[i]:=v
+		}
+		return result
 	}
 }
