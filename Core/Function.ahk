@@ -353,6 +353,9 @@ toString(Obj){
 	
 	else if (Type.isObj(Obj)){
 		
+			if(Obj.toString()!="")
+				return Obj.toString()
+		
 			if (Obj.count()=0)
 				return "{*Obj*}"
 			
