@@ -4,6 +4,8 @@
 说明:线性数组List和关联数组Map的通用处理静态类
 */
 class _Container{
+
+static LetterAndNumberMap := Object("A","1","B","2","C","3","D","4","E","5","F","6","G","7","H","8","I","9","J","0")
 /*!
 检查容器中是否包含指定元素？
 */
