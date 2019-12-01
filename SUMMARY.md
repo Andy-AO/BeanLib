@@ -13,6 +13,7 @@
     -   [_Map](Docs/_Map.md)
     -   [_Win](Docs/_Win.md)
     -   [_Wins](Docs/_Wins.md)
+    -   [BeanEnum](Docs/BeanEnum.md)
     -   [Function](Docs/Function.md)
     -   [HotString](Docs/HotString.md)
     -   [HotStringMaps](Docs/HotStringMaps.md)
