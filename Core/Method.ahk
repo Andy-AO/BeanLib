@@ -3,7 +3,7 @@
 	funcThis := Object()
 	bindParas := Object()
 	;------------------------------
-		for(obj){
+	for(obj){
 		Type.assertObj(Obj)
 		return new Method(Obj,Obj)	
 	}
