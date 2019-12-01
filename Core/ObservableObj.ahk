@@ -13,8 +13,8 @@ class ObservableObj{
 	;------------------------------
 	set(aObj){
 		if(this.Obj != aObj){
-			this.callListener(this, this.Obj, aObj)
 			this.Obj := aObj
+			this.callListener(this, this.Obj, aObj)
 		}
 		return aObj
 	}	
