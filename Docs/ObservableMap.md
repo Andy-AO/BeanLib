@@ -111,7 +111,7 @@ Obj
 
 null
 
-## 案例
+## 示例 Example
 
 ```AutoHotKey
 map := new ObservableMap(_Container.LetterAndNumberMap)
