@@ -20,6 +20,7 @@
     -   [JsonFile](Docs/JsonFile.md)
     -   [Method](Docs/Method.md)
     -   [ObservableMap](Docs/ObservableMap.md)
+    -   [ObservableObj](Docs/ObservableObj.md)
     -   [WinEvent](Docs/WinEvent.md)
     -   [APPLocker](Docs/APPLocker.md)
     -   [AutoClassify](Docs/AutoClassify.md)
