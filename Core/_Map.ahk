@@ -4,6 +4,9 @@
 */
 
 class _Map{
+/*!
+合并两个Map,如果元素有重合,那么aSecMap将覆盖aFirMap
+*/
 	merge(aFirMap,aSecMap){
 		result := Object()
 		for i,v in aFirMap {
