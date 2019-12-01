@@ -19,4 +19,8 @@
 		paras := _List.merge(this.bindParas,aCallParas)
 		return SmartCallForFunction(this.func,this.funcThis,paras*)
 	}
+	;------------------------------
+	_NewEnum(){
+		return new BeanEnum(Object("func",this.func,"bindParas",this.bindParas))
+	}
 } ;---------class Method End
