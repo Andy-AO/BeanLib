@@ -10,6 +10,7 @@
 -   [Class](Docs/Method.md)
     -   [_EX](Docs/_EX.md)
     -   [_List](Docs/_List.md)
+    -   [_Map](Docs/_Map.md)
     -   [_Win](Docs/_Win.md)
     -   [_Wins](Docs/_Wins.md)
     -   [Function](Docs/Function.md)
