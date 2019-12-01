@@ -26,6 +26,7 @@ ExcelToList()
 .addListener()
 .assert
 ObservableMap
+ObservableObj
 
 
 #AllowListmeLineComments
