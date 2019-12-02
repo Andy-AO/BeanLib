@@ -12,9 +12,9 @@ class StrCallBase{
 		}
 		else{
 			if(aStr = "")
-				throwWithSt("为空字符串调用不存在的方法！")
+				throwWithSt("为NullString调用不存在的方法 " aName "(" toString(aParams) ")")
 			else
-				throwWithSt("为字符串 " aStr " 调用不存在的方法！")
+				throwWithSt("为字符串 " aStr " 调用不存在的方法 " aName "(" toString(aParams) ")")
 			return
 		}
     }
