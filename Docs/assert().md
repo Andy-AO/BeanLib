@@ -3,7 +3,7 @@
 - 当表达式值为 `false` 时触发throw，断言可以让程序更壮硕，更能够接受异常数据。
 
 ```autohotkey
-af(Boolean,Mes:="No Info")
+assert(Boolean,Mes:="No Info")
 ```
 
 ### 参数 Parameters: 
@@ -22,8 +22,8 @@ af(Boolean,Mes:="No Info")
 ### 示例 Example
 ```autohotkey
 Str:="MyString"
-af(Str!="") ;断言被触发
+assert(Str!="") ;断言被触发
 
-Str:=""
+Str:=assert
 af(Str!="") ;断言不被触发，返回 true
 ```

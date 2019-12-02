@@ -192,7 +192,7 @@ getCurrentTime(){
 /*
 通用断言
 */
-	af(Boolean,Mes:="No Info"){
+	assert(Boolean,Mes:="No Info"){
 			
 		if(Type.Switcher=false) ;如果断言开关关闭,那么就不启用断言
 			return

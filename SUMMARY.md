@@ -36,7 +36,7 @@
     -   [Type](Docs/Type.md)
     -   [UMSS](Docs/UMSS.md)
 -   [Function](Docs/Function.md)
-	-   [af()](Docs/af().md)
+	-   [assert()](Docs/assert().md)
 	-   [Analyze()](Docs/Analyze().md)
 	-   [AnalyzeClassName()](Docs/AnalyzeClassName().md)
 	-   [AutoBind()](Docs/AutoBind().md)
