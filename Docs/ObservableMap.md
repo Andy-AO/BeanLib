@@ -49,6 +49,10 @@ Change 是否为添加
 
 获取添加的 subMap
 
+#### size()
+
+获取 Map 中元素的数量
+
 ## 方法 Method
 ### __New(aMap:="")
 
