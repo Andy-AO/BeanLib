@@ -4,6 +4,10 @@
 class ObservableMap{
 	field := Object("map","","listenerList",[])
 	;------------------------------
+	size(){
+		return this.field.map.count()
+	}
+	;------------------------------
 	__Set(key,value,para*){
 		if(key = "field","base")
 			return	ObjRawSet(this,key,value)
