@@ -51,7 +51,7 @@ Obj 或者 false
 ```autohotkey
 WinTitle := "WinTitle: " WinTitle
 WinClass := "ahk_class " WinClass
-Winexe := "ahk_exe " Winexe
+WinProcessName := "ahk_exe " WinProcessName
 WinPId := "ahk_id " WinId
 WinPath := "WinPath: " WinPath
 ```
