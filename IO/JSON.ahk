@@ -5,8 +5,19 @@ class JsonFile{
 		if(FileExist(this.path))
 			FileDelete,% this.path
 		content := JSON.dump(jsonObj)
-		FileAppend,% content, % this.path,UTF-8
+		this.FileAppend(content)
 		return content
+	}
+	;------------------------------
+	FileAppend(aContent){
+		thePathObj:=new PathObj(this.path)
+		dir := thePathObj.dir
+		dirExist := FileExist(dir)
+		if(NOT(dirExist)){
+			FileCreateDir, %dir%
+		}
+		FileAppend,% aContent, % this.path,UTF-8
+		return
 	}
 	;------------------------------
 	load(){
