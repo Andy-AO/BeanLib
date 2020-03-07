@@ -35,6 +35,8 @@ Run命令的Options，默认是"Max"，也就是以最大化窗口形式运行�
 
 }
 
+返回 winExist(aWinTitle)
+
 #### 参数 Parameters: 
 
 - aWinTitle - 窗口的title
@@ -72,6 +74,8 @@ Run命令的Options，默认是"Max"，也就是以最大化窗口形式运行�
 ​		激活
 
 }
+
+返回 winExist(aWinTitle)
 
 #### 参数 Parameters: 
 

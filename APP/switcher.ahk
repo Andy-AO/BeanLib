@@ -15,7 +15,6 @@ class Switcher{
 	}
 	;------------------------------
 	switch(aWinTitle,aPathOrFuncObj){
-		FuncObjReturn := ""
 		if(WinExist(aWinTitle)){
 			this.p_ActivateOrMini(aWinTitle)
 		}
@@ -28,12 +27,8 @@ class Switcher{
 				funcObj := aPathOrFuncObj
 			}
 			FuncObjReturn := funcObj.call()
-			/*
-				;如果直接以Max运行则不需要了
-				this.p_WaitAndMax(aWinTitle)
-			*/
 		}
-		return FuncObjReturn
+		return WinExist(aWinTitle)
 	}
 	;------------------------------
 	p_ActivateOrMini(aWinTitle){
@@ -44,7 +39,7 @@ class Switcher{
 			WinActivate,%aWinTitle%
 			this.p_ifJavaSwingReDraw(aWinTitle)
 		}
-		return
+		return WinExist(aWinTitle)
 	}
 	;------------------------------
 	p_Run(aPath){
