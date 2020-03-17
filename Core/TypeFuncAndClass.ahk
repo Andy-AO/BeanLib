@@ -1,17 +1,4 @@
 ﻿	
-	checkCOM(aObj){
-		if(IsObject(aObj)){
-			VarType := ComObjType(aObj)
-			Name    := ComObjType(aObj, "Name")
-			IID     := ComObjType(aObj, "IID")
-			if((IID)AND(Name)AND(IID))
-				return true
-			else
-				return false
-		}
-		else
-			return false
-	}
 
 /*
 占用的域
@@ -324,3 +311,13 @@ Class TypeBase{
 	
 	}	
 } ;TypeBase Class End
+
+checkCOM(aObj){
+	VarType := ComObjType(aObj)
+	Name    := ComObjType(aObj, "Name")
+	IID     := ComObjType(aObj, "IID")
+	if((IID)AND(Name)AND(IID))
+		return true
+	else
+		return false
+}
