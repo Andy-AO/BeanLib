@@ -31,6 +31,18 @@ Class Type{
 	}
 	
 ;---------------------------------------------------------------------- 
+	class check{
+		Com(aObj){
+			VarType := ComObjType(aObj)
+			Name    := ComObjType(aObj, "Name")
+			IID     := ComObjType(aObj, "IID")
+			if((IID)AND(Name)AND(IID))
+				return true
+			else
+				return false
+		}
+	}
+;---------------------------------------------------------------------- 
 	static Switcher:=true
 	assertOn(){
 		Type.Switcher:=true
@@ -123,12 +135,11 @@ Class Type{
 		}
 	} ;TypeSetBase Class End
 ;---------------------------------------------------------------------- 直接移植过来的，本来在外面,所以缩进不太对,以后改吧
-	ObjectType(Obj){ ;检查Obj的类型(主要是分出 List 和 非List) ;√
-		;检查一下看看是否为线性的,如果是,那么就是true,不是就返回0
-		;检测是否为ComObj
-		if(checkCOM(Obj))
-			return Type.ComObj
+	ObjectType(Obj){
 
+		if(Type.check.Com(Obj))
+			return Type.ComObj
+		
 		len:=Obj.Length()
 		keyCount:=Obj.Count() ;计算长度和Key键数,如果一致,而且均非零非空,那么必定是 List
 		
@@ -281,13 +292,3 @@ Class TypeBase{
 } ;TypeBase Class End
 
 ;------------------------------
-
-checkCOM(aObj){
-	VarType := ComObjType(aObj)
-	Name    := ComObjType(aObj, "Name")
-	IID     := ComObjType(aObj, "IID")
-	if((IID)AND(Name)AND(IID))
-		return true
-	else
-		return false
-}
