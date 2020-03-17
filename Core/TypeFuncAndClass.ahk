@@ -32,7 +32,7 @@ Class Type{
 	
 ;---------------------------------------------------------------------- 
 	class check{
-		Com(aObj){
+		ComObj(aObj){
 			VarType := ComObjType(aObj)
 			Name    := ComObjType(aObj, "Name")
 			IID     := ComObjType(aObj, "IID")
@@ -41,6 +41,14 @@ Class Type{
 			else
 				return false
 		}
+		List(aObj){
+			len:=aObj.Length(),keyCount:=aObj.Count()
+			if ((len=keyCount) AND (len!="") AND (keyCount!="") AND (keyCount!=0) AND (len!=0))
+				return true
+			else
+				return false
+		}
+
 	}
 ;---------------------------------------------------------------------- 
 	static Switcher:=true
@@ -136,17 +144,11 @@ Class Type{
 	} ;TypeSetBase Class End
 ;---------------------------------------------------------------------- 直接移植过来的，本来在外面,所以缩进不太对,以后改吧
 	ObjectType(Obj){
-
-		if(Type.check.Com(Obj))
+		if(Type.check.ComObj(Obj))
 			return Type.ComObj
-		
-		len:=Obj.Length()
-		keyCount:=Obj.Count() ;计算长度和Key键数,如果一致,而且均非零非空,那么必定是 List
-		
-		if ((len=keyCount) AND (len!="") AND (keyCount!="") AND (keyCount!=0) AND (len!=0)){
+		else if(Type.check.List(Obj))
 			return Type.List
-		} 
-		else
+		else 
 			theType:=Type.ObjectSpecificType(Obj)
 		return theType
 	}
@@ -175,6 +177,8 @@ Class Type{
 			return Type.FileObj
 		return Type.Obj ;如果都不是那么就认为是 Object
 	}
+	
+	
 	StringType(Str){ ;检查String的类型 ;√
 		
 		if (Str="")
