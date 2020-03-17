@@ -6,8 +6,6 @@
 3.  几乎完全用元编程技术编写，所以这里只写出那些实际会用到的域和方法，大多数平常都用不到。
 4.  `Ever` 代表：愿意接受任何类型的参数。
 
-
-
 ### 域 Field
 
 #### 常量 Const
@@ -37,33 +35,33 @@ Static Switcher:=true
 ```
 ### 方法 Method
 
-### ofCode(TypeCode)
+#### ofCode(TypeCode)
 
 获取 TypeCode 对应的 TypeString。
 
-### assertOn()/assertOff()
+#### assertOn()/assertOff()
 
 assertOn() - 把变量设为 true ,开启断言
 
 assertOff() - 把变量设为 false ,关闭断言
 
-### is方法(类型判断方法)
+#### is方法(类型判断方法)
 
-#### isStr(Ever) 
-#### isNS(Ever) 
-#### isNumber(Ever) 
+##### isStr(Ever) 
+##### isNS(Ever) 
+##### isNumber(Ever) 
 
-#### isBoolean(Ever) 
+##### isBoolean(Ever) 
 
-#### isList(Ever) 
-#### isObj(Ever) 
-#### isClass(Ever) 
-#### isFileObj(Ever) 
-#### isFuncObj(Ever) 
-#### isMethod(Ever) 
-#### isComObj(Ever) 
+##### isList(Ever) 
+##### isObj(Ever) 
+##### isClass(Ever) 
+##### isFileObj(Ever) 
+##### isFuncObj(Ever) 
+##### isMethod(Ever) 
+##### isComObj(Ever) 
 
-### assert方法(断言方法)
+#### assert方法(断言方法)
 
 - assert方法都是**可变参数**，支持检测多个变量。
 
@@ -71,20 +69,20 @@ assertOff() - 把变量设为 false ,关闭断言
   比如，你设计一个给字符串数组排序的函数，你肯定不希望传入的参数是 `FuncObj`，由于`AHK`是弱类型，所以不会报任何错误，但是程序可能会有逻辑错误。
   如果预先使用`Type.assertStr(Str)`，就可以避免此类问题，并告知你类型错误的细节。
 
-#### assertStr(Ever*) 
-#### assertNS(Ever*) 
-#### assertNumber(Ever*) 
+##### assertStr(Ever*) 
+##### assertNS(Ever*) 
+##### assertNumber(Ever*) 
 
-#### assertBoolean(Ever*) 
+##### assertBoolean(Ever*) 
 
-#### assertList(Ever*) 
-#### assertObj(Ever*) 
-#### assertClass(Ever*) 
-#### assertFileObj(Ever*) 
-#### assertFuncObj(Ever*) 
-#### assertMethod(Ever*) 
-#### assertComObj(Ever*) 
+##### assertList(Ever*) 
+##### assertObj(Ever*) 
+##### assertClass(Ever*) 
+##### assertFileObj(Ever*) 
+##### assertFuncObj(Ever*) 
+##### assertMethod(Ever*) 
+##### assertComObj(Ever*) 
 
-### ofCode(Type.List)
+#### ofCode(Type.List)
 
 通过TypeCode反向查类型值
