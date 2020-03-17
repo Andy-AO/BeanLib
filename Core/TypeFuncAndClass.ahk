@@ -312,6 +312,8 @@ Class TypeBase{
 	}	
 } ;TypeBase Class End
 
+;------------------------------
+
 checkCOM(aObj){
 	VarType := ComObjType(aObj)
 	Name    := ComObjType(aObj, "Name")
