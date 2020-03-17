@@ -31,30 +31,30 @@ Class Type{
 	}
 	
 ;---------------------------------------------------------------------- 
-		static Switcher:=true
-		assertOn(){
-			Type.Switcher:=true
-			return true
-		}
-		assertOff(){
-			Type.Switcher:=false
-			return false
-		}
-		
+	static Switcher:=true
+	assertOn(){
+		Type.Switcher:=true
+		return true
+	}
+	assertOff(){
+		Type.Switcher:=false
+		return false
+	}
+	
 ;---------------------------------------------------------------------- 
-		;通过TypeCode反向查类型值
-		ofCode(Code){
+	;通过TypeCode反向查类型值
+	ofCode(Code){
 		theMap:=TypeBase.__Get
 		for Key,Value in theMap{
 		if (Code=Value)
 			return key
 		}
 		return false		
-		}
+	}
 		
 ;---------------------------------------------------------------------- 
 ;TypeBase 类的原方法的Base 放在这里了,全局变量能少占一个就少占一个吧
-	class TypeCallBase{ 
+	class TypeCallBase{
 		static isLen:=2,assertLen:=6,head:=1
 		__Call(aThis,aName,aParams*){	
 			;获取长度和类型(if或者assert)
@@ -63,7 +63,6 @@ Class Type{
 			if ((aFuncNameLen<4) OR (aFuncNameLen="")){
 				throwWithSt(_Ex.NoExistMethod)
 			}
-			
 
 			ifSub:=SubStr(aName,Type.TypeCallBase.head,len:=Type.TypeCallBase.isLen)
 			assertSub:=SubStr(aName,Type.TypeCallBase.head,len:=Type.TypeCallBase.assertLen)
@@ -85,7 +84,6 @@ Class Type{
 			;获取目标的代号
 			TypeCode:=Type[TypeName]
 
-			;~ return aFuncName
 			;获取代号之后传递过去,根据情况使用断言assert或者判断is
 			
 			if(ObjHasKey(this,aFuncName)){ 
@@ -96,7 +94,7 @@ Class Type{
 				throwWithSt(_Ex.NoExistMethod)	;如果发现不是is或者assert,那么就说找不到方法
 			}
 		}
-	}
+	} ;TypeCallBase Class End
 ;---------------------------------------------------------------------- 
 	;主要是为了实现保护写入,也就是保证里面的东西是常量(必须Get也原函数实现,没法单独实现Set元函数,因为那样的话会直接复写掉,元函数本质是extends)
 	class TypeGetBase{ 
@@ -111,7 +109,7 @@ Class Type{
 				return ""			
 			}
 		}
-	}
+	} ;TypeGetBase Class End
 ;---------------------------------------------------------------------- 
 	class TypeSetBase{
 		__Call(aThis,aVariateName,aParams*){
@@ -124,32 +122,28 @@ Class Type{
 				throwWithSt(_EX.NoExistVariate)	;如果找不到，那么就抛出变量不存在异常	
 			}
 		}
-	}	
-		
+	} ;TypeSetBase Class End
 ;---------------------------------------------------------------------- 直接移植过来的，本来在外面,所以缩进不太对,以后改吧
 	ObjectType(Obj){ ;检查Obj的类型(主要是分出 List 和 非List) ;√
 		;检查一下看看是否为线性的,如果是,那么就是true,不是就返回0
-		
-		
 
-		
 		;检测是否为ComObj
 		if(checkCOM(Obj))
 			return Type.ComObj
 
-		
 		len:=Obj.Length()
 		keyCount:=Obj.Count() ;计算长度和Key键数,如果一致,而且均非零非空,那么必定是 List
 		
 		if ((len=keyCount) AND (len!="") AND (keyCount!="") AND (keyCount!=0) AND (len!=0)){
 			return Type.List
 		} 
-
 		else
 			theType:=Type.ObjectSpecificType(Obj)
 		
 		return theType
 	}
+	;------------------------------
+	
 	ObjectSpecificType(Obj){ ;详细检查Obj的类型
 		
 		ObjBase:=""
@@ -189,8 +183,6 @@ Class Type{
 			return Type.Str
 	}
 ;---------------------------------------------------------------------- 
-		
-		
 		;这个函数的用处就是转换Code,因为有一些Code覆盖面非常大，主要是Obj,还有Str(覆盖NS)和List(覆盖StrList),这些就不能直接比对先去进行转换
 		Swap(TypeCode,aInputTypeCode){
 					
@@ -219,10 +211,8 @@ Class Type{
 			
 		else
 			return aInputTypeCode
-			
-		
+
 	}
-	
 ;---------------------------------------------------------------------- 
 }  ;Type Class End
 ;---------------------------------------------------------------------- 
