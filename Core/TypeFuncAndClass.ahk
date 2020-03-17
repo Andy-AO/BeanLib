@@ -167,18 +167,11 @@ Class Type{
 		}
 	} ;TypeSetBase Class End
 ;---------------------------------------------------------------------- 直接移植过来的，本来在外面,所以缩进不太对,以后改吧
-	ObjectType(Obj){
-		if(Type.check.ComObj(Obj))
+	ObjectType(aObj){
+		if(Type.check.ComObj(aObj))
 			return Type.ComObj
-		else if(Type.check.List(Obj))
+		if(Type.check.List(aObj))
 			return Type.List
-		else 
-			theType:=Type.ObjectSpecificType(Obj)
-		return theType
-	}
-	;------------------------------
-	
-	ObjectSpecificType(aObj){ ;详细检查Obj的类型
 		if(Type.check.Class(aObj))
 			return Type.Class
 		if(Type.check.FuncObj(aObj))
@@ -187,10 +180,11 @@ Class Type{
 			return Type.Exception
 		if(Type.check.FileObj(aObj))
 			return Type.FileObj
-		return Type.Obj ;如果都不是那么就认为是 Object
+		
+		;如果都不是那么就认为只是 Object
+		return Type.Obj 
 	}
-	
-	
+	;------------------------------
 	StringType(Str){ ;检查String的类型 ;√
 		
 		if (Str="")
