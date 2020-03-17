@@ -113,7 +113,6 @@ Class Type{
 ;---------------------------------------------------------------------- 
 	class TypeSetBase{
 		__Call(aThis,aVariateName,aParams*){
-			
 			if(ObjHasKey(TypeBase.__Get,aVariateName)){ 
 				throwWithSt(_EX.SetConst) ;如果已经存在,那么就抛出常量写入异常
 				return ""
@@ -126,7 +125,6 @@ Class Type{
 ;---------------------------------------------------------------------- 直接移植过来的，本来在外面,所以缩进不太对,以后改吧
 	ObjectType(Obj){ ;检查Obj的类型(主要是分出 List 和 非List) ;√
 		;检查一下看看是否为线性的,如果是,那么就是true,不是就返回0
-
 		;检测是否为ComObj
 		if(checkCOM(Obj))
 			return Type.ComObj
@@ -139,13 +137,11 @@ Class Type{
 		} 
 		else
 			theType:=Type.ObjectSpecificType(Obj)
-		
 		return theType
 	}
 	;------------------------------
 	
 	ObjectSpecificType(Obj){ ;详细检查Obj的类型
-		
 		ObjBase:=""
 		;检查是否为 Class 这个检测方法也是 AHK2 中的方法,看来也没有啥更好的了
 		if ObjHasKey(Obj, "__Class") ;检查是否为 Class
@@ -185,33 +181,27 @@ Class Type{
 ;---------------------------------------------------------------------- 
 		;这个函数的用处就是转换Code,因为有一些Code覆盖面非常大，主要是Obj,还有Str(覆盖NS)和List(覆盖StrList),这些就不能直接比对先去进行转换
 		Swap(TypeCode,aInputTypeCode){
-					
-		if(TypeCode=Type["Obj"]){
-				
-			if ((aInputTypeCode>=Type["Obj"])AND(aInputTypeCode <= Type.ObjEndCode))
-				return TypeCode
-			else 
-				return aInputTypeCode
-	
-		}				
-		
-		else if(TypeCode=Type["Str"]){
-			if ((aInputTypeCode>=Type["Str"])AND(aInputTypeCode <= Type.StrEndCode))
-				return TypeCode
-			else 
-				return aInputTypeCode
-		}
-		
-		else if(TypeCode=Type["Number"]){
-			if ((aInputTypeCode>=Type["Number"])AND(aInputTypeCode <= Type.NumberEndCode))
-				return TypeCode
-			else 
-				return aInputTypeCode
-		}
+			if(TypeCode=Type["Obj"]){
+				if ((aInputTypeCode>=Type["Obj"])AND(aInputTypeCode <= Type.ObjEndCode))
+					return TypeCode
+				else 
+					return aInputTypeCode
+			}				
+			else if(TypeCode=Type["Str"]){
+				if ((aInputTypeCode>=Type["Str"])AND(aInputTypeCode <= Type.StrEndCode))
+					return TypeCode
+				else 
+					return aInputTypeCode
+			}
 			
-		else
-			return aInputTypeCode
-
+			else if(TypeCode=Type["Number"]){
+				if ((aInputTypeCode>=Type["Number"])AND(aInputTypeCode <= Type.NumberEndCode))
+					return TypeCode
+				else 
+					return aInputTypeCode
+			}
+			else
+				return aInputTypeCode
 	}
 ;---------------------------------------------------------------------- 
 }  ;Type Class End
@@ -219,87 +209,75 @@ Class Type{
 Type.base:=new TypeBase()
 ;---------------------------------------------------------------------- 
 Class TypeBase{
-	
 	Class __Set extends Type.TypeSetBase{
 	}	
-	
 	Class __Get extends Type.TypeGetBase{
 		
 		;这些东西必须是静态的,不要以为最后还要__New,这个域是 "__Get" 的
 		
 		Static StrEndCode := 19,NumberEndCode := 14
-		
 		Static Str:=10,NS:=11,Number:=12,Boolean:=13
-		
 		Static List:=130
 		Static ObjEndCode := 199
 		Static Obj:=100,ExtendsObj:=101,Class:=110,FuncObj:=120,Exception:=121
-				
 		Static FileObj:=150
-		
 		Static ComObj:=160
 	}	
-	
 ;---------------------------------------------------------------------- 
 	
 	Class __Call extends Type.TypeCallBase{
-		
 		is(TypeCode,aParams,TypeName){
+			if (aParams.length()<1)
+				throwWithSt(_Ex.TooFewParas)
+			theInput:=aParams[1]
+			aInputTypeCode:=Type(theInput)
 			
-		if (aParams.length()<1)
-			throwWithSt(_Ex.TooFewParas)
-		theInput:=aParams[1]
-		aInputTypeCode:=Type(theInput)
-		
-		aInputTypeCode:=Type.Swap(TypeCode,aInputTypeCode)
-		
-		Result:=TypeCode=aInputTypeCode
-		
-		return Result
+			aInputTypeCode:=Type.Swap(TypeCode,aInputTypeCode)
+			
+			Result:=TypeCode=aInputTypeCode
+			
+			return Result
 		}
-		
 ;------------------------------
 		assert(TypeCode,aParams,TypeName){ ;断言.
-		if(Type.Switcher=false) ;如果断言开关关闭,那么就不启用断言
-			return
-		theIsName:="is" TypeName	
-		
-		for i,v in aParams {
-			theInput:=v
-			Result:=this[theIsName](theInput)
-			if (NOT(Result)){
+			if(Type.Switcher=false) ;如果断言开关关闭,那么就不启用断言
+				return
+			theIsName:="is" TypeName	
+			
+			for i,v in aParams {
+				theInput:=v
+				Result:=this[theIsName](theInput)
+				if (NOT(Result)){
 					aInputTypeCode:=Type(theInput),ActualTypes:=Type.ofCode(aInputTypeCode)
 					MesHead := _Ex.Assert
 					Mes = GoalType : "%TypeName%"  ActualTypes : "%ActualTypes%" 
 					Mes := MesHead . Mes
 					throwWithSt(Mes)
+				}
 			}
-		}
-		return true
+			return true
 		}		
 ;------------------------------
 		pa(TypeCode,aParams,TypeName){ ;参数设置
-		listIndex := 2
-		result := ObjHasKey(aParams,listIndex)
-		if(result){
-			theIsName:="is" TypeName
-			theInput:=aParams[1]
-			LogPrintln(theInput,"theInput >>>")
-			Result:=this[theIsName](theInput)
-			if(Result)
-				return theInput
-			else{
-				Default := aParams[2]
-				return Default
+			listIndex := 2
+			result := ObjHasKey(aParams,listIndex)
+			if(result){
+				theIsName:="is" TypeName
+				theInput:=aParams[1]
+				LogPrintln(theInput,"theInput >>>")
+				Result:=this[theIsName](theInput)
+				if(Result)
+					return theInput
+				else{
+					Default := aParams[2]
+					return Default
+				}
 			}
-
-		}
-		else{
-			throwWithSt(_Ex.TooFewParas)
+			else{
+				throwWithSt(_Ex.TooFewParas)
+			}
 		}
 	}
-	
-	}	
 } ;TypeBase Class End
 
 ;------------------------------
