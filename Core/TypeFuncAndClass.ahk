@@ -1,4 +1,17 @@
-﻿
+﻿	
+	checkCOM(aObj){
+		if(IsObject(aObj)){
+			VarType := ComObjType(aObj)
+			Name    := ComObjType(aObj, "Name")
+			IID     := ComObjType(aObj, "IID")
+			if((IID)AND(Name)AND(IID))
+				return true
+			else
+				return false
+		}
+		else
+			return false
+	}
 
 /*
 占用的域
@@ -131,13 +144,14 @@ Class Type{
 		;检查一下看看是否为线性的,如果是,那么就是true,不是就返回0
 		
 		
-		try len:=Obj.Length()
+
 		
-		catch Ex{
-		if (Ex.Message.CharAt(1,9)=0x8002000) ;如果发现抛出异常,并且编号正确，那么就几乎可以肯定是ComObj
+		;检测是否为ComObj
+		if(checkCOM(Obj))
 			return Type.ComObj
-		}
+
 		
+		len:=Obj.Length()
 		keyCount:=Obj.Count() ;计算长度和Key键数,如果一致,而且均非零非空,那么必定是 List
 		
 		if ((len=keyCount) AND (len!="") AND (keyCount!="") AND (keyCount!=0) AND (len!=0)){
