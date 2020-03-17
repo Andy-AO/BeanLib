@@ -48,7 +48,31 @@ Class Type{
 			else
 				return false
 		}
+		Class(aObj){
+			ObjBase:=""
+			if ObjHasKey(aObj, "__Class") 
+				return Type.Class
+			while ObjBase := aObj.base
+				if ObjHasKey(ObjBase, "__Class") 
+					return Type.ExtendsObj
+		}
+		FuncObj(aObj){
+			if ((aObj.Name!="") AND (aObj.IsOptional(1)!=""))
+				return Type.FuncObj
+		}
+		
 
+		Exception(aObj){
+			if (Objhaskey(aObj,"Message") AND (Objhaskey(aObj,"Line")) AND (Objhaskey(aObj,"what")))
+				return Type.Exception
+		}		
+
+		FileObj(aObj){
+			;检查是否为 FileObj 主要的方法就是抽检其中的三个字段
+			F1:=aObj.Length=aObj.Length(),F2:=aObj.AtEOF!="",F3:=aObj.Pos!="",FC:=F1+F2+F3=3
+			if (FC)
+				return Type.FileObj
+		}
 	}
 ;---------------------------------------------------------------------- 
 	static Switcher:=true
@@ -154,26 +178,14 @@ Class Type{
 	}
 	;------------------------------
 	
-	ObjectSpecificType(Obj){ ;详细检查Obj的类型
-		ObjBase:=""
-		;检查是否为 Class 这个检测方法也是 AHK2 中的方法,看来也没有啥更好的了
-		if ObjHasKey(Obj, "__Class") ;检查是否为 Class
+	ObjectSpecificType(aObj){ ;详细检查Obj的类型
+		if(Type.check.Class(aObj))
 			return Type.Class
-		while ObjBase := Obj.base
-			if ObjHasKey(ObjBase, "__Class") ;检查是否继承自 Class
-				return Type.ExtendsObj
-		
-		;检查是否为 FuncObj 抽检两个字段，基本上就可以断定
-		if ((Obj.Name!="") AND (Obj.IsOptional(1)!=""))
+		if(Type.check.FuncObj(aObj))
 			return Type.FuncObj
-				
-		;检查是否为 Exception 抽检两个字段，基本上就可以断定
-		if (Objhaskey(Obj,"Message") AND (Objhaskey(Obj,"Line")) AND (Objhaskey(Obj,"what")))
+		if(Type.check.Exception(aObj))
 			return Type.Exception
-
-		;检查是否为 FileObj 主要的方法就是抽检其中的三个字段
-		F1:=Obj.Length=Obj.Length(),F2:=Obj.AtEOF!="",F3:=Obj.Pos!="",FC:=F1+F2+F3=3
-		if (FC)
+		if(Type.check.FileObj(aObj))
 			return Type.FileObj
 		return Type.Obj ;如果都不是那么就认为是 Object
 	}
