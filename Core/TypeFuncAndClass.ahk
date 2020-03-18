@@ -184,33 +184,13 @@ Class Type{
 	} ;TypeSetBase Class End
 ;---------------------------------------------------------------------- 直接移植过来的，本来在外面,所以缩进不太对,以后改吧
 	ObjectType(aObj){
-		
 		for i,v in Type.Check {
 			if(i != "__Class"){
 				if(Method.for(v).Call(aObj))
 					return Type[i]
 			}
 		}
-		
-		return "Error"
-		
-		if(Type.check.ComObj(aObj))
-			return Type.ComObj
-		if(Type.check.List(aObj))
-			return Type.List
-		if(Type.check.Class(aObj))
-			return Type.Class		
-		if(Type.check.ExtendsObj(aObj))
-			return Type.ExtendsObj
-		if(Type.check.FuncObj(aObj))
-			return Type.FuncObj
-		if(Type.check.Exception(aObj))
-			return Type.Exception
-		if(Type.check.FileObj(aObj))
-			return Type.FileObj
-		
-		;如果都不是那么就认为只是 Object
-		return Type.Obj 
+		return Type.Obj
 	}
 	;------------------------------
 	StringType(Str){ ;检查String的类型 ;√
