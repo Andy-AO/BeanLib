@@ -49,29 +49,45 @@ Class Type{
 				return false
 		}
 		Class(aObj){
-			ObjBase:=""
 			if ObjHasKey(aObj, "__Class") 
-				return Type.Class
-			while ObjBase := aObj.base
-				if ObjHasKey(ObjBase, "__Class") 
-					return Type.ExtendsObj
+				return true
+			else
+				return false
+		}
+		ExtendsObj(aObj){
+			ObjBase:=""
+			try{
+				while ObjBase := aObj.base
+						if ObjHasKey(ObjBase, "__Class") 
+							return true
+			}
+			catch{
+				return false
+			}
+			return false
 		}
 		FuncObj(aObj){
 			if ((aObj.Name!="") AND (aObj.IsOptional(1)!=""))
-				return Type.FuncObj
+				return true
+			else
+				return false
 		}
 		
 
 		Exception(aObj){
 			if (Objhaskey(aObj,"Message") AND (Objhaskey(aObj,"Line")) AND (Objhaskey(aObj,"what")))
-				return Type.Exception
+				return true
+			else
+				return false
 		}		
 
 		FileObj(aObj){
 			;检查是否为 FileObj 主要的方法就是抽检其中的三个字段
 			F1:=aObj.Length=aObj.Length(),F2:=aObj.AtEOF!="",F3:=aObj.Pos!="",FC:=F1+F2+F3=3
 			if (FC)
-				return Type.FileObj
+				return true
+			else
+				return false
 		}
 	}
 ;---------------------------------------------------------------------- 
@@ -170,30 +186,23 @@ Class Type{
 	ObjectType(aObj){
 		
 		for i,v in Type.Check {
-
 			if(i != "__Class")AND(i != "Class"){
 				LogPrintln(i,A_LineFile  "("  A_LineNumber  ")"  " : " "i >>> `r`n")
-				LogPrintln(Type[i],A_LineFile  "("  A_LineNumber  ")"  " : " "Type[i] >>> `r`n")
-/*
-				funcObj := Type.Check[i]
-				LogPrintln(funcObj,A_LineFile  "("  A_LineNumber  ")"  " : " "funcObj >>> `r`n")
-*/
+				if(Method.for(v).Call(aObj))
+					return Type[i]
 			}
-
-			;~ LogPrintln(v,A_LineFile  "("  A_LineNumber  ")"  " : " "v >>> `r`n")
-/*
-			if(Type.Check[i].call(aObj))
-				return Type[i]
-*/
 		}
-
+		
+		return "Error"
 		
 		if(Type.check.ComObj(aObj))
 			return Type.ComObj
 		if(Type.check.List(aObj))
 			return Type.List
 		if(Type.check.Class(aObj))
-			return Type.Class
+			return Type.Class		
+		if(Type.check.ExtendsObj(aObj))
+			return Type.ExtendsObj
 		if(Type.check.FuncObj(aObj))
 			return Type.FuncObj
 		if(Type.check.Exception(aObj))
