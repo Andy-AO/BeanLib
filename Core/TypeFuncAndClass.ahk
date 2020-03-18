@@ -168,6 +168,26 @@ Class Type{
 	} ;TypeSetBase Class End
 ;---------------------------------------------------------------------- 直接移植过来的，本来在外面,所以缩进不太对,以后改吧
 	ObjectType(aObj){
+		
+		for i,v in Type.Check {
+
+			if(i != "__Class")AND(i != "Class"){
+				LogPrintln(i,A_LineFile  "("  A_LineNumber  ")"  " : " "i >>> `r`n")
+				LogPrintln(Type[i],A_LineFile  "("  A_LineNumber  ")"  " : " "Type[i] >>> `r`n")
+/*
+				funcObj := Type.Check[i]
+				LogPrintln(funcObj,A_LineFile  "("  A_LineNumber  ")"  " : " "funcObj >>> `r`n")
+*/
+			}
+
+			;~ LogPrintln(v,A_LineFile  "("  A_LineNumber  ")"  " : " "v >>> `r`n")
+/*
+			if(Type.Check[i].call(aObj))
+				return Type[i]
+*/
+		}
+
+		
 		if(Type.check.ComObj(aObj))
 			return Type.ComObj
 		if(Type.check.List(aObj))
