@@ -186,8 +186,7 @@ Class Type{
 	ObjectType(aObj){
 		
 		for i,v in Type.Check {
-			if(i != "__Class")AND(i != "Class"){
-				LogPrintln(i,A_LineFile  "("  A_LineNumber  ")"  " : " "i >>> `r`n")
+			if(i != "__Class"){
 				if(Method.for(v).Call(aObj))
 					return Type[i]
 			}
