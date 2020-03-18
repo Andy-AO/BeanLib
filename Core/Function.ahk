@@ -13,6 +13,16 @@ funcObjToString(aObj){
 		return "*NotFunc*:"toString(aObj)
 	}	
 }
+comObjToString(aCOMAcc){
+	theResult := Object()
+	theResult.Value := ComObjValue(aCOMAcc)
+	theResult.VarType := ComObjType(aCOMAcc)           ; 需要 [v1.0.91+]
+	theResult.Name    := ComObjType(aCOMAcc, "Name")
+	theResult.IID     := ComObjType(aCOMAcc, "IID")
+	theResult.Class   := ComObjType(aCOMAcc, "Class")  ; 需要 [v1.1.26+]
+	theResult.CLSID   := ComObjType(aCOMAcc, "CLSID")  ; 需要 [v1.1.26+]
+	return toString(theResult)
+}
 
 ;---------------------------------------------------------------------- 
 
@@ -315,6 +325,10 @@ toString(Obj){
 
 	if (Type.isFuncObj(Obj)){
 		return funcObjToString(Obj)
+	}
+	
+	if (Type.isComObj(Obj)){
+		return comObjToString(Obj)
 	}
 	
 	;---------------------------------------------------------------------- 
