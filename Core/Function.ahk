@@ -239,6 +239,7 @@ LogPrintln(Obj:="",prefix:="",postfix:=""){
 
 
 toString(Obj){
+	
 	ResultString:="",ListString := "[",ObjectString:="{"
 	
 	if (Type.isStr(Obj))
@@ -256,8 +257,6 @@ toString(Obj){
 	if (Type.isObj(Obj))
 		return _toString.obj(Obj)
 }
-;--------------***-------------------------------- 
-
 
 Traceback(actual:=false){
 	r := [], i := 0, n := actual ? 0 : A_AhkVersion<"2" ? 1 : 2
