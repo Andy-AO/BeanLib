@@ -250,7 +250,7 @@ PrintList(obj){
  }
 ;----------------------------------------------------------------------- 
 DeepPrintList(List){
-	theString:=DeepListtoString(List)
+	theString:=_toString.DeepList(List)
 	print(theString)
 	return theString
 }
@@ -262,7 +262,7 @@ PrintlnList(obj){
  }
 ;---------------------------------------------------------------------- 
 DeepPrintlnList(List){
-	theString:=DeepListtoString(List)
+	theString:=_toString.DeepList(List)
 	println(theString)
 	return theString
 }
@@ -282,11 +282,11 @@ toString(Obj){
 	}
 
 	if (Type.isFuncObj(Obj)){
-		return funcObjToString(Obj)
+		return _toString.funcObj(Obj)
 	}
 	
 	if (Type.isComObj(Obj)){
-		return comObjToString(Obj)
+		return _toString.comObj(Obj)
 	}
 	
 	;---------------------------------------------------------------------- 

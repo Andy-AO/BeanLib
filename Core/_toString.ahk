@@ -26,7 +26,7 @@
 			
 		for index,v in List{
 			if (Type.isList(v))
-				TheArrayString.="," DeepListtoString(v)
+				TheArrayString.="," _toString.DeepList(v)
 			else if (Type.isList(v))
 				TheArrayString.="," v
 			else
