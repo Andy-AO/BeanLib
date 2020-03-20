@@ -12,6 +12,7 @@ Core Pack 必须全部导入
 #Include Core\_EX.ahk
 #Include Core\_List.ahk
 #Include Core\_Map.ahk
+#Include Core\_toString.ahk
 #Include Core\Analyze().ahk
 #Include Core\Function.ahk
 #Include Core\getClass().ahk
