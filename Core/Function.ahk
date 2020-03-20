@@ -263,32 +263,7 @@ toString(Obj){
 		ResultString:=ObjectString
 	}	
 
-	if (Type.isList(Obj)){
-		
-		for i,v in Obj{
-				
-			if (A_Index!=1)
-				symbol:=","
-			else 
-				symbol:=""
-				
-			if (Type.isObj(v)){ 
-				ResultString.=symbol toString(v)
-			}
-												
-			else if (v="")
-				ResultString.=symbol "*NS*"
-				
-			else
-				ResultString.=symbol v
-		}
-		ResultString.= "]" ;添加右侧的中括号并出厂		 
-		return ResultString
-		
-	}
-	
-	
-	else if (Type.isObj(Obj)){
+	if (Type.isObj(Obj)){
 		
 			if(Obj.toString()!="")
 				return Obj.toString()
