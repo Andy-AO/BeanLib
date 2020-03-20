@@ -239,9 +239,7 @@ LogPrintln(Obj:="",prefix:="",postfix:=""){
 
 
 toString(Obj){
-	
-	ResultString:="",ListString := "[",ObjectString:="{"
-	
+
 	if (Type.isStr(Obj))
 		return _toString.Str(Obj)
 
