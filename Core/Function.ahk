@@ -255,6 +255,8 @@ toString(aObj){
 	
 	if (Type.isObj(aObj))
 		return _toString.obj(aObj)
+	
+	throw(_Ex.UnknownType)
 }
 
 ;---------------------------------------------------------------------- 
