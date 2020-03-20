@@ -1,10 +1,10 @@
 ﻿
 ;------------------------------
 
-	GetKeyPhysicalState(key){
-		result  := GetKeyState(key,"P")
-		return result
-	}
+GetKeyPhysicalState(key){
+	result  := GetKeyState(key,"P")
+	return result
+}
 ;---------------------------------------------------------------------- 
 
 rawCall(aMethodName,aThis,aParams*){
@@ -235,38 +235,6 @@ LogPrintln(Obj:="",prefix:="",postfix:=""){
 	println(theString)
 	return
 }
-;---------------------------------------------------------------------- 
-
-DeepPrintln(Obj){
-	println(toString(Obj))
-	return
-}
-
-;----------------------------------------------------------------------- 
-PrintList(obj){
-	Type.assertList(obj)
-	print(_List.ToString(obj))
-	return
- }
-;----------------------------------------------------------------------- 
-DeepPrintList(List){
-	theString:=_toString.DeepList(List)
-	print(theString)
-	return theString
-}
-;---------------------------------------------------------------------- 
-PrintlnList(obj){
-	Type.assertList(obj)
-	println(_List.ToString(obj))
-	return
- }
-;---------------------------------------------------------------------- 
-DeepPrintlnList(List){
-	theString:=_toString.DeepList(List)
-	println(theString)
-	return theString
-}
-
 ;---------------------------------------------------------------------- 
 
 
