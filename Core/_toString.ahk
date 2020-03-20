@@ -27,6 +27,41 @@
 			return ResultString
 		}
 	}
+
+	;------------------------------
+	obj(aObj){
+		ResultString := "{"
+		if(aObj.toString()!="")
+			return aObj.toString()
+		if (aObj.count()=0)
+			return "{*Obj*}"
+		;如果发现是实例,那么增加实例提示
+		if (ObjHasKey(aObj.base,"__Class")){
+			ResultString .= "__Instance:" . aObj.base.__Class . ","
+		}
+		for key,v in aObj{
+			theKey:=toString(Key) 
+			if (A_Index!=1)
+				symbol:=","
+			else 
+				symbol:=""
+			if (Type.isObj(v)){ ;key一定是用""包裹的,value则不
+				theV:=toString(v) ;DeBug
+				TheSubString=%symbol%%theKey%:%theV%
+				ResultString.=TheSubString
+			} 
+			else{
+				if(v="")
+					ds:="*NS*"
+				else
+					ds:=v
+				TheSubString=%symbol%%theKey%:%DS%
+				ResultString.=TheSubString
+			}
+		}
+			ResultString.= "}"
+			return ResultString
+	}
 	;------------------------------
 
 	funcObj(aObj){

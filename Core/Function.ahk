@@ -260,7 +260,7 @@ toString(Obj){
 		return _toString.list(Obj)
 	else {
 		if (Type.isObj(Obj)) ;如果是Obj数组,那么开头应该是"{"
-		ResultString:=ObjectString
+		return _toString.obj(Obj)
 	}	
 
 	if (Type.isObj(Obj)){
