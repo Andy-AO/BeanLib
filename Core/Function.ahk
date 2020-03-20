@@ -239,7 +239,6 @@ LogPrintln(Obj:="",prefix:="",postfix:=""){
 
 
 toString(Obj){
-	
 	ResultString:="",ListString := "[",ObjectString:="{"
 	
 	if (Type.isStr(Obj)){
@@ -253,62 +252,13 @@ toString(Obj){
 	if (Type.isComObj(Obj)){
 		return _toString.comObj(Obj)
 	}
-	
 	;---------------------------------------------------------------------- 
-	
-	if (Type.isList(Obj)) ;如果是List,那么开头应该是"["
+	if (Type.isList(Obj))
 		return _toString.list(Obj)
 	else {
-		if (Type.isObj(Obj)) ;如果是Obj数组,那么开头应该是"{"
+		if (Type.isObj(Obj))
 		return _toString.obj(Obj)
 	}	
-
-	if (Type.isObj(Obj)){
-		
-			if(Obj.toString()!="")
-				return Obj.toString()
-		
-			if (Obj.count()=0)
-				return "{*Obj*}"
-			
-			;如果发现是实例,那么增加实例提示
-			if (ObjHasKey(Obj.base,"__Class")){
-				ResultString .= "__Instance:" . Obj.base.__Class . ","
-			}
-			
-			for key,v in Obj{
-					
-				theKey:=toString(Key) 
-				
-				if (A_Index!=1)
-					symbol:=","
-				else 
-					symbol:=""
-					
-					
-				if (Type.isObj(v)){ ;key一定是用""包裹的,value则不
-
-						theV:=toString(v) ;DeBug
-
-
-					TheSubString=%symbol%%theKey%:%theV%
-					ResultString.=TheSubString
-				} 
-				
-				else{
-					if(v="")
-						ds:="*NS*"
-					else
-						ds:=v
-					TheSubString=%symbol%%theKey%:%DS%
-					ResultString.=TheSubString
-				}
-			
-		}
-			ResultString.= "}"
-			return ResultString
-	}
-	
 }
 ;--------------***-------------------------------- 
 
