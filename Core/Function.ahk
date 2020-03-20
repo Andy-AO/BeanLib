@@ -239,22 +239,22 @@ LogPrintln(Obj:="",prefix:="",postfix:=""){
 ;---------------------------------------------------------------------- 
 
 
-toString(Obj){
+toString(aObj){
 
-	if (Type.isStr(Obj))
-		return _toString.Str(Obj)
+	if (Type.isStr(aObj))
+		return _toString.Str(aObj)
 
-	if (Type.isFuncObj(Obj))
-		return _toString.funcObj(Obj)
+	if (Type.isFuncObj(aObj))
+		return _toString.funcObj(aObj)
 	
-	if (Type.isComObj(Obj))
-		return _toString.comObj(Obj)
+	if (Type.isComObj(aObj))
+		return _toString.comObj(aObj)
 	
-	if (Type.isList(Obj))
-		return _toString.list(Obj)
+	if (Type.isList(aObj))
+		return _toString.list(aObj)
 	
-	if (Type.isObj(Obj))
-		return _toString.obj(Obj)
+	if (Type.isObj(aObj))
+		return _toString.obj(aObj)
 }
 
 ;---------------------------------------------------------------------- 
