@@ -1,10 +1,4 @@
 ﻿
-	GetKeyPhysicalState(key){
-		result  := GetKeyState(key,"P")
-		return result
-	}
-;---------------------------------------------------------------------- 
-
 funcObjToString(aObj){
 	if (type.isFuncObj(aObj)){
 		return aObj.name "()"
@@ -13,6 +7,8 @@ funcObjToString(aObj){
 		return "*NotFunc*:"toString(aObj)
 	}	
 }
+;------------------------------
+
 comObjToString(aCOMAcc){
 	theResult := Object()
 	theResult.Value := ComObjValue(aCOMAcc)
@@ -23,7 +19,36 @@ comObjToString(aCOMAcc){
 	theResult.CLSID   := ComObjType(aCOMAcc, "CLSID")  ; 需要 [v1.1.26+]
 	return toString(theResult)
 }
+;----------------------------------------------------------------------- 
+DeepListToString(List){
+	
+	TheArrayString:=""
+	TheArrayString.= "["
+		
+	for index,v in List{
+		
+		if (Type.isList(v))
+			TheArrayString.="," DeepListtoString(v)
+		
+		else if (Type.isList(v))
+			TheArrayString.="," v
+		
+		else
+			throwWithSt("The " index "th element in the array is invalid.")
+		
+	}
 
+	TheArrayString := StrReplace(TheArrayString, "," , "", OutputVarCount,1)
+	TheArrayString.= "]"
+	return TheArrayString
+}
+
+;------------------------------
+
+	GetKeyPhysicalState(key){
+		result  := GetKeyState(key,"P")
+		return result
+	}
 ;---------------------------------------------------------------------- 
 
 rawCall(aMethodName,aThis,aParams*){
@@ -284,29 +309,6 @@ DeepPrintlnList(List){
 	theString:=DeepListtoString(List)
 	println(theString)
 	return theString
-}
-;----------------------------------------------------------------------- 
-DeepListtoString(List){
-	
-	TheArrayString:=""
-	TheArrayString.= "["
-		
-	for index,v in List{
-		
-		if (Type.isList(v))
-			TheArrayString.="," DeepListtoString(v)
-		
-		else if (Type.isList(v))
-			TheArrayString.="," v
-		
-		else
-			throwWithSt("The " index "th element in the array is invalid.")
-		
-	}
-
-	TheArrayString := StrReplace(TheArrayString, "," , "", OutputVarCount,1)
-	TheArrayString.= "]"
-	return TheArrayString
 }
 
 ;---------------------------------------------------------------------- 
