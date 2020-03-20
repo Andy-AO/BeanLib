@@ -26,23 +26,5 @@
 		theResult.CLSID   := ComObjType(aCOMAcc, "CLSID")  ; 需要 [v1.1.26+]
 		return toString(theResult)
 	}
-	;----------------------------------------------------------------------- 
-	DeepList(List){
-		TheArrayString:=""
-		TheArrayString.= "["
-			
-		for index,v in List{
-			if (Type.isList(v))
-				TheArrayString.="," _toString.DeepList(v)
-			else if (Type.isList(v))
-				TheArrayString.="," v
-			else
-				throwWithSt("The " index "th element in the array is invalid.")
-		}
-
-		TheArrayString := StrReplace(TheArrayString, "," , "", OutputVarCount,1)
-		TheArrayString.= "]"
-		return TheArrayString
-	}
 	
 } ;---------class _toString End
