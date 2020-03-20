@@ -235,6 +235,7 @@ LogPrintln(Obj:="",prefix:="",postfix:=""){
 	println(theString)
 	return
 }
+
 ;---------------------------------------------------------------------- 
 
 
@@ -255,6 +256,9 @@ toString(Obj){
 	if (Type.isObj(Obj))
 		return _toString.obj(Obj)
 }
+
+;---------------------------------------------------------------------- 
+
 
 Traceback(actual:=false){
 	r := [], i := 0, n := actual ? 0 : A_AhkVersion<"2" ? 1 : 2
