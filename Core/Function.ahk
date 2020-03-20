@@ -241,24 +241,20 @@ LogPrintln(Obj:="",prefix:="",postfix:=""){
 toString(Obj){
 	ResultString:="",ListString := "[",ObjectString:="{"
 	
-	if (Type.isStr(Obj)){
+	if (Type.isStr(Obj))
 		return _toString.Str(Obj)
-	}
 
-	if (Type.isFuncObj(Obj)){
+	if (Type.isFuncObj(Obj))
 		return _toString.funcObj(Obj)
-	}
 	
-	if (Type.isComObj(Obj)){
+	if (Type.isComObj(Obj))
 		return _toString.comObj(Obj)
-	}
-	;---------------------------------------------------------------------- 
+	
 	if (Type.isList(Obj))
 		return _toString.list(Obj)
-	else {
-		if (Type.isObj(Obj))
+	
+	if (Type.isObj(Obj))
 		return _toString.obj(Obj)
-	}	
 }
 ;--------------***-------------------------------- 
 
