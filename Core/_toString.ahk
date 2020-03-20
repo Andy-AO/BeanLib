@@ -1,4 +1,11 @@
 ﻿class _toString{
+	str(aStr){
+		if(aStr="")
+			return "*NS*"
+		else
+			return aStr
+	}
+	;------------------------------
 
 	funcObj(aObj){
 		if (type.isFuncObj(aObj)){

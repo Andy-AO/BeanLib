@@ -243,10 +243,7 @@ toString(Obj){
 	ResultString:="",ListString := "[",ObjectString:="{"
 	
 	if (Type.isStr(Obj)){
-		if(Obj="")
-			return "*NS*"
-		else
-			return Obj
+		return _toString.Str(Obj)
 	}
 
 	if (Type.isFuncObj(Obj)){
