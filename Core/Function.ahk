@@ -257,7 +257,7 @@ toString(Obj){
 	;---------------------------------------------------------------------- 
 	
 	if (Type.isList(Obj)) ;如果是List,那么开头应该是"["
-		ResultString:=ListString
+		return _toString.list(Obj)
 	else {
 		if (Type.isObj(Obj)) ;如果是Obj数组,那么开头应该是"{"
 		ResultString:=ObjectString
