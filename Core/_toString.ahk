@@ -1,6 +1,6 @@
 ﻿class _toString{
 
-	funcObjToString(aObj){
+	funcObj(aObj){
 		if (type.isFuncObj(aObj)){
 			return aObj.name "()"
 		}
@@ -9,7 +9,7 @@
 		}	
 	}
 	;------------------------------
-	comObjToString(aCOMAcc){
+	comObj(aCOMAcc){
 		theResult := Object()
 		theResult.Value := ComObjValue(aCOMAcc)
 		theResult.VarType := ComObjType(aCOMAcc)           ; 需要 [v1.0.91+]
@@ -20,7 +20,7 @@
 		return toString(theResult)
 	}
 	;----------------------------------------------------------------------- 
-	DeepListToString(List){
+	DeepList(List){
 		TheArrayString:=""
 		TheArrayString.= "["
 			
