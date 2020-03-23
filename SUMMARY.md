@@ -27,6 +27,7 @@
     -   [AutoClassify](Docs/AutoClassify.md)
     -   [Everything](Docs/Everything.md)
     -   [Ini](Docs/Ini.md)
+    -   [AutoInputBox](Docs/AutoInputBox.md)
     -   [ParaChecker](Docs/ParaChecker.md)
     -   [PathObj](Docs/PathObj.md)
     -   [RunningSpeedTest](Docs/RunningSpeedTest.md)
