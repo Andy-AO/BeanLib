@@ -24,24 +24,12 @@ FileEncoding , UTF-8
 LogPrintln(A_ScriptName,"A_ScriptName >>> ")
 
 
-MapFactory(aMap,aKeyFunc:="",aValueFunc:=""){
-     theReturn := ""
-     for k,v in aMap {
-          theKeyStr := theValueStr := ""
-          theKeyStr := aKeyFunc.call(k)
-          theValueStr := aValueFunc.call(v)
-          theResult := theKeyStr ":" theValueStr
-          theReturn .= theResult "`r`n"
-     }
-     return theReturn
-}
-
 
 theKeyFunc := Method.for(FuncClass.handleKey,FuncClass)
 theValueFunc := Method.for(FuncClass.handleValue,FuncClass)
 
 
- stdoutln(MapFactory(TypeClassInstance,theKeyFunc,theValueFunc))	
+stdoutln(MapFactory(TypeClassInstance,theKeyFunc,theValueFunc))	
 
 
 Class FuncClass{
@@ -57,12 +45,8 @@ Class FuncClass{
 
 return
 
-/*
-for k,v in TypeClassInstance {
-     stdoutln(k ":" v)	
-}
+;下面是之前手动测试留下来的痕迹,可以和现在的全自动测试对比下
 
-*/
 LogPrintln(TypeClassInstance.ComObj,A_LineFile  "("  A_LineNumber  ")"  " : " "TypeClassInstance.ComObj >>> `r`n")
 LogPrintln(TypeClassInstance.Obj,A_LineFile  "("  A_LineNumber  ")"  " : " "TypeClassInstance.Obj >>> `r`n")
 LogPrintln(TypeClassInstance.ExtendsObj,A_LineFile  "("  A_LineNumber  ")"  " : " "TypeClassInstance.ExtendsObj >>> `r`n")

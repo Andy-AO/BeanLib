@@ -14,3 +14,18 @@
 }
 
 TypeClassInstance := new TypeClass()
+
+
+;------------------------------
+
+MapFactory(aMap,aKeyFunc:="",aValueFunc:=""){
+     theReturn := "",Type.assertObj(aKeyFunc),Type.assertObj(aValueFunc)
+     for k,v in aMap {
+          theKeyStr := theValueStr := ""
+          theKeyStr := aKeyFunc.call(k)
+          theValueStr := aValueFunc.call(v)
+          theResult := theKeyStr ":" theValueStr
+          theReturn .= theResult "`r`n"
+     }
+     return theReturn
+}
