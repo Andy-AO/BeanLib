@@ -13,7 +13,13 @@ class AutoInputBox{
 	}
 	;------------------------------
 	SetAlwaysOnTop(aStr){
+		Type.assertBoolean(aStr)
 		return this.AlwaysOnTop := aStr
+	}	
+	;------------------------------
+	SetDeFaultText(aStr){
+		Type.assertStr(aStr)
+		return this.deFaultText := aStr
 	}
 ;---------------------------------------------------------------------- 
 	start(){
