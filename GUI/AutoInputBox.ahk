@@ -4,19 +4,19 @@
 */
 
 class AutoInputBox{
-
 	aTextPrefix:="",deFaultText:=["UseClipBoard"],AlwaysOnTop:=false
-	
-;---------------------------------------------------------------------- 
-
+	;---------------------------------------------------------------------- 
 	__New(aTitle,aPrompt){
 		this.title:=aTitle
 		this.prompt:=aPrompt
 		return this
 	}
+	;------------------------------
+	SetAlwaysOnTop(aStr){
+		return this.AlwaysOnTop := aStr
+	}
 ;---------------------------------------------------------------------- 
 	start(){
-	
 		aTitle:=this.title
 		aPrompt:=this.prompt
 		aWeight:=375
@@ -37,16 +37,13 @@ class AutoInputBox{
 		}
 		
 		InputBox,UserInput,%aTitle%,%aPrompt%,,%aWeight%,%ahight%,,,,,%aDeFaultText%
-
-			
+		
 		if (ErrorLevel=1){ ;必须立即判断，不能有间隔
-			throwWithSt("User Cancel Input")
+			throwWithSt(_EX.UserCancelled)
 		}
-			
 			UserInput:=this.aTextPrefix UserInput ;给用户输入的内容增加前缀
 			Return UserInput
 	}
-
 }
 
 ;------class AutoInputBox End
