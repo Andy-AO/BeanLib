@@ -19,25 +19,9 @@ FileEncoding , UTF-8
 
 ;------------------------------
 #Include D:\AHKs\Dev\_TempLib.ahk
+#Include D:\AHKs\ahk_lib\Test\Lib.ahk
 
 LogPrintln(A_ScriptName,"A_ScriptName >>> ")
-
-
-Class TypeClass{
-	ComObj := Acc_ObjectFromPoint(vChildId)
-	Obj := Object()
-	ExtendsObj := new AutoInputBox("输入要增加的页码","输入要增加的页码")
-	Class := AutoInputBox
-	FuncObj := new Function("toString")
-	Exception := Exception(_Ex.IndexOutOfBounds)
-	Path := Str := "D:\AHKs\ahk_lib\Test\LibTest_toString().ahk"
-	NS := ""
-	Number := "123456789"
-	Boolean := false
-	FileObj :=  FileOpen(TypeClass.Path,"r")
-}
-
-TypeClassInstance := new TypeClass()
 
 LogPrintln(TypeClassInstance.ComObj,A_LineFile  "("  A_LineNumber  ")"  " : " "TypeClassInstance.ComObj >>> `r`n")
 LogPrintln(TypeClassInstance.Obj,A_LineFile  "("  A_LineNumber  ")"  " : " "TypeClassInstance.Obj >>> `r`n")
