@@ -4,7 +4,9 @@
 */
 
 class AutoInputBox{
-	aTextPrefix:="",deFaultText:=["UseClipBoard"],AlwaysOnTop:=false
+	static aTextPrefix:=""
+	static deFaultText:=["UseClipBoard"]
+	static AlwaysOnTop:=false
 	;---------------------------------------------------------------------- 
 	__New(aTitle,aPrompt){
 		this.title:=aTitle
