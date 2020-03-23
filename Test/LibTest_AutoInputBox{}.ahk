@@ -19,6 +19,7 @@ FileEncoding , UTF-8
 
 ;------------------------------
 #Include D:\AHKs\Dev\_TempLib.ahk
+#Include D:\AHKs\ahk_lib\Test\Lib.ahk
 
 LogPrintln(A_ScriptName,"A_ScriptName >>> ")
 
