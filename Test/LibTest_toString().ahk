@@ -22,29 +22,34 @@ FileEncoding , UTF-8
 
 LogPrintln(A_ScriptName,"A_ScriptName >>> ")
 
-theComObj := Acc_ObjectFromPoint(vChildId)
-theObj := Object()
-theExtendsObj := new AutoInputBox("输入要增加的页码","输入要增加的页码")
-theClass := AutoInputBox
-theFuncObj := new Function("toString")
-theException := Exception(_Ex.IndexOutOfBounds)
-thePath := theStr := "D:\AHKs\ahk_lib\Test\LibTest_toString().ahk"
-theNS := ""
-theNumber := "123456789"
-theBoolean := false
-theFileObj :=  FileOpen(thePath,"r")
 
-LogPrintln(theComObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theComObj >>> `r`n")
-LogPrintln(theObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theObj >>> `r`n")
-LogPrintln(theExtendsObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theExtendsObj >>> `r`n")
-LogPrintln(theClass,A_LineFile  "("  A_LineNumber  ")"  " : " "theClass >>> `r`n")
-LogPrintln(theFuncObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theFuncObj >>> `r`n")
-LogPrintln(theException,A_LineFile  "("  A_LineNumber  ")"  " : " "theException >>> `r`n")
-LogPrintln(thePath,A_LineFile  "("  A_LineNumber  ")"  " : " "thePath >>> `r`n")
-LogPrintln(theNS,A_LineFile  "("  A_LineNumber  ")"  " : " "theNS >>> `r`n")
-LogPrintln(theNumber,A_LineFile  "("  A_LineNumber  ")"  " : " "theNumber >>> `r`n")
-LogPrintln(theBoolean,A_LineFile  "("  A_LineNumber  ")"  " : " "theBoolean >>> `r`n")
-LogPrintln(theFileObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theFileObj >>> `r`n")
+Class TypeClass{
+	ComObj := Acc_ObjectFromPoint(vChildId)
+	Obj := Object()
+	ExtendsObj := new AutoInputBox("输入要增加的页码","输入要增加的页码")
+	Class := AutoInputBox
+	FuncObj := new Function("toString")
+	Exception := Exception(_Ex.IndexOutOfBounds)
+	Path := Str := "D:\AHKs\ahk_lib\Test\LibTest_toString().ahk"
+	NS := ""
+	Number := "123456789"
+	Boolean := false
+	FileObj :=  FileOpen(TypeClass.Path,"r")
+}
+
+TypeClassInstance := new TypeClass()
+
+LogPrintln(TypeClassInstance.ComObj,A_LineFile  "("  A_LineNumber  ")"  " : " "TypeClassInstance.ComObj >>> `r`n")
+LogPrintln(TypeClassInstance.Obj,A_LineFile  "("  A_LineNumber  ")"  " : " "TypeClassInstance.Obj >>> `r`n")
+LogPrintln(TypeClassInstance.ExtendsObj,A_LineFile  "("  A_LineNumber  ")"  " : " "TypeClassInstance.ExtendsObj >>> `r`n")
+LogPrintln(TypeClassInstance.Class,A_LineFile  "("  A_LineNumber  ")"  " : " "TypeClassInstance.Class >>> `r`n")
+LogPrintln(TypeClassInstance.FuncObj,A_LineFile  "("  A_LineNumber  ")"  " : " "TypeClassInstance.FuncObj >>> `r`n")
+LogPrintln(TypeClassInstance.Exception,A_LineFile  "("  A_LineNumber  ")"  " : " "TypeClassInstance.Exception >>> `r`n")
+LogPrintln(TypeClassInstance.Path,A_LineFile  "("  A_LineNumber  ")"  " : " "TypeClassInstance.Path >>> `r`n")
+LogPrintln(TypeClassInstance.NS,A_LineFile  "("  A_LineNumber  ")"  " : " "TypeClassInstance.NS >>> `r`n")
+LogPrintln(TypeClassInstance.Number,A_LineFile  "("  A_LineNumber  ")"  " : " "TypeClassInstance.Number >>> `r`n")
+LogPrintln(TypeClassInstance.Boolean,A_LineFile  "("  A_LineNumber  ")"  " : " "TypeClassInstance.Boolean >>> `r`n")
+LogPrintln(TypeClassInstance.FileObj,A_LineFile  "("  A_LineNumber  ")"  " : " "TypeClassInstance.FileObj >>> `r`n")
 
 ComObj:=160
 FileObj:=150
@@ -89,6 +94,41 @@ D:\AHKs\ahk_lib\Test\LibTest_toString().ahk(47) : theFileObj >>>
 
 */
 
+;second
+/*
+>"F:\gUAPP\AutoHotkey32Bit\SciTE\..\AutoHotkey.exe" /ErrorStdOut "D:\AHKs\ahk_lib\Test\LibTest_toString().ahk"    
+>Exit code: 0    Time: 0.2447
+A_ScriptName >>> LibTest_toString().ahk
+D:\AHKs\Dev\MSAA\Acc.ahk (18) : ==> Warning: This variable has not been assigned a value.
+     Specifically: h  (a static variable)
+D:\AHKs\Dev\MSAA\Acc.ahk (31) : ==> Warning: This variable has not been assigned a value.
+     Specifically: pt  (a local variable)
+D:\AHKs\Dev\MSAA\Acc.ahk (31) : ==> Warning: This variable has not been assigned a value.
+     Specifically: pacc  (a local variable)
+D:\AHKs\ahk_lib\Test\LibTest_toString().ahk(42) : TypeClassInstance.ComObj >>> 
+{Class:*NS*,CLSID:*NS*,IID:{618736E0-3C3D-11CF-810C-00AA00389B71},Name:IAccessible,Value:11343624,VarType:9}
+D:\AHKs\ahk_lib\Test\LibTest_toString().ahk(43) : TypeClassInstance.Obj >>> 
+{*Obj*}
+D:\AHKs\ahk_lib\Test\LibTest_toString().ahk(44) : TypeClassInstance.ExtendsObj >>> 
+{__Instance:AutoInputBox,AlwaysOnTop:0,aTextPrefix:*NS*,deFaultText:[UseClipBoard],prompt:输入要增加的页码,title:输入要增加的页码}
+D:\AHKs\ahk_lib\Test\LibTest_toString().ahk(45) : TypeClassInstance.Class >>> 
+{__Class:AutoInputBox,__Init:AutoInputBox.__Init(),__New:AutoInputBox.__New(),SetAlwaysOnTop:AutoInputBox.SetAlwaysOnTop(),SetDeFaultText:AutoInputBox.SetDeFaultText(),start:AutoInputBox.start()}
+D:\AHKs\ahk_lib\Test\LibTest_toString().ahk(46) : TypeClassInstance.FuncObj >>> 
+{__Instance:Function,bindParas:{*Obj*},func:toString()}
+D:\AHKs\ahk_lib\Test\LibTest_toString().ahk(47) : TypeClassInstance.Exception >>> 
+{File:D:\AHKs\ahk_lib\Test\LibTest_toString().ahk,Line:32,Message:Index Out Of Bounds.数组越界.,What:TypeClass.__Init}
+D:\AHKs\ahk_lib\Test\LibTest_toString().ahk(48) : TypeClassInstance.Path >>> 
+D:\AHKs\ahk_lib\Test\LibTest_toString().ahk
+D:\AHKs\ahk_lib\Test\LibTest_toString().ahk(49) : TypeClassInstance.NS >>> 
+*NS*
+D:\AHKs\ahk_lib\Test\LibTest_toString().ahk(50) : TypeClassInstance.Number >>> 
+123456789
+D:\AHKs\ahk_lib\Test\LibTest_toString().ahk(51) : TypeClassInstance.Boolean >>> 
+0
+D:\AHKs\ahk_lib\Test\LibTest_toString().ahk(52) : TypeClassInstance.FileObj >>> 
+0
+
+*/
 #If WinActive(A_ScriptName)
 ;可以按下Alt+L查看最近运行的行
 
