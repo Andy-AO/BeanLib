@@ -207,7 +207,8 @@ Class Type{
 			else
 				return Type.Number
 		}
-			
+		else if(new Method(PathObj.af,Object("path",Str)))
+			return Type.Path
 		else
 			return Type.Str
 	}
@@ -249,7 +250,7 @@ Class TypeBase{
 		;这些东西必须是静态的,不要以为最后还要__New,这个域是 "__Get" 的
 		
 		Static StrEndCode := 19,NumberEndCode := 14
-		Static Str:=10,NS:=11,Number:=12,Boolean:=13
+		Static Str:=10,NS:=11,Number:=12,Boolean:=13,Path := 15
 		Static List:=130
 		Static ObjEndCode := 199
 		Static Obj:=100,ExtendsObj:=101,Class:=110,FuncObj:=120,Exception:=121
