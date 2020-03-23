@@ -240,23 +240,19 @@ LogPrintln(Obj:="",prefix:="",postfix:=""){
 
 
 toString(aObj){
-
-	if (Type.isStr(aObj))
+	
+	;~ stdoutln("Type(aObj,true):" Type(aObj,true))	
+	
+	theCodeName := Type(aObj,true)
+	if(ObjHasKey(_toString,theCodeName))
+		return _toString[theCodeName](aObj)
+	else if(Type.isStr(aObj))
 		return _toString.Str(aObj)
-
-	if (Type.isFuncObj(aObj))
-		return _toString.funcObj(aObj)
-	
-	if (Type.isComObj(aObj))
-		return _toString.comObj(aObj)
-	
-	if (Type.isList(aObj))
-		return _toString.list(aObj)
-	
-	if (Type.isObj(aObj))
+	else if(Type.isObj(aObj))
 		return _toString.obj(aObj)
-	
-	throw(_Ex.UnknownType)
+	else
+		throw(_Ex.UnknownType)
+	return
 }
 
 ;---------------------------------------------------------------------- 
