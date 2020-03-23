@@ -2,17 +2,21 @@
 
 /*
 占用的域
-函数 Type(Ever)
+函数 Type(Everthing)
 类 Type TypeBase
 */
-Type(Ever){ 
-	
-	if (IsObject(Ever))
-		theType:=Type.ObjectType(Ever)
-	else
-		theType:=Type.StringType(Ever)
-	
-		return theType
+Type(Everthing,returnName := false){ 
+	if(returnName){
+		theCode := Type(Everthing,false)
+		return Type.ofCode(theCode)
+	}
+	else{
+		if (IsObject(Everthing))
+			theType:=Type.ObjectType(Everthing)
+		else
+			theType:=Type.StringType(Everthing)
+			return theType
+	}
 }
 ;---------------------------------------------------------------------- 
 Class Type{

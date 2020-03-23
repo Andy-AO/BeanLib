@@ -24,6 +24,9 @@ FileEncoding , UTF-8
 LogPrintln(A_ScriptName,"A_ScriptName >>> ")
 
 
+LogPrintln(Type(TypeClassInstance.ComObj,true),A_LineFile  "("  A_LineNumber  ")"  " : " "Type(TypeClassInstance.ComObj,true) >>> `r`n")
+
+
 #If WinActive(A_ScriptName)
 ;可以按下Alt+L查看最近运行的行
 
