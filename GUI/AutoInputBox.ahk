@@ -1,8 +1,8 @@
 ﻿
+
 /*
 说明:固定宽度,且自动根据 prompt 换行的InputBox
 */
-
 class AutoInputBox{
 	aTextPrefix := ""
 	deFaultText := ["UseClipBoard"]
@@ -30,21 +30,22 @@ class AutoInputBox{
 		aWeight:=375
 		
 		lineStringLength:="标题标题标题标题标题标题标题标题标题标题标题".length()
-
 		line:= (aPrompt.length()) / lineStringLength
 		
 		ahight:=150 + (line*30)
 		
-		LogPrintln(this.deFaultText,"this.aDeFaultText >>>")
-		if (IsObject(this.deFaultText))
-			aDeFaultText:=Clipboard
-
-		aDeFaultText:=this.deFaultText
+		if (IsObject(this.deFaultText)){
+			theDeFaultText := Clipboard
+		}
+		else{
+			theDeFaultText := this.deFaultText
+		}
+			
 		if(this.AlwaysOnTop){
 			Gui + LastFound + OwnDialogs + AlwaysOnTop
 		}
 		
-		InputBox,UserInput,%aTitle%,%aPrompt%,,%aWeight%,%ahight%,,,,,%aDeFaultText%
+		InputBox,UserInput,%aTitle%,%aPrompt%,,%aWeight%,%ahight%,,,,,%theDeFaultText%
 		
 		if (ErrorLevel=1){ ;必须立即判断，不能有间隔
 			throwWithSt(_EX.UserCancelled)
@@ -53,5 +54,4 @@ class AutoInputBox{
 			Return UserInput
 	}
 }
-
 ;------class AutoInputBox End
