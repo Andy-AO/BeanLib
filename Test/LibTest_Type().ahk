@@ -24,7 +24,23 @@ FileEncoding , UTF-8
 LogPrintln(A_ScriptName,"A_ScriptName >>> ")
 
 
-LogPrintln(Type(TypeClassInstance.ComObj,true),A_LineFile  "("  A_LineNumber  ")"  " : " "Type(TypeClassInstance.ComObj,true) >>> `r`n")
+theKeyFunc := Method.for(FuncClass.handleKey,FuncClass)
+theValueFunc := Method.for(FuncClass.handleValue,FuncClass)
+
+
+stdoutln(MapFactory(TypeClassInstance,theKeyFunc,theValueFunc))	
+
+
+Class FuncClass{
+     handleKey(aKey){
+          theStr = Type(%aKey%,true)
+          return theStr
+     }
+     handleValue(aValue){
+          return Type(aValue,true)
+     }
+}
+
 
 
 #If WinActive(A_ScriptName)
