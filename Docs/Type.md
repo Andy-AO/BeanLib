@@ -3,7 +3,7 @@
 1.  是一个**静态类**, 不提供构造器
 2.  围绕着`类型`展开，目前支持 **9种类型** 的识别。另，提供类型的 Code 值，判断类型，断言类型等等。
 3.  用元编程编写，所以这里只写出那些实际会用到的域和方法，大多数平常都用不到。
-4.  `Ever` ：代表可以接受任何类型的参数。
+4.  `Everthing` ：代表可以接受任何类型的参数。
 
 ### 域 Field
 
@@ -46,19 +46,19 @@ assertOff() - 把变量设为 false ,关闭断言
 
 #### is方法(类型判断方法)
 
-##### isStr(Ever) 
-##### isNS(Ever) 
-##### isNumber(Ever) 
+##### isStr(Everthing) 
+##### isNS(Everthing) 
+##### isNumber(Everthing) 
 
-##### isBoolean(Ever) 
+##### isBoolean(Everthing) 
 
-##### isList(Ever) 
-##### isObj(Ever) 
-##### isClass(Ever) 
-##### isFileObj(Ever) 
-##### isFuncObj(Ever) 
-##### isMethod(Ever) 
-##### isComObj(Ever) 
+##### isList(Everthing) 
+##### isObj(Everthing) 
+##### isClass(Everthing) 
+##### isFileObj(Everthing) 
+##### isFuncObj(Everthing) 
+##### isMethod(Everthing) 
+##### isComObj(Everthing) 
 
 #### assert方法(断言方法)
 
@@ -68,19 +68,19 @@ assertOff() - 把变量设为 false ,关闭断言
   比如，你设计一个给字符串数组排序的函数，你肯定不希望传入的参数是 `FuncObj`，由于`AHK`是弱类型，所以不会报任何错误，但是程序可能会有逻辑错误。
   如果预先使用`Type.assertStr(Str)`，就可以避免此类问题，并告知你类型错误的细节。
 
-##### assertStr(Ever*) 
-##### assertNS(Ever*) 
-##### assertNumber(Ever*) 
+##### assertStr(Everthing*) 
+##### assertNS(Everthing*) 
+##### assertNumber(Everthing*) 
 
-##### assertBoolean(Ever*) 
+##### assertBoolean(Everthing*) 
 
-##### assertList(Ever*) 
-##### assertObj(Ever*) 
-##### assertClass(Ever*) 
-##### assertFileObj(Ever*) 
-##### assertFuncObj(Ever*) 
-##### assertMethod(Ever*) 
-##### assertComObj(Ever*) 
+##### assertList(Everthing*) 
+##### assertObj(Everthing*) 
+##### assertClass(Everthing*) 
+##### assertFileObj(Everthing*) 
+##### assertFuncObj(Everthing*) 
+##### assertMethod(Everthing*) 
+##### assertComObj(Everthing*) 
 
 #### ofCode(Type.List)
 
