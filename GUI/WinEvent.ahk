@@ -71,7 +71,7 @@ class WinEvent{
 	ShellMessage(wParam, lParam, msg:="", hwnd:="") {
 		theFindFuncName := this.findFuncNameFromWParam(wParam)
 		if(this[theFindFuncName]!="")
-			return this[theFindFuncName]("ahk_id " . lParam)
+			return this[theFindFuncName](_Win.Analyze("ahk_id " . lParam))
 	}
 	
 	;------------------------------
