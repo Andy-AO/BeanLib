@@ -1,7 +1,6 @@
-﻿;--------------------------------------------------------------------------------------------------------------
-
+﻿
+;--------------------------------------------------------------------------------------------------------------
 class WinEvent{
-
 	Usable := true
 ;------------------------------
 	disable(){
@@ -70,8 +69,9 @@ class WinEvent{
 ;------------------------------
 	ShellMessage(wParam, lParam, msg:="", hwnd:="") {
 		theFindFuncName := this.findFuncNameFromWParam(wParam)
-		if(this[theFindFuncName]!="")
+		if(this[theFindFuncName]!=""){
 			return this[theFindFuncName](_Win.Analyze("ahk_id " . lParam))
+		}
 	}
 	
 	;------------------------------
@@ -86,9 +86,7 @@ class WinEvent{
 		Gui +LastFound
 		hWnd := WinExist() ;返回脚本自身窗口的ID(hWnd)
 		MsgNum1 := DllCall("RegisterShellHookWindow",UInt,hWnd) 
-		LogPrintln(MsgNum1,"MsgNum1 >>>")
 		MsgNum := DllCall("RegisterWindowMessage", Str,"SHELLHOOK")
-		LogPrintln(MsgNum,"MsgNum >>>")
 		ShellMessageMethod := new Method(this.ShellMessage_Base,this)
 		OnMessage(MsgNum,ShellMessageMethod)
 		return
