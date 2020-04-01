@@ -14,7 +14,14 @@ class WinEvent{
 		this.Usable := true
 		return
 	}
-
+	
+	;------------------------------
+	findFuncNameFromWParam(aWParam){
+		for k,v in WinEvent.wParam {
+			if(v = aWParam)
+				return "On" k
+		}
+	}
 ;------------------------------
 	class wParam{
 			static Created := 1
@@ -62,7 +69,9 @@ class WinEvent{
 	}
 ;------------------------------
 	ShellMessage(wParam, lParam, msg:="", hwnd:="") {
-		return
+		theFindFuncName := this.findFuncNameFromWParam(wParam)
+		if(this[theFindFuncName]!="")
+			return this[theFindFuncName]("ahk_id " . lParam)
 	}
 	
 	;------------------------------
