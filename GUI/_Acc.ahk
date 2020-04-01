@@ -10,29 +10,29 @@ Class _Acc{
 		oAcc := Acc_ObjectFromPoint(vChildId)
 		LogPrintln(vChildId,A_LineFile  "("  A_LineNumber  ")"  " : " "vChildId >>> `r`n")
 		
-		vAccRoleNum := oAcc.accRole(vChildId)
-		vAccRoleNumHex := Format("0x{:X}", vAccRoleNum)
-		vAccStateNum := oAcc.accState(vChildId)
-		vAccStateNumHex := Format("0x{:X}", vAccStateNum)
+		theMap["RoleNum"] oAcc.accRole(vChildId)
+		theMap["RoleNumHex"] Format("0x{:X}", vAccRoleNum)
+		theMap["StateNum"] oAcc.accState(vChildId)
+		theMap["StateNumHex"] Format("0x{:X}", vAccStateNum)
 		oRect := Acc_Location(oAcc, vChildId)
-		vAccName := oAcc.accName(vChildId)
-		vAccValue := oAcc.accValue(vChildId)
-		vAccRoleText := Acc_GetRoleText(oAcc.accRole(vChildId))
-		vAccStateText := Acc_GetStateText(oAcc.accState(vChildId))
-		vAccStateTextAll := JEE_AccGetStateTextAll(vAccStateNum)
-		vAccAction := oAcc.accDefaultAction(vChildId)
-		vAccFocus := oAcc.accFocus
-		vAccSelection := JEE_AccSelection(oAcc)
+		theMap["Name"] oAcc.accName(vChildId)
+		theMap["Value"] oAcc.accValue(vChildId)
+		theMap["RoleText"] Acc_GetRoleText(oAcc.accRole(vChildId))
+		theMap["StateText"] Acc_GetStateText(oAcc.accState(vChildId))
+		theMap["StateTextAll"] JEE_AccGetStateTextAll(vAccStateNum)
+		theMap["Action"] oAcc.accDefaultAction(vChildId)
+		theMap["Focus"] oAcc.accFocus
+		theMap["Selection"] JEE_AccSelection(oAcc)
 		StrReplace(vAccSelection, ",",, vCount), vCount += 1
-		vAccSelectionCount := (vAccSelection = "") ? 0 : vCount
-		vAccChildCount := oAcc.accChildCount
-		vAccLocation := Format("X{} Y{} W{} H{}", oRect.x, oRect.y, oRect.w, oRect.h)
-		vAccDescription := oAcc.accDescription(vChildId)
-		vAccKeyboard := oAcc.accKeyboardShortCut(vChildId)
-		vAccHelp := oAcc.accHelp(vChildId)
-		vAccHelpTopic := oAcc.accHelpTopic(vChildId)
-		hWnd := Acc_WindowFromObject(oAcc)
-		vAccPath := "--" ;not implemented
+		theMap["SelectionCount"] (vAccSelection = "") ? 0 : vCount
+		theMap["ChildCount"] oAcc.accChildCount
+		theMap["Location"] Format("X{} Y{} W{} H{}", oRect.x, oRect.y, oRect.w, oRect.h)
+		theMap["Description"] oAcc.accDescription(vChildId)
+		theMap["Keyboard"] oAcc.accKeyboardShortCut(vChildId)
+		theMap["Help"] oAcc.accHelp(vChildId)
+		theMap["HelpTopic"] oAcc.accHelpTopic(vChildId)
+		theMap["hWnd"] := Acc_WindowFromObject(oAcc)
+		theMap["Path"] "--" ;not implemented
 		
 		oAcc := ""
 		ComObjError(True)
