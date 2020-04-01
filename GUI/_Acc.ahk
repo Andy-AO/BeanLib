@@ -36,5 +36,8 @@ Class _Acc{
 		
 		oAcc := ""
 		ComObjError(True)
+		
+		return theMap
+
 	}
 } ;Class _Acc End
