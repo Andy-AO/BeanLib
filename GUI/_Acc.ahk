@@ -6,8 +6,10 @@
 Class _Acc{
 	Analyze(){
 		ComObjError(False)
+		theMap := Object()
 		oAcc := Acc_ObjectFromPoint(vChildId)
 		LogPrintln(vChildId,A_LineFile  "("  A_LineNumber  ")"  " : " "vChildId >>> `r`n")
+		
 		vAccRoleNum := oAcc.accRole(vChildId)
 		vAccRoleNumHex := Format("0x{:X}", vAccRoleNum)
 		vAccStateNum := oAcc.accState(vChildId)
@@ -31,6 +33,7 @@ Class _Acc{
 		vAccHelpTopic := oAcc.accHelpTopic(vChildId)
 		hWnd := Acc_WindowFromObject(oAcc)
 		vAccPath := "--" ;not implemented
+		
 		oAcc := ""
 		ComObjError(True)
 	}
