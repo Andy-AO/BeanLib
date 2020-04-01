@@ -21,18 +21,10 @@ FileEncoding , UTF-8
 #Include D:\AHKs\Dev\_TempLib.ahk
 #Include D:\AHKs\ahk_lib\Test\Lib.ahk
 
-theWinTitle := "SciTE4AutoHotkey"
-
-
-
-
-	theAccObj := Acc_ObjectFromPoint(vChildId)
-	theResult := _Acc.Analyze(theAccObj)
+PrintScreen::
+	theResult := _Acc.Analyze()
 	LogPrintln(theResult,A_LineFile  "("  A_LineNumber  ")"  " : " "theResult >>> `r`n")
-
-
-
-
+return
 
 #If WinActive(A_ScriptName)
 ;可以按下Alt+L查看最近运行的行
