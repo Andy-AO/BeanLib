@@ -16,25 +16,24 @@ class WinEvent{
 	}
 
 ;------------------------------
-	wParam:=new this.wParam_Base()
-	class wParam_Base{
-			Created := 1,
-            Destroyed := 2,
-            Activate := 3,
-            Activated := 4,
-            GetMinRect := 5,
-            ReDraw := 6,
-            Taskman := 7,
-            Language := 8,
-            Sysmenu := 9,
-            Endtask := 10,
-            AccessibilityState := 11,
-            Appcommand := 12,
-            Windowreplaced := 13,
-            Windowreplacing := 14,
-            FullScreen := 53,
-            ExitFullScreen := 54,
-			Switched := 32772
+	class wParam{
+			static Created := 1
+            ,Destroyed := 2
+            ,Activate := 3
+            ,Activated := 4
+            ,GetMinRect := 5
+            ,ReDraw := 6
+            ,Taskman := 7
+            ,Language := 8
+            ,Sysmenu := 9
+            ,Endtask := 10
+            ,AccessibilityState := 11
+            ,Appcommand := 12
+            ,Windowreplaced := 13
+            ,Windowreplacing := 14
+            ,FullScreen := 53
+            ,ExitFullScreen := 54
+			,Switched := 32772
 			
 		;1 顶级窗体被「创建」
 		;2 顶级窗体即将被「关闭」
