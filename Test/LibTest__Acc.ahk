@@ -23,27 +23,15 @@ FileEncoding , UTF-8
 
 theWinTitle := "SciTE4AutoHotkey"
 
-ComObjError(false)
 
 
-theHWnd := ""
-WinGet, theHWnd, ID , %theWinTitle%
 
-theWinObj := _Win.Analyze("ahk_id " theHWnd)
-LogPrintln(theWinObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theWinObj >>> `r`n")
-
-theIdObject := "0"
-
-theAccObj := Acc_ObjectFromWindow(theHWnd, theIdObject)
-
-vAccRoleNum := theAccObj.accRole(vChildId)
-LogPrintln(vAccRoleNum,A_LineFile  "("  A_LineNumber  ")"  " : " "vAccRoleNum >>> `r`n")
+	theAccObj := Acc_ObjectFromPoint(vChildId)
+	theResult := _Acc.Analyze(theAccObj)
+	LogPrintln(theResult,A_LineFile  "("  A_LineNumber  ")"  " : " "theResult >>> `r`n")
 
 
-vAccName := theAccObj.accName(vChildId)
-LogPrintln(vAccName,A_LineFile  "("  A_LineNumber  ")"  " : " "vAccName >>> `r`n")
 
-return
 
 
 #If WinActive(A_ScriptName)
