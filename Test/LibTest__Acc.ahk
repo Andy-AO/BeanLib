@@ -21,6 +21,30 @@ FileEncoding , UTF-8
 #Include D:\AHKs\Dev\_TempLib.ahk
 #Include D:\AHKs\ahk_lib\Test\Lib.ahk
 
+theWinTitle := "D:\MyDocs\重要文档\iThoughts思维导图\突发任务.itmz",theHWnd := ""
+WinGet, theHWnd, ID , %theWinTitle%
+theWinObj := _Win.Analyze("ahk_id " theHWnd)
+LogPrintln(theWinObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theWinObj >>> `r`n")
+
+theAccObj := Acc_ObjectFromWindow(theHWnd, theIdObject := 0)
+
+theErrorPath := "4.9.9"
+
+theErrorAccObj := _Acc.ObjectFromPath(theAccObj,theErrorPath)
+
+thePath := "4.1.3"
+
+theAccObj := _Acc.ObjectFromPath(theAccObj,thePath)
+
+PrintScreen::
+	result := theAccObj.accDefaultAction(vChildId)
+	theAccObj.accDoDefaultAction(vChildId)
+	LogPrintln(result,A_LineFile  "("  A_LineNumber  ")"  " : " "result >>> `r`n")
+return
+
+;------------------------------
+
+return
 PrintScreen::
 	theResult := _Acc.AnalyzeFromPoint(vChildId)
 	LogPrintln(theResult,A_LineFile  "("  A_LineNumber  ")"  " : " "theResult >>> `r`n")
