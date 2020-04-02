@@ -5,6 +5,16 @@
 
 Class _Acc{
 
+	ObjectFromPath(aAccObj,aPath){
+		theAccObj := aAccObj
+		thePathList := StrSplit(aPath , Delimiters := ".")
+		LogPrintln(thePathList,A_LineFile  "("  A_LineNumber  ")"  " : " "thePathList >>> `r`n")
+		for i,v in thePathList {
+			theAccObj := Acc_Children(theAccObj)[v]
+		}
+		return theAccObj
+	}
+
 	AnalyzeFromPoint(ByRef _idChild_ = "", x = "", y = ""){
 		return _Acc.Analyze(Acc_ObjectFromPoint(_idChild_,x,y),_idChild_)
 	}

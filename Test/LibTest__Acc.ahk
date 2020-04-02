@@ -28,9 +28,11 @@ LogPrintln(theWinObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theWinObj >>> `r
 
 theAccObj := Acc_ObjectFromWindow(theHWnd, theIdObject := 0)
 
+/*
 theErrorPath := "4.9.9"
 
 theErrorAccObj := _Acc.ObjectFromPath(theAccObj,theErrorPath)
+*/
 
 thePath := "4.1.3"
 
@@ -44,11 +46,12 @@ return
 
 ;------------------------------
 
-return
+/*
 PrintScreen::
 	theResult := _Acc.AnalyzeFromPoint(vChildId)
 	LogPrintln(theResult,A_LineFile  "("  A_LineNumber  ")"  " : " "theResult >>> `r`n")
 return
+*/
 
 #If WinActive(A_ScriptName)
 ;可以按下Alt+L查看最近运行的行
