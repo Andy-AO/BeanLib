@@ -9,7 +9,7 @@ Class _Acc{
 		return _Acc.Analyze(Acc_ObjectFromPoint(_idChild_,x,y),_idChild_)
 	}
 	
-	Analyze(oAcc,vChildId = -4){
+	Analyze(oAcc,vChildId = 0){
 		ComObjError(False)
 		theMap := Object()
 		
