@@ -33,11 +33,18 @@ Class _Acc{
 		theMap["HelpTopic"] := oAcc.accHelpTopic(vChildId)
 		theMap["hWnd"] := := Acc_WindowFromObject(oAcc)
 		theMap["Path"] := "--" ;not implemented
-		
 		oAcc := ""
 		ComObjError(True)
-		
-		return theMap
-
+		if(_Acc.checkAnalyzeResult(theMap))
+			return theMap
+		else
+			throw throw(_EX.AccObjectException)
+	}
+	;------------------------------
+	checkAnalyzeResult(aMap){
+		if((aMap.ChildCount="")AND(aMap.RoleNum=""))
+			return false
+		else
+			return true
 	}
 } ;Class _Acc End

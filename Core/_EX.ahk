@@ -41,6 +41,7 @@ static NotOverride := "theObj in Class is Not Override 类中对象未被复写.
 static SingletonClass := "Instance Singleton Class 实例化单例类."
 static UnknownType := "Unknown Type 未知类型."
 static UserCancelled := "User cancelled 用户已取消."
+static AccObjectException := "ACC object exception ACC对象异常"
 
 }
 
