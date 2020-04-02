@@ -4,11 +4,14 @@
 */
 
 Class _Acc{
-	Analyze(){
+
+	AnalyzeFromPoint(ByRef _idChild_ = "", x = "", y = ""){
+		return _Acc.Analyze(Acc_ObjectFromPoint(_idChild_,x,y),_idChild_)
+	}
+	
+	Analyze(oAcc,vChildId = -4){
 		ComObjError(False)
 		theMap := Object()
-		oAcc := Acc_ObjectFromPoint(vChildId)
-		LogPrintln(vChildId,A_LineFile  "("  A_LineNumber  ")"  " : " "vChildId >>> `r`n")
 		
 		theMap["RoleNum"] := oAcc.accRole(vChildId)
 		theMap["RoleNumHex"] := Format("0x{:X}", vAccRoleNum)

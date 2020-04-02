@@ -22,7 +22,7 @@ FileEncoding , UTF-8
 #Include D:\AHKs\ahk_lib\Test\Lib.ahk
 
 PrintScreen::
-	theResult := _Acc.Analyze()
+	theResult := _Acc.AnalyzeFromPoint(vChildId)
 	LogPrintln(theResult,A_LineFile  "("  A_LineNumber  ")"  " : " "theResult >>> `r`n")
 return
 
