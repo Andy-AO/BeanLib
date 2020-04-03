@@ -6,6 +6,18 @@
 Class _Acc{
 	Static loaded := ""
 	;------------------------------
+	getSelection(aAccObj){
+		vSel := aAccObj.accSelection ;if one item selected, gets index, if multiple items selected, gets indexes as object
+		if IsObject(vSel)
+		{
+			oSel := vSel, vSel := ""
+			while oSel.Next(vValue, vType)
+				vSel .= (A_Index=1?"":",") vValue
+			oSel := ""
+		}
+		return vSel
+	}
+	;------------------------------
 	p_init(){
 		If Not _Acc.loaded
 			_Acc.loaded:=DllCall("LoadLibrary","Str","oleacc","Ptr")
@@ -64,7 +76,7 @@ Class _Acc{
 		theMap["StateTextAll"] := _Acc.getStateTextAll(theMap["StateNum"])
 		theMap["Action"] := oAcc.accDefaultAction(vChildId)
 		theMap["Focus"] := oAcc.accFocus
-		theMap["Selection"] := JEE_AccSelection(oAcc)
+		theMap["Selection"] := _Acc.getSelection(oAcc)
 		StrReplace(theMap["Selection"], ",",, vCount), vCount += 1
 		theMap["SelectionCount"] := (theMap["Selection"] = "") ? 0 : vCount
 		theMap["ChildCount"] := oAcc.accChildCount

@@ -58,12 +58,12 @@ return
 
 ;------------------------------
 
-/*
-PrintScreen::
+
+^PrintScreen::
 	theResult := _Acc.AnalyzeFromPoint(vChildId)
 	LogPrintln(theResult,A_LineFile  "("  A_LineNumber  ")"  " : " "theResult >>> `r`n")
 return
-*/
+
 
 #If WinActive(A_ScriptName)
 ;可以按下Alt+L查看最近运行的行
