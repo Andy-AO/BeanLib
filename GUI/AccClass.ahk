@@ -3,7 +3,7 @@
 /*
 说明:主要是对Acc-ComObj进行分析
 */
-Class _Acc{
+Class AccClass{
 	Static loaded := ""
 	;------------------------------
 	getSelection(aAccObj){
@@ -19,8 +19,8 @@ Class _Acc{
 	}
 	;------------------------------
 	p_init(){
-		If Not _Acc.loaded
-			_Acc.loaded:=DllCall("LoadLibrary","Str","oleacc","Ptr")
+		If Not AccClass.loaded
+			AccClass.loaded:=DllCall("LoadLibrary","Str","oleacc","Ptr")
 	}
 	;------------------------------
 	p_checkPathPathList(aPathList){
@@ -33,14 +33,14 @@ Class _Acc{
 	;------------------------------
 	p_pathToPathList(aPath){
 		thePathList := StrSplit(aPath , Delimiters := ".")
-		if(_Acc.p_checkPathPathList(thePathList))
+		if(AccClass.p_checkPathPathList(thePathList))
 			return thePathList
 		else
 			throw(_EX.InvalidPara "acc path 格式错误!")
 	}
 	;------------------------------
 	getChild(aAccObj,aIndex){
-		maxIndex := _Acc.Analyze(aAccObj).ChildCount
+		maxIndex := AccClass.Analyze(aAccObj).ChildCount
 		if(aIndex>maxIndex)
 			throw throw(_Ex.IndexOutOfBounds)
 		else
@@ -49,14 +49,14 @@ Class _Acc{
 	;------------------------------
 	ObjectFromPath(aAccObj,aPath){
 		theAccObj := aAccObj
-		thePathList := _Acc.p_pathToPathList(aPath)
+		thePathList := AccClass.p_pathToPathList(aPath)
 		for i,v in thePathList {
-			theAccObj := _Acc.getChild(theAccObj,v)
+			theAccObj := AccClass.getChild(theAccObj,v)
 		}
 		return theAccObj
 	}
 	AnalyzeFromPoint(ByRef _idChild_ = "", x = "", y = ""){
-		return _Acc.Analyze(Acc_ObjectFromPoint(_idChild_,x,y),_idChild_)
+		return AccClass.Analyze(Acc_ObjectFromPoint(_idChild_,x,y),_idChild_)
 	}
 	
 	Analyze(oAcc,vChildId = 0){
@@ -73,10 +73,10 @@ Class _Acc{
 		theMap["Value"] := oAcc.accValue(vChildId)
 		theMap["RoleText"] := Acc_GetRoleText(oAcc.accRole(vChildId))
 		theMap["StateText"] := Acc_GetStateText(oAcc.accState(vChildId))
-		theMap["StateTextAll"] := _Acc.getStateTextAll(theMap["StateNum"])
+		theMap["StateTextAll"] := AccClass.getStateTextAll(theMap["StateNum"])
 		theMap["Action"] := oAcc.accDefaultAction(vChildId)
 		theMap["Focus"] := oAcc.accFocus
-		theMap["Selection"] := _Acc.getSelection(oAcc)
+		theMap["Selection"] := AccClass.getSelection(oAcc)
 		StrReplace(theMap["Selection"], ",",, vCount), vCount += 1
 		theMap["SelectionCount"] := (theMap["Selection"] = "") ? 0 : vCount
 		theMap["ChildCount"] := oAcc.accChildCount
@@ -89,7 +89,7 @@ Class _Acc{
 		theMap["Path"] := "--" ;not implemented
 		oAcc := ""
 		ComObjError(True)
-		if(_Acc.p_checkAnalyzeResult(theMap))
+		if(AccClass.p_checkAnalyzeResult(theMap))
 			return theMap
 		else
 			throw throw(_EX.AccObjectException)
@@ -141,11 +141,11 @@ Class _Acc{
 		Loop, 30
 		{
 			if vState & vNum
-				vOutput .= _Acc.State[vNum] " "
+				vOutput .= AccClass.State[vNum] " "
 			vNum <<= 1 ;multiply by 2
 		}
 		vOutput := RTrim(vOutput)
 		return Format("{:L}", vOutput)
 	}
 
-} ;Class _Acc End
+} ;Class AccClass End
