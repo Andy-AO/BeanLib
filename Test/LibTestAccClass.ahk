@@ -31,9 +31,14 @@ LogPrintln(theAccObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj >>> `r
 
 LogPrintln(theAccObj.Analyze(),A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj.Analyze() >>> `r`n")
 
+
 thePath := "4.1.3"
 
 theAccObj := theAccObj.ObjectFromPath(thePath)
+
+
+return
+
 
 LogPrintln(theAccObj.Analyze(),A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj.Analyze() >>> `r`n")
 

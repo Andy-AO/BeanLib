@@ -4,6 +4,10 @@
 说明:主要是对Acc-ComObj进行分析
 */
 Class AccClass{
+	__Call(p*){
+		LogPrintln(p,A_LineFile  "("  A_LineNumber  ")"  " : " "p >>> `r`n")
+	}
+	;------------------------------
 	Static loaded := ""
 	accObj := ""
 	;------------------------------;静态区开始
