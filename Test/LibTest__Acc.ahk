@@ -28,26 +28,13 @@ LogPrintln(theWinObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theWinObj >>> `r
 
 theAccObj := Acc_ObjectFromWindow(theHWnd, theIdObject := 0)
 
-try{
-	theErrorPath := "4.9.9x"
-	theErrorAccObj := _Acc.ObjectFromPath(theAccObj,theErrorPath)
-}
-catch,ex{
-	LogPrintln(ex,A_LineFile  "("  A_LineNumber  ")"  " : " "ex >>> `r`n")
-}
-
-
-try{
-	theErrorPath := "4.9.9"
-	theErrorAccObj := _Acc.ObjectFromPath(theAccObj,theErrorPath)
-}
-catch,ex{
-	LogPrintln(ex,A_LineFile  "("  A_LineNumber  ")"  " : " "ex >>> `r`n")
-}
+LogPrintln(_Acc.Analyze(theAccObj),A_LineFile  "("  A_LineNumber  ")"  " : " "_Acc.Analyze(theAccObj) >>> `r`n")
 
 thePath := "4.1.3"
 
 theAccObj := _Acc.ObjectFromPath(theAccObj,thePath)
+
+LogPrintln(_Acc.Analyze(theAccObj),A_LineFile  "("  A_LineNumber  ")"  " : " "_Acc.Analyze(theAccObj) >>> `r`n")
 
 PrintScreen::
 	result := theAccObj.accDefaultAction(vChildId)
