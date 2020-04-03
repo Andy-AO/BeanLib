@@ -98,7 +98,7 @@ Class AccClass{
 		for i,v in thePathList {
 			theAccObj := AccClass.getChild(theAccObj,v)
 		}
-		return AccClass.__New(theAccObj)
+		return new AccClass(theAccObj)
 	}
 	;------------------------------;转换区结束
 
