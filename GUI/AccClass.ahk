@@ -11,6 +11,41 @@ Class AccClass{
 		If Not AccClass.loaded
 			AccClass.loaded:=DllCall("LoadLibrary","Str","oleacc","Ptr")
 	}
+	;------------------------------
+	getStateTextAll(vState){
+		vNum := 1,vOutput := ""
+		Loop, 30
+		{
+			if vState & vNum
+				vOutput .= AccClass.State[vNum] " "
+			vNum <<= 1 ;multiply by 2
+		}
+		vOutput := RTrim(vOutput)
+		return Format("{:L}", vOutput)
+	}
+	;------------------------------
+	p_checkAnalyzeResult(aMap){
+		if((aMap.ChildCount="")AND(aMap.RoleNum=""))
+			return false
+		else
+			return true
+	}
+	;------------------------------
+	p_checkPathPathList(aPathList){
+		for i,v in aPathList {
+			if(!(Type.isNumber(v)))
+				return false
+		}
+		return true
+	}
+	;------------------------------
+	p_pathToPathList(aPath){
+		thePathList := StrSplit(aPath , Delimiters := ".")
+		if(AccClass.p_checkPathPathList(thePathList))
+			return thePathList
+		else
+			throw(_EX.InvalidPara "acc path 格式错误!")
+	}
 	;------------------------------ ;转换区开始
 	ObjectFromWindow(hWnd, idObject := 0){ 
 		_Acc.p_init(),pacc := ""
@@ -53,6 +88,15 @@ Class AccClass{
 		else
 			throw throw(_EX.AccObjectException)
 	}
+	;------------------------------
+	ObjectFromPath(aPath){
+		theAccObj := this.accObj
+		thePathList := AccClass.p_pathToPathList(aPath)
+		for i,v in thePathList {
+			theAccObj := AccClass.getChild(theAccObj,v)
+		}
+		return AccClass.__New(theAccObj)
+	}
 	;------------------------------;转换区结束
 
 	__New(aAccObj){
@@ -72,22 +116,6 @@ Class AccClass{
 		return vSel
 	}
 	;------------------------------
-	p_checkPathPathList(aPathList){
-		for i,v in aPathList {
-			if(!(Type.isNumber(v)))
-				return false
-		}
-		return true
-	}
-	;------------------------------
-	p_pathToPathList(aPath){
-		thePathList := StrSplit(aPath , Delimiters := ".")
-		if(AccClass.p_checkPathPathList(thePathList))
-			return thePathList
-		else
-			throw(_EX.InvalidPara "acc path 格式错误!")
-	}
-	;------------------------------
 	getChild(aAccObj,aIndex){
 		maxIndex := AccClass.Analyze(aAccObj).ChildCount
 		if(aIndex>maxIndex)
@@ -96,26 +124,10 @@ Class AccClass{
 			return Acc_Children(aAccObj)[aIndex]
 	}
 	;------------------------------
-	ObjectFromPath(aPath){
-		theAccObj := this.accObj
-		thePathList := AccClass.p_pathToPathList(aPath)
-		for i,v in thePathList {
-			theAccObj := AccClass.getChild(theAccObj,v)
-		}
-		return AccClass.__New(theAccObj)
-	}
-	;------------------------------
 	AnalyzeFromPoint(ByRef _idChild_ = "", x = "", y = ""){
 		return AccClass.Analyze(Acc_ObjectFromPoint(_idChild_,x,y),_idChild_)
 	}
-	
 	;------------------------------
-	p_checkAnalyzeResult(aMap){
-		if((aMap.ChildCount="")AND(aMap.RoleNum=""))
-			return false
-		else
-			return true
-	}
 	;sources: WinUser.h, oleacc.h
 		;e.g. STATE_SYSTEM_SELECTED := 0x2
 		static State := {0x1:"UNAVAILABLE"
@@ -150,17 +162,5 @@ Class AccClass{
 		, 0x20000000:"PROTECTED"
 		, 0x40000000:"HASPOPUP"}
 	;------------------------------
-	
-	getStateTextAll(vState){
-		vNum := 1,vOutput := ""
-		Loop, 30
-		{
-			if vState & vNum
-				vOutput .= AccClass.State[vNum] " "
-			vNum <<= 1 ;multiply by 2
-		}
-		vOutput := RTrim(vOutput)
-		return Format("{:L}", vOutput)
-	}
 
 } ;Class AccClass End
