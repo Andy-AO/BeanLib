@@ -1,20 +1,41 @@
 ﻿
+
 /*
 说明:主要是对Acc-ComObj进行分析
 */
-
 Class _Acc{
-
+	p_checkPathPathList(aPathList){
+		for i,v in aPathList {
+			if(!(Type.isNumber(v)))
+				return false
+		}
+		return true
+	}
+	;------------------------------
+	p_pathToPathList(aPath){
+		thePathList := StrSplit(aPath , Delimiters := ".")
+		if(_Acc.p_checkPathPathList(thePathList))
+			return thePathList
+		else
+			throw(_EX.InvalidPara "acc path 格式错误!")
+	}
+	;------------------------------
+	getChild(aAccObj,aIndex){
+		maxIndex := _Acc.Analyze(aAccObj).ChildCount
+		if(aIndex>maxIndex)
+			throw throw(_Ex.IndexOutOfBounds)
+		else
+			return Acc_Children(aAccObj)[aIndex]
+	}
+	;------------------------------
 	ObjectFromPath(aAccObj,aPath){
 		theAccObj := aAccObj
-		thePathList := StrSplit(aPath , Delimiters := ".")
-		LogPrintln(thePathList,A_LineFile  "("  A_LineNumber  ")"  " : " "thePathList >>> `r`n")
+		thePathList := _Acc.p_pathToPathList(aPath)
 		for i,v in thePathList {
-			theAccObj := Acc_Children(theAccObj)[v]
+			theAccObj := _Acc.getChild(theAccObj,v)
 		}
 		return theAccObj
 	}
-
 	AnalyzeFromPoint(ByRef _idChild_ = "", x = "", y = ""){
 		return _Acc.Analyze(Acc_ObjectFromPoint(_idChild_,x,y),_idChild_)
 	}
@@ -23,8 +44,6 @@ Class _Acc{
 		ComObjError(False)
 		theMap := Object()
 		
-
-		LogPrintln(vChildId,A_LineFile  "("  A_LineNumber  ")"  " : " "vChildId >>> `r`n")
 		
 		theMap["RoleNum"] := oAcc.accRole(vChildId)
 		theMap["RoleNumHex"] := Format("0x{:X}", theMap["RoleNum"])
@@ -51,13 +70,13 @@ Class _Acc{
 		theMap["Path"] := "--" ;not implemented
 		oAcc := ""
 		ComObjError(True)
-		if(_Acc.checkAnalyzeResult(theMap))
+		if(_Acc.p_checkAnalyzeResult(theMap))
 			return theMap
 		else
 			throw throw(_EX.AccObjectException)
 	}
 	;------------------------------
-	checkAnalyzeResult(aMap){
+	p_checkAnalyzeResult(aMap){
 		if((aMap.ChildCount="")AND(aMap.RoleNum=""))
 			return false
 		else
