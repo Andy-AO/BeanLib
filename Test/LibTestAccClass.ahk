@@ -27,23 +27,11 @@ theWinObj := _Win.Analyze("ahk_id " theHWnd)
 LogPrintln(theWinObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theWinObj >>> `r`n")
 
 theAccObj := AccClass.ObjectFromWindow(theHWnd, theIdObject := 0)
+LogPrintln(theAccObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj >>> `r`n")
 
-try{
-	theErrorPath := "4.9.9x"
-	theErrorAccObj := theAccObj.ObjectFromPath(theErrorPath)
-}
-catch,ex{
-	LogPrintln(ex,A_LineFile  "("  A_LineNumber  ")"  " : " "ex >>> `r`n")
-}
+LogPrintln(theAccObj.Analyze(),A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj.Analyze(0) >>> `r`n")
 
-
-try{
-	theErrorPath := "4.9.9"
-	theErrorAccObj := theAccObj.ObjectFromPath(theErrorPath)
-}
-catch,ex{
-	LogPrintln(ex,A_LineFile  "("  A_LineNumber  ")"  " : " "ex >>> `r`n")
-}
+return
 
 thePath := "4.1.3"
 
