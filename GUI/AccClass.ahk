@@ -15,7 +15,7 @@ Class AccClass{
 	ObjectFromWindow(hWnd, idObject := 0){
 		_Acc.p_init(),pacc := ""
 		If	DllCall("oleacc\AccessibleObjectFromWindow", "Ptr", hWnd, "UInt", idObject&=0xFFFFFFFF, "Ptr", -VarSetCapacity(IID,16)+NumPut(idObject==0xFFFFFFF0?0x46000000000000C0:0x719B3800AA000C81,NumPut(idObject==0xFFFFFFF0?0x0000000000020400:0x11CF3C3D618736E0,IID,"Int64"),"Int64"), "Ptr*", pacc)=0
-		Return	this.__New(ComObjEnwrap(9,pacc,1))
+		Return	AccClass.__New(ComObjEnwrap(9,pacc,1))
 	}
 	;------------------------------
 	getSelection(aAccObj){
@@ -59,14 +59,15 @@ Class AccClass{
 			return Acc_Children(aAccObj)[aIndex]
 	}
 	;------------------------------
-	ObjectFromPath(aAccObj,aPath){
-		theAccObj := aAccObj
+	ObjectFromPath(aPath){
+		theAccObj := this.accObj
 		thePathList := AccClass.p_pathToPathList(aPath)
 		for i,v in thePathList {
 			theAccObj := AccClass.getChild(theAccObj,v)
 		}
-		return theAccObj
+		return AccClass.__New(theAccObj)
 	}
+	;------------------------------
 	AnalyzeFromPoint(ByRef _idChild_ = "", x = "", y = ""){
 		return AccClass.Analyze(Acc_ObjectFromPoint(_idChild_,x,y),_idChild_)
 	}
