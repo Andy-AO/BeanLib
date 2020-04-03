@@ -57,6 +57,7 @@ Class AccClass{
 
 	__New(aAccObj){
 		this.accObj := aAccObj
+		return this
 	}
 	;------------------------------
 	getSelection(aAccObj){
