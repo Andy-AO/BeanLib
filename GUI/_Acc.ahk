@@ -4,6 +4,13 @@
 说明:主要是对Acc-ComObj进行分析
 */
 Class _Acc{
+	Static loaded := ""
+	;------------------------------
+	p_init(){
+		If Not _Acc.loaded
+			_Acc.loaded:=DllCall("LoadLibrary","Str","oleacc","Ptr")
+	}
+	;------------------------------
 	p_checkPathPathList(aPathList){
 		for i,v in aPathList {
 			if(!(Type.isNumber(v)))
