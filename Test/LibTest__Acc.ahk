@@ -51,6 +51,7 @@ theAccObj := _Acc.ObjectFromPath(theAccObj,thePath)
 
 PrintScreen::
 	result := theAccObj.accDefaultAction(vChildId)
+	LogPrintln(_Acc.Analyze(theAccObj),A_LineFile  "("  A_LineNumber  ")"  " : " "_Acc.Analyze(theAccObj) >>> `r`n")
 	theAccObj.accDoDefaultAction(vChildId)
 	LogPrintln(result,A_LineFile  "("  A_LineNumber  ")"  " : " "result >>> `r`n")
 return
