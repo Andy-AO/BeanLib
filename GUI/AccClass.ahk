@@ -4,18 +4,56 @@
 说明:主要是对Acc-ComObj进行分析
 */
 Class AccClass{
+
+	;------------------------------ ;转换区开始
+	ObjectFromWindow(hWnd, idObject := 0){ 
+		_Acc.p_init(),pacc := ""
+		If	DllCall("oleacc\AccessibleObjectFromWindow", "Ptr", hWnd, "UInt", idObject&=0xFFFFFFFF, "Ptr", -VarSetCapacity(IID,16)+NumPut(idObject==0xFFFFFFF0?0x46000000000000C0:0x719B3800AA000C81,NumPut(idObject==0xFFFFFFF0?0x0000000000020400:0x11CF3C3D618736E0,IID,"Int64"),"Int64"), "Ptr*", pacc)=0
+		Return	AccClass.__New(ComObjEnwrap(9,pacc,1))
+	}
+	;------------------------------
+	Analyze(vChildId := 0){
+		oAcc := this.accObj
+		ComObjError(False)
+		theMap := Object()
+	
+		theMap["RoleNum"] := oAcc.accRole(vChildId)
+		theMap["RoleNumHex"] := Format("0x{:X}", theMap["RoleNum"])
+		theMap["StateNum"] := oAcc.accState(vChildId)
+		theMap["StateNumHex"] := Format("0x{:X}", theMap["StateNum"])
+		oRect := Acc_Location(oAcc, vChildId)
+		theMap["Name"] := oAcc.accName(vChildId)
+		theMap["Value"] := oAcc.accValue(vChildId)
+		theMap["RoleText"] := Acc_GetRoleText(oAcc.accRole(vChildId))
+		theMap["StateText"] := Acc_GetStateText(oAcc.accState(vChildId))
+		theMap["StateTextAll"] := AccClass.getStateTextAll(theMap["StateNum"])
+		theMap["Action"] := oAcc.accDefaultAction(vChildId)
+		theMap["Focus"] := oAcc.accFocus
+		theMap["Selection"] := AccClass.getSelection(oAcc)
+		StrReplace(theMap["Selection"], ",",, vCount), vCount += 1
+		theMap["SelectionCount"] := (theMap["Selection"] = "") ? 0 : vCount
+		theMap["ChildCount"] := oAcc.accChildCount
+		theMap["Location"] := Format("X{} Y{} W{} H{}", oRect.x, oRect.y, oRect.w, oRect.h)
+		theMap["Description"] := oAcc.accDescription(vChildId)
+		theMap["Keyboard"] := oAcc.accKeyboardShortCut(vChildId)
+		theMap["Help"] := oAcc.accHelp(vChildId)
+		theMap["HelpTopic"] := oAcc.accHelpTopic(vChildId)
+		theMap["hWnd"] := := Acc_WindowFromObject(oAcc)
+		theMap["Path"] := "--" ;not implemented
+		oAcc := ""
+		ComObjError(True)
+		if(AccClass.p_checkAnalyzeResult(theMap))
+			return theMap
+		else
+			throw throw(_EX.AccObjectException)
+	}
+	;------------------------------;转换区结束
+	
 	Static loaded := ""
 	accObj := ""
 	;------------------------------
 	__New(aAccObj){
 		this.accObj := aAccObj
-		return this
-	}
-	;------------------------------
-	ObjectFromWindow(hWnd, idObject := 0){
-		_Acc.p_init(),pacc := ""
-		If	DllCall("oleacc\AccessibleObjectFromWindow", "Ptr", hWnd, "UInt", idObject&=0xFFFFFFFF, "Ptr", -VarSetCapacity(IID,16)+NumPut(idObject==0xFFFFFFF0?0x46000000000000C0:0x719B3800AA000C81,NumPut(idObject==0xFFFFFFF0?0x0000000000020400:0x11CF3C3D618736E0,IID,"Int64"),"Int64"), "Ptr*", pacc)=0
-		Return	AccClass.__New(ComObjEnwrap(9,pacc,1))
 	}
 	;------------------------------
 	getSelection(aAccObj){
@@ -72,42 +110,6 @@ Class AccClass{
 		return AccClass.Analyze(Acc_ObjectFromPoint(_idChild_,x,y),_idChild_)
 	}
 	
-	Analyze(vChildId := 0){
-		oAcc := this.accObj
-		ComObjError(False)
-		theMap := Object()
-		
-		
-		theMap["RoleNum"] := oAcc.accRole(vChildId)
-		theMap["RoleNumHex"] := Format("0x{:X}", theMap["RoleNum"])
-		theMap["StateNum"] := oAcc.accState(vChildId)
-		theMap["StateNumHex"] := Format("0x{:X}", theMap["StateNum"])
-		oRect := Acc_Location(oAcc, vChildId)
-		theMap["Name"] := oAcc.accName(vChildId)
-		theMap["Value"] := oAcc.accValue(vChildId)
-		theMap["RoleText"] := Acc_GetRoleText(oAcc.accRole(vChildId))
-		theMap["StateText"] := Acc_GetStateText(oAcc.accState(vChildId))
-		theMap["StateTextAll"] := AccClass.getStateTextAll(theMap["StateNum"])
-		theMap["Action"] := oAcc.accDefaultAction(vChildId)
-		theMap["Focus"] := oAcc.accFocus
-		theMap["Selection"] := AccClass.getSelection(oAcc)
-		StrReplace(theMap["Selection"], ",",, vCount), vCount += 1
-		theMap["SelectionCount"] := (theMap["Selection"] = "") ? 0 : vCount
-		theMap["ChildCount"] := oAcc.accChildCount
-		theMap["Location"] := Format("X{} Y{} W{} H{}", oRect.x, oRect.y, oRect.w, oRect.h)
-		theMap["Description"] := oAcc.accDescription(vChildId)
-		theMap["Keyboard"] := oAcc.accKeyboardShortCut(vChildId)
-		theMap["Help"] := oAcc.accHelp(vChildId)
-		theMap["HelpTopic"] := oAcc.accHelpTopic(vChildId)
-		theMap["hWnd"] := := Acc_WindowFromObject(oAcc)
-		theMap["Path"] := "--" ;not implemented
-		oAcc := ""
-		ComObjError(True)
-		if(AccClass.p_checkAnalyzeResult(theMap))
-			return theMap
-		else
-			throw throw(_EX.AccObjectException)
-	}
 	;------------------------------
 	p_checkAnalyzeResult(aMap){
 		if((aMap.ChildCount="")AND(aMap.RoleNum=""))
