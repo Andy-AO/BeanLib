@@ -29,13 +29,13 @@ LogPrintln(theWinObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theWinObj >>> `r
 theAccObj := AccClass.ObjectFromWindow(theHWnd, theIdObject := 0)
 LogPrintln(theAccObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj >>> `r`n")
 
-LogPrintln(theAccObj.Analyze(),A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj.Analyze(0) >>> `r`n")
-
-return
+LogPrintln(theAccObj.Analyze(),A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj.Analyze() >>> `r`n")
 
 thePath := "4.1.3"
 
 theAccObj := theAccObj.ObjectFromPath(thePath)
+
+LogPrintln(theAccObj.Analyze(),A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj.Analyze() >>> `r`n")
 
 PrintScreen::
 	result := theAccObj.accDefaultAction(vChildId)
