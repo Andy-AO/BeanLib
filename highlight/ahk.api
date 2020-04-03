@@ -17,6 +17,7 @@ _EX
 assert (Boolean,[Mes:="No Info"])
 ExcelToList()
 _Acc
+AccClass
 
 ;String Method
 .ToList ()
