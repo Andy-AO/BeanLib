@@ -164,11 +164,8 @@ getProcessName(aWinTitle){
 	}
 
 ;---------------------------------------------------------------------- 
-
-;---------------------------------------------------------------------- 
 	
 		SwapDetectHidden(aFuncId,aConfig){
-			;~ LogPrintln(aFuncId,"aFuncId >" ">> ")
 			
 			if (aConfig="")
 				return
@@ -185,14 +182,11 @@ getProcessName(aWinTitle){
 				_Win.originalDetectHiddenWindows[aFuncId]:=A_DetectHiddenWindows
 				DetectHiddenWindows,%aConfig%
 			}
-
-			
+		
 			else{
 				DetectHiddenWindows,% _Win.originalDetectHiddenWindows[aFuncId]
 				_Win.originalDetectHiddenWindows[aFuncId]:=""
 			}
 			return
 	}
-
-
 }
