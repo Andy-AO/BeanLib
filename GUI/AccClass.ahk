@@ -4,7 +4,13 @@
 说明:主要是对Acc-ComObj进行分析
 */
 Class AccClass{
-
+	Static loaded := ""
+	accObj := ""
+	;------------------------------;静态区开始
+	p_init(){
+		If Not AccClass.loaded
+			AccClass.loaded:=DllCall("LoadLibrary","Str","oleacc","Ptr")
+	}
 	;------------------------------ ;转换区开始
 	ObjectFromWindow(hWnd, idObject := 0){ 
 		_Acc.p_init(),pacc := ""
@@ -48,10 +54,7 @@ Class AccClass{
 			throw throw(_EX.AccObjectException)
 	}
 	;------------------------------;转换区结束
-	
-	Static loaded := ""
-	accObj := ""
-	;------------------------------
+
 	__New(aAccObj){
 		this.accObj := aAccObj
 	}
@@ -66,11 +69,6 @@ Class AccClass{
 			oSel := ""
 		}
 		return vSel
-	}
-	;------------------------------
-	p_init(){
-		If Not AccClass.loaded
-			AccClass.loaded:=DllCall("LoadLibrary","Str","oleacc","Ptr")
 	}
 	;------------------------------
 	p_checkPathPathList(aPathList){
