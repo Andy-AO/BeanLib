@@ -6,6 +6,19 @@
 Class AccWrapper{
 	Static loaded := ""
 	accObj := ""
+	;------------------------------
+	__New(aAccObj){
+		this.accObj := aAccObj
+		LogPrintln(this,A_LineFile  "("  A_LineNumber  ")"  " : " "this >>> `r`n")
+		this.__Call := AccWrapper.MetaFunction.__Call
+	}
+	;------------------------------
+	Class MetaFunction{
+		__Call(p*){
+			LogPrintln(p,A_LineFile  "("  A_LineNumber  ")"  " : " "p >>> `r`n")
+			return
+		}
+	}
 	;------------------------------;静态区开始
 	p_init(){
 		If Not AccWrapper.loaded
@@ -100,14 +113,8 @@ Class AccWrapper{
 		}
 		return theAccWrapper
 	}
-	;------------------------------
-	__New(aAccObj){
-		this.accObj := aAccObj
-	}
-	
-	
+
 	;------------------------------;转换区结束
-	
 	
 	
 	getSelection(aAccObj){
