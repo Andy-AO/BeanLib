@@ -1,5 +1,10 @@
 ﻿
 
+		AAAAAAAAAAAAAA(p*){
+			LogPrintln(p,A_LineFile  "("  A_LineNumber  ")"  " : " "p >>> `r`n")
+			return
+		}
+		
 /*
 说明:主要是对Acc-ComObj进行分析
 */
@@ -10,14 +15,7 @@ Class AccWrapper{
 	__New(aAccObj){
 		this.accObj := aAccObj
 		LogPrintln(this,A_LineFile  "("  A_LineNumber  ")"  " : " "this >>> `r`n")
-		this.__Call := AccWrapper.MetaFunction.__Call
-	}
-	;------------------------------
-	Class MetaFunction{
-		__Call(p*){
-			LogPrintln(p,A_LineFile  "("  A_LineNumber  ")"  " : " "p >>> `r`n")
-			return
-		}
+		this.__Call := Func("AAAAAAAAAAAAAA")
 	}
 	;------------------------------;静态区开始
 	p_init(){
