@@ -4,12 +4,6 @@
 说明:主要是对Acc-ComObj进行分析
 */
 Class AccWrapper{
-/*
-	__Call(p*){
-		LogPrintln(p,A_LineFile  "("  A_LineNumber  ")"  " : " "p >>> `r`n")
-	}
-*/
-	;------------------------------
 	Static loaded := ""
 	accObj := ""
 	;------------------------------;静态区开始
@@ -60,7 +54,7 @@ Class AccWrapper{
 		Return	new AccWrapper(ComObjEnwrap(9,pacc,1))
 	}
 	;------------------------------ ;静态区结束
-	
+;——————————————————————————————————————————————————————————————————————————————	
 	;------------------------------ ;转换区开始
 	Analyze(vChildId := 0){
 		oAcc := this.accObj
@@ -102,9 +96,7 @@ Class AccWrapper{
 		thePathList := AccWrapper.p_pathToPathList(aPath)
 		theAccWrapper := this
 		for i,v in thePathList {
-			LogPrintln(v,A_LineFile  "("  A_LineNumber  ")"  " : " "v >>> `r`n")
 			theAccWrapper := theAccWrapper.getChild(v)
-			LogPrintln(theAccWrapper.Analyze(0),A_LineFile  "("  A_LineNumber  ")"  " : " "theAccWrapper.Analyze(0) >>> `r`n")
 		}
 		return theAccWrapper
 	}
@@ -112,7 +104,12 @@ Class AccWrapper{
 	__New(aAccObj){
 		this.accObj := aAccObj
 	}
+	
+	
 	;------------------------------;转换区结束
+	
+	
+	
 	getSelection(aAccObj){
 		vSel := aAccObj.accSelection ;if one item selected, gets index, if multiple items selected, gets indexes as object
 		if IsObject(vSel)
@@ -127,7 +124,6 @@ Class AccWrapper{
 	;------------------------------
 	getChild(aIndex){
 		maxIndex := this.Analyze().ChildCount
-		LogPrintln(maxIndex,A_LineFile  "("  A_LineNumber  ")"  " : " "maxIndex >>> `r`n")
 		if(aIndex>maxIndex)
 			throw throw(_Ex.IndexOutOfBounds)
 		else
@@ -172,5 +168,4 @@ Class AccWrapper{
 		, 0x20000000:"PROTECTED"
 		, 0x40000000:"HASPOPUP"}
 	;------------------------------
-
 } ;Class AccWrapper End
