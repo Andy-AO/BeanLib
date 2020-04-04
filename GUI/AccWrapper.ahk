@@ -1,21 +1,21 @@
 ﻿
-
-		AAAAAAAAAAAAAA(p*){
-			LogPrintln(p,A_LineFile  "("  A_LineNumber  ")"  " : " "p >>> `r`n")
-			return
-		}
-		
 /*
 说明:主要是对Acc-ComObj进行分析
 */
 Class AccWrapper{
 	Static loaded := ""
-	accObj := ""
+	p_accObj := ""
+	;------------------------------
+	get(p*){
+		return this.p_accObj
+	}
+	;------------------------------
+	set(aAccObj,p*){
+		return this.p_accObj := aAccObj
+	}
 	;------------------------------
 	__New(aAccObj){
-		this.accObj := aAccObj
-		LogPrintln(this,A_LineFile  "("  A_LineNumber  ")"  " : " "this >>> `r`n")
-		this.__Call := Func("AAAAAAAAAAAAAA")
+		this.set(aAccObj) 
 	}
 	;------------------------------;静态区开始
 	p_init(){
@@ -68,7 +68,7 @@ Class AccWrapper{
 ;——————————————————————————————————————————————————————————————————————————————	
 	;------------------------------ ;转换区开始
 	Analyze(vChildId := 0){
-		oAcc := this.accObj
+		oAcc := this.get()
 		ComObjError(False)
 		theMap := Object()
 	
@@ -132,7 +132,7 @@ Class AccWrapper{
 		if(aIndex>maxIndex)
 			throw throw(_Ex.IndexOutOfBounds)
 		else
-			return new AccWrapper(Acc_Children(this.accObj)[aIndex])
+			return new AccWrapper(Acc_Children(this.get())[aIndex])
 	}
 	;------------------------------
 	AnalyzeFromPoint(ByRef _idChild_ = "", x = "", y = ""){
