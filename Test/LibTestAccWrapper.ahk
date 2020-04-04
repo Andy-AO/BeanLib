@@ -29,18 +29,20 @@ LogPrintln(theWinObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theWinObj >>> `r
 theAccObj := AccWrapper.ObjectFromWindow(theHWnd, theIdObject := 0)
 LogPrintln(theAccObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj >>> `r`n")
 
-LogPrintln(theAccObj.Analyze(),A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj.Analyze() >>> `r`n")
-
+LogPrintln(theAccObj.Analyze(0),A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj.Analyze(0) >>> `r`n")
 
 thePath := "4.1.3"
 
+;在这里可能生成了错误的ACC对象
 theAccObj := theAccObj.ObjectFromPath(thePath)
 
 
+LogPrintln(theAccObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj >>> `r`n")
+
+LogPrintln(theAccObj.Analyze(0),A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj.Analyze(0) >>> `r`n")
+
 return
 
-
-LogPrintln(theAccObj.Analyze(),A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj.Analyze() >>> `r`n")
 
 PrintScreen::
 	result := theAccObj.accDefaultAction(vChildId)

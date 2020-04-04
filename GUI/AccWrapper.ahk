@@ -99,20 +99,20 @@ Class AccWrapper{
 	}
 	;------------------------------
 	ObjectFromPath(aPath){
-		theAccObj := this.accObj
 		thePathList := AccWrapper.p_pathToPathList(aPath)
+		theAccWrapper := this
 		for i,v in thePathList {
-			theAccObj := AccWrapper.getChild(theAccObj,v)
+			LogPrintln(v,A_LineFile  "("  A_LineNumber  ")"  " : " "v >>> `r`n")
+			theAccWrapper := theAccWrapper.getChild(v)
+			LogPrintln(theAccWrapper.Analyze(0),A_LineFile  "("  A_LineNumber  ")"  " : " "theAccWrapper.Analyze(0) >>> `r`n")
 		}
-		return new AccWrapper(theAccObj)
-	}
-	;------------------------------;转换区结束
-
-	__New(aAccObj){
-		this.accObj := aAccObj
-		return this
+		return theAccWrapper
 	}
 	;------------------------------
+	__New(aAccObj){
+		this.accObj := aAccObj
+	}
+	;------------------------------;转换区结束
 	getSelection(aAccObj){
 		vSel := aAccObj.accSelection ;if one item selected, gets index, if multiple items selected, gets indexes as object
 		if IsObject(vSel)
@@ -125,12 +125,13 @@ Class AccWrapper{
 		return vSel
 	}
 	;------------------------------
-	getChild(aAccObj,aIndex){
-		maxIndex := AccWrapper.Analyze(aAccObj).ChildCount
+	getChild(aIndex){
+		maxIndex := this.Analyze().ChildCount
+		LogPrintln(maxIndex,A_LineFile  "("  A_LineNumber  ")"  " : " "maxIndex >>> `r`n")
 		if(aIndex>maxIndex)
 			throw throw(_Ex.IndexOutOfBounds)
 		else
-			return Acc_Children(aAccObj)[aIndex]
+			return new AccWrapper(Acc_Children(this.accObj)[aIndex])
 	}
 	;------------------------------
 	AnalyzeFromPoint(ByRef _idChild_ = "", x = "", y = ""){
