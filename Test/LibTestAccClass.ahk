@@ -26,7 +26,7 @@ WinGet, theHWnd, ID , %theWinTitle%
 theWinObj := _Win.Analyze("ahk_id " theHWnd)
 LogPrintln(theWinObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theWinObj >>> `r`n")
 
-theAccObj := AccClass.ObjectFromWindow(theHWnd, theIdObject := 0)
+theAccObj := AccWrapper.ObjectFromWindow(theHWnd, theIdObject := 0)
 LogPrintln(theAccObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj >>> `r`n")
 
 LogPrintln(theAccObj.Analyze(),A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj.Analyze() >>> `r`n")

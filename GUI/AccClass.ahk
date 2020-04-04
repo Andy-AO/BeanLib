@@ -3,7 +3,7 @@
 /*
 说明:主要是对Acc-ComObj进行分析
 */
-Class AccClass{
+Class AccWrapper{
 	__Call(p*){
 		LogPrintln(p,A_LineFile  "("  A_LineNumber  ")"  " : " "p >>> `r`n")
 	}
@@ -12,8 +12,8 @@ Class AccClass{
 	accObj := ""
 	;------------------------------;静态区开始
 	p_init(){
-		If Not AccClass.loaded
-			AccClass.loaded:=DllCall("LoadLibrary","Str","oleacc","Ptr")
+		If Not AccWrapper.loaded
+			AccWrapper.loaded:=DllCall("LoadLibrary","Str","oleacc","Ptr")
 	}
 	;------------------------------
 	getStateTextAll(vState){
@@ -21,7 +21,7 @@ Class AccClass{
 		Loop, 30
 		{
 			if vState & vNum
-				vOutput .= AccClass.State[vNum] " "
+				vOutput .= AccWrapper.State[vNum] " "
 			vNum <<= 1 ;multiply by 2
 		}
 		vOutput := RTrim(vOutput)
@@ -45,7 +45,7 @@ Class AccClass{
 	;------------------------------
 	p_pathToPathList(aPath){
 		thePathList := StrSplit(aPath , Delimiters := ".")
-		if(AccClass.p_checkPathPathList(thePathList))
+		if(AccWrapper.p_checkPathPathList(thePathList))
 			return thePathList
 		else
 			throw(_EX.InvalidPara "acc path 格式错误!")
@@ -55,7 +55,7 @@ Class AccClass{
 	ObjectFromWindow(hWnd, idObject := 0){ 
 		_Acc.p_init(),pacc := ""
 		If	DllCall("oleacc\AccessibleObjectFromWindow", "Ptr", hWnd, "UInt", idObject&=0xFFFFFFFF, "Ptr", -VarSetCapacity(IID,16)+NumPut(idObject==0xFFFFFFF0?0x46000000000000C0:0x719B3800AA000C81,NumPut(idObject==0xFFFFFFF0?0x0000000000020400:0x11CF3C3D618736E0,IID,"Int64"),"Int64"), "Ptr*", pacc)=0
-		Return	new AccClass(ComObjEnwrap(9,pacc,1))
+		Return	new AccWrapper(ComObjEnwrap(9,pacc,1))
 	}
 	;------------------------------ ;静态区结束
 	
@@ -74,10 +74,10 @@ Class AccClass{
 		theMap["Value"] := oAcc.accValue(vChildId)
 		theMap["RoleText"] := Acc_GetRoleText(oAcc.accRole(vChildId))
 		theMap["StateText"] := Acc_GetStateText(oAcc.accState(vChildId))
-		theMap["StateTextAll"] := AccClass.getStateTextAll(theMap["StateNum"])
+		theMap["StateTextAll"] := AccWrapper.getStateTextAll(theMap["StateNum"])
 		theMap["Action"] := oAcc.accDefaultAction(vChildId)
 		theMap["Focus"] := oAcc.accFocus
-		theMap["Selection"] := AccClass.getSelection(oAcc)
+		theMap["Selection"] := AccWrapper.getSelection(oAcc)
 		StrReplace(theMap["Selection"], ",",, vCount), vCount += 1
 		theMap["SelectionCount"] := (theMap["Selection"] = "") ? 0 : vCount
 		theMap["ChildCount"] := oAcc.accChildCount
@@ -90,7 +90,7 @@ Class AccClass{
 		theMap["Path"] := "--" ;not implemented
 		oAcc := ""
 		ComObjError(True)
-		if(AccClass.p_checkAnalyzeResult(theMap))
+		if(AccWrapper.p_checkAnalyzeResult(theMap))
 			return theMap
 		else
 			throw throw(_EX.AccObjectException)
@@ -98,11 +98,11 @@ Class AccClass{
 	;------------------------------
 	ObjectFromPath(aPath){
 		theAccObj := this.accObj
-		thePathList := AccClass.p_pathToPathList(aPath)
+		thePathList := AccWrapper.p_pathToPathList(aPath)
 		for i,v in thePathList {
-			theAccObj := AccClass.getChild(theAccObj,v)
+			theAccObj := AccWrapper.getChild(theAccObj,v)
 		}
-		return new AccClass(theAccObj)
+		return new AccWrapper(theAccObj)
 	}
 	;------------------------------;转换区结束
 
@@ -124,7 +124,7 @@ Class AccClass{
 	}
 	;------------------------------
 	getChild(aAccObj,aIndex){
-		maxIndex := AccClass.Analyze(aAccObj).ChildCount
+		maxIndex := AccWrapper.Analyze(aAccObj).ChildCount
 		if(aIndex>maxIndex)
 			throw throw(_Ex.IndexOutOfBounds)
 		else
@@ -132,7 +132,7 @@ Class AccClass{
 	}
 	;------------------------------
 	AnalyzeFromPoint(ByRef _idChild_ = "", x = "", y = ""){
-		return AccClass.Analyze(Acc_ObjectFromPoint(_idChild_,x,y),_idChild_)
+		return AccWrapper.Analyze(Acc_ObjectFromPoint(_idChild_,x,y),_idChild_)
 	}
 	;------------------------------
 	;sources: WinUser.h, oleacc.h
@@ -170,4 +170,4 @@ Class AccClass{
 		, 0x40000000:"HASPOPUP"}
 	;------------------------------
 
-} ;Class AccClass End
+} ;Class AccWrapper End
