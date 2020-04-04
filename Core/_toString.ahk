@@ -66,7 +66,12 @@
 
 	funcObj(aObj){
 		if (type.isFuncObj(aObj)){
-			return aObj.name "()"
+			theMap := Object()
+			theMap.Name := aObj.Name
+			theMap.IsBuiltIn := aObj.IsBuiltIn
+			theMap.IsVariadic := aObj.IsVariadic
+			theMap.MinParams := aObj.MinParams
+			theMap.MaxParams := aObj.MaxParams
 		}
 		else{
 			return "*NotFunc*:"toString(aObj)
