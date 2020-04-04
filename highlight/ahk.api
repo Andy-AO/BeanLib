@@ -500,6 +500,7 @@ Object ([Key1, Value1, Key2, Value2, ..., ..., Key_n, Value_n])
 .Insert (Index, Value1, Value2, ..., Value_n)
 .Remove (Key)
 .get (Key)
+.set (Key)
 .Remove (First, "")
 .Remove (First, Last)
 
