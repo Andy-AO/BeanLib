@@ -45,9 +45,9 @@ return
 
 
 PrintScreen::
-	result := theAccObj.accDefaultAction(vChildId)
+	result := theAccObj.get().accDefaultAction(vChildId)
 	LogPrintln(theAccObj.Analyze(theAccObj),A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj.Analyze(theAccObj) >>> `r`n")
-	theAccObj.accDoDefaultAction(vChildId)
+	theAccObj.get().accDoDefaultAction(vChildId)
 	LogPrintln(result,A_LineFile  "("  A_LineNumber  ")"  " : " "result >>> `r`n")
 return
 
