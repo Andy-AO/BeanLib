@@ -1,6 +1,6 @@
 ﻿Class TypeClass{
 	static staticPath := "D:\AHKs\ahk_lib\Test\LibTest_toString().ahk"
-	ComObj := Acc_ObjectFromPoint(vChildId)
+	ComObj := AccWrapper.ObjectFromPoint(vChildId).get()
 	Obj := Object()
 	ExtendsObj := new AutoInputBox("输入要增加的页码","输入要增加的页码")
 	Class := AutoInputBox
