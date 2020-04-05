@@ -16,8 +16,7 @@ objhaskey(Object , Key)
 _EX
 assert (Boolean,[Mes:="No Info"])
 ExcelToList()
-_Acc
-AccClass
+AccWrapper
 
 ;String Method
 .ToList ()
