@@ -55,7 +55,7 @@ return
 
 
 ^PrintScreen::
-	theResult := _Acc.AnalyzeFromPoint(vChildId)
+	theResult := AccWrapper.AnalyzeFromPoint(vChildId)
 	LogPrintln(theResult,A_LineFile  "("  A_LineNumber  ")"  " : " "theResult >>> `r`n")
 return
 
