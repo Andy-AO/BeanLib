@@ -135,7 +135,7 @@ Class AccWrapper{
 		theMap["StateTextAll"] := AccWrapper.getStateTextAll(theMap["StateNum"])
 		theMap["Action"] := oAcc.accDefaultAction(vChildId)
 		theMap["Focus"] := oAcc.accFocus
-		theMap["Selection"] := AccWrapper.getSelection(oAcc)
+		theMap["Selection"] := this.getSelection()
 		StrReplace(theMap["Selection"], ",",, vCount), vCount += 1
 		theMap["SelectionCount"] := (theMap["Selection"] = "") ? 0 : vCount
 		theMap["ChildCount"] := oAcc.accChildCount
@@ -170,14 +170,9 @@ Class AccWrapper{
 		else
 			return new AccWrapper(Acc_Children(this.get())[aIndex])
 	}
-	;------------------------------;转换区结束
-	
-;——————————————————————————————————
-
-	;------------------------------待处理开始
-
-	getSelection(aAccObj){
-		vSel := aAccObj.accSelection ;if one item selected, gets index, if multiple items selected, gets indexes as object
+	;------------------------------;
+	getSelection(){
+		vSel := this.get().accSelection ;if one item selected, gets index, if multiple items selected, gets indexes as object
 		if IsObject(vSel)
 		{
 			oSel := vSel, vSel := ""
@@ -187,6 +182,13 @@ Class AccWrapper{
 		}
 		return vSel
 	}
+	;------------------------------;转换区结束
+	
+;——————————————————————————————————
+
+	;------------------------------待处理开始
+
+
 
 	;------------------------------待处理结束
 
