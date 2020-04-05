@@ -5,7 +5,7 @@
 Class AccWrapper{
 	p_accObj := ""
 	;------------------------------
-	Static loaded := ""
+	Static loaded := "",setting := 0
 	;sources: WinUser.h, oleacc.h
 	;e.g. STATE_SYSTEM_SELECTED := 0x2
 	static State := {0x1:"UNAVAILABLE"
@@ -115,9 +115,31 @@ Class AccWrapper{
 		If	DllCall("oleacc\AccessibleObjectFromWindow", "Ptr", hWnd, "UInt", idObject&=0xFFFFFFFF, "Ptr", -VarSetCapacity(IID,16)+NumPut(idObject==0xFFFFFFF0?0x46000000000000C0:0x719B3800AA000C81,NumPut(idObject==0xFFFFFFF0?0x0000000000020400:0x11CF3C3D618736E0,IID,"Int64"),"Int64"), "Ptr*", pacc)=0
 		Return	new AccWrapper(ComObjEnwrap(9,pacc,1))
 	}
+
+	getRoleText(nRole){
+		nSize := DllCall("oleacc\GetRoleText", "Uint", nRole, "Ptr", 0, "Uint", 0)
+		VarSetCapacity(sRole, (A_IsUnicode?2:1)*nSize)
+		DllCall("oleacc\GetRoleText", "Uint", nRole, "str", sRole, "Uint", nSize+1)
+		Return	sRole
+	}
+
+	getGetStateText(nState){
+		nSize := DllCall("oleacc\GetStateText", "Uint", nState, "Ptr", 0, "Uint", 0)
+		VarSetCapacity(sState, (A_IsUnicode?2:1)*nSize)
+		DllCall("oleacc\GetStateText", "Uint", nState, "str", sState, "Uint", nSize+1)
+		Return	sState
+	}
 	;------------------------------ ;静态区结束
 ;——————————————————————————————————————————————————————————————————————————————	
 	;------------------------------ ;转换区开始
+	Location(ChildId = 0, byref Position = "") { ; adapted from Sean's code
+		try 
+			this.get().accLocation(ComObj(0x4003,&x:=0), ComObj(0x4003,&y:=0), ComObj(0x4003,&w:=0), ComObj(0x4003,&h:=0), ChildId)
+		catch
+			return
+		Position := "x" NumGet(x,0,"int") " y" NumGet(y,0,"int") " w" NumGet(w,0,"int") " h" NumGet(h,0,"int")
+		return	{x:NumGet(x,0,"int"), y:NumGet(y,0,"int"), w:NumGet(w,0,"int"), h:NumGet(h,0,"int")}
+	}
 	Analyze(vChildId := 0){
 		oAcc := this.get()
 		ComObjError(False)
@@ -127,11 +149,11 @@ Class AccWrapper{
 		theMap["RoleNumHex"] := Format("0x{:X}", theMap["RoleNum"])
 		theMap["StateNum"] := oAcc.accState(vChildId)
 		theMap["StateNumHex"] := Format("0x{:X}", theMap["StateNum"])
-		oRect := Acc_Location(oAcc, vChildId)
+		oRect := this.Location(vChildId)
 		theMap["Name"] := oAcc.accName(vChildId)
 		theMap["Value"] := oAcc.accValue(vChildId)
-		theMap["RoleText"] := Acc_GetRoleText(oAcc.accRole(vChildId))
-		theMap["StateText"] := Acc_GetStateText(oAcc.accState(vChildId))
+		theMap["RoleText"] := AccWrapper.getRoleText(oAcc.accRole(vChildId))
+		theMap["StateText"] := AccWrapper.getStateText(oAcc.accState(vChildId))
 		theMap["StateTextAll"] := AccWrapper.getStateTextAll(theMap["StateNum"])
 		theMap["Action"] := oAcc.accDefaultAction(vChildId)
 		theMap["Focus"] := oAcc.accFocus
@@ -144,7 +166,7 @@ Class AccWrapper{
 		theMap["Keyboard"] := oAcc.accKeyboardShortCut(vChildId)
 		theMap["Help"] := oAcc.accHelp(vChildId)
 		theMap["HelpTopic"] := oAcc.accHelpTopic(vChildId)
-		theMap["hWnd"] := := Acc_WindowFromObject(oAcc)
+		theMap["hWnd"] := this.getWindowHWnd()
 		theMap["Path"] := "--" ;not implemented
 		oAcc := ""
 		ComObjError(True)
@@ -152,6 +174,12 @@ Class AccWrapper{
 			return theMap
 		else
 			throw throw(_EX.AccObjectException)
+	}
+	;------------------------------
+	getWindowHWnd(){
+		pacc := this.get(),hWnd := ""
+		If	DllCall("oleacc\WindowFromAccessibleObject", "Ptr", IsObject(pacc)?ComObjValue(pacc):pacc, "Ptr*", hWnd)=0
+		Return	hWnd
 	}
 	;------------------------------
 	ObjectFromPath(aPath){
@@ -163,12 +191,37 @@ Class AccWrapper{
 		return theAccWrapper
 	}
 	;------------------------------
+	p_getQuery(aAccObj) { ; thanks Lexikos - www.autohotkey.com/forum/viewtopic.php?t=81731&p=509530#509530
+		try return ComObj(9, ComObjQuery(aAccObj,"{618736e0-3c3d-11cf-810c-00aa00389b71}"), 1)
+	}
+	;------------------------------
+	p_Error(p="") {
+		setting := AccWrapper.setting 
+		return p=""?setting:setting:=p
+	}
+	getChildren(){
+		theAccObj := this.get()
+		if ComObjType(theAccObj,"Name") != "IAccessible"
+			ErrorLevel := "Invalid IAccessible Object"
+		else {
+			AccWrapper.p_init(), cChildren:=theAccObj.accChildCount, Children:=[]
+			if DllCall("oleacc\AccessibleChildren", "Ptr",ComObjValue(theAccObj), "Int",0, "Int",cChildren, "Ptr",VarSetCapacity(varChildren,cChildren*(8+2*A_PtrSize),0)*0+&varChildren, "Int*",cChildren)=0 {
+				Loop %cChildren%
+					i:=(A_Index-1)*(A_PtrSize*2+8)+8, child:=NumGet(varChildren,i), Children.Insert(NumGet(varChildren,i-8)=9?AccWrapper.p_getQuery(child):child), NumGet(varChildren,i-8)=9?ObjRelease(child):
+				return Children.MaxIndex()?Children:
+			} else
+				ErrorLevel := "AccessibleChildren DllCall Failed"
+		}
+		if(AccWrapper.p_Error())
+			throw Exception(ErrorLevel,-1)
+	}
+	;------------------------------
 	getChild(aIndex){
 		maxIndex := this.Analyze().ChildCount
 		if(aIndex>maxIndex)
 			throw throw(_Ex.IndexOutOfBounds)
 		else
-			return new AccWrapper(Acc_Children(this.get())[aIndex])
+			return new AccWrapper(this.getChildren()[aIndex])
 	}
 	;------------------------------;
 	getSelection(){
@@ -183,13 +236,5 @@ Class AccWrapper{
 		return vSel
 	}
 	;------------------------------;转换区结束
-	
-;——————————————————————————————————
-
-	;------------------------------待处理开始
-
-
-
-	;------------------------------待处理结束
 
 } ;Class AccWrapper End
