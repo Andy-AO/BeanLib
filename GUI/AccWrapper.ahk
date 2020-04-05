@@ -48,6 +48,19 @@ Class AccWrapper{
 		return this.p_accObj := aAccObj
 	}
 	;------------------------------
+	ObjectFromPoint(ByRef _idChild_ = "", x = "", y = ""){
+		AccWrapper.p_init()
+		pt := pacc := ""
+		r := DllCall("oleacc\AccessibleObjectFromPoint"
+		,"Int64", x==""||y==""?0*DllCall("GetCursorPos","Int64*",pt)+pt:x&0xFFFFFFFF|y<<32
+		,"Ptr*", pacc
+		,"Ptr", VarSetCapacity(varChild,8+2*A_PtrSize,0)*0+&varChild)
+		If(r=0){
+			_idChild_:=NumGet(varChild,8,"UInt")
+			return	new AccWrapper(ComObjEnwrap(9,pacc,1))
+		}
+	}
+	;------------------------------
 	__New(aAccObj){
 		this.set(aAccObj) 
 	}
@@ -55,6 +68,10 @@ Class AccWrapper{
 	p_init(){
 		If Not AccWrapper.loaded
 			AccWrapper.loaded:=DllCall("LoadLibrary","Str","oleacc","Ptr")
+	}
+	;------------------------------
+	AnalyzeFromPoint(ByRef _idChild_ = "", x = "", y = ""){
+		return AccWrapper.ObjectFromPoint(_idChild_,x,y).Analyze(_idChild_)
 	}
 	;------------------------------
 	getStateTextAll(vState){
@@ -94,7 +111,7 @@ Class AccWrapper{
 	;------------------------------
 	
 	ObjectFromWindow(hWnd, idObject := 0){ 
-		_Acc.p_init(),pacc := ""
+		AccWrapper.p_init(),pacc := ""
 		If	DllCall("oleacc\AccessibleObjectFromWindow", "Ptr", hWnd, "UInt", idObject&=0xFFFFFFFF, "Ptr", -VarSetCapacity(IID,16)+NumPut(idObject==0xFFFFFFF0?0x46000000000000C0:0x719B3800AA000C81,NumPut(idObject==0xFFFFFFF0?0x0000000000020400:0x11CF3C3D618736E0,IID,"Int64"),"Int64"), "Ptr*", pacc)=0
 		Return	new AccWrapper(ComObjEnwrap(9,pacc,1))
 	}
@@ -171,10 +188,6 @@ Class AccWrapper{
 		return vSel
 	}
 
-	;------------------------------
-	AnalyzeFromPoint(ByRef _idChild_ = "", x = "", y = ""){
-		return AccWrapper.Analyze(Acc_ObjectFromPoint(_idChild_,x,y),_idChild_)
-	}
 	;------------------------------待处理结束
 
 } ;Class AccWrapper End
