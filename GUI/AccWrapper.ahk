@@ -123,7 +123,7 @@ Class AccWrapper{
 		Return	sRole
 	}
 
-	getGetStateText(nState){
+	getStateText(nState){
 		nSize := DllCall("oleacc\GetStateText", "Uint", nState, "Ptr", 0, "Uint", 0)
 		VarSetCapacity(sState, (A_IsUnicode?2:1)*nSize)
 		DllCall("oleacc\GetStateText", "Uint", nState, "str", sState, "Uint", nSize+1)
