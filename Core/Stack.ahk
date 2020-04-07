@@ -15,11 +15,13 @@
 	}
 	
 	peek(){
-		
+		return this.list[this.length()]
 	}
 	
+	
+	;AHK-Array有同名方法
 	pop(){
-		
+		return this.list.pop()
 	}
 	
 	push(aElement){
