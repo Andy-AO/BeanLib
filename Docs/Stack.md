@@ -40,3 +40,19 @@
 
   从顶端搜索并返回index
 
+### getEnum()
+
+获取枚举器
+
+```AutoHotKey
+theStack := new Stack(_List.LetterList)
+
+theEnum := theStack.getEnum()
+
+while(theEnum.next(v)){
+	LogPrintln(v,A_LineFile  "("  A_LineNumber  ")"  " : " "v >>> `r`n")
+}
+```
+
+
+
