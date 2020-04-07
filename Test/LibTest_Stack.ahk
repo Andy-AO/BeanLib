@@ -40,6 +40,7 @@ LogPrintln(theStack,A_LineFile  "("  A_LineNumber  ")"  " : " "theStack >>> `r`n
 
 LogPrintln(theStack.empty(),A_LineFile  "("  A_LineNumber  ")"  " : " "theStack.empty() >>> `r`n")
 
+LogPrintln(theStack.length(),A_LineFile  "("  A_LineNumber  ")"  " : " "theStack.length() >>> `r`n")
 
 #If WinActive(A_ScriptName)
 ;可以按下Alt+L查看最近运行的行
