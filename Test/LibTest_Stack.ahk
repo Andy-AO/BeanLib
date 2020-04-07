@@ -22,6 +22,16 @@ FileEncoding , UTF-8
 #Include D:\AHKs\ahk_lib\Test\Lib.ahk
 
 
+theStack := new Stack(_List.LetterList)
+
+theEnum := theStack.getEnum()
+
+while(theEnum.next(v)){
+	LogPrintln(v,A_LineFile  "("  A_LineNumber  ")"  " : " "v >>> `r`n")
+}
+
+return
+
 
 theStack := new Stack()
 
@@ -59,11 +69,6 @@ LogPrintln(theStack.pop(),A_LineFile  "("  A_LineNumber  ")"  " : " "theStack.po
 LogPrintln(theStack.pop(),A_LineFile  "("  A_LineNumber  ")"  " : " "theStack.pop() >>> `r`n")
 LogPrintln(theStack.pop(),A_LineFile  "("  A_LineNumber  ")"  " : " "theStack.pop() >>> `r`n")
 
-theEnum := theStack.getEnum()
-
-while(theEnum.next(k,v)){
-	LogPrintln(k ":" v,A_LineFile  "("  A_LineNumber  ")"  " : " "k:v >>> `r`n")
-}
 
 #If WinActive(A_ScriptName)
 ;可以按下Alt+L查看最近运行的行

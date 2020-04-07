@@ -1,4 +1,5 @@
 ﻿
+
  class Stack{
 	list := Array()
 	get(){
@@ -6,7 +7,6 @@
 	}
 	set(aList){
 		Type.assertList(aList)
-		LogPrintln(aList,A_LineFile  "("  A_LineNumber  ")"  " : " "aList >>> `r`n")
 		return this.list := _List.clone(aList)
 	}
 	length(){
@@ -28,7 +28,37 @@
 	peek(){
 		return this.get()[this.length()]
 	}
-	
+	class Enum{
+		list := "",CurrentIndex := "",lastIndex := 1
+	;---------------------------------------------------------------------- 
+		__New(aList){
+			this.list := aList
+			this.CurrentIndex := this.list.length()
+			this.next:=this.base.next
+		}
+	;---------------------------------------------------------------------- 
+		__Call(methodName,byref v:=""){
+			if(methodName = "")or(methodName="next")
+				return this.next(v)
+			else
+				throwWithSt(_Ex.NoExistMethod)
+		}
+	;---------------------------------------------------------------------- 
+		next(byref v:=""){
+			if  (this.CurrentIndex < this.lastIndex)	
+				return false
+			else{
+				v := this.list[this.CurrentIndex]
+				this.CurrentIndex--
+				return true
+			}
+				
+		}
+	;---------------------------------------------------------------------- 
+	}
+	getEnum(){
+		return new Stack.Enum(this.get())
+	}
 	
 	;AHK-Array有同名方法
 	pop(){
