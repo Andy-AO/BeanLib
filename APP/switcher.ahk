@@ -12,6 +12,9 @@ class Switcher{
 	getLastWin(aWinTitle){
 		theLastWin := _Win.Analyze(aWinTitle)
 		theWins := _Wins.AnalyzeOnMap(aWinTitle)
+		if(theWins.Count()<=1){
+			return theLastWin
+		}
 		theEnum := Switcher.winStack.getEnum()
 		while(theEnum.next(v)){
 			theWin := theWins[v.id]
