@@ -42,7 +42,7 @@ Class _Acc{
 	getChild(aAccObj,aIndex){
 		maxIndex := _Acc.Analyze(aAccObj).ChildCount
 		if(aIndex>maxIndex)
-			throw throw(_Ex.IndexOutOfBounds)
+			throw(_Ex.IndexOutOfBounds)
 		else
 			return Acc_Children(aAccObj)[aIndex]
 	}
@@ -92,7 +92,7 @@ Class _Acc{
 		if(_Acc.p_checkAnalyzeResult(theMap))
 			return theMap
 		else
-			throw throw(_EX.AccObjectException)
+			throw(_EX.AccObjectException)
 	}
 	;------------------------------
 	p_checkAnalyzeResult(aMap){

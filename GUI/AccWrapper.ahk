@@ -173,7 +173,7 @@ Class AccWrapper{
 		if(AccWrapper.p_checkAnalyzeResult(theMap))
 			return theMap
 		else
-			throw throw(_EX.AccObjectException)
+			throw(_EX.AccObjectException)
 	}
 	;------------------------------
 	getWindowHWnd(){
@@ -219,7 +219,7 @@ Class AccWrapper{
 	getChild(aIndex){
 		maxIndex := this.Analyze().ChildCount
 		if(aIndex>maxIndex)
-			throw throw(_Ex.IndexOutOfBounds)
+			throw(_Ex.IndexOutOfBounds)
 		else
 			return new AccWrapper(this.getChildren()[aIndex])
 	}
