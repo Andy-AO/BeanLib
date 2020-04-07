@@ -2,20 +2,30 @@
 
  class Stack{
 	list := Array()
+	maxIndex := ""
+	isOutOfBounds(aIndex){
+		if(this.maxIndex="")
+			return false
+		else
+			return aIndex > this.maxIndex
+	}
 	get(){
 		return this.list
 	}
 	set(aList){
 		Type.assertList(aList)
+		if(this.isOutOfBounds(aList.Length()))
+			throw(_Ex.IndexOutOfBounds)
 		return this.list := _List.clone(aList)
 	}
 	length(){
 		return this.get().length()
 	}
 	
-	__New(aList := ""){
-		if(aList != "")
-			this.set(aList)
+	__New(aMaxIndex := ""){
+		if(aMaxIndex != "")
+			Type.assertNumber(aMaxIndex)
+		this.maxIndex := aMaxIndex
 	}
 	
 	empty(){
@@ -64,8 +74,12 @@
 	pop(){
 		return this.get().pop()
 	}
-	
+	Cut(){
+		return this.get().RemoveAt(1)
+	}
 	push(aElement){
+		if(this.isOutOfBounds(this.get().Length()))
+			this.Cut()
 		return this.get().push(aElement)
 	}
 	

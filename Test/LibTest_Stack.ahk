@@ -20,7 +20,30 @@ FileEncoding , UTF-8
 ;------------------------------
 #Include D:\AHKs\Dev\_TempLib.ahk
 #Include D:\AHKs\ahk_lib\Test\Lib.ahk
+try{
+	theStack := new Stack("AADS")
+}
+catch,ex{
+	LogPrintln(ex,A_LineFile  "("  A_LineNumber  ")"  " : " "ex >>> `r`n")
+}
 
+theStack := new Stack(10)
+
+try{
+	theStack.set(_List.LetterList)
+}
+catch,ex{
+	LogPrintln(ex,A_LineFile  "("  A_LineNumber  ")"  " : " "ex >>> `r`n")
+}
+
+for i,v in _List.LetterList {
+	theStack.push(v)
+	LogPrintln(theStack,A_LineFile  "("  A_LineNumber  ")"  " : " "theStack >>> `r`n")
+}
+
+LogPrintln(theStack,A_LineFile  "("  A_LineNumber  ")"  " : " "theStack >>> `r`n")
+
+return
 
 theStack := new Stack(_List.LetterList)
 
@@ -29,6 +52,8 @@ theEnum := theStack.getEnum()
 while(theEnum.next(v)){
 	LogPrintln(v,A_LineFile  "("  A_LineNumber  ")"  " : " "v >>> `r`n")
 }
+
+
 
 return
 
