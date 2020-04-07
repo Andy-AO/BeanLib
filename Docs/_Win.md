@@ -49,11 +49,11 @@ Obj 或者 false
 - 包含以下 Key
 
 ```autohotkey
-WinTitle := "WinTitle: " WinTitle
-WinClass := "ahk_class " WinClass
-WinProcessName := "ahk_exe " WinProcessName
-WinPId := "ahk_id " WinId
-WinPath := "WinPath: " WinPath
+WinTitle,Class,ProcessName,Id,Path
+WinClass := "ahk_class " Class
+WinProcessName := "ahk_exe " ProcessName
+WinPId := "ahk_id " Id
+WinPath := "WinPath: " Path
 ```
 
 #### 示例 Example

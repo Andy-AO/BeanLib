@@ -18,7 +18,7 @@
 
 ### AnalyzeOnMap(aWinTitle,aDetectHiddenWindows:="")
 
-获取Map形式的 _Win.Analyze()，Map的key是WinID
+获取Map形式的 _Win.Analyze()，Map的key是Id
 
 ### AnalyzeByPath(aWinPath,aDetectHiddenWindows:="")
 
