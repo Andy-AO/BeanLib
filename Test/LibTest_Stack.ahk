@@ -22,13 +22,16 @@ FileEncoding , UTF-8
 #Include D:\AHKs\ahk_lib\Test\Lib.ahk
 
 
+
 theStack := new Stack()
 
 LogPrintln(theStack.empty(),A_LineFile  "("  A_LineNumber  ")"  " : " "theStack.empty() >>> `r`n")
 
-for i,v in _List.LetterList {
-	theStack.push(v)
-}
+theStack := new Stack(_List.LetterList)
+
+LogPrintln(theStack.empty(),A_LineFile  "("  A_LineNumber  ")"  " : " "theStack.empty() >>> `r`n")
+
+
 LogPrintln(theStack.search("A"),A_LineFile  "("  A_LineNumber  ")"  " : " "theStack.search(""A"") >>> `r`n")
 
 

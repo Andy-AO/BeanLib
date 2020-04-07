@@ -6,13 +6,16 @@
 	}
 	set(aList){
 		Type.assertList(aList)
-		return this.list := aList
+		LogPrintln(aList,A_LineFile  "("  A_LineNumber  ")"  " : " "aList >>> `r`n")
+		return this.list := _List.clone(aList)
 	}
 	length(){
 		return this.get().length()
 	}
 	
-	__New(){
+	__New(aList := ""){
+		if(aList != "")
+			this.set(aList)
 	}
 	
 	empty(){
