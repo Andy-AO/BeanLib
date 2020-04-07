@@ -16,7 +16,7 @@ class Switcher{
 	;------------------------------
 	switch(aWinTitle,aPathOrFuncObj){
 		if(WinExist(aWinTitle)){
-			this.p_ActivateOrMini(aWinTitle)
+			this.toggle(aWinTitle)
 		}
 		else{
 			if(Type.isStr(aPathOrFuncObj)){
