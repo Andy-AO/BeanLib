@@ -101,7 +101,7 @@ class JSON
 			key := ""
 			is_key := false
 			root := {}
-			stack := [root]
+			theStack := [root]
 			next := json_value
 			pos := 0
 
@@ -111,15 +111,15 @@ class JSON
 				if !InStr(next, ch, 1)
 					this.ParseError(next, text, pos)
 
-				holder := stack[1]
+				holder := theStack[1]
 				is_array := holder.IsArray
 
 				if InStr(",:", ch) {
 					next := (is_key := !is_array && ch == ",") ? quot : json_value
 
 				} else if InStr("}]", ch) {
-					ObjRemoveAt(stack, 1)
-					next := stack[1]==root ? "" : stack[1].IsArray ? ",]" : ",}"
+					ObjRemoveAt(theStack, 1)
+					next := theStack[1]==root ? "" : theStack[1].IsArray ? ",]" : ",}"
 
 				} else {
 					if InStr("{[", ch) {
@@ -137,7 +137,7 @@ class JSON
 							: ( value := json_array ? new json_array : []
 							  , next := json_value_or_array_closing )
 						
-						ObjInsertAt(stack, 1, value)
+						ObjInsertAt(theStack, 1, value)
 
 						if (this.keys)
 							this.keys[value] := []

@@ -24,6 +24,7 @@ Core Pack 必须全部导入
 #Include Core\ObservableMap.ahk
 #Include Core\ObservableObj.ahk
 #Include Core\PathObj.ahk
+#Include Core\Stack.ahk
 
 
 ;示例:
