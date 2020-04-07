@@ -9,10 +9,15 @@ class Switcher{
 	/*
 			TODO:关于方法之间参数的调用,传参还是经过域的问题.一个Switcher实例代表的是一种「切换设置」,所以关于「窗口」的数据都是经过参数的,而所有关于「设置」的参数都是经过域的.
 	*/
+	getLastWin(aWinTitle){
+		theWins := _Wins.Analyze()
+		;未完...
+	}
 	;------------------------------
-
 	toggle(aWinTitle){
-		return this.p_ActivateOrMini(aWinTitle)
+		theLastWin := this.getLastWin(aWinTitle)
+		LogPrintln(theLastWin,A_LineFile  "("  A_LineNumber  ")"  " : " "theLastWin >>> `r`n")
+		return this.p_ActivateOrMini(theLastWin)
 	}
 	;------------------------------
 	switch(aWinTitle,aPathOrFuncObj){
