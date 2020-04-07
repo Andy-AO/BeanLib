@@ -29,6 +29,8 @@ LogPrintln(theStack.empty(),A_LineFile  "("  A_LineNumber  ")"  " : " "theStack.
 for i,v in _List.LetterList {
 	theStack.push(v)
 }
+LogPrintln(theStack.search("A"),A_LineFile  "("  A_LineNumber  ")"  " : " "theStack.search(""A"") >>> `r`n")
+
 
 LogPrintln(theStack,A_LineFile  "("  A_LineNumber  ")"  " : " "theStack >>> `r`n")
 
@@ -41,6 +43,10 @@ LogPrintln(theStack,A_LineFile  "("  A_LineNumber  ")"  " : " "theStack >>> `r`n
 LogPrintln(theStack.empty(),A_LineFile  "("  A_LineNumber  ")"  " : " "theStack.empty() >>> `r`n")
 
 LogPrintln(theStack.length(),A_LineFile  "("  A_LineNumber  ")"  " : " "theStack.length() >>> `r`n")
+
+LogPrintln(theStack.search("A"),A_LineFile  "("  A_LineNumber  ")"  " : " "theStack.search(""A"") >>> `r`n")
+
+LogPrintln(theStack.search("XX"),A_LineFile  "("  A_LineNumber  ")"  " : " "theStack.search(""XX"") >>> `r`n")
 
 #If WinActive(A_ScriptName)
 ;可以按下Alt+L查看最近运行的行

@@ -27,6 +27,13 @@
 	}
 	
 	search(aElement){
-		
+		thePos := this.list.Length()
+		while(thePos>0){
+			if(aElement =  this.list[thePos])
+				return thePos
+			else
+				thePos--
+		}
+		return false
 	}
 } ;---------class Stack End
