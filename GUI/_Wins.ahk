@@ -29,7 +29,7 @@ Class _Wins{
 		theWinList:=_Wins.getIdList(aWinTitle,aDetectHiddenWindows)
 		for i,v in theWinList {
 			AnalyzeWinObj:=_Win.Analyze(v,aDetectHiddenWindows)
-			theAnalyzeWins[AnalyzeWinObj.WinID] := AnalyzeWinObj
+			theAnalyzeWins[AnalyzeWinObj.ID] := AnalyzeWinObj
 		}	
 			
 		return theAnalyzeWins
