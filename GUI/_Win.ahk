@@ -141,7 +141,7 @@ getProcessName(aWinTitle){
 		theObj:=Object()
 		
 		WinTitle := _Win.getTitle(aWinTitle)
-		theObj.WinTitle := theObj.Title := WinTitle
+		theObj.WinTitle := WinTitle
 		
 		WinGetClass,WinClass,%aWinTitle%
 		theObj.Class := WinClass,theObj.WinClass := "ahk_class " theObj.Class
