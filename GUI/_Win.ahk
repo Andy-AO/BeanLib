@@ -138,24 +138,27 @@ getProcessName(aWinTitle){
 		if (Not(WinisExist))
 			return false
 		
-		WinTitle := _Win.getTitle(aWinTitle)
-		WinGetClass,WinClass,%aWinTitle%
-		WinProcessName := _Win.getProcessName(aWinTitle)
-		WinId := GetWinId(aWinTitle)
-		WinPath := _Win.getPath(aWinTitle)
+		theObj:=Object()
 		
-		WinClass := "ahk_class " WinClass
-		WinProcessName := "ahk_exe " WinProcessName
-		WinId :=WinId
+		WinTitle := _Win.getTitle(aWinTitle)
+		theObj.WinTitle := theObj.Title := WinTitle
+		
+		WinGetClass,WinClass,%aWinTitle%
+		theObj.Class := WinClass,theObj.WinClass := "ahk_class " theObj.Class
+		
+		theObj.ProcessName := _Win.getProcessName(aWinTitle),theObj.WinProcessName := "ahk_exe " theObj.ProcessName
+		
+		theObj.Path := _Win.getPath(aWinTitle)
+		
+		WinGet,theId,ID,%aWinTitle%
+
+		theObj.Id := theId,theObj.WinId := "ahk_id " theObj.Id
 		
 		if(EnableWinText){
 			WinGetText,WinText,%aWinTitle%	
 		}
 		else
 			WinText := "WinText: " WinText
-
-		
-		theObj:=Object("WinTitle",WinTitle,"WinClass",WinClass,"WinProcessName",WinProcessName,"WinId",WinId,"WinPath",WinPath)
 
 		_Win.SwapDetectHidden(aFuncId,aDetectHiddenWindows)
 		
