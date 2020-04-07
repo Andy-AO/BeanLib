@@ -1,6 +1,7 @@
 ﻿
 class Switcher{
 	static Options := "Max"
+	,winStack := new Stack()
 	/*
 		TODO: 可以为每个 Switcher 提供额外的配置,如果想用默认的，那就直接用Switcher.xx(),如果想使用一个额外的配置，那么就Switcher.xx().xx(),这包含了一些常用的预设配置;如果要完全自定义，那么就 theSwitcher := new Switcher(); theSwitcher.xxx();
 		主要是为了「隐藏窗口」,以及「wintitle匹配规则」,等等设置,但是暂时先不需要,等我遇到之后再做.
@@ -54,5 +55,19 @@ class Switcher{
 		}
 		return
 	}
+}
+
+
+
+;------------------------------
+
+global SwitcherEvent
+
+SwitcherEvent := new SwitcherEventBase()
+
+class SwitcherEventBase extends WinEvent{
+	OnSwitched(aWinObj){
+		Switcher.winStack.push(aWinObj)
+	}	
 }
 
