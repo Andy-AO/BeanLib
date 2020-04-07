@@ -1,9 +1,17 @@
 ﻿
  class Stack{
 	list := Array()
-	length(){
-		return this.list.length()
+	get(){
+		return this.list
 	}
+	set(aList){
+		Type.assertList(aList)
+		return this.list := aList
+	}
+	length(){
+		return this.get().length()
+	}
+	
 	__New(){
 	}
 	
@@ -15,23 +23,23 @@
 	}
 	
 	peek(){
-		return this.list[this.length()]
+		return this.get()[this.length()]
 	}
 	
 	
 	;AHK-Array有同名方法
 	pop(){
-		return this.list.pop()
+		return this.get().pop()
 	}
 	
 	push(aElement){
-		return this.list.push(aElement)
+		return this.get().push(aElement)
 	}
 	
 	search(aElement){
-		thePos := this.list.Length()
+		thePos := this.get().Length()
 		while(thePos>0){
-			if(aElement =  this.list[thePos])
+			if(aElement =  this.get()[thePos])
 				return thePos
 			else
 				thePos--
