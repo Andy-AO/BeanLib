@@ -3,9 +3,9 @@
 说明:主要是对Acc-ComObj进行分析
 */
 Class AccWrapper{
-	p_accObj := "",path := "UnKnown"
+	p_accObj := "",path := AccWrapper.unknown
 	;------------------------------
-	Static loaded := "",setting := 0
+	Static loaded := "",setting := 0,unknown := "UnKnown"
 	;sources: WinUser.h, oleacc.h
 	;e.g. STATE_SYSTEM_SELECTED := 0x2
 	static State := {0x1:"UNAVAILABLE"
@@ -217,12 +217,22 @@ Class AccWrapper{
 			throw Exception(ErrorLevel,-1)
 	}
 	;------------------------------
+	setChildPath(aChild){
+		if(this.path = 0)
+			aChild.path := aChild.index
+		else if(this.path = AccWrapper.unknown)
+			aChild.path := AccWrapper.unknown
+		else
+			aChild.path := this.path "." aChild.index
+		return 
+	}
+	;------------------------------
 	getChild(aIndex){
 		maxIndex := this.Analyze().ChildCount
 		if(aIndex>maxIndex)
 			throw(_Ex.IndexOutOfBounds)
 		else
-			return new AccWrapper(this.getChildren()[aIndex])
+			return theChild := new AccWrapper(this.getChildren()[aIndex]),theChild.index := aIndex,this.setChildPath(theChild)
 	}
 	;------------------------------;
 	getSelection(){
