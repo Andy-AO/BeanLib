@@ -16,6 +16,10 @@
 
 获取多维数组形式的 _Win.Analyze()
 
+### AnalyzeOnMap(aWinTitle,aDetectHiddenWindows:="")
+
+获取Map形式的 _Win.Analyze()，Map的key是Id
+
 ### AnalyzeByPath(aWinPath,aDetectHiddenWindows:="")
 
 通过路径 _Wins.Analyze()

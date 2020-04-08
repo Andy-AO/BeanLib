@@ -26,20 +26,28 @@ WinGet, theHWnd, ID , %theWinTitle%
 theWinObj := _Win.Analyze("ahk_id " theHWnd)
 LogPrintln(theWinObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theWinObj >>> `r`n")
 
-theAccObj := Acc_ObjectFromWindow(theHWnd, theIdObject := 0)
+theAccObj := AccWrapper.ObjectFromWindow(theHWnd, theIdObject := 0)
+LogPrintln(theAccObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj >>> `r`n")
 
-LogPrintln(_Acc.Analyze(theAccObj),A_LineFile  "("  A_LineNumber  ")"  " : " "_Acc.Analyze(theAccObj) >>> `r`n")
+LogPrintln(theAccObj.Analyze(0),A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj.Analyze(0) >>> `r`n")
 
 thePath := "4.1.3"
 
-theAccObj := _Acc.ObjectFromPath(theAccObj,thePath)
+;在这里可能生成了错误的ACC对象
+theAccObj := theAccObj.ObjectFromPath(thePath)
 
-LogPrintln(_Acc.Analyze(theAccObj),A_LineFile  "("  A_LineNumber  ")"  " : " "_Acc.Analyze(theAccObj) >>> `r`n")
+
+LogPrintln(theAccObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj >>> `r`n")
+
+LogPrintln(theAccObj.Analyze(0),A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj.Analyze(0) >>> `r`n")
+
+return
+
 
 PrintScreen::
-	result := theAccObj.accDefaultAction(vChildId)
-	LogPrintln(_Acc.Analyze(theAccObj),A_LineFile  "("  A_LineNumber  ")"  " : " "_Acc.Analyze(theAccObj) >>> `r`n")
-	theAccObj.accDoDefaultAction(vChildId)
+	result := theAccObj.get().accDefaultAction(vChildId)
+	LogPrintln(theAccObj.Analyze(theAccObj),A_LineFile  "("  A_LineNumber  ")"  " : " "theAccObj.Analyze(theAccObj) >>> `r`n")
+	theAccObj.get().accDoDefaultAction(vChildId)
 	LogPrintln(result,A_LineFile  "("  A_LineNumber  ")"  " : " "result >>> `r`n")
 return
 
@@ -47,7 +55,7 @@ return
 
 
 ^PrintScreen::
-	theResult := _Acc.AnalyzeFromPoint(vChildId)
+	theResult := AccWrapper.AnalyzeFromPoint(vChildId)
 	LogPrintln(theResult,A_LineFile  "("  A_LineNumber  ")"  " : " "theResult >>> `r`n")
 return
 

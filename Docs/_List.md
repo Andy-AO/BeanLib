@@ -228,6 +228,21 @@ InputList:=["5","99","Enter","CapsLock","G","Apple"]
 FromIndex:=2,ToIndex:=4
 SubList:=_List.CopyOfRange(InputList,FromIndex,ToIndex)
 ```
+### clone(aList)
+
+**克隆一个数组:**
+
+#### 参数 Parameters: 
+
+- List - 输入的数组
+
+#### 返回 Returns: 
+
+NewList
+
+#### 抛出异常 Throws: 
+- Type.assert
+
 ### ToString(Str)
 
 **转换Str数组为字符串:**

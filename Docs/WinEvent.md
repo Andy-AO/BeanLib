@@ -52,11 +52,11 @@
 
 ### ShellMessage_Base(wParam, lParam, msg:="", hwnd:="")
 
-该方法会被COM对象回调
+该方法会被COM对象自动回调
 
 ### ShellMessage(wParam, lParam, msg:="", hwnd:="")
 
-该方法必须被复写
+在之前，该方法必须被复写，现在完全自动化了，不需要复写
 
 ### ShellHook()
 
@@ -74,6 +74,8 @@
 
 运行前，应先导入BeanLib
 
+### 在之前必须复写ShellMessage()
+
 ```autohotkey
 
 WinEventObj:=new MyWinEvent()
@@ -85,6 +87,20 @@ class MyWinEvent extends WinEvent{
 		return
 	}
 ;------------------------------
+	OnSwap(){
+		aTitle := A_ScriptName,aTipString := A_ScriptName,TrayTip(aTitle,aTipString) 
+		return
+	}	
+} ;---------class MyWinEvent End
+
+```
+
+### 现在可以直接编写方法
+
+```autohotkey
+
+WinEventObj:=new MyWinEvent()
+class MyWinEvent extends WinEvent{
 	OnSwap(){
 		aTitle := A_ScriptName,aTipString := A_ScriptName,TrayTip(aTitle,aTipString) 
 		return

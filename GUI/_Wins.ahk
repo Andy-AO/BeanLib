@@ -12,13 +12,24 @@ Class _Wins{
 	*/
 	Analyze(aWinTitle,aDetectHiddenWindows:=""){
 		theAnalyzeWins:=[]
-		LogPrintln(aDetectHiddenWindows,"aDetectHiddenWindows >>>")
 		theWinList:=_Wins.getIdList(aWinTitle,aDetectHiddenWindows)
-		LogPrintln(theWinList,"theWinList >>>")
-		
 		for i,v in theWinList {
 			AnalyzeWinObj:=_Win.Analyze(v,aDetectHiddenWindows)
 			theAnalyzeWins.Push(AnalyzeWinObj)
+		}	
+			
+		return theAnalyzeWins
+	}	
+	;------------------------------
+	/*
+	获取Analyze(多维数组形式)
+	*/
+	AnalyzeOnMap(aWinTitle,aDetectHiddenWindows:=""){
+		theAnalyzeWins:=Object()
+		theWinList:=_Wins.getIdList(aWinTitle,aDetectHiddenWindows)
+		for i,v in theWinList {
+			AnalyzeWinObj:=_Win.Analyze(v,aDetectHiddenWindows)
+			theAnalyzeWins[AnalyzeWinObj.ID] := AnalyzeWinObj
 		}	
 			
 		return theAnalyzeWins

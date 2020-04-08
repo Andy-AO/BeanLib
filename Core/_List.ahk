@@ -177,6 +177,12 @@ CopyOfRange(List,FromIndex,ToIndex){
 }
 return NewList
 }
+
+;------------------------------
+clone(aList){
+	Type.assertList(aList)
+	return _List.CopyOfRange(aList,1,aList.length())
+}
 ;----------------------------------------------------------------------
 /*!
 对数组进行排序,支持顺序,倒序,逆序
