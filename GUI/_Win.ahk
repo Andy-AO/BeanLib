@@ -148,7 +148,7 @@ getProcessName(aWinTitle){
 		
 		theObj.ProcessName := _Win.getProcessName(aWinTitle),theObj.WinProcessName := "ahk_exe " theObj.ProcessName
 		
-		theObj.Path := _Win.getPath(aWinTitle)
+		theObj.WinPath := _Win.getPath(aWinTitle)
 		
 		WinGet,theId,ID,%aWinTitle%
 
