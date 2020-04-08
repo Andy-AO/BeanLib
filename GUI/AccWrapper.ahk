@@ -3,7 +3,7 @@
 说明:主要是对Acc-ComObj进行分析
 */
 Class AccWrapper{
-	p_accObj := ""
+	p_accObj := "",path := "UnKnown"
 	;------------------------------
 	Static loaded := "",setting := 0
 	;sources: WinUser.h, oleacc.h
@@ -113,7 +113,7 @@ Class AccWrapper{
 	ObjectFromWindow(hWnd, idObject := 0){ 
 		AccWrapper.p_init(),pacc := ""
 		If	DllCall("oleacc\AccessibleObjectFromWindow", "Ptr", hWnd, "UInt", idObject&=0xFFFFFFFF, "Ptr", -VarSetCapacity(IID,16)+NumPut(idObject==0xFFFFFFF0?0x46000000000000C0:0x719B3800AA000C81,NumPut(idObject==0xFFFFFFF0?0x0000000000020400:0x11CF3C3D618736E0,IID,"Int64"),"Int64"), "Ptr*", pacc)=0
-		Return	new AccWrapper(ComObjEnwrap(9,pacc,1))
+		return	result := new AccWrapper(ComObjEnwrap(9,pacc,1)),result.path := 0
 	}
 
 	getRoleText(nRole){
@@ -199,6 +199,7 @@ Class AccWrapper{
 		setting := AccWrapper.setting 
 		return p=""?setting:setting:=p
 	}
+	;------------------------------
 	getChildren(){
 		theAccObj := this.get()
 		if ComObjType(theAccObj,"Name") != "IAccessible"
