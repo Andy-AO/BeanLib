@@ -207,7 +207,7 @@ Class Type{
 			else
 				return Type.Number
 		}
-		else if(new Method(PathObj.af,Object("path",Str)))
+		else if(new Method(PathObj.af,Object("path",Str)).call())
 			return Type.Path
 		else
 			return Type.Str
