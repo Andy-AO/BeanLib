@@ -60,3 +60,6 @@
 	-   [ObjDump()](Docs/ObjDump.md)
 	-   [ObjLoad()](Docs/ObjLoad.md)
 -   [StringMethod](Docs/StringMethod.md)
+-   [Test](Docs/TypeClass.md)
+    -   [TypeClass](Docs/TypeClass.md)
+    -   [MapFactory()](Docs/MapFactory().md)
