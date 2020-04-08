@@ -20,6 +20,7 @@ Type(Everthing,returnName := false){
 }
 ;---------------------------------------------------------------------- 
 Class Type{
+	static pathRegEx := "^[a-zA-Z]:\\(((?![<>:""/\\|?*]).)+((?<![ .])\\)?)*$"
 	;用于测试的，有继承关系的一些 Inter Class
 	Class AA extends Type.BB{
 	}
@@ -207,7 +208,7 @@ Class Type{
 			else
 				return Type.Number
 		}
-		else if(new Method(PathObj.af,Object("path",Str)).call())
+		else if(Str.isRegExMatch(Type.pathRegEx))
 			return Type.Path
 		else
 			return Type.Str

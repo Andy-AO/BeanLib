@@ -26,17 +26,7 @@
 */
 
 	af(){
-		aPath:=this.path
-		aRegEx=^[a-zA-Z]:\\(((?![<>:"/\\|?*]).)+((?<![ .])\\)?)*$
-		
-		absolutePathResult:=aPath.isRegExMatch(aRegEx)
-		
-		if Not(absolutePathResult){
-			Mes:=_EX.InvalidPara . "1"
-			throwWithSt(Mes)
-		}
-		
-		return
+		return Type.assertPath(this.path)
 	}
 			
 }
