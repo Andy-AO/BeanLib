@@ -62,6 +62,17 @@ Class _Wins{
 			
 		return WinList
 	}
+	
+	SelectWinByPath(aPathObj,aAnalyzeWins){
+		newAnalyzeWins:=[]
+		for i,v in aAnalyzeWins {
+			theAnalyzeWin:=v
+		
+			if(theAnalyzeWin.WinPath=aPathObj.path)
+				newAnalyzeWins.push(theAnalyzeWin)
+		}	
+		return newAnalyzeWins
+	}
 
 ;---------------------------------------------------------------------- 
 
@@ -72,7 +83,7 @@ Class _Wins{
 	AnalyzeByPath(aWinPath,aDetectHiddenWindows:=""){
 		thePathObj:=new PathObj(aWinPath)
 		theAnalyzeWins:=_Wins.Analyze("ahk_exe" thePathObj.name,aDetectHiddenWindows)
-		return SelectWinByPathFromAnalyzeWins(thePathObj,theAnalyzeWins)
+		return _Wins.SelectWinByPath(thePathObj,theAnalyzeWins)
 	}
 ;---------------------------------------------------------------------- 
 

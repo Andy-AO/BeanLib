@@ -66,21 +66,6 @@ WinActivateByPath(aWinPath,aDetectHiddenWindows:=""){
 
 
 
-
-;---------------------------------------------------------------------- 
-
-	SelectWinByPathFromAnalyzeWins(aPathObj,aAnalyzeWins){
-		newAnalyzeWins:=[]
-		for i,v in aAnalyzeWins {
-			theAnalyzeWin:=v
-		
-			if(theAnalyzeWin.WinPath=aPathObj.path)
-				newAnalyzeWins.push(theAnalyzeWin)
-		}	
-		return newAnalyzeWins
-	}
-
-
 ;---------------------------------------------------------------------- 
 
 /*
