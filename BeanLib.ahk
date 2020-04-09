@@ -27,6 +27,8 @@ Core Pack 必须全部导入
 #Include Core\Stack.ahk
 
 
+#Include GUI\AccWrapper.ahk
+
 ;示例:
 
 /*
