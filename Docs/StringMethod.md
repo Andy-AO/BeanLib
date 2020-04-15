@@ -117,3 +117,16 @@ LogPrintln("555".isNumber(),"""555"".isNumber() >>>")
 
 ### secToMSec()
 秒转毫秒
+
+### replaceAll(aStringList,aReplaceString)
+
+用多个关键词替换字符串
+
+```AutoHotKey
+"ABCDEFG".replaceAll("ACG".ToList(),"")
+
+LogPrintln("ACG".ToList(),A_LineFile  "("  A_LineNumber  ")"  " : " """ACG"".ToList() >>> `r`n")
+
+LogPrintln("ABCDEFG".replaceAll("ACG".ToList(),""),A_LineFile  "("  A_LineNumber  ")"  " : " """ABCDEFG"".replaceAll(""ACG"".ToList(),"""") >>> `r`n")
+```
+

@@ -42,7 +42,6 @@ class StrBase{
 			return this
 		}
 
-
 ;---------------------------------------------------------------------- 
 			split(){
 							
@@ -82,7 +81,15 @@ RegexEscape(){
 	return this.Escape(regexList)
 }
 ;---------------------------------------------------------------------- 
-
+	replaceAll(aStringList,aReplaceString){
+		Type.assertList(aStringList)
+		aInputString := this,theResult := aInputString
+		for i,v in aStringList {
+			theResult := StrReplace(theResult, SearchText := v , ReplaceText := "")
+		}
+		return theResult
+	}
+;------------------------------
 Escape(aCharList,aTargetChar:="\"){
 	String := this
 	Type.assertStr(aTargetChar),Type.assertStr(String),Type.assertList(aCharList)
