@@ -85,7 +85,7 @@ RegexEscape(){
 		Type.assertList(aStringList)
 		aInputString := this,theResult := aInputString
 		for i,v in aStringList {
-			theResult := StrReplace(theResult, SearchText := v , ReplaceText := "")
+			theResult := StrReplace(theResult, SearchText := v , ReplaceText := aReplaceString)
 		}
 		return theResult
 	}
