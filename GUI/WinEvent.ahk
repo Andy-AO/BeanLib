@@ -66,9 +66,15 @@ class WinEvent{
 		this.ShellHook()
 		return this
 	}
+	;------------------------------
+	ShellMessagePrint(wParam, lParam,msg:="", hwnd:=""){
+		printMap := Object("Paras",Object("wParam",wParam, "lParam",lParam, "msg",msg, "hwnd",hwnd))
+		return LogPrintln(printMap)
+	}
 ;------------------------------
 	ShellMessage(wParam, lParam, msg:="", hwnd:="") {
 		theFindFuncName := this.findFuncNameFromWParam(wParam)
+		;~ this.ShellMessagePrint(wParam, lParam, msg, hwnd)
 		if(this[theFindFuncName]!=""){
 			return this[theFindFuncName](_Win.Analyze("ahk_id " . lParam))
 		}
@@ -81,13 +87,19 @@ class WinEvent{
 		}
 		return this.ShellMessage(wParam, lParam, msg, hwnd)
 	}
+	ShellHookPrint(MsgNum1,MsgNum,Str,UInt){
+		theObj := Object("MsgNum1",MsgNum1,"MsgNum",MsgNum,"Str",Str,"UInt",UInt)
+		LogPrintln(theObj,A_LineFile  "("  A_LineNumber  ")"  " : " "theObj >>> `r`n")
+	}
 ;------------------------------
 	ShellHook(){
 		Gui +LastFound
 		hWnd := WinExist() ;返回脚本自身窗口的ID(hWnd)
 		MsgNum1 := DllCall("RegisterShellHookWindow",UInt,hWnd) 
+		;~ LogPrintln(MsgNum1,A_LineFile  "("  A_LineNumber  ")"  " : " "MsgNum1 >>> `r`n")
 		MsgNum := DllCall("RegisterWindowMessage", Str,"SHELLHOOK")
 		ShellMessageMethod := new Method(this.ShellMessage_Base,this)
+		;~ this.ShellHookPrint(MsgNum1,MsgNum,Str,UInt)
 		OnMessage(MsgNum,ShellMessageMethod)
 		return
 	}
