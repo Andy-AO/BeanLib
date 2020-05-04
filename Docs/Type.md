@@ -50,6 +50,8 @@ assertOff() - 把变量设为 false ,关闭断言
 ##### isNS(Everthing) 
 ##### isNumber(Everthing) 
 
+这里的「数字」指的是「非负有理数」。
+
 ##### isBoolean(Everthing) 
 
 ##### isList(Everthing) 

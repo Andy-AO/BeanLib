@@ -23,6 +23,11 @@ FileEncoding , UTF-8
 
 LogPrintln(A_ScriptName,"A_ScriptName >>> ")
 
+Type.assertNumber("1")
+Type.assertNumber("0.015")
+
+
+return
 
 theKeyFunc := Method.for(FuncClass.handleKey,FuncClass)
 theValueFunc := Method.for(FuncClass.handleValue,FuncClass)
