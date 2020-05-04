@@ -180,7 +180,7 @@ Escape(aCharList,aTargetChar:="\"){
 	}
 	;---------------------------------------------------------------------- 
 	isNumber(){
-		aRegEx:="[0-9]+"		
+		aRegEx:="^\d+(\.\d+)?$"		
 		return this.isRegExMatch(aRegEx,aRegExOption:="i)")
 	}
 	
