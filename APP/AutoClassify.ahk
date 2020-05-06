@@ -33,9 +33,9 @@ class AutoClassify{
 		}
 
 		catch,ex{
-			;~ LogPrintln(ex,A_LineFile  "("  A_LineNumber  ")"  " : " "ex >>> `r`n")
+			LogPrintln(ex,A_LineFile  "("  A_LineNumber  ")"  " : " "ex >>> `r`n")
 			theMes := "移动失败:" ex.Message
-			;~ MsgBox,%theMes%
+			MsgBox,%theMes%
 			TrayTip,提醒,%theMes%
 			return
 		}
