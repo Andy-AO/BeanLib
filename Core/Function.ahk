@@ -109,9 +109,12 @@ return TheArray
 		type.assertObj(aPathList)
 		for i,v in aPathList {
 			SourcePattern:=v
-			FileMove, %SourcePattern%, %aDestPattern% , %Overwrite%
-			if ErrorLevel
+			try{
+				FileMove, %SourcePattern%, %aDestPattern% , %Overwrite%
+			}
+			catch,ex{
 				throwWithSt(_EX.MoveFailed " : " SourcePattern)
+			}
 		}
 		return aPathList.Length()
 	}

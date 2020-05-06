@@ -28,9 +28,21 @@ class AutoClassify{
 	}
 ;---------------------------------------------------------------------- 
 	remove(){
-		Counter:=bulkMoveFile(this.searchResultList,this.sDestPattern)
+		try{
+			Counter:=bulkMoveFile(this.searchResultList,this.sDestPattern)
+		}
+
+		catch,ex{
+			;~ LogPrintln(ex,A_LineFile  "("  A_LineNumber  ")"  " : " "ex >>> `r`n")
+			theMes := "移动失败:" ex.Message
+			;~ MsgBox,%theMes%
+			TrayTip,提醒,%theMes%
+			return
+		}
+
+		
 		if(Counter)
-		TrayTip,%A_ScriptName% 提醒,移动完毕!共移动%Counter%个文件.
+			TrayTip,%A_ScriptName% 提醒,移动完毕!共移动%Counter%个文件.
 		return
 	}
 ;---------------------------------------------------------------------- 
