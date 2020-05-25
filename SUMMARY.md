@@ -23,6 +23,8 @@
     -   [ObservableMap](Docs/ObservableMap.md)
     -   [ObservableObj](Docs/ObservableObj.md)
     -   [WinEvent](Docs/WinEvent.md)
+    -   [Timer](Docs/Timer.md)
+    -   [MesToast](Docs/MesToast.md)
     -   [APPLocker](Docs/APPLocker.md)
     -   [AutoClassify](Docs/AutoClassify.md)
     -   [Everything](Docs/Everything.md)
