@@ -5,15 +5,23 @@
 
 
 Class _Win{
+	moveToRightCorner(aWinTitle){
+		WinGetPos, X, Y, Width, Height, %aWinTitle%
 
+		MaxX := _Win.getMonitorWorkArea().Right - Width ; This will put the Gui to the right
+		MaxY := _Win.getMonitorWorkArea().Bottom - Height
+
+		WinMove, %aWinTitle%, ,%MaxX%, %MaxY%
+		return
+	}
 		
 ;------------------------------
 
-getMonitorWorkArea(){
-	SysGet, OutputVar, MonitorWorkArea
-	Obj := Object("Top",OutputVarTop,"Bottom",OutputVarBottom,"Left",OutputVarLeft,"Right",OutputVarRight)
-	return Obj
-}
+	getMonitorWorkArea(N:=""){
+		SysGet, OutputVar, MonitorWorkArea,%N%
+		Obj := Object("Top",OutputVarTop,"Bottom",OutputVarBottom,"Left",OutputVarLeft,"Right",OutputVarRight)
+		return Obj
+	}
 ;---------------------------------------------------------------------- 
 	
 		originalDetectHiddenWindows:=""
