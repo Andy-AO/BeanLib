@@ -4,7 +4,10 @@
 */
 ;---------------------------------------------------------------------- 					
 	Class PathObj{
-		
+	
+		getPath(){
+			return this.path
+		}
 		__New(aPath){
 				this.path:=aPath
 				this.assert()
