@@ -142,7 +142,6 @@ UseCMD(command){
 */
 
 	SetTimer(aMSec,FuncObj){
-		;~ aMSec := aMSec*6000
 		Type.assertObj(FuncObj)
 		Type.assertNumber(aMSec)
 		Priority:=50000
