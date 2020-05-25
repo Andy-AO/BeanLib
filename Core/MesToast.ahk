@@ -4,7 +4,7 @@ class MesToast{
 	,objList := array()
 	
 	
-	static duration := "10",Color := "f0f0f0",SoundFile := ""
+	static duration := "10",Color := "f0f0f0",SoundFile := "",StatusBarExist := false
 	
 	Hwnd := "DefaultHwnd",title:="DefaultTitle",text:="DefaultText",theTimer := ""
 	,index := "DefaultIndex"
@@ -18,7 +18,28 @@ class MesToast{
 	getSoundFile(){
 		return this.SoundFile
 	}
+	updateStatusBar(){
+		if(this.StatusBarExist){
+			Hwnd := this.Hwnd
+			theText := this.duration
+			Gui, %Hwnd%:Default
+			SB_SetText(theText)
+		}
+		else{
+			LogPrintln(this.StatusBarExist,A_LineFile  "("  A_LineNumber  ")"  " : " "this.StatusBarExist >>> `r`n")
+			this.CreateStatusBar()
+			this.StatusBarExist := true
+		}
+			
+	}	
 	
+	CreateStatusBar(){
+		if(NOT(this.StatusBarExist)){
+			Hwnd := this.Hwnd
+			theText := this.duration
+			Gui, %Hwnd%:Add, StatusBar,,%theText%
+		}
+	}
 	__New(aTitle,aText,aDuration := ""){
 		Width := MesToast.Width,Height := MesToast.Height,FontName := MesToast.FontName,Color := this.Color
 		Gui, New , +HwndHwnd +AlwaysOnTop , %aTitle%
@@ -31,6 +52,7 @@ class MesToast{
 		,this.MaxX := _Win.getMonitorWorkArea().Right - Width 
 		,this.MaxY := _Win.getMonitorWorkArea().Bottom - Height
 		,this.insertObjList()
+		this.updateStatusBar()
 	}
 	insertObjList(){
 		this.index := MesToast.objList.length() + MesToast.indexStep
@@ -53,6 +75,7 @@ class MesToast{
 			LogPrintln(this.duration,A_LineFile  "("  A_LineNumber  ")"  " : " "this.duration >>> `r`n")
 			this.DeleteTimer()
 			this.destroy()
+			return ""
 		}
 		else{
 			if(this.duration <= MesToast.TransparentThreshold){
@@ -61,6 +84,7 @@ class MesToast{
 			LogPrintln(this.duration,A_LineFile  "("  A_LineNumber  ")"  " : " "this.duration >>> `r`n")
 			this.duration--
 		}
+		return this.updateStatusBar()
 	}
 	destroyWin(){
 		Hwnd := this.Hwnd
