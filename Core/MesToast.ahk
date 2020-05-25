@@ -101,9 +101,10 @@ class MesToast{
 		this.destroyObj()
 	}
 	playSound(){
-		Filename := this.getSoundFile().getPath()
-		if(Type.isObj(this.getSoundFile()))
+		if(Type.isObj(this.getSoundFile())){
+			Filename := this.getSoundFile().getPath()
 			SoundPlay, %Filename%
+		}
 		else
 			SoundPlay, *64	
 	}
