@@ -42,7 +42,7 @@ class AppLocker{
 ;---------------------------------------------------------------------- 
 	SetTimer(){
 		FuncObj:=this.AutoLock.Bind(this)
-		SetTimer(this.sCheckIntervalSec,FuncObj)
+		theTimer := new Timer(FuncObj,this.sCheckIntervalSec),theTimer.set()
 		return
 	}
 }
