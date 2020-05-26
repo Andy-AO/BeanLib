@@ -4,7 +4,7 @@ class MesToast{
 	,objList := array()
 	
 	
-	static duration := "10",Color := "f0f0f0",SoundFile := "",StatusBarExist := false
+	static duration := "10",Color := "f0f0f0",SoundFile := "",StatusBarExist := false,hover := false
 	
 	Hwnd := "DefaultHwnd",title:="DefaultTitle",text:="DefaultText",theTimer := ""
 	,index := "DefaultIndex"
@@ -69,8 +69,17 @@ class MesToast{
 		WinTitle := "ahk_id" " " this.hwnd,CustomColor:= this.Color,transparency := this.getTransparency()
 		WinSet, TransColor, %CustomColor% %transparency% , %WinTitle%
 	}
+	offTimer(){
+		return this.theTimer.off()
+	}
+	CountdownPreCheck(){
+		return (this.hover = false)
+	}
 	countDown(){
 		LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
+		if(this.CountdownPreCheck() = false){
+			return this.offTimer()
+		}			
 		if(this.duration <= 0){
 			LogPrintln(this.duration,A_LineFile  "("  A_LineNumber  ")"  " : " "this.duration >>> `r`n")
 			this.DeleteTimer()
