@@ -54,8 +54,7 @@ class AutoClassify{
 	SetTimer(sCheckIntervalMsec){
 		FuncObj:=this.SearchAndRemove.Bind(this)
 		this.sCheckIntervalMsec:=sCheckIntervalMsec
-		SetTimer(this.sCheckIntervalMsec,FuncObj)
-		
+		theTimer := new Timer(FuncObj,this.sCheckIntervalMsec),theTimer.set()
 		return
 	}
 }
