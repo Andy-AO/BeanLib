@@ -14,6 +14,10 @@ class Timer{
 	off(){
 		FuncObj := this.func
 		SetTimer,%FuncObj%,off
+	}	
+	On(){
+		FuncObj := this.func
+		SetTimer,%FuncObj%,On
 	}
 	delete(){
 		FuncObj := this.func
