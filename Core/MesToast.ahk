@@ -42,7 +42,7 @@ class MesToast{
 	}
 	__New(aTitle,aText,aDuration := ""){
 		Width := MesToast.Width,Height := MesToast.Height,FontName := MesToast.FontName,Color := this.Color
-		Gui, New , +HwndHwnd +AlwaysOnTop , %aTitle%
+		Gui, New , +HwndHwnd +AlwaysOnTop, %aTitle%
 		Gui, %Hwnd%:Color, %Color%
 		Gui, %Hwnd%:Font , s10, %FontName%
 		Gui, %Hwnd%:Add, Edit, r3 w%Width% ReadOnly, %aText%
@@ -132,14 +132,19 @@ class MesToast{
 	}
 	WM_SETCURSOR(wParam, lParam, msg, hwnd){
 		Critical,On
-		if(this.hover = false)
-			this.hover := true
+			if(this.hover = false){
+				this.hover := true
+				LogPrintln("鼠标移动中:WM_SETCURSOR,hwnd:" hwnd,A_LineFile  "("  A_LineNumber  ")"  " : " """鼠标移动中:WM_SETCURSOR,hwnd:"" hwnd >>> `r`n")
+				LogPrintln(this.hwnd,A_LineFile  "("  A_LineNumber  ")"  " : " "this.hwnd >>> `r`n")
+			}
 	}	
 	WM_MOUSELEAVE(wParam, lParam, msg, hwnd){
 		Critical,On
 		if(this.hover = true){
 			this.hover := false
 			this.onTimer()
+			LogPrintln("鼠标离开:WM_MOUSELEAVE,hwnd:" hwnd,A_LineFile  "("  A_LineNumber  ")"  " : " """鼠标离开:WM_MOUSELEAVE,hwnd:"" hwnd >>> `r`n")
+			LogPrintln(this.hwnd,A_LineFile  "("  A_LineNumber  ")"  " : " "this.hwnd >>> `r`n")
 		}
 	}
 	show(){
