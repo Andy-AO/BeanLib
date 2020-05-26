@@ -297,13 +297,6 @@ StackTrace(Mes){
 		return 
 	}
 	
-;------------------------------
-TrayTip(aTitle,aTipString){
-	LogPrintln(aTitle,"aTitle >>>")
-	LogPrintln(aTipString,"aTipString >>>")
-	TrayTip,%aTitle%,%aTipString% 
-	return
-}
 
 ;------------------------------
 	
