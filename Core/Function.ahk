@@ -137,17 +137,6 @@ UseCMD(command){
 ; 来源:https://autohotkey.com/boards/viewtopic.php?t=48132&p=215348
 ; 【后台静默运行cmd命令缓存文本取值 @hui-Zz】
 ;---------------------------------------------------------------------- 
-/*
-定时执行FuncObj
-*/
-
-	SetTimer(aMSec,FuncObj){
-		Type.assertObj(FuncObj)
-		Type.assertNumber(aMSec)
-		Priority:=50000
-		SetTimer,%FuncObj%,%aMSec%, %Priority%
-		return
-	}	
 ;---------------------------------------------------------------------- 
 /*
 获取用于检查时间的字符串
