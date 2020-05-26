@@ -72,6 +72,9 @@ class MesToast{
 	offTimer(){
 		return this.theTimer.off()
 	}
+	onTimer(){
+		return this.theTimer.on()
+	}
 	CountdownPreCheck(){
 		return (this.hover = false)
 	}
@@ -79,7 +82,7 @@ class MesToast{
 		LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
 		if(this.CountdownPreCheck() = false){
 			return this.offTimer()
-		}			
+		}
 		if(this.duration <= 0){
 			LogPrintln(this.duration,A_LineFile  "("  A_LineNumber  ")"  " : " "this.duration >>> `r`n")
 			this.DeleteTimer()
@@ -117,12 +120,35 @@ class MesToast{
 		else
 			SoundPlay, *64	
 	}
+	MonitorMouse(){
+		Critical,On
+		;鼠标移动
+		WM_SETCURSOR := 0x20
+		OnMessage(WM_SETCURSOR, new Method(this.WM_SETCURSOR,this))
+		
+		;鼠标离开
+		WM_MOUSELEAVE := 0x2A3
+		OnMessage(WM_MOUSELEAVE, new Method(this.WM_MOUSELEAVE,this))
+	}
+	WM_SETCURSOR(wParam, lParam, msg, hwnd){
+		Critical,On
+		if(this.hover = false)
+			this.hover := true
+	}	
+	WM_MOUSELEAVE(wParam, lParam, msg, hwnd){
+		Critical,On
+		if(this.hover = true){
+			this.hover := false
+			this.onTimer()
+		}
+	}
 	show(){
 		this.playSound()
 		Hwnd := this.Hwnd
 		,MaxX := this.MaxX,MaxY := this.MaxY
 		Gui, %Hwnd%:Show ,NoActivate X%MaxX% Y%MaxY% AutoSize
 		_Win.moveToRightCorner("ahk_id" " " this.Hwnd)
+		this.MonitorMouse()
 		this.theTimer := new Timer(new Method(this.countDown,this),MesToast.period.secToMSec())
 		this.theTimer.set()
 	}
