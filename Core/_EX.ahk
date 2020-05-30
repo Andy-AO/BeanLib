@@ -41,7 +41,8 @@ Class _EX{
 	,SingletonClass := "Instance Singleton Class 实例化单例类"
 	,UnknownType := "Unknown Type 未知类型"
 	,UserCancelled := "User cancelled 用户已取消"
-	,AccObjectException := "ACC object exception ACC对象异常"
+	,AccObjectException := "ACC object exception ACC 对象异常"
+	,CopyFail := "CopyFail 复制失败"
 
 }
 

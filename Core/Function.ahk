@@ -181,7 +181,12 @@ getCurrentTime(){
 
 ;---------------------------------------------------------------------- 
 stdout(TheText,Encoding:="UTF-8"){
-	FileAppend,% TheText,*,% Encoding
+	try{
+		FileAppend,% TheText,*,% Encoding
+	}
+	catch,ex{
+		return ex
+	}
 	return
 }
 ;----------------------------------------------------------------------- 
