@@ -134,8 +134,9 @@ class MesToast{
 		Critical,On
 			if(this.hover = false){
 				this.hover := true
-				LogPrintln("鼠标移动中:WM_SETCURSOR,hwnd:" hwnd,A_LineFile  "("  A_LineNumber  ")"  " : " """鼠标移动中:WM_SETCURSOR,hwnd:"" hwnd >>> `r`n")
-				LogPrintln(this.hwnd,A_LineFile  "("  A_LineNumber  ")"  " : " "this.hwnd >>> `r`n")
+				theObject := Object("A_Gui",A_Gui,"A_GuiControl",A_GuiControl,"A_GuiX",A_GuiX,"A_EventInfo",A_EventInfo)
+				theDeBugText :="鼠标移动中:WM_SETCURSOR,hwnd:" hwnd "," "theObject:" toString(theObject)
+				LogPrintln(theDeBugText,A_LineFile  "("  A_LineNumber  ")"  " : " "theDeBugText >>> `r`n")
 			}
 	}	
 	WM_MOUSELEAVE(wParam, lParam, msg, hwnd){
@@ -143,8 +144,9 @@ class MesToast{
 		if(this.hover = true){
 			this.hover := false
 			this.onTimer()
-			LogPrintln("鼠标离开:WM_MOUSELEAVE,hwnd:" hwnd,A_LineFile  "("  A_LineNumber  ")"  " : " """鼠标离开:WM_MOUSELEAVE,hwnd:"" hwnd >>> `r`n")
-			LogPrintln(this.hwnd,A_LineFile  "("  A_LineNumber  ")"  " : " "this.hwnd >>> `r`n")
+			theObject := Object("A_Gui",A_Gui,"A_GuiControl",A_GuiControl,"A_GuiX",A_GuiX,"A_EventInfo",A_EventInfo)
+			theDeBugText :="鼠标离开中:WM_MOUSELEAVE,hwnd:" hwnd "," "theObject:" toString(theObject)
+			LogPrintln(theDeBugText,A_LineFile  "("  A_LineNumber  ")"  " : " "theDeBugText >>> `r`n")
 		}
 	}
 	show(){
