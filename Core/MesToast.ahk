@@ -4,7 +4,7 @@ class MesToast{
 	,objList := array()
 	
 	
-	static duration := "10",Color := "f0f0f0",SoundFile := "",StatusBarExist := false,hover := false
+	static duration := "10",Color := "f0f0f0",SoundFile := "",StatusBarExist := false
 	
 	Hwnd := "DefaultHwnd",title:="DefaultTitle",text:="DefaultText",theTimer := ""
 	,index := "DefaultIndex"
@@ -76,12 +76,13 @@ class MesToast{
 		return this.theTimer.on()
 	}
 	CountdownPreCheck(){
-		return (this.hover = false)
+		MouseGetPos, , , id, theControl
+		return (id != this.Hwnd)
 	}
 	countDown(){
 		LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
 		if(this.CountdownPreCheck() = false){
-			return this.offTimer()
+			return ""
 		}
 		if(this.duration <= 0){
 			LogPrintln(this.duration,A_LineFile  "("  A_LineNumber  ")"  " : " "this.duration >>> `r`n")
@@ -120,62 +121,7 @@ class MesToast{
 		else
 			SoundPlay, *64	
 	}
-	MonitorMouse(){
-		Critical,On
-		;鼠标移动
-		WM_NCMOUSEMOVE := 0xA0
-		OnMessage(WM_NCMOUSEMOVE, new Method(this.WM_NCMOUSEMOVE,this))
-				
-		;鼠标移动
-		WM_MOUSEMOVE := 0x200
-		OnMessage(WM_MOUSEMOVE, new Method(this.WM_MOUSEMOVE,this))
-
-		
-		;鼠标离开
-		WM_MOUSELEAVE := 0x2A3
-		OnMessage(WM_MOUSELEAVE, new Method(this.WM_MOUSELEAVE,this))		
-		;鼠标离开
-		WM_NCMOUSELEAVE := 0x2A2
-		OnMessage(WM_NCMOUSELEAVE, new Method(this.WM_NCMOUSELEAVE,this))
-	}
-	WM_NCMOUSEMOVE(wParam, lParam, msg, hwnd){
-		Critical,On
-			if(this.hover = false){
-				this.hover := true
-				theObject := Object("A_Gui",A_Gui,"A_GuiControl",A_GuiControl,"A_GuiX",A_GuiX,"A_EventInfo",A_EventInfo)
-				theDeBugText :="鼠标移动中(NC！):WM_NCMOUSEMOVE,hwnd:" hwnd "," "theObject:" toString(theObject)
-				LogPrintln(theDeBugText,A_LineFile  "("  A_LineNumber  ")"  " : " "theDeBugText >>> `r`n")
-			}
-	}	
-	WM_MOUSEMOVE(wParam, lParam, msg, hwnd){
-		Critical,On
-			if(this.hover = false){
-				this.hover := true
-				theObject := Object("A_Gui",A_Gui,"A_GuiControl",A_GuiControl,"A_GuiX",A_GuiX,"A_EventInfo",A_EventInfo)
-				theDeBugText :="鼠标移动中:WM_MOUSEMOVE,hwnd:" hwnd "," "theObject:" toString(theObject)
-				LogPrintln(theDeBugText,A_LineFile  "("  A_LineNumber  ")"  " : " "theDeBugText >>> `r`n")
-			}
-	}
-	WM_MOUSELEAVE(wParam, lParam, msg, hwnd){
-		Critical,On
-		if(this.hover = true){
-			this.hover := false
-			this.onTimer()
-			theObject := Object("A_Gui",A_Gui,"A_GuiControl",A_GuiControl,"A_GuiX",A_GuiX,"A_EventInfo",A_EventInfo)
-			theDeBugText :="鼠标离开中:WM_MOUSELEAVE,hwnd:" hwnd "," "theObject:" toString(theObject)
-			LogPrintln(theDeBugText,A_LineFile  "("  A_LineNumber  ")"  " : " "theDeBugText >>> `r`n")
-		}
-	}
-	WM_NCMOUSELEAVE(wParam, lParam, msg, hwnd){
-		Critical,On
-		if(this.hover = true){
-			this.hover := false
-			this.onTimer()
-			theObject := Object("A_Gui",A_Gui,"A_GuiControl",A_GuiControl,"A_GuiX",A_GuiX,"A_EventInfo",A_EventInfo)
-			theDeBugText :="鼠标离开(NC！)中:WM_NCMOUSELEAVE,hwnd:" hwnd "," "theObject:" toString(theObject)
-			LogPrintln(theDeBugText,A_LineFile  "("  A_LineNumber  ")"  " : " "theDeBugText >>> `r`n")
-		}
-	}
+	
 	show(){
 		this.playSound()
 		Hwnd := this.Hwnd
