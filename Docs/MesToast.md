@@ -12,4 +12,7 @@
 -   aDuration：窗口存活时间
 
 ### show()
-显示Toast
+- 显示Toast
+
+鼠标悬停在上面会停止计时
+
