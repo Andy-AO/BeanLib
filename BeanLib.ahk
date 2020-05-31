@@ -28,8 +28,48 @@ Core Pack 必须全部导入
 #Include Core\Timer.ahk
 #Include Core\MesToast.ahk
 
-
 #Include GUI\AccWrapper.ahk
+
+;FuncObj Pack
+#Include FuncObj\BeanEnum.ahk
+#Include FuncObj\Condition.ahk
+
+
+;GUI Pack
+#Include GUI\GUI.ahk
+#Include GUI\_Win.ahk
+#Include GUI\_Wins.ahk
+#Include GUI\Control.ahk
+#Include GUI\WinEvent.ahk
+#Include GUI\AutoGUI.ahk
+#Include GUI\AutoInputBox.ahk
+
+;Everthing Pack
+#Include Everything.ahk
+
+;APP Pack
+#Include APP\AutoClassify.ahk
+#Include APP\APPLocker.ahk
+#Include APP\TimeChecker.ahk
+#Include APP\TimeChecker.ahk
+#Include APP\Script.ahk
+#Include APP\Switcher.ahk
+#Include APP\RunningSpeedTest.ahk
+
+;UMSS Pack
+#Include UMSS.ahk
+
+;HotString Pack
+#Include HotString.ahk 
+
+;Spliter Pack
+#Include Spliter.ahk
+
+;I/O Pack
+#Include IO\Ini.ahk
+#Include IO\ExcelToList().ahk
+#Include IO\JSON.ahk
+
 
 ;示例:
 
