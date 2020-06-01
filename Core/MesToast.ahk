@@ -4,10 +4,10 @@ class MesToast{
 	static Width := 260,Height := 150,FontName := "Microsoft YaHei",period := "1",TransparentThreshold := "5",TransparencyUpperLimit := "255",indexStep := "1"
 	,objList := array(),HadMessage := false,objMap := Object()
 	
-	static duration := "10",Color := "f0f0f0",SoundFile := "",StatusBarExist := false
+	static SoundFile := "",StatusBarExist := false
 	
 	Hwnd := "DefaultHwnd",title:="DefaultTitle",text:="DefaultText",theTimer := "" ,TimeIdle := "",UsersOnline := false
-	,index := "DefaultIndex",Hidden := true,TransparentMode := false
+	,index := "DefaultIndex",Hidden := true,TransparentMode := false,duration := "10",Color := "f0f0f0"
 	
 	OnMessage(){
 		Critical
