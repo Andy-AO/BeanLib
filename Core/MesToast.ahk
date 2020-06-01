@@ -7,7 +7,7 @@ class MesToast{
 	static duration := "10",Color := "f0f0f0",SoundFile := "",StatusBarExist := false
 	
 	Hwnd := "DefaultHwnd",title:="DefaultTitle",text:="DefaultText",theTimer := "" ,TimeIdle := "",UsersOnline := false
-	,index := "DefaultIndex",Hidden := true
+	,index := "DefaultIndex",Hidden := true,TransparentMode := false
 	
 	OnMessage(){
 		Critical
@@ -119,9 +119,11 @@ class MesToast{
 	getTransparency(){
 		return MesToast.TransparencyUpperLimit*(this.duration/MesToast.TransparentThreshold)
 	}
-	TransColor(){
-		WinTitle := "ahk_id" " " this.hwnd,CustomColor:= this.Color,transparency := this.getTransparency()
-		WinSet, TransColor, %CustomColor% %transparency% , %WinTitle%
+	Transparent(){
+		if(this.TransparentMode){
+			WinTitle := "ahk_id" " " this.hwnd,CustomColor:= this.Color,transparency := this.getTransparency()
+			WinSet, TransColor, %CustomColor% %transparency% , %WinTitle%
+		}
 	}
 	offTimer(){
 		return this.theTimer.off()
@@ -153,7 +155,7 @@ class MesToast{
 		}
 		else{
 			if(this.duration <= MesToast.TransparentThreshold){
-				this.TransColor()
+				this.Transparent()
 			}
 			this.duration--
 		}
