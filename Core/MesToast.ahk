@@ -2,12 +2,12 @@
 
 class MesToast{
 	static Width := 260,Height := 150,FontName := "Microsoft YaHei",period := "1",TransparentThreshold := "5",TransparencyUpperLimit := "255",indexStep := "1"
-	,objList := array(),HadMessage := false
+	,objList := array(),HadMessage := false,objMap := Object()
 	
 	static duration := "10",Color := "f0f0f0",SoundFile := "",StatusBarExist := false
 	
 	Hwnd := "DefaultHwnd",title:="DefaultTitle",text:="DefaultText",theTimer := "" ,TimeIdle := "",UsersOnline := false
-	,index := "DefaultIndex"
+	,index := "DefaultIndex",Hidden := true
 	
 	OnMessage(){
 		Critical
@@ -21,15 +21,29 @@ class MesToast{
 		}
 		return
 	}
+	
+	ToggleHidden(){
+		LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
+		if(this.Hidden)
+			this.Hidden := false
+		else
+			this.Hidden := true
+	}
+	
 	WM_SHOWWINDOW(wParam, lParam, msg, hwnd){
 		Critical
-		LogPrintln(hwnd,A_LineFile  "("  A_LineNumber  ")"  " : " "hwnd >>> `r`n")
+		MesToast.objMap[hwnd].ToggleHidden()
+		if(MesToast.objMap[hwnd].Hidden){
+			LogPrintln(MesToast.objMap[hwnd].Hidden,A_LineFile  "("  A_LineNumber  ")"  " : " "MesToast.objMap[hwnd].Hidden >>> `r`n")
+			MesToast.objMap[hwnd].destroy()
+		}
 	}	
 	
 	WM_CLOSE(wParam, lParam, msg, hwnd){
 		Critical
 		LogPrintln(hwnd,A_LineFile  "("  A_LineNumber  ")"  " : " "hwnd >>> `r`n")
 	}
+	
 	isTop(){
 		return this = this.getTopObj()
 	}
@@ -93,6 +107,9 @@ class MesToast{
 	insertToList(){
 		this.index := MesToast.objList.length() + MesToast.indexStep
 		MesToast.objList[this.index] := this
+	}	
+	insertToMap(){
+		return MesToast.objMap[this.hwnd] := this
 	}
 	DeleteTimer(){
 		this.theTimer.delete()
@@ -147,7 +164,9 @@ class MesToast{
 		
 	}
 	destroyObj(){
+		LogPrintln(MesToast.objList[this.index],A_LineFile  "("  A_LineNumber  ")"  " : " "MesToast.objList[this.index] >>> `r`n")
 		MesToast.objList[this.index] := ""
+		MesToast.objMap[this.hwnd] := ""
 	}
 	destroy(){
 		this.destroyWin()
@@ -166,6 +185,8 @@ class MesToast{
 		return this.TimeIdle := A_TimeIdle
 	}
 	show(){
+		this.insertToList()
+		this.insertToMap()
 		this.playSound()
 		Hwnd := this.Hwnd
 		,MaxX := this.MaxX,MaxY := this.MaxY
@@ -174,6 +195,5 @@ class MesToast{
 		this.UserMonitor()
 		this.theTimer := new Timer(new Method(this.countDown,this),MesToast.period.secToMSec())
 		this.theTimer.set()
-		this.insertToList()
 	}
 } ;---------class MesToast End
