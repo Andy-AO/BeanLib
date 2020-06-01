@@ -12,11 +12,11 @@ class MesToast{
 	OnMessage(){
 		Critical
 		if(NOT(MesToast.HadMessage)){
-			WM_CLOSE := 0x10
+			WM_DESTROY := 0x02
 			WM_MOVE := 0x03
 			WM_SHOWWINDOW := 0x18
 			OnMessage(WM_SHOWWINDOW, new Method(MesToast.WM_SHOWWINDOW,MesToast))
-			OnMessage(WM_CLOSE, new Method(MesToast.WM_CLOSE,MesToast))
+			OnMessage(WM_DESTROY, new Method(MesToast.WM_DESTROY,MesToast))
 			MesToast.HadMessage := true
 		}
 		return
@@ -35,13 +35,14 @@ class MesToast{
 		MesToast.objMap[hwnd].ToggleHidden()
 		if(MesToast.objMap[hwnd].Hidden){
 			LogPrintln(MesToast.objMap[hwnd].Hidden,A_LineFile  "("  A_LineNumber  ")"  " : " "MesToast.objMap[hwnd].Hidden >>> `r`n")
-			MesToast.objMap[hwnd].destroy()
+			MesToast.objMap[hwnd].destroyWin()
 		}
 	}	
 	
-	WM_CLOSE(wParam, lParam, msg, hwnd){
+	WM_DESTROY(wParam, lParam, msg, hwnd){
 		Critical
-		LogPrintln(hwnd,A_LineFile  "("  A_LineNumber  ")"  " : " "hwnd >>> `r`n")
+		LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
+		MesToast.objMap[hwnd].destroyObj()
 	}
 	
 	isTop(){
