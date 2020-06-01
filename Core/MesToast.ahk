@@ -6,7 +6,7 @@ class MesToast{
 	
 	static duration := "10",Color := "f0f0f0",SoundFile := "",StatusBarExist := false
 	
-	Hwnd := "DefaultHwnd",title:="DefaultTitle",text:="DefaultText",theTimer := ""
+	Hwnd := "DefaultHwnd",title:="DefaultTitle",text:="DefaultText",theTimer := "" ,TimeIdle := "",UsersOnline := false
 	,index := "DefaultIndex"
 	
 	;SoundFile在New中加入以统一试试看,现在简单类中测试下
@@ -75,9 +75,18 @@ class MesToast{
 	onTimer(){
 		return this.theTimer.on()
 	}
-	CountdownPreCheck(){
+	checkCursorPosition(){
 		MouseGetPos, , , id, theControl
 		return (id != this.Hwnd)
+	}
+	checkTimeIdle(){
+		if((A_TimeIdle <= this.TimeIdle)OR(this.UsersOnline))
+			return this.UsersOnline := true
+		else
+			return false
+	}
+	CountdownPreCheck(){
+		return (this.checkCursorPosition() AND this.checkTimeIdle())
 	}
 	countDown(){
 		LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
@@ -121,14 +130,17 @@ class MesToast{
 		else
 			SoundPlay, *64	
 	}
-	
+	UserMonitor(){
+		this.UsersOnline := false
+		return this.TimeIdle := A_TimeIdle
+	}
 	show(){
 		this.playSound()
 		Hwnd := this.Hwnd
 		,MaxX := this.MaxX,MaxY := this.MaxY
 		Gui, %Hwnd%:Show ,NoActivate X%MaxX% Y%MaxY% AutoSize
 		_Win.moveToRightCorner("ahk_id" " " this.Hwnd)
-		this.MonitorMouse()
+		this.UserMonitor()
 		this.theTimer := new Timer(new Method(this.countDown,this),MesToast.period.secToMSec())
 		this.theTimer.set()
 	}
