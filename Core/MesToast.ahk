@@ -6,7 +6,7 @@ class MesToast{
 	
 	static SoundFile := "",StatusBarExist := false
 	
-	Hwnd := "DefaultHwnd",title:="DefaultTitle",text:="DefaultText",theTimer := "" ,TimeIdle := "",UsersOnline := false
+	static Hwnd := "DefaultHwnd",title:="DefaultTitle",text:="DefaultText",theTimer := "" ,TimeIdle := "",UsersOnline := false
 	,index := "DefaultIndex",Hidden := true,TransparentMode := false,duration := "10",Color := "f0f0f0"
 	
 	OnMessage(){
