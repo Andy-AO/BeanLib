@@ -1,15 +1,52 @@
 ﻿
+
 class MesToast{
 	static Width := 260,Height := 150,FontName := "Microsoft YaHei",period := "1",TransparentThreshold := "5",TransparencyUpperLimit := "255",indexStep := "1"
-	,objList := array()
-	
+	,objList := array(),HadMessage := false
 	
 	static duration := "10",Color := "f0f0f0",SoundFile := "",StatusBarExist := false
 	
 	Hwnd := "DefaultHwnd",title:="DefaultTitle",text:="DefaultText",theTimer := "" ,TimeIdle := "",UsersOnline := false
 	,index := "DefaultIndex"
 	
-	;SoundFile在New中加入以统一试试看,现在简单类中测试下
+	OnMessage(){
+		Critical
+		if(NOT(MesToast.HadMessage)){
+			WM_CLOSE := 0x10
+			WM_MOVE := 0x03
+			WM_SHOWWINDOW := 0x18
+			OnMessage(WM_SHOWWINDOW, new Method(MesToast.WM_SHOWWINDOW,MesToast))
+			OnMessage(WM_CLOSE, new Method(MesToast.WM_CLOSE,MesToast))
+			MesToast.HadMessage := true
+		}
+		return
+	}
+	WM_SHOWWINDOW(wParam, lParam, msg, hwnd){
+		Critical
+		LogPrintln(hwnd,A_LineFile  "("  A_LineNumber  ")"  " : " "hwnd >>> `r`n")
+	}	
+	
+	WM_CLOSE(wParam, lParam, msg, hwnd){
+		Critical
+		LogPrintln(hwnd,A_LineFile  "("  A_LineNumber  ")"  " : " "hwnd >>> `r`n")
+	}
+	isTop(){
+		return this = this.getTopObj()
+	}
+	
+	getTopObj(){
+		Critical
+		theIndex := theLength := MesToast.objList.length()
+		theResult := false
+		while(theIndex>0){
+			if(MesToast.objList[theIndex] != ""){
+				theResult := MesToast.objList[theIndex]
+				break
+			}
+			theIndex --
+		}
+		return theResult
+	}
 	
 	setSoundFile(aSoundFile){
 		return this.SoundFile := aSoundFile
@@ -26,7 +63,6 @@ class MesToast{
 			SB_SetText(theText)
 		}
 		else{
-			LogPrintln(this.StatusBarExist,A_LineFile  "("  A_LineNumber  ")"  " : " "this.StatusBarExist >>> `r`n")
 			this.CreateStatusBar()
 			this.StatusBarExist := true
 		}
@@ -48,13 +84,13 @@ class MesToast{
 		Gui, %Hwnd%:Add, Edit, r3 w%Width% ReadOnly, %aText%
 		if(aDuration!="")
 			this.duration := aDuration
-		this.Hwnd := Hwnd
-		,this.MaxX := _Win.getMonitorWorkArea().Right - Width 
-		,this.MaxY := _Win.getMonitorWorkArea().Bottom - Height
-		,this.insertObjList()
+		this.Hwnd := Hwnd,this.text := aText,this.title := aTitle
+		this.MaxX := _Win.getMonitorWorkArea().Right - Width 
+		this.MaxY := _Win.getMonitorWorkArea().Bottom - Height
 		this.updateStatusBar()
+		this.OnMessage()
 	}
-	insertObjList(){
+	insertToList(){
 		this.index := MesToast.objList.length() + MesToast.indexStep
 		MesToast.objList[this.index] := this
 	}
@@ -86,15 +122,13 @@ class MesToast{
 			return false
 	}
 	CountdownPreCheck(){
-		return (this.checkCursorPosition() AND this.checkTimeIdle())
+		return (this.checkCursorPosition() AND this.checkTimeIdle() AND this.isTop())
 	}
 	countDown(){
-		LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
 		if(this.CountdownPreCheck() = false){
 			return ""
 		}
 		if(this.duration <= 0){
-			LogPrintln(this.duration,A_LineFile  "("  A_LineNumber  ")"  " : " "this.duration >>> `r`n")
 			this.DeleteTimer()
 			this.destroy()
 			return ""
@@ -103,7 +137,6 @@ class MesToast{
 			if(this.duration <= MesToast.TransparentThreshold){
 				this.TransColor()
 			}
-			LogPrintln(this.duration,A_LineFile  "("  A_LineNumber  ")"  " : " "this.duration >>> `r`n")
 			this.duration--
 		}
 		return this.updateStatusBar()
@@ -111,14 +144,12 @@ class MesToast{
 	destroyWin(){
 		Hwnd := this.Hwnd
 		Gui, %Hwnd%:Destroy
+		
 	}
 	destroyObj(){
-		LogPrintln(MesToast.objList[this.index],A_LineFile  "("  A_LineNumber  ")"  " : " "MesToast.objList[this.index] >>> `r`n")
 		MesToast.objList[this.index] := ""
-		LogPrintln(MesToast.objList[this.index],A_LineFile  "("  A_LineNumber  ")"  " : " "MesToast.objList[this.index] >>> `r`n")
 	}
 	destroy(){
-		LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
 		this.destroyWin()
 		this.destroyObj()
 	}
@@ -143,5 +174,6 @@ class MesToast{
 		this.UserMonitor()
 		this.theTimer := new Timer(new Method(this.countDown,this),MesToast.period.secToMSec())
 		this.theTimer.set()
+		this.insertToList()
 	}
 } ;---------class MesToast End
