@@ -1,5 +1,4 @@
 ﻿
-
 class MesToast{
 	static Width := 260,Height := 150,FontName := "Microsoft YaHei",period := "1",TransparentThreshold := "5",TransparencyUpperLimit := "255",indexStep := "1"
 	,objList := array(),HadMessage := false,objMap := Object()
@@ -23,26 +22,30 @@ class MesToast{
 	}
 	
 	ToggleHidden(){
-		LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
 		if(this.Hidden)
 			this.Hidden := false
 		else
 			this.Hidden := true
+		return
 	}
 	
 	WM_SHOWWINDOW(wParam, lParam, msg, hwnd){
 		Critical
-		MesToast.objMap[hwnd].ToggleHidden()
-		if(MesToast.objMap[hwnd].Hidden){
-			LogPrintln(MesToast.objMap[hwnd].Hidden,A_LineFile  "("  A_LineNumber  ")"  " : " "MesToast.objMap[hwnd].Hidden >>> `r`n")
-			MesToast.objMap[hwnd].destroyWin()
+		if(MesToast.objMap[hwnd] != ""){
+			MesToast.objMap[hwnd].ToggleHidden()
+			if(MesToast.objMap[hwnd].Hidden){
+				MesToast.objMap[hwnd].destroyWin()
+			}
 		}
+		return
 	}	
 	
 	WM_DESTROY(wParam, lParam, msg, hwnd){
 		Critical
-		LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
-		MesToast.objMap[hwnd].destroyObj()
+		if(MesToast.objMap[hwnd] != ""){
+			MesToast.objMap[hwnd].destroyObj()
+		}
+		return
 	}
 	
 	isTop(){
@@ -167,7 +170,6 @@ class MesToast{
 		
 	}
 	destroyObj(){
-		LogPrintln(MesToast.objList[this.index],A_LineFile  "("  A_LineNumber  ")"  " : " "MesToast.objList[this.index] >>> `r`n")
 		MesToast.objList[this.index] := ""
 		MesToast.objMap[this.hwnd] := ""
 	}
