@@ -35,13 +35,18 @@ class AutoClassify{
 		catch,ex{
 			LogPrintln(ex,A_LineFile  "("  A_LineNumber  ")"  " : " "ex >>> `r`n")
 			theMes := "移动失败:" ex.Message
-			TrayTip,提醒,%theMes%
+			firstPara = 提醒
+			secondPara = %theMes%
+			theMesToast := new MesToast(firstPara,secondPara),theMesToast.show() 
 			return
 		}
 
 		
-		if(Counter)
-			TrayTip,%A_ScriptName% 提醒,移动完毕!共移动%Counter%个文件.
+		if(Counter){
+			firstPara = %A_ScriptName% 提醒
+			secondPara = 移动完毕!共移动%Counter%个文件.
+			theMesToast := new MesToast(firstPara,secondPara),theMesToast.show() 
+		}
 		return
 	}
 ;---------------------------------------------------------------------- 

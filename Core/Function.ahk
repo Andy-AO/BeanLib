@@ -274,7 +274,7 @@ StackTrace(Mes){
 	throwWithSt(Mes,EnableEx := true){ 
 		if(IsObject(Mes)){
 			theTipString = %A_ThisFunc% : Mes 暂时仅支持Str类型.
-			TrayTip,%A_ScriptName%,%theTipString% 
+			theMesToast := new MesToast(A_ScriptName,"theTipString"),theMesToast.show()  
 			return
 		}
 		StackTrace(Mes)

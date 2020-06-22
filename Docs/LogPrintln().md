@@ -46,7 +46,9 @@ LogPrintln(theList,"theList >" ">> ")
 	logPosfix:=logPosfix1 . logPosfix2
 	OutString=LogPrintln(%TheName%,%logPosfix%)
 	ClipBoard:=OutString
-	TrayTip,一键生成调试语句,%TheName% 的 DeepPrintln 形式已经放到剪切板中了.
+	firstPara = 一键生成调试语句
+	secondPara = %TheName% 的 DeepPrintln 形式已经放到剪切板中了.
+	theMesToast := new MesToast(firstPara,secondPara),theMesToast.show() 
 return
 #If
 ```
