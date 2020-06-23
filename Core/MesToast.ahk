@@ -91,7 +91,8 @@ class MesToast{
 		if(NOT(this.StatusBarExist)){
 			Hwnd := this.Hwnd
 			theText := this.duration
-			Gui, %Hwnd%:Add, StatusBar,,%theText%
+			theBackground := "Background" this.color
+			Gui, %Hwnd%:Add, StatusBar,-Theme %theBackground%,%theText%
 		}
 	}
 	__New(aTitle,aText,aDuration := ""){
