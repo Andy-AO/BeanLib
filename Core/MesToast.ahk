@@ -95,17 +95,12 @@ class MesToast{
 		}
 	}
 	__New(aTitle,aText,aDuration := ""){
-		Width := MesToast.Width,Height := MesToast.Height,FontName := MesToast.FontName,Color := this.Color
-		Gui, New , +HwndHwnd +AlwaysOnTop, %aTitle%
-		Gui, %Hwnd%:Color, %Color%
-		Gui, %Hwnd%:Font , s10, %FontName%
-		Gui, %Hwnd%:Add, Edit, r3 w%Width% ReadOnly, %aText%
 		if(aDuration!="")
 			this.duration := aDuration
-		this.Hwnd := Hwnd,this.text := aText,this.title := aTitle
+		this.text := aText,this.title := aTitle
+		Width := MesToast.Width,Height := MesToast.Height,FontName := MesToast.FontName,Color := this.Color
 		this.MaxX := _Win.getMonitorWorkArea().Right - Width 
 		this.MaxY := _Win.getMonitorWorkArea().Bottom - Height
-		this.updateStatusBar()
 		this.OnMessage()
 	}
 	insertToList(){
@@ -189,7 +184,24 @@ class MesToast{
 		this.UsersOnline := false
 		return this.TimeIdle := A_TimeIdle
 	}
+	newGUI(){
+		if(this.Hwnd == MesToast.Hwnd){
+			Width := MesToast.Width,Height := MesToast.Height,FontName := MesToast.FontName,Color := this.Color
+			aText := this.text,aTitle := this.title
+			Gui, New , +HwndHwnd +AlwaysOnTop, %aTitle%
+			Gui, %Hwnd%:Color, %Color%
+			Gui, %Hwnd%:Font , s10, %FontName%
+			Gui, %Hwnd%:Add, Edit, r3 w%Width% ReadOnly, %aText%
+			this.Hwnd := Hwnd
+			this.updateStatusBar()
+			return true
+		}
+		else{
+			return false
+		}
+	}
 	show(){
+		this.newGUI()
 		this.insertToList()
 		this.insertToMap()
 		this.playSound()
