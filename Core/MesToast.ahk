@@ -164,13 +164,18 @@ class MesToast{
 		Hwnd := this.Hwnd
 		Gui, %Hwnd%:Destroy
 		
+	}	
+	hideWin(){
+		Hwnd := this.Hwnd
+		Gui, %Hwnd%:Hide
+		
 	}
 	destroyObj(){
 		MesToast.objList[this.index] := ""
 		MesToast.objMap[this.hwnd] := ""
 	}
 	destroy(){
-		this.destroyWin()
+		this.hideWin()
 		this.destroyObj()
 	}
 	playSound(){
