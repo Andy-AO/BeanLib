@@ -198,6 +198,7 @@ class MesToast{
 			return true
 		}
 		else{
+			throw("The notification has already been shown.通知已经被展示过了")
 			return false
 		}
 	}
