@@ -31,10 +31,13 @@ class MesToast{
 	
 	WM_SHOWWINDOW(wParam, lParam, msg, hwnd){
 		Critical
-		if(MesToast.objMap[hwnd] != ""){
-			MesToast.objMap[hwnd].ToggleHidden()
-			if(MesToast.objMap[hwnd].Hidden){
-				MesToast.objMap[hwnd].destroyWin()
+		theMesToast := MesToast.objMap[hwnd]
+		LogPrintln(hwnd,A_LineFile  "("  A_LineNumber  ")"  " : " "hwnd >>> `r`n")
+		if(theMesToast != ""){
+			LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
+			theMesToast.ToggleHidden()
+			if(theMesToast.Hidden){
+				theMesToast.destroyObj()
 			}
 		}
 		return
@@ -42,8 +45,9 @@ class MesToast{
 	
 	WM_DESTROY(wParam, lParam, msg, hwnd){
 		Critical
-		if(MesToast.objMap[hwnd] != ""){
-			MesToast.objMap[hwnd].destroyObj()
+		theMesToast := MesToast.objMap[hwnd]
+		if(theMesToast != ""){
+			theMesToast.destroyObj()
 		}
 		return
 	}
@@ -172,7 +176,6 @@ class MesToast{
 	}
 	destroyObj(){
 		MesToast.objList[this.index] := ""
-		MesToast.objMap[this.hwnd] := ""
 	}
 	destroy(){
 		this.hideWin()
@@ -206,8 +209,17 @@ class MesToast{
 			return false
 		}
 	}
+	beforeShowCheck(){
+		if(this.Hidden){
+
+		}
+		else{
+			throw(_EX.ShownWin)
+		}
+	}
 	show(){
 		this.newGUI()
+		this.beforeShowCheck()
 		this.insertToList()
 		this.insertToMap()
 		this.playSound()

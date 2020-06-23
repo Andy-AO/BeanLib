@@ -28,6 +28,7 @@ Class _EX{
 	,NoExistFile := "File is Not Exist.文件不存在"
 	,ExistFile := "File is Exist.文件已存在"
 	,NoExistWin := "Win is Not Exist.窗口不存在"
+	,ShownWin := "Win is Shown.窗口已经显示"
 	,getWinHwndFailed := "Get Win Hwnd Failed.获取窗口句柄失败"
 	,getControlHwndFailed := "Get Control Hwnd Failed.获取控件句柄失败"
 	,SetConst := "Set Const.写入常量"
