@@ -39,7 +39,7 @@ Core Pack 必须全部导入
 #Include GUI\GUI.ahk
 #Include GUI\_Win.ahk
 #Include GUI\_Wins.ahk
-#Include GUI\Control.ahk
+#Include GUI\BeanControl.ahk
 #Include GUI\WinEvent.ahk
 #Include GUI\AutoGUI.ahk
 #Include GUI\AutoInputBox.ahk
@@ -89,7 +89,7 @@ Core Pack 必须全部导入
 #Include Win.ahk
 #Include _Win.ahk
 #Include _Wins.ahk
-#Include Control.ahk
+#Include BeanControl.ahk
 
 ;FuncObj  Pack
 #Include Method.ahk

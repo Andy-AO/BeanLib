@@ -3,7 +3,7 @@
 /*
 说明:Control对象
 */
-class Control{
+class BeanControl{
 win:="",classNN:=""
 ;---------------------------------------------------------------------- 
 	__New(aWin,aClassNN){
@@ -18,4 +18,4 @@ win:="",classNN:=""
 	}
 ;---------------------------------------------------------------------- 
 	
-} ;---------class Control End
+} ;---------class BeanControl End
