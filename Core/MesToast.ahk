@@ -1,5 +1,6 @@
 ﻿
 class MesToast{
+	;TODO:解决回到桌面隐藏和任务栏显示问题
 	static Width := 260,Height := 150,FontName := "Microsoft YaHei",period := "1",TransparentThreshold := "5",TransparencyUpperLimit := "255",indexStep := "1"
 	,objList := array(),HadMessage := false,objMap := Object()
 	
