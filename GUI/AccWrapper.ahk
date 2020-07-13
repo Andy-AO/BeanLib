@@ -161,7 +161,7 @@ Class AccWrapper{
 		StrReplace(theMap["Selection"], ",",, vCount), vCount += 1
 		theMap["SelectionCount"] := (theMap["Selection"] = "") ? 0 : vCount
 		theMap["ChildCount"] := oAcc.accChildCount
-		theMap["Location"] := Format("X{} Y{} W{} H{}", oRect.x, oRect.y, oRect.w, oRect.h)
+		theMap["Location"] := Object("x",oRect.x,"y",oRect.y,"w",oRect.w,"h",oRect.h)
 		theMap["Description"] := oAcc.accDescription(vChildId)
 		theMap["Keyboard"] := oAcc.accKeyboardShortCut(vChildId)
 		theMap["Help"] := oAcc.accHelp(vChildId)
