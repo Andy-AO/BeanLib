@@ -5,6 +5,10 @@
 ;---------------------------------------------------------------------- 					
 	Class PathObj{
 	
+		isFile(aPath){
+		   return !InStr(FileExist(aPath), "D")
+		}
+	
 		getPath(){
 			return this.path
 		}
