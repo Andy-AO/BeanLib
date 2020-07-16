@@ -175,11 +175,8 @@ class MesToast{
 		return this.TimeIdle := A_TimeIdle
 	}
 	changeWinStyle(){
-		LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
 		theWinTitle := "ahk_id" " " this.Hwnd
-		LogPrintln(theWinTitle,A_LineFile  "("  A_LineNumber  ")"  " : " "theWinTitle >>> `r`n")
 		_Win.Analyze(theWinTitle)
-		LogPrintln(_Win.Analyze(theWinTitle),A_LineFile  "("  A_LineNumber  ")"  " : " "_Win.Analyze(theWinTitle) >>> `r`n")
 		;~ WinSet, Style, -0xC00000, %theWinTitle%  ; Remove the window's title bar 删除窗口的标题栏
 		WinSet, ExStyle, +0x80, %theWinTitle%    ; Remove it from the alt-tab list 让他从切换栏中也移除
 		WinSet, ExStyle, -0x00040000, %theWinTitle%    ; Turn off WS_EX_APPWINDOW 这个看不懂，反正也是去掉某一个窗口属性
