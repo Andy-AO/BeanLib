@@ -1,4 +1,5 @@
 ﻿
+
 class MesToast{
 	;TODO:解决回到桌面隐藏和任务栏显示问题
 	static Width := 260,Height := 150,FontName := "Microsoft YaHei",period := "1",TransparentThreshold := "5",TransparencyUpperLimit := "255",indexStep := "1"
@@ -7,49 +8,12 @@ class MesToast{
 	static SoundFile := "",StatusBarExist := false
 	
 	static Hwnd := "DefaultHwnd",title:="DefaultTitle",text:="DefaultText",theTimer := "" ,TimeIdle := "",UsersOnline := false
-	,index := "DefaultIndex",Hidden := true,TransparentMode := false,duration := "10",Color := "f0f0f0"
-	
-	OnMessage(){
-		Critical
-		if(NOT(MesToast.HadMessage)){
-			WM_DESTROY := 0x02
-			WM_MOVE := 0x03
-			WM_SHOWWINDOW := 0x18
-			OnMessage(WM_SHOWWINDOW, new Method(MesToast.WM_SHOWWINDOW,MesToast))
-			OnMessage(WM_DESTROY, new Method(MesToast.WM_DESTROY,MesToast))
-			MesToast.HadMessage := true
-		}
-		return
-	}
-	
+	,index := "DefaultIndex",Hidden := true,TransparentMode := false,rawDuration := 10,duration := MesToast.rawDuration,Color := "f0f0f0",isDestroyed := false
 	ToggleHidden(){
 		if(this.Hidden)
 			this.Hidden := false
 		else
 			this.Hidden := true
-		return
-	}
-	
-	WM_SHOWWINDOW(wParam, lParam, msg, hwnd){
-		Critical
-		theMesToast := MesToast.objMap[hwnd]
-		LogPrintln(hwnd,A_LineFile  "("  A_LineNumber  ")"  " : " "hwnd >>> `r`n")
-		if(theMesToast != ""){
-			LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
-			theMesToast.ToggleHidden()
-			if(theMesToast.Hidden){
-				theMesToast.destroyObj()
-			}
-		}
-		return
-	}	
-	
-	WM_DESTROY(wParam, lParam, msg, hwnd){
-		Critical
-		theMesToast := MesToast.objMap[hwnd]
-		if(theMesToast != ""){
-			theMesToast.destroyObj()
-		}
 		return
 	}
 	
@@ -148,12 +112,14 @@ class MesToast{
 	CountdownPreCheck(){
 		return (this.checkCursorPosition() AND this.checkTimeIdle() AND this.isTop())
 	}
+	winExist(){
+		return WinExist("ahk_id" " " this.Hwnd)
+	}
 	countDown(){
 		if(this.CountdownPreCheck() = false){
 			return ""
 		}
-		if(this.duration <= 0){
-			this.DeleteTimer()
+		if((this.duration <= 0) OR (!this.winExist())){
 			this.destroy()
 			return ""
 		}
@@ -173,14 +139,16 @@ class MesToast{
 	hideWin(){
 		Hwnd := this.Hwnd
 		Gui, %Hwnd%:Hide
-		
+		return
 	}
 	destroyObj(){
 		MesToast.objList[this.index] := ""
 	}
 	destroy(){
+		this.DeleteTimer()
 		this.hideWin()
 		this.destroyObj()
+		this.isDestroyed := true
 	}
 	playSound(){
 		if(Type.isObj(this.getSoundFile())){
@@ -213,7 +181,6 @@ class MesToast{
 	}
 	beforeShowCheck(){
 		if(this.Hidden){
-
 		}
 		else{
 			throw(_EX.ShownWin)
