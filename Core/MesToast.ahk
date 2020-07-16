@@ -21,6 +21,17 @@ class MesToast{
 		return this = this.getTopObj()
 	}
 	
+	reset(){
+		if(!this.WinExist){
+			throw(_EX.NoExistWin)
+		}
+		this.deleteTimer()
+		this.duration := this.rawDuration
+		this.updateStatusBar()
+		this.createTimer()
+		this.playSound()
+	}
+	
 	getTopObj(){
 		Critical
 		theIndex := theLength := MesToast.objList.length()
@@ -80,7 +91,7 @@ class MesToast{
 	insertToMap(){
 		return MesToast.objMap[this.hwnd] := this
 	}
-	DeleteTimer(){
+	deleteTimer(){
 		this.theTimer.delete()
 		,this.theTimer := ""
 	}
@@ -104,7 +115,7 @@ class MesToast{
 		return (id != this.Hwnd)
 	}
 	checkTimeIdle(){
-		if((A_TimeIdle <= this.TimeIdle)OR(this.UsersOnline))
+		if((A_TimeIdle <= this.TimeIdle)OR(this.TimeIdle <= "1".SecToMSec())OR(this.UsersOnline))
 			return this.UsersOnline := true
 		else
 			return false
@@ -145,7 +156,7 @@ class MesToast{
 		MesToast.objList[this.index] := ""
 	}
 	destroy(){
-		this.DeleteTimer()
+		this.deleteTimer()
 		this.hideWin()
 		this.destroyObj()
 		this.isDestroyed := true
@@ -188,6 +199,7 @@ class MesToast{
 	}
 	show(){
 		this.newGUI()
+		this.UserMonitor()
 		this.beforeShowCheck()
 		this.insertToList()
 		this.insertToMap()
@@ -196,7 +208,9 @@ class MesToast{
 		,MaxX := this.MaxX,MaxY := this.MaxY
 		Gui, %Hwnd%:Show ,NoActivate X%MaxX% Y%MaxY% AutoSize
 		_Win.moveToRightCorner("ahk_id" " " this.Hwnd)
-		this.UserMonitor()
+		this.createTimer()
+	}
+	createTimer(){
 		this.theTimer := new Timer(new Method(this.countDown,this),MesToast.period.secToMSec())
 		this.theTimer.set()
 	}
