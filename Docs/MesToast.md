@@ -18,6 +18,8 @@
 -   aText：内容
 -   aDuration：窗口存活时间
 
+### reset()
+重置Toast，计数器回到原始状态
 ### show()
 - 显示Toast
 
