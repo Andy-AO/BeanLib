@@ -174,15 +174,25 @@ class MesToast{
 		this.UsersOnline := false
 		return this.TimeIdle := A_TimeIdle
 	}
+	changeWinStyle(){
+		LogPrintln(A_ThisFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "A_ThisFunc >>> `r`n")
+		theWinTitle := "ahk_id" " " this.Hwnd
+		LogPrintln(theWinTitle,A_LineFile  "("  A_LineNumber  ")"  " : " "theWinTitle >>> `r`n")
+		_Win.Analyze(theWinTitle)
+		LogPrintln(_Win.Analyze(theWinTitle),A_LineFile  "("  A_LineNumber  ")"  " : " "_Win.Analyze(theWinTitle) >>> `r`n")
+		;~ WinSet, Style, -0xC00000, %theWinTitle%  ; Remove the window's title bar 删除窗口的标题栏
+		WinSet, ExStyle, +0x80, %theWinTitle%    ; Remove it from the alt-tab list 让他从切换栏中也移除
+		WinSet, ExStyle, -0x00040000, %theWinTitle%    ; Turn off WS_EX_APPWINDOW 这个看不懂，反正也是去掉某一个窗口属性
+	}
 	newGUI(){
 		if(this.Hwnd == MesToast.Hwnd){
 			Width := MesToast.Width,Height := MesToast.Height,FontName := MesToast.FontName,Color := this.Color
 			aText := this.text,aTitle := this.title
 			Gui, New , +HwndHwnd +AlwaysOnTop, %aTitle%
+			this.Hwnd := Hwnd
 			Gui, %Hwnd%:Color, %Color%
 			Gui, %Hwnd%:Font , s10, %FontName%
 			Gui, %Hwnd%:Add, Edit, r3 w%Width% ReadOnly, %aText%
-			this.Hwnd := Hwnd
 			this.updateStatusBar()
 			return true
 		}
@@ -199,7 +209,7 @@ class MesToast{
 		}
 	}
 	show(){
-		this.newGUI()
+		this.newGUI()		
 		this.UserMonitor()
 		this.beforeShowCheck()
 		this.insertToList()
@@ -208,6 +218,7 @@ class MesToast{
 		Hwnd := this.Hwnd
 		,MaxX := this.MaxX,MaxY := this.MaxY
 		Gui, %Hwnd%:Show ,NoActivate X%MaxX% Y%MaxY% AutoSize
+		this.changeWinStyle()
 		_Win.moveToRightCorner("ahk_id" " " this.Hwnd)
 		this.createTimer()
 	}
