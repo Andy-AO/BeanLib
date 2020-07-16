@@ -27,6 +27,7 @@ class MesToast{
 		}
 		this.deleteTimer()
 		this.duration := this.rawDuration
+		this.UserMonitor()
 		this.updateStatusBar()
 		this.createTimer()
 		this.playSound()
