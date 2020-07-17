@@ -201,9 +201,19 @@ Class AccWrapper{
 	}
 	;------------------------------
 	getChildren(){
+		theRawChildren := this.getChildrenRaw()
+		theResult := []
+		for i,v in theRawChildren {
+			theResult[i] := new AccWrapper(v)
+		}
+		return theResult
+	}
+	;------------------------------
+	getChildrenRaw(){
 		theAccObj := this.get()
-		if ComObjType(theAccObj,"Name") != "IAccessible"
+		if ComObjType(theAccObj,"Name") != "IAccessible"{
 			ErrorLevel := "Invalid IAccessible Object"
+		}
 		else {
 			AccWrapper.p_init(), cChildren:=theAccObj.accChildCount, Children:=[]
 			if DllCall("oleacc\AccessibleChildren", "Ptr",ComObjValue(theAccObj), "Int",0, "Int",cChildren, "Ptr",VarSetCapacity(varChildren,cChildren*(8+2*A_PtrSize),0)*0+&varChildren, "Int*",cChildren)=0 {
@@ -232,7 +242,7 @@ Class AccWrapper{
 		if(aIndex>maxIndex)
 			throw(_Ex.IndexOutOfBounds)
 		else
-			return theChild := new AccWrapper(this.getChildren()[aIndex]),theChild.index := aIndex,this.setChildPath(theChild)
+			return theChild := this.getChildren()[aIndex],theChild.index := aIndex,this.setChildPath(theChild)
 	}
 	;------------------------------;
 	getSelection(){
