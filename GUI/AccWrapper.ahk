@@ -131,6 +131,12 @@ Class AccWrapper{
 	}
 	;------------------------------ ;静态区结束
 ;——————————————————————————————————————————————————————————————————————————————	
+	doDefaultAction(ChildId = 0){
+		return this.get().accDoDefaultAction(ChildId)
+	}
+	getDefaultActionText(ChildId = 0){
+		return this.get().accDefaultAction(ChildId)
+	}
 	;------------------------------ ;转换区开始
 	Location(ChildId = 0, byref Position = "") { ; adapted from Sean's code
 		try 
@@ -155,7 +161,7 @@ Class AccWrapper{
 		theMap["RoleText"] := AccWrapper.getRoleText(oAcc.accRole(vChildId))
 		theMap["StateText"] := AccWrapper.getStateText(oAcc.accState(vChildId))
 		theMap["StateTextAll"] := AccWrapper.getStateTextAll(theMap["StateNum"])
-		theMap["Action"] := oAcc.accDefaultAction(vChildId)
+		theMap["Action"] := this.getDefaultActionText(vChildId)
 		theMap["Focus"] := oAcc.accFocus
 		theMap["Selection"] := this.getSelection()
 		StrReplace(theMap["Selection"], ",",, vCount), vCount += 1

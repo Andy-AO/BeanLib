@@ -36,8 +36,8 @@ LogPrintln(theAccObj.Analyze(),A_LineFile  "("  A_LineNumber  ")"  " : " "theAcc
 vChildId := 0
 
 Insert::
-	result := theAccObj.get().accDefaultAction(vChildId)
-	returnValue := theAccObj.get().accDoDefaultAction(vChildId)
+	result := theAccObj.getDefaultActionText(vChildId)
+	returnValue := theAccObj.doDefaultAction(vChildId)
 	LogPrintln(result,A_LineFile  "("  A_LineNumber  ")"  " : " "result >>> `r`n")
 	LogPrintln(returnValue,A_LineFile  "("  A_LineNumber  ")"  " : " "returnValue >>> `r`n")
 return
