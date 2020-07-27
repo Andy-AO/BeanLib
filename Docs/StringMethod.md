@@ -50,7 +50,7 @@ Str.Length()
 Str.ToList()
 ```
 
-### toHex() - 转为二进制
+### toHex() - 转为十六进制(16进制)
 
 如果不是数字会抛出"String is not Number"异常
 
