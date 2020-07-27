@@ -17,8 +17,13 @@ class WinEvent{
 	;------------------------------
 	findFuncNameFromWParam(aWParam){
 		for k,v in WinEvent.wParam {
-			if(v = aWParam)
-				return "On" k
+			if(v = aWParam){
+				LogPrintln(aWParam,A_LineFile  "("  A_LineNumber  ")"  " : " "aWParam >>> `r`n")
+				theFuncName := "On" k
+				LogPrintln(theFuncName,A_LineFile  "("  A_LineNumber  ")"  " : " "theFuncName >>> `r`n")
+				return  theFuncName
+			}
+				
 		}
 	}
 ;------------------------------
@@ -74,10 +79,21 @@ class WinEvent{
 ;------------------------------
 	ShellMessage(wParam, lParam, msg:="", hwnd:="") {
 		theFindFuncName := this.findFuncNameFromWParam(wParam)
+		theFunc := this[theFindFuncName]
+		if(theFunc = "")
+			return
+		;~ LogPrintln(theFindFuncName,A_LineFile  "("  A_LineNumber  ")"  " : " "theFindFuncName >>> `r`n")
+		
 		;~ this.ShellMessagePrint(wParam, lParam, msg, hwnd)
-		if(this[theFindFuncName]!=""){
-			return this[theFindFuncName](_Win.Analyze("ahk_id " . lParam))
+		
+		;~ LogPrintln(theFunc,A_LineFile  "("  A_LineNumber  ")"  " : " "theFunc >>> `r`n")
+		;~ LogPrintln(IsFunc(theFunc),A_LineFile  "("  A_LineNumber  ")"  " : " "IsFunc(theFunc) >>> `r`n")
+		
+		theMethod :=  new Method(theFunc,this)
+		if(theMethod != ""){
+			return theMethod.Call(_Win.Analyze("ahk_id " . lParam))
 		}
+		return
 	}
 	
 	;------------------------------
