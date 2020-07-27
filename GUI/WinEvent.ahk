@@ -95,7 +95,7 @@ class WinEvent{
 		
 		theMethod :=  new Method(theFunc,this)
 		if(theMethod != ""){
-			return theMethod.Call(_Win.Analyze("ahk_id " . lParam))
+			return theMethod.Call(_Wins.Analyze("ahk_id " . lParam))
 		}
 		return
 	}
