@@ -184,7 +184,30 @@ Escape(aCharList,aTargetChar:="\"){
 		return this.isRegExMatch(aRegEx,aRegExOption:="i)")
 	}
 	
-		
+	toHex(pad=0 ) { ; Function by [VxE]. Formats an integer (decimals are truncated) as hex.
+		if(!this.isNumber())
+			throw "String is not Number"
+	; "Pad" may be the minimum number of digits that should appear on the right of the "0x".
+		int := this
+		Static hx := "0123456789ABCDEF"
+
+		If !( 0 < int |= 0 )
+
+			Return !int ? "0x0" : "-" this.toHex( -int, pad )
+
+		s := 1 + Floor( Ln( int ) / Ln( 16 ) )
+
+		h := SubStr( "0x0000000000000000", 1, pad := pad < s ? s + 2 : pad < 16 ? pad + 2 : 18 )
+
+		u := A_IsUnicode = 1
+
+		Loop % s
+
+			NumPut( *( &hx + ( ( int & 15 ) << u ) ), h, pad - A_Index << u, "UChar" ), int >>= 4
+
+		Return h
+
+	}
 ;---------------------------------------------------------------------- 
 		py(){
 	Str:=this,newStr:=""

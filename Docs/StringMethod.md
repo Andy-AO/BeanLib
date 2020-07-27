@@ -50,6 +50,9 @@ Str.Length()
 Str.ToList()
 ```
 
+### toHex() - 转为二进制
+
+如果不是数字会抛出"String is not Number"异常
 
 ### py() - 获取拼音首字母
 
