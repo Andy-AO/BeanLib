@@ -101,10 +101,17 @@ class MyWinEvent extends WinEvent{
 
 WinEventObj:=new MyWinEvent()
 class MyWinEvent extends WinEvent{
-	OnSwap(){
-		aTitle := A_ScriptName,aTipString := A_ScriptName,TrayTip(aTitle,aTipString) 
+	OnDestroyed(theWinObjs){
+		theWinObj := theWinObjs[1]
+		if(theWinObj.WinId = this.WinID.fiboOwner){
+			if(this.fiboObject)
+				this.fiboObject.close()
+		}
 		return
 	}	
 } ;---------class MyWinEvent End
 
 ```
+
+要注意，会传入**窗口数组**，必须有这个参数，否则会调用失败。
+*此前会传入窗口对象，现在是窗口数组。*
