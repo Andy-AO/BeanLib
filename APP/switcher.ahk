@@ -33,8 +33,13 @@ class Switcher{
 		return this.p_ActivateOrMini(theLastWin.WinId)
 	}
 	;------------------------------
+	runFuncObj(funcObj){
+		return funcObj.call()
+	}
+	;------------------------------
 	switch(aWinTitle,aPathOrFuncObj){
-		if(WinExist(aWinTitle)){
+		theWinExist := WinExist(aWinTitle)
+		if(theWinExist){
 			this.toggle(aWinTitle)
 		}
 		else{
@@ -45,12 +50,13 @@ class Switcher{
 			else{
 				funcObj := aPathOrFuncObj
 			}
-			FuncObjReturn := funcObj.call()
+			FuncObjReturn := this.runFuncObj(funcObj) 
 		}
-		return WinExist(aWinTitle)
+		return theWinExist
 	}
 	;------------------------------
 	p_ActivateOrMini(aWinTitle){
+		theWinExist := WinExist(aWinTitle)
 		if(WinActive(aWinTitle)){
 			WinMinimize,%aWinTitle%
 		}
@@ -58,7 +64,7 @@ class Switcher{
 			WinActivate,%aWinTitle%
 			this.p_ifJavaSwingReDraw(aWinTitle)
 		}
-		return WinExist(aWinTitle)
+		return theWinExist
 	}
 	;------------------------------
 	p_Run(aPath){
