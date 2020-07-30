@@ -37,20 +37,32 @@ class Switcher{
 		return funcObj.call()
 	}
 	;------------------------------
-	switch(aWinTitle,aPathOrFuncObj){
+	run(aWinTitle,aPathOrFuncObj,aWait = 0){
+		if(Type.isStr(aPathOrFuncObj)){
+			path := aPathOrFuncObj
+			funcObj := new Method(this.p_Run,this,path)
+		}
+		else{
+			funcObj := aPathOrFuncObj
+		}
+		FuncObjReturn := this.runFuncObj(funcObj) 
+		if((aWait != 0) AND (aWait.isNumber())){
+			try{
+				WinWait , %aWinTitle%, , %aWait%
+				WinActivate , %aWinTitle%
+			}
+			catch,ex{
+			}
+		}
+	}
+	;------------------------------
+	switch(aWinTitle,aPathOrFuncObj,aWait = 0){
 		theWinExist := WinExist(aWinTitle)
 		if(theWinExist){
 			this.toggle(aWinTitle)
 		}
 		else{
-			if(Type.isStr(aPathOrFuncObj)){
-				path := aPathOrFuncObj
-				funcObj := new Method(this.p_Run,this,path)
-			}
-			else{
-				funcObj := aPathOrFuncObj
-			}
-			FuncObjReturn := this.runFuncObj(funcObj) 
+			this.run(aWinTitle,aPathOrFuncObj,aWait)
 		}
 		return theWinExist
 	}

@@ -11,7 +11,7 @@ Run命令的Options，默认是"Max"，也就是以最大化窗口形式运行�
 
 ## 方法 Method
 
-### switch(aWinTitle,aPathOrFuncObj)
+### switch(aWinTitle,aPathOrFuncObj,aWait = 0)
 
 **切换窗口(软件)**
 
@@ -42,6 +42,7 @@ Run命令的Options，默认是"Max"，也就是以最大化窗口形式运行�
 - aWinTitle - 窗口的title
 - aPathOrFuncObj - 路径或者方法
   如果是路径，则以最大化形式Run；否则，如果是方法，则直接运行方法
+- aWait - 最长等待时间。当程序窗口不存在的时候，会运行程序。当运行命令下达后，如果aWait不为零，则线程等待程序窗口存在后再运行。aWait为最长等待时间，默认参数为0，也就是不等待。
 
 #### 返回 Returns: 
 
