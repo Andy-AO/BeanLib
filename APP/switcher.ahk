@@ -102,8 +102,8 @@ global SwitcherEvent
 SwitcherEvent := new SwitcherEventBase()
 
 class SwitcherEventBase extends WinEvent{
-	OnSwitched(aWinObj){
-		Switcher.winStack.push(aWinObj)
+	OnSwitched(aWinObjs){
+		Switcher.winStack.push(aWinObjs[1])
 	}	
 }
 
