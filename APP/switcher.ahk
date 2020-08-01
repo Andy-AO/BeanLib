@@ -49,9 +49,14 @@ class Switcher{
 		if((aWait != 0) AND (aWait.isNumber())){
 			try{
 				WinWait , %aWinTitle%, , %aWait%
-				WinActivate , %aWinTitle%
+				try{
+					WinActivate , %aWinTitle%
+				}
+				catch,ex{
+				}
 			}
 			catch,ex{
+				throw(_EX.NoExistWin "(可能是窗口未能如期出现)")
 			}
 		}
 	}
