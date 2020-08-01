@@ -7,8 +7,10 @@ ExcelToList(FileName, nSheet := 1, last_row := "", last_column := ""){
 
 class ExcelToArrayClass{
 	DoIt(FileName, nSheet := 1, last_row := "", last_column := ""){
-		if !FileExist(FileName)
-			throw,_Ex.NoExistFile
+		if !FileExist(FileName){
+			throw(_Ex.NoExistFile)
+		}
+			
 		
 		ListfeArr := this.GetListfeArrFromXlFile(FileName, nSheet, last_row, last_column)
 		ret := this.ListfeArr_To_AHKArr(ListfeArr)
