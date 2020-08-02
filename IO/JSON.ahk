@@ -1,5 +1,14 @@
 class JsonFile{
-	path := ""
+	static emptyContent := "{}"
+	pathObj := ""
+    path[]{
+        get {
+            return this.pathObj.getPath()
+        }
+        set {
+            return
+        }
+    }
 	;------------------------------
 	store(jsonObj){
 		if(FileExist(this.path))
@@ -17,25 +26,21 @@ class JsonFile{
 			FileCreateDir, %dir%
 		}
 		FileAppend,% aContent, % this.path,UTF-8
-		return
+		return ErrorLevel
 	}
 	;------------------------------
 	load(){
-		this.checkFileExist()
-		FileRead, content , % this.path
+		if(this.pathObj.isExist()){
+			FileRead, content , % this.path
+		}
+		else{
+			content := this.emptyContent
+		}
 		return JSON.load(content)
 	}
 	;------------------------------
-	
-	checkFileExist(){
-		if(FileExist(this.path)=""){
-			throwWithST(_Ex.NoExistFile)
-		}
-		return
-	}
-	;------------------------------
 	__New(path){
-		this.path := path
+		this.pathObj := new PathObj(path)
 		return this
 	}
 } ;---------class JsonFile End

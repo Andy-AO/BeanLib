@@ -9,9 +9,11 @@
 
 - path - JsonFile文件的路径
 
+会先检查路径是否合法：如果路径不合法，会抛出异常。
+
 ### load()
 
-从JsonFile文件中加载JsonObject
+从JsonFile文件中加载JsonObject，文件不存在，会加载空`json`。
 
 ### store(jsonObj)
 
