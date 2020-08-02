@@ -16,7 +16,7 @@
 		isExist(aPath := ""){
 			if(aPath = "")
 				aPath := this.path
-			return FileExist(FilePattern)
+			return FileExist(this.path)
 		}
 		
 		getPath(){
