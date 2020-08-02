@@ -46,7 +46,10 @@ class JsonFile{
 		else{
 			content := this.emptyContent
 		}
-		return JSON.load(content)
+		if(Type.isObj(theJsonMap := JSON.load(content)))
+			return theJsonMap
+		else
+			throw(_Ex.DeserializationFailed)
 	}
 	;------------------------------
 	__New(path){

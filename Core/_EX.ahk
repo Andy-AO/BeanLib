@@ -44,6 +44,8 @@ Class _EX{
 	,UserCancelled := "User cancelled 用户已取消"
 	,AccObjectException := "ACC object exception ACC 对象异常"
 	,CopyFail := "CopyFail 复制失败"
+	,DeserializationFailed := "Deserialization failed 反序列化失败"
+	,RetryFail := "Retry fail 重试失败"
 
 }
 

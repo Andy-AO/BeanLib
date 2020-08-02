@@ -29,7 +29,6 @@ class Switcher{
 	;------------------------------
 	toggle(aWinTitle){
 		theLastWin := this.getLastWin(aWinTitle)
-		LogPrintln(theLastWin,A_LineFile  "("  A_LineNumber  ")"  " : " "theLastWin >>> `r`n")
 		return this.p_ActivateOrMini(theLastWin.WinId)
 	}
 	;------------------------------
