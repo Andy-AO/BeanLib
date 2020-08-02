@@ -47,16 +47,13 @@ class Switcher{
 		}
 		FuncObjReturn := this.runFuncObj(funcObj) 
 		if((aWait != 0) AND (aWait.isNumber())){
-			try{
-				WinWait , %aWinTitle%, , %aWait%
-				try{
-					WinActivate , %aWinTitle%
+			WinWait , %aWinTitle%, , %aWait%
+			{
+				if(ErrorLevel){
+					LogPrintln(ex,A_LineFile  "("  A_LineNumber  ")"  " : " "ex >>> `r`n")
+					throw(_EX.NoExistWin "(可能是窗口未能如期出现)")
 				}
-				catch,ex{
-				}
-			}
-			catch,ex{
-				throw(_EX.NoExistWin "(可能是窗口未能如期出现)")
+				WinActivate , %aWinTitle%
 			}
 		}
 	}
