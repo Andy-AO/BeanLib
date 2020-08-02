@@ -28,12 +28,17 @@
    
 ;---------------------------------------------------------------------- 
 
-/*
-说明:用正则表达式检查路径
-*/
+	/*
+	说明:用正则表达式检查路径
+	*/
 
-	af(){
-		return Type.assertPath(this.path)
+	assert(){
+		if(Type.isPath(this.path))
+			return
+		else{
+			this.path := %A_WorkingDir% this.path
+			return Type.assertPath(this.path)
+		}
 	}
 			
 }
