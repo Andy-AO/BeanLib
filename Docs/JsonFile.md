@@ -15,6 +15,12 @@
 
 从JsonFile文件中加载JsonObject，文件不存在，会加载空`json`。
 
+### init(aDefaultObject)
+
+使用默认Object，对JSON进行初始化。
+
+也就是检查出JSON中所有的缺失项，并填入默认值。
+
 ### store(jsonObj)
 
 向JsonFile文件中存储JsonObject
