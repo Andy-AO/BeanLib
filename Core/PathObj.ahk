@@ -5,10 +5,20 @@
 ;---------------------------------------------------------------------- 					
 	Class PathObj{
 	
-		isFile(aPath){
+		path := ""
+		
+		isFile(aPath := ""){
+			if(aPath = "")
+				aPath := this.path
 		   return !InStr(FileExist(aPath), "D")
 		}
-	
+		
+		isExist(aPath := ""){
+			if(aPath = "")
+				aPath := this.path
+			return FileExist(FilePattern)
+		}
+		
 		getPath(){
 			return this.path
 		}
@@ -16,7 +26,6 @@
 				this.path:=aPath
 				this.assert()
 				this.split()
-			return this
 		}
 ;---------------------------------------------------------------------- 	
 
