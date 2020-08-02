@@ -36,7 +36,7 @@
 		if(Type.isPath(this.path))
 			return
 		else{
-			this.path := %A_WorkingDir% this.path
+			this.path := A_WorkingDir "\" this.path
 			return Type.assertPath(this.path)
 		}
 	}
