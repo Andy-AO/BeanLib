@@ -18,6 +18,16 @@ class JsonFile{
 		return content
 	}
 	;------------------------------
+	init(aDefaultObject){
+		theObject := this.load()
+		for k,v in aDefaultObject {
+			if(!ObjHasKey(theObject,k))
+				ObjRawSet(theObject, k, v)
+		}
+		this.store(theObject)
+		return theObject
+	}
+	;------------------------------
 	FileAppend(aContent){
 		thePathObj:=new PathObj(this.path)
 		dir := thePathObj.dir
