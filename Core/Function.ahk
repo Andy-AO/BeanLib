@@ -256,16 +256,15 @@ Traceback(actual:=false){
 ;------------------------------
 
 StackTrace(Mes){
-		out := "Stack trace:"
+		out := ""
 		Traceback := Traceback()
 		headStr := "`r`n" "-Stack Trace ~ ~~" "  " "Mes:" Mes "`r`n"
-		stdoutln(headStr,Encoding:="UTF-8")
+		out .= headStr "`r`n"
 		for i, info in Traceback
 		{
 			Snippet := info.File "(" info.line ")" " : ==> " "offset:" info.offset " "  "caller:" info.caller " "
-			stdoutln(Snippet,Encoding:="UTF-8")
+			out .= Snippet "`r`n"
 		}
-
 		return out
 }
 
@@ -277,7 +276,7 @@ StackTrace(Mes){
 			theMesToast := new MesToast(A_ScriptName,"theTipString"),theMesToast.show()  
 			return
 		}
-		StackTrace(Mes)
+		stdoutln(StackTrace(Mes),Encoding:="UTF-8")
 		if(EnableEx){
 			throw,Exception(Mes)
 		}
@@ -291,7 +290,6 @@ StackTrace(Mes){
 		return 
 	}
 	
-
 ;------------------------------
 	
 InstanceCheck(this){
