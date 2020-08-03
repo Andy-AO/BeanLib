@@ -18,8 +18,11 @@ LGPLv3
 ;~ Protect(_EX)
 
 Class _EX{
-
-
+	
+	isRuntimeException(ex){
+		return (ex.Message = 1)
+	}
+	
 	static IndexOutOfBounds := "Index Out Of Bounds.数组越界" 
 	,NoExistVariate := "Variate is not Exsit.变量不存在"
 	,NoExistKey := "Key-Value is not Exsit. Key-Value不存在"
