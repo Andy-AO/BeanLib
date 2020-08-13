@@ -2,6 +2,7 @@
 
 1.  对路径字符串进行各种操作。完全依赖 `SplitPath` 函数实现。
 2.  对路径的合法性进行检查。依赖正则实现。
+3.  [构造方法会自动调用split()生成各种field](### split())。
 
 [TOC]
 
@@ -28,6 +29,12 @@
 3. ext (扩展名)
 4. name_no_ext
 5. drive
+
+### create(aPathList)
+
+批量创建`PathObj`，`aPathList`既可以是`List`，也可以是以换行分开的路径`String`。
+
+返回`PathOb[]`。
 
 ### __New(aPath)
 

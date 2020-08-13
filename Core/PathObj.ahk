@@ -1,4 +1,5 @@
 ﻿
+
 /*
 说明:对路径字符串进行各种操作
 */
@@ -25,10 +26,27 @@
 		__New(aPath){
 				this.path:=aPath
 				this.assert()
-				this.split()
+				this.split()  
+		}
+		create(aPathList){
+			if(Type.isList(aPathList)){
+				theResultList := []
+				for i,v in aPathList {
+					theResultList[i] := new PathObj(v)
+				}
+				return theResultList
+			}
+			else if(Type.isStr(aPathList)){
+				paths := aPathList
+				paths := StrReplace(paths,"`r`n","`n")
+				theResultList := StrSplit(paths, Delimiters := "`n")
+				return PathObj.create(theResultList)
+			}
+			else{
+				;~ throw()
+			}
 		}
 ;---------------------------------------------------------------------- 	
-
 		split(){
 			SplitPath, % this.path, name, dir, ext, name_no_ext, drive
 			this.name:=name,this.dir:=dir,this.ext:=ext,this.name_no_ext:=name_no_ext,this.drive:=drive
@@ -36,11 +54,9 @@
 		}
    
 ;---------------------------------------------------------------------- 
-
 	/*
 	说明:用正则表达式检查路径
 	*/
-
 	assert(){
 		if(Type.isPath(this.path))
 			return
