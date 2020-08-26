@@ -17,6 +17,7 @@ Core Pack 必须全部导入
 #Include Core\Function.ahk
 #Include Core\getClass().ahk
 #Include Core\Instanof().ahk
+#Include Core\InvisibleCharacter.ahk
 #Include Core\StringMethod.ahk
 #Include Core\TypeFuncAndClass.ahk
 #Include Core\Method.ahk
