@@ -56,6 +56,7 @@
 	-   [loadMethod()](Docs/loadMethod().md)
 	-   [LogPrintln()](Docs/LogPrintln().md)
 	-   [rawCall()](Docs/rawCall.md)
+	-   [RandomStr()](Docs/RandomStr().md)
 	-   [showObj()](Docs/showObj().md)
 	-   [Type()](Docs/Type().md)
 	-   [throwWithSt()](Docs/throwWithSt.md)

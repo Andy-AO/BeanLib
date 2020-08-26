@@ -1,4 +1,16 @@
-﻿
+﻿/*
+随机字符串生成器
+*/
+
+RandomStr(aLength = 16, aLowestAsc = 48, aHighestAsc = 122) { ; length, lowest and highest Asc value
+	theStr := ""
+	Loop, %aLength% {
+		Random, r, aLowestAsc, aHighestAsc
+		theStr .= Chr(r)
+	}
+	Return theStr
+}
+; From：polyethene https://autohotkey.com/board/topic/16860-how-to-generate-a-random-string-chars-like-fghdhfghdf
 ;------------------------------
 
 GetKeyPhysicalState(key){
