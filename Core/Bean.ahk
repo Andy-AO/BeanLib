@@ -3,8 +3,12 @@
 
 Class Bean{
 static ObjectMetaMethodName:=["_NewEnum","__Init","__New","__Delete","__Get","__call","__Set","Count","Length"]
-static LogEnable:=true
-
+,LogEnable:=true
+,InvisibleCharacterCodeList := [0x200b,0x0200c,0x0200d,0x0200e,0x200f
+,0x202a,0x202b,0x202c,0x202d,0x202e
+,0x2066,0x2067,0x2068,0x2069
+,0xfeff
+,0x06ec]
 ;---------------------------------------------------------------------- 
 
 true(aParas*){
