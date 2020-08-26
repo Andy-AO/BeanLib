@@ -18,6 +18,7 @@
     -   [Function](Docs/Function.md)
     -   [HotString](Docs/HotString.md)
     -   [HotStringMaps](Docs/HotStringMaps.md)
+    -   [InvisibleCharacter](Docs/InvisibleCharacter.md)
     -   [JSON](Docs/JSON.md)
     -   [JsonFile](Docs/JsonFile.md)
     -   [Method](Docs/Method.md)
