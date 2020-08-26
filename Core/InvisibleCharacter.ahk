@@ -13,22 +13,34 @@ class InvisibleCharacter{
 ,0x06ec]
 ,List_Base := ""
 
-List[] 
-{
-	get {
-		if(InvisibleCharacter.List_Base = ""){
-			TheCharList := [],theCodeList := InvisibleCharacter.CodeList
-			for i,v in theCodeList {
-				TheCharList[i] := Chr(v)
+	List[] 
+	{
+		get {
+			if(InvisibleCharacter.List_Base = ""){
+				TheCharList := [],theCodeList := InvisibleCharacter.CodeList
+				for i,v in theCodeList {
+					TheCharList[i] := Chr(v)
+				}
+				InvisibleCharacter.List_Base := TheCharList
 			}
-			InvisibleCharacter.List_Base := TheCharList
+			return InvisibleCharacter.List_Base
 		}
-		return InvisibleCharacter.List_Base
+		set {
+			return 
+		}
 	}
-	set {
-		return 
+
+	count(aStr){
+		Type.assertStr(aStr)
+		theCount := 0
+		theStrArray := StrSplit(aStr)
+		for i,char in theStrArray {
+			if(_Container.Contains(InvisibleCharacter.List,char)){
+				theCount++
+			}
+		}
+		return theCount
 	}
-}
 
 } ;---------class InvisibleCharacter End
 
