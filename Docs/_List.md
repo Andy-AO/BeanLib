@@ -19,32 +19,9 @@
 + Class AA,BB,CC,DD
   + 连续继承的四个内部类：CC继承DD，BB继承CC，AA继承BB
   + 主要目的在于测试 Analyze()等，类继承关系分析函数。
-  
-  
-  
-  
 
 ## 方法
 
-### Contains(ListorMap,value)
-
-**检查数组中是否包含某值:**
-
-
-#### 参数 Parameters: 
-
-- ListorMap - 数组(简单数组，关联数组都行)
-- value - 任意类型值
-
-#### 返回 Returns: 
-Boolean
-#### 抛出异常 Throws: 
-- null
-#### 示例 Example
-```autohotkey
-Result1:=_Container.Contains(_List.LetterList,"A")
-Result2:=_Container.Contains(_List.LetterList,"0")
-```
 ### Uniq(List)
 
 **StrList去重:**

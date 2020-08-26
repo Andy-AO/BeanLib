@@ -8,6 +8,7 @@
     -   [新手指南(BEGINNER/_GUIDE)](Docs/新手指南(BEGINNER_GUIDE).md)
     -   [语法高亮(HIGHLIGHTING)](Docs/HIGHLIGHTING.md)
 -   [Class](Docs/Method.md)
+    -   [_Container](Docs/_Container.md)
     -   [_EX](Docs/_EX.md)
     -   [_List](Docs/_List.md)
     -   [_Map](Docs/_Map.md)
