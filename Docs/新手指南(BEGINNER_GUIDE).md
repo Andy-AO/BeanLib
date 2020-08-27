@@ -5,7 +5,7 @@
 # 1. 下载 
 在 [GitHub](https://github.com/Andy-AO/BeanLib) 中[打包下载](https://github.com/Andy-AO/BeanLib/archive/master.zip)，然后解压到需要使用BeanLib的脚本的同级目录。
 
-![image-20200827113431662](新手指南(BEGINNER_GUIDE).assets/image-20200827113431662.png)
+![image-20200827113431662](pic/image-20200827113431662.png)
 
 # 2. 导入 
 
@@ -19,7 +19,7 @@
     如无意外，出现 HelloWorld 表示库已经部署成功。
 
 
-   ![image-20200827113157942](新手指南(BEGINNER_GUIDE).assets/image-20200827113157942.png))
+   ![image-20200827113157942](pic/image-20200827113157942.png))
 
 # 3. 后续
 - 在需要导入的脚本的最顶部加入 `#Include` ，即可调用库类和函数，具体详见 `#Include` 官方文档。

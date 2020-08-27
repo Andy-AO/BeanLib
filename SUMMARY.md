@@ -5,7 +5,7 @@
     -   [开源协议 (LICENCE)](Docs/LICENCE)
     -   [鸣谢 (ACKNOWLEDGEMENT)](Docs/BeanLib_ACKNOWLEDGEMENT.md)
     -   [文档模板 (TEMPLATE)](Docs/TEMPLATE.md)
-    -   [新手指南(BEGINNER/_GUIDE)](Docs/新手指南(BEGINNER_GUIDE).md)
+    -   [新手指南(BEGINNER_GUIDE)](Docs/新手指南(BEGINNER_GUIDE).md)
     -   [语法高亮(HIGHLIGHTING)](Docs/HIGHLIGHTING.md)
 -   [Class](Docs/Method.md)
     -   [_Container](Docs/_Container.md)
