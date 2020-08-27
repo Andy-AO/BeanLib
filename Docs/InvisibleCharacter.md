@@ -19,6 +19,12 @@
 
 无参，返回不可见字符组成的List
 
+### Regex[]
+
+无参，返回匹配不可见字符的正则表达式，假设不可见字符为A、B和C，表达式为`m)(*ANYCRLF)[A|B|C]`。
+
+可用于从字符串中替换(清除)不可见字符。
+
 ## 方法 Methods
 
 ### count(aStr)
@@ -32,6 +38,26 @@
 #### 返回 Returns
 
 int
+
+#### 抛出异常 Throws
+
+- assertStr()
+
+#### 测试 Test
+
+有
+
+### clear(aStr)
+
+清除掉字符串中的不可见字符
+
+#### 参数 Parameters
+
+- aStr - 被清除的字符串
+
+#### 返回 Returns
+
+String
 
 #### 抛出异常 Throws
 

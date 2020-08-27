@@ -12,7 +12,31 @@ class InvisibleCharacter{
 ,0xfeff
 ,0x06ec]
 ,List_Base := ""
+	
+	clear(aStr){	
+		Type.assertStr(aStr)
+		theNewStr := RegExReplace(aStr, InvisibleCharacter.Regex , Replacement := "")
+		return theNewStr
+	}
+	
+    Regex[]
+    {
+        get {
+			theRegex := "m)(*ANYCRLF)["
 
+			for i,Chr in InvisibleCharacter.List {
+				if(i = InvisibleCharacter.List.Length())
+					theRegex .= Chr "]"
+				else
+					theRegex .= Chr "|"
+			}
+			return theRegex
+        }
+        set {
+            return
+        }
+    }
+	
 	List[] 
 	{
 		get {
@@ -43,9 +67,3 @@ class InvisibleCharacter{
 	}
 
 } ;---------class InvisibleCharacter End
-
-
-
-
-
-
