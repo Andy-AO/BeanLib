@@ -65,5 +65,17 @@ class InvisibleCharacter{
 		}
 		return theCount
 	}
+	
+	contain(aStr){
+		Type.assertStr(aStr)
+		theCount := 0
+		theStrArray := StrSplit(aStr)
+		for i,char in theStrArray {
+			if(_Container.Contains(InvisibleCharacter.List,char)){
+				return true
+			}
+		}
+		return false
+	}
 
 } ;---------class InvisibleCharacter End

@@ -47,6 +47,28 @@ int
 
 有
 
+
+### contain(aStr)
+
+检查字符串中是否含有不可见字符？
+
+#### 参数 Parameters
+
+- aStr - 被检查的字符串
+
+#### 返回 Returns
+
+Boolean
+
+#### 抛出异常 Throws
+
+- assertStr()
+
+#### 测试 Test
+
+无
+
+
 ### clear(aStr)
 
 清除掉字符串中的不可见字符
