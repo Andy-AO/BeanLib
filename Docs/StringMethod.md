@@ -33,6 +33,21 @@ Str.CharAt(6) ;返回e
 Str.CharAt(7) ;抛出异常
 Str.CharAt(0) ;抛出异常
 ```
+### insert(insert,pos=1) - 插入字符串
+
+在字符串中插入字符串。
+
+如果`pos`>`length+1`，那么头部位置依旧为`length+1`。
+
+**参数：**
+
+insert- 被插入的字符串
+
+pos - 被插入字符串在新字符串中的头部位置
+
+**测试：**
+
+有
 
 ### Length() - 获取长度
 

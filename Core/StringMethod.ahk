@@ -68,7 +68,6 @@ class StrBase{
 				
 				return theList
 			}
-;---------------------------------------------------------------------- 
 		
 	}
 	
@@ -90,21 +89,30 @@ RegexEscape(){
 		return theResult
 	}
 ;------------------------------
-Escape(aCharList,aTargetChar:="\"){
-	String := this
-	Type.assertStr(aTargetChar),Type.assertStr(String),Type.assertList(aCharList)
-	if (String="")
-		return
-	
-	aCharList.InsertAt(1,aTargetChar) 
-	for index,p in aCharList{
-		if instr(String,p){
-			Newp:="\" . p
-			String:=StrReplace(String,p,Newp)
+	Escape(aCharList,aTargetChar:="\"){
+		String := this
+		Type.assertStr(aTargetChar),Type.assertStr(String),Type.assertList(aCharList)
+		if (String="")
+			return
+		
+		aCharList.InsertAt(1,aTargetChar) 
+		for index,p in aCharList{
+			if instr(String,p){
+				Newp:="\" . p
+				String:=StrReplace(String,p,Newp)
+			}
 		}
+		return String
 	}
-	return String
-}
+		insert(insert,pos=1){
+			input := this
+			Length := StrLen(input)
+			((pos > 0) ? (pos2 := pos - 1) : (((pos = 0) ? (pos2 := StrLen(input),Length := 0) : (pos2 := pos))))
+			output := SubStr(input, 1, pos2) . insert . SubStr(input, pos, Length)
+			If (StrLen(output) > StrLen(input) + StrLen(insert))
+				((Abs(pos) <= StrLen(input)/2) ? (output := SubStr(output, 1, pos2 - 1) . SubStr(output, pos + 1, StrLen(input))) : (output := SubStr(output, 1, pos2 - StrLen(insert) - 2) . SubStr(output, pos - StrLen(insert), StrLen(input))))
+			return, output
+		}
 	;---------------------------------------------------------------------- 
 
 	minToMSec(){ ;isObj直接调用系统函数就行了，不用绕弯子
@@ -174,7 +182,6 @@ Escape(aCharList,aTargetChar:="\"){
 		if((aIndex>StrLen(this)) OR (aIndex<1)){
 			throwWithSt(_Ex.IndexOutOfBounds)
 		}
-		
 		Sub:=SubStr(this,aIndex,len)
 		return Sub
 	}
