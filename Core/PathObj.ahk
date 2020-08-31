@@ -20,6 +20,14 @@
 			return FileExist(this.path)
 		}
 		
+		assertExist(){
+			isExist := this.isExist()
+			if(NOT(isExist)){
+				throw(_EX.NoExistFile "  " this.getPath())
+			}
+			return isExist
+		}
+		
 		getPath(){
 			return this.path
 		}

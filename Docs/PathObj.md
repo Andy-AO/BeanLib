@@ -10,6 +10,14 @@
 ### getPath()
 获取原路径
 
+### isExist()
+
+检测文件是否存在
+
+### assertExist()
+
+断言文件存在
+
 ### isFile()
 
 检查路径是否为文件
