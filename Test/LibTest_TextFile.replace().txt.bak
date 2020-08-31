@@ -1,0 +1,4 @@
+﻿
+#Warn All , StdOut
+#Warn ClassOverwrite , MsgBox
+#Warn LocalSameAsGlobal, Off
