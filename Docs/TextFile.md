@@ -9,8 +9,11 @@
 
 Encoding := "UTF-8"
 
-
 ## 方法 Methods
+
+### __New(aPathObj)
+
+- aPathObj - 被操作对象的Path对象
 
 ### get()
 
