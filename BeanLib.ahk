@@ -70,6 +70,7 @@ Core Pack 必须全部导入
 #Include IO\Ini.ahk
 #Include IO\ExcelToList().ahk
 #Include IO\JSON.ahk
+#Include IO\TextFile.ahk
 
 
 ;示例:
