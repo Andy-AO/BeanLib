@@ -8,6 +8,32 @@
 	
 		path := ""
 		
+		reName(aName){
+			
+			Overwrite := Flag := false
+			theNewPathObj := new PathObj(aName,new PathObj(this.dir))
+			
+			if(this.isFile()){
+				FileMove, % this.getPath(), % theNewPathObj.getPath(), %Overwrite%
+				if(error := Errorlevel){
+					LogPrintln(A_LineFile  "("  A_LineNumber  ")"  " : " "文件重命名失败")
+				}
+			}
+			else{
+				FileMoveDir,% this.getPath(), % theNewPathObj.getPath() , %Flag%
+				if(error := Errorlevel){
+					LogPrintln(A_LineFile  "("  A_LineNumber  ")"  " : " "目录重命名失败")
+				}
+			}
+			
+			if(error){
+				return false
+			}
+			else{
+				return theNewPathObj
+			}
+		}
+		
 		__New(aPath,aRootPathObj := ""){
 				this.path:=aPath
 				if(aRootPathObj != ""){
@@ -83,7 +109,6 @@
 	assert(){
 		if(Type.isObj(this.rootPathObj)){
 			this.path := this.rootPathObj.getPath() "\" this.path
-			LogPrintln(this.path,A_LineFile  "("  A_LineNumber  ")"  " : " "this.path >>> `r`n")
 		}
 		if(Type.isPath(this.path))
 			return

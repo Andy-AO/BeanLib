@@ -39,6 +39,20 @@ LogPrintln(thePathObj.drive,"thePathObj.drive >>>")
 
 有
 
+### reName(aName)
+
+重命名文件或目录
+
+#### 返回值 Return
+
+if(失败)
+
+​	return false
+
+else
+
+​	return 新PathObj
+
 ### getPath()
 
 获取路径
