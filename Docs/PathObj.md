@@ -4,6 +4,8 @@
 2.  对路径的合法性进行检查。依赖正则实现。
 3.  [构造方法会自动调用split()生成各种field](### split())。
 
+PathObj不依赖于真实对象，只要路径是合法的，就能够存在。
+
 [TOC]
 
 ## 方法 Method
@@ -43,6 +45,8 @@ LogPrintln(thePathObj.drive,"thePathObj.drive >>>")
 
 重命名文件或目录
 
+重命名之前会检查，如果是文件则调用`FileMove`命令，否则就调用`FileMoveDir`命令。
+
 #### 返回值 Return
 
 if(失败)
@@ -52,6 +56,10 @@ if(失败)
 else
 
 ​	return 新PathObj
+
+#### 测试 Test
+
+有
 
 ### getPath()
 
