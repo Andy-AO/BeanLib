@@ -8,6 +8,16 @@
 	
 		path := ""
 		
+		__New(aPath,aRootPathObj := ""){
+				this.path:=aPath
+				if(aRootPathObj != ""){
+					Type.assertObj(this.rootPathObj := aRootPathObj)
+				}
+				this.assert()
+				this.split()
+				this.format()
+		}
+		
 		isFile(aPath := ""){
 			if(aPath = "")
 				aPath := this.path
@@ -31,10 +41,15 @@
 		getPath(){
 			return this.path
 		}
-		__New(aPath){
-				this.path:=aPath
-				this.assert()
-				this.split()  
+
+		format(){
+			if(this.name != ""){
+				this.path := this.dir "\" this.name
+			}
+			else if(this.name = ""){
+				this.path := this.dir
+			}
+			return
 		}
 		create(aPathList){
 			if(Type.isList(aPathList)){
@@ -66,6 +81,10 @@
 	说明:用正则表达式检查路径
 	*/
 	assert(){
+		if(Type.isObj(this.rootPathObj)){
+			this.path := this.rootPathObj.getPath() "\" this.path
+			LogPrintln(this.path,A_LineFile  "("  A_LineNumber  ")"  " : " "this.path >>> `r`n")
+		}
 		if(Type.isPath(this.path))
 			return
 		else{

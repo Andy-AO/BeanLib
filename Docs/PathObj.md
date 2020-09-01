@@ -7,8 +7,43 @@
 [TOC]
 
 ## 方法 Method
+
+### __New(aPath,aRootPathObj := "")
+
+构造路径对象
+
+```autohotkey
+FullFileName = C:\My Documents\Address List.txt
+;~ FullFileName = C:\My Documents\\Address List.txt
+;~ FullFileName = Address List.txt
+;~ FullFileName = \Address List.txt
+
+thePathObj:=new PathObj(FullFileName)
+
+LogPrintln(thePathObj.name,"thePathObj.name >>>")
+LogPrintln(thePathObj.dir,"thePathObj.dir >>>")
+LogPrintln(thePathObj.ext,"thePathObj.ext >>>")
+LogPrintln(thePathObj.name_no_ext,"thePathObj.name_no_ext >>>")
+LogPrintln(thePathObj.drive,"thePathObj.drive >>>")
+```
+
+#### 参数 ParaMeter
+
+- aPath - 路径字符串
+  支持相对路径和绝对路径
+
+- aRootPathObj - aPath的根目录PathObj
+  如果为空，则未指定根目录
+
+#### 测试 Test
+
+有
+
 ### getPath()
-获取原路径
+
+获取路径
+
+相对路径在构造方法中会转换为绝对路径存储起来，所以不会随后续的相对路径变化而变化，很好的解决AHK命令式编程，导致出现各种全局变量的问题。
 
 ### isExist()
 
@@ -44,21 +79,3 @@
 
 返回`PathOb[]`。
 
-### __New(aPath)
-
-建立一个新的路径对象
-
-```autohotkey
-FullFileName = C:\My Documents\Address List.txt
-;~ FullFileName = C:\My Documents\\Address List.txt
-;~ FullFileName = Address List.txt
-;~ FullFileName = \Address List.txt
-
-thePathObj:=new PathObj(FullFileName)
-
-LogPrintln(thePathObj.name,"thePathObj.name >>>")
-LogPrintln(thePathObj.dir,"thePathObj.dir >>>")
-LogPrintln(thePathObj.ext,"thePathObj.ext >>>")
-LogPrintln(thePathObj.name_no_ext,"thePathObj.name_no_ext >>>")
-LogPrintln(thePathObj.drive,"thePathObj.drive >>>")
-```
