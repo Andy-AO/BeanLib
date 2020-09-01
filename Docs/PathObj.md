@@ -41,6 +41,12 @@ LogPrintln(thePathObj.drive,"thePathObj.drive >>>")
 
 有
 
+### replaceName(SearchText,ReplaceText)
+
+替换文件名
+
+和替换字符串的作用类似，只不过，这个字符串是文件名，替换后文件名会被更改
+
 ### reName(aName)
 
 重命名文件或目录

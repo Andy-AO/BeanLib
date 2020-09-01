@@ -8,6 +8,14 @@
 	
 		path := ""
 		
+		replaceName(SearchText,ReplaceText){
+			theName := StrReplace(this.name,SearchText,ReplaceText,OutputVarCount)
+			if(OutputVarCount != 0)
+				return this.reName(theName)
+			else
+				return false
+		}
+		
 		reName(aName){
 			
 			Overwrite := Flag := false
