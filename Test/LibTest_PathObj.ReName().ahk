@@ -25,7 +25,7 @@ LogPrintln(A_ScriptName,"A_ScriptName >>> ")
 
 thePathObj := new PathObj("D:\AHKs\ahk_lib\Test\LibTest_PathObj.ReName().txt")
 
-thePathObj.reName("theFile")
+result := thePathObj.reName("theFile.txt")
 
 #If WinActive(A_ScriptName)
 ;可以按下Alt+L查看最近运行的行
