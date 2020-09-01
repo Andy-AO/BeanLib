@@ -67,7 +67,8 @@
 		getPath(){
 			return this.path
 		}
-
+		
+		; 用于去除路径尾部多余的'\'
 		format(){
 			if(this.name != ""){
 				this.path := this.dir "\" this.name
@@ -77,6 +78,7 @@
 			}
 			return
 		}
+		
 		create(aPathList){
 			if(Type.isList(aPathList)){
 				theResultList := []
