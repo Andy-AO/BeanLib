@@ -16,3 +16,6 @@
 ```autohotkey
 %示例%
 ```
+### 测试 Test
+
+LibTest_AccWrapper.ObjectFromWindow().ahk

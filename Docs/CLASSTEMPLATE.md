@@ -36,4 +36,4 @@ userInput := inputBox.start()
 
 #### 测试 Test
 
-有/无
+LibTest_AccWrapper.ObjectFromWindow().ahk
