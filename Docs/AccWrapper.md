@@ -104,3 +104,22 @@ LibTest_AccWrapper.ObjectFromWindow().ahk
 #### 测试 Test
 
 LibTest_AccWrapper.ObjectFromWindow().ahk
+
+### ObjectFromPath(aPath)
+
+**使用路径获取子控件：**
+
+#### 参数 Parameters
+
+aPath - 路径，例如`4.7`，可以通过`AccView`获取，使用的时候注意基准，`AccView`获取的路径可能是相对的，而不是绝对(总是对于窗口)的。
+#### 返回 Returns
+
+AccWrapper
+
+#### 抛出异常 Throws
+
+- 未知
+
+#### 测试 Test
+
+LibTest_AccWrapper.ObjectFromWindow().ahk
