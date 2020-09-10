@@ -146,6 +146,11 @@ Class AccWrapper{
 		Position := "x" NumGet(x,0,"int") " y" NumGet(y,0,"int") " w" NumGet(w,0,"int") " h" NumGet(h,0,"int")
 		return	{x:NumGet(x,0,"int"), y:NumGet(y,0,"int"), w:NumGet(w,0,"int"), h:NumGet(h,0,"int")}
 	}
+	println(){
+		this.Analyze()
+		LogPrintln(this.Analyze())
+		return
+	}
 	Analyze(vChildId := 0){
 		oAcc := this.get()
 		ComObjError(False)
