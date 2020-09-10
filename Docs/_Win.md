@@ -49,11 +49,21 @@ Obj 或者 false
 - 包含以下 Key
 
 ```autohotkey
-WinTitle,Class,ProcessName,Id,Path
-WinClass := "ahk_class " Class
-WinProcessName := "ahk_exe " ProcessName
-WinPId := "ahk_id " Id
-WinPath := "WinPath: " Path
+{
+
+WinClass:ahk_class Qt5QWindowIcon
+,Class:Qt5QWindowIcon
+
+,WinId:ahk_id 0xc12fc
+,Id:0xc12fc
+
+,WinPath:F:\gAPP\VNote\VNote.exe
+
+,WinProcessName:ahk_exe VNote.exe
+,ProcessName:VNote.exe
+
+,WinTitle:从剪切板中插入图片
+}
 ```
 
 #### 示例 Example
