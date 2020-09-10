@@ -16,6 +16,11 @@
 				return false
 		}
 		
+		delete(){
+			FileDelete, % this.getPath()
+			return ErrorLevel
+		}
+		
 		reName(aName){
 			
 			Overwrite := Flag := false
