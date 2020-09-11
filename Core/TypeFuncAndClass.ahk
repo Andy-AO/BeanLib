@@ -59,18 +59,6 @@ Class Type{
 			else
 				return false
 		}
-		ExtendsObj(aObj){
-			ObjBase:=""
-			try{
-				while ObjBase := aObj.base
-						if ObjHasKey(ObjBase, "__Class") 
-							return true
-			}
-			catch{
-				return false
-			}
-			return false
-		}
 		FuncObj(aObj){
 			if ((aObj.Name!="") AND (aObj.IsOptional(1)!=""))
 				return true
@@ -254,7 +242,7 @@ Class TypeBase{
 		Static Str:=10,NS:=11,Number:=12,Boolean:=13,Path := 15
 		Static List:=130
 		Static ObjEndCode := 199
-		Static Obj:=100,ExtendsObj:=101,Class:=110,FuncObj:=120,Exception:=121
+		Static Obj:=100,Class:=110,FuncObj:=120,Exception:=121
 		Static FileObj:=150
 		Static ComObj:=160
 	}	

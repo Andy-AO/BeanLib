@@ -19,7 +19,7 @@
 		Static List:=130
 
 		Static ObjEndCode := 199
-		Static Obj:=100,ExtendsObj:=101,Class:=110,FuncObj:=120,Method:=125
+		Static Obj:=100,Class:=110,FuncObj:=120,Method:=125
 		
 		Static FileObj:=150
 		

@@ -2,7 +2,6 @@
 	static staticPath := "D:\AHKs\ahk_lib\Test\LibTest_toString().ahk"
 	ComObj := AccWrapper.ObjectFromPoint(vChildId).get()
 	Obj := Object()
-	ExtendsObj := new AutoInputBox("输入要增加的页码","输入要增加的页码")
 	Class := AutoInputBox
 	FuncObj := new Function("toString")
 	Exception := Exception(_Ex.IndexOutOfBounds)
