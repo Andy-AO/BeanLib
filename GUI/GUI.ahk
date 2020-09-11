@@ -1,6 +1,12 @@
 ﻿
 class _GUI{ ;对GUI进行操作的静态类
-
+	static c := new _GUI.c_base()
+	;SubCommand
+	class c_base{
+		__Call(SubCommand,hwndOrName){
+			return hwndOrName ":" SubCommand
+		}
+	} ;---------class c End
 ;------------------------------
 
 	; ****  AddAnimatedGIF function by boiler  ****
