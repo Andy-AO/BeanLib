@@ -37,7 +37,7 @@ Core Pack 必须全部导入
 
 
 ;GUI Pack
-#Include GUI\GUI.ahk
+#Include GUI\_GUI.ahk
 #Include GUI\_Win.ahk
 #Include GUI\_Wins.ahk
 #Include GUI\BeanControl.ahk
