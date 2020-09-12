@@ -59,7 +59,7 @@ premiseFunc := ""
 		return 
 	}
 ;------------------------------
-	premise(){
+	premise(aName){
 		return GetKeyPhysicalState(this.key)
 	}
 ;------------------------------
