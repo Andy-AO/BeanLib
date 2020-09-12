@@ -26,7 +26,7 @@ Gui,% _Gui.c.show(winHwnd)
 ```AutoHotKey
 winHwnd = 0xc12fc
 
-Gui,% _Gui.t.ahk_id(this.winHwnd)
+WinActive(_Gui.t.ahk_id(winHwnd))
 ```
 
 ## 方法 Methods
