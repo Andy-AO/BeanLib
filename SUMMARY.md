@@ -43,6 +43,7 @@
     -   [TimeChecker](Docs/TimeChecker.md)
     -   [Type](Docs/Type.md)
     -   [UMSS](Docs/UMSS.md)
+    -   [_GUI](Docs/_GUI.md)
 -   [Function](Docs/Function.md)
 	-   [assert()](Docs/assert().md)
 	-   [Analyze()](Docs/Analyze().md)
