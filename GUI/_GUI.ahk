@@ -7,6 +7,14 @@ class _GUI{ ;对GUI进行操作的静态类
 			return hwndOrName ":" SubCommand
 		}
 	} ;---------class c End
+	
+	static t := new _GUI.t_base()
+	;SubCommand
+	class t_base{
+		__Call(Prefix,content){
+			return Prefix " " content
+		}
+	} ;---------class c End
 ;------------------------------
 
 	; ****  AddAnimatedGIF function by boiler  ****
