@@ -161,13 +161,6 @@ RegexEscape(){
 			return FileName
 		}	
 ;---------------------------------------------------------------------- 		
-		ExtractFileNameByPathWithOutPostfix(){
-			FileName:=this.ExtractFileNameByPath()
-			asFileName:=FileName.SplitFileName()
-			pureFileName:=asFileName[1]
-			return pureFileName
-		}		
-;---------------------------------------------------------------------- 		
 		SplitFileName(){
 			NeedleRegEx=^(.*)(\.)(.*)
 			Haystack:=this
