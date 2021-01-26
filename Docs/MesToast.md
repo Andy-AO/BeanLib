@@ -13,10 +13,11 @@
 
 ## 方法 Methods
 
-### __New(aTitle,aText,aDuration := "")
+### __New(aTitle,aText,aDuration := "",AllowPlay := true)
 -   aTitle：标题
 -   aText：内容
 -   aDuration：窗口存活时间
+-   AllowPlay : 允许弹出窗口时播放提示音
 
 ### reset()
 重置Toast，计数器回到原始状态

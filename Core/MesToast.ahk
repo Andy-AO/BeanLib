@@ -2,7 +2,7 @@
 
 class MesToast{
 	;TODO:解决回到桌面隐藏和任务栏显示问题
-	static Width := 260,Height := 150,FontName := "Microsoft YaHei",period := "1",TransparentThreshold := "5",TransparencyUpperLimit := "255",indexStep := "1"
+	static Width := 260,Height := 150,FontName := "Microsoft YaHei",period := "1",TransparentThreshold := "5",TransparencyUpperLimit := "255",indexStep := "1",AllowPlay := true
 	,objList := array(),HadMessage := false,objMap := Object()
 	
 	static SoundFile := "",StatusBarExist := false
@@ -76,13 +76,14 @@ class MesToast{
 			Gui, %Hwnd%:Add, StatusBar,-Theme %theBackground%,%theText%
 		}
 	}
-	__New(aTitle,aText,aDuration := ""){
+	__New(aTitle,aText,aDuration := "",AllowPlay := true){
 		if(aDuration!="")
 			this.duration := aDuration
 		this.text := aText,this.title := aTitle
 		Width := MesToast.Width,Height := MesToast.Height,FontName := MesToast.FontName,Color := this.Color
 		this.MaxX := _Win.getMonitorWorkArea().Right - Width 
 		this.MaxY := _Win.getMonitorWorkArea().Bottom - Height
+		this.AllowPlay := AllowPlay
 		this.OnMessage()
 	}
 	insertToList(){
@@ -163,12 +164,15 @@ class MesToast{
 		this.isDestroyed := true
 	}
 	playSound(){
-		if(Type.isObj(this.getSoundFile())){
-			Filename := this.getSoundFile().getPath()
-			SoundPlay, %Filename%
+		if(this.AllowPlay){
+			if(Type.isObj(this.getSoundFile())){
+				Filename := this.getSoundFile().getPath()
+				SoundPlay, %Filename%
+			}
+			else{
+				SoundPlay, *64	
+			}
 		}
-		else
-			SoundPlay, *64	
 	}
 	UserMonitor(){
 		this.UsersOnline := false
