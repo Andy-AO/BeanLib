@@ -2,8 +2,28 @@
 class Timer{
 
 	static Priority := 50000
-	,Period := "250",func := ""
+	,Periodbase := "250",func := "",isSingle := false
 	
+		Period[]
+		{
+			get {
+				if(this.isSingle = ""){
+					this.isSingle := false
+				}
+					
+				if(this.isSingle){
+					return ("-" Abs(this.Periodbase))
+				}
+				else{
+					return Abs(this.Periodbase)
+				}
+
+			}
+			set {
+				return this.Periodbase := Abs(value)
+			}
+		}
+		
 	set(){
 		Priority := Timer.Priority
 		,FuncObj := this.func
@@ -23,9 +43,9 @@ class Timer{
 		FuncObj := this.func
 		SetTimer,%FuncObj%,Delete
 	}
-	__New(aFunc,aPeriod := "250"){
+	__New(aFunc,aPeriod := "250",isSingle := false){
 		Type.assertNumber(aPeriod)
 		Type.assertObj(aFunc)
-		this.func := aFunc,this.Period := aPeriod
+		this.func := aFunc,this.Period := aPeriod,this.isSingle := isSingle
 	}
 } ;---------class Timer End

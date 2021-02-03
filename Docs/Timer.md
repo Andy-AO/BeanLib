@@ -15,7 +15,8 @@
 重启计时
 ### delete()
 删除计时器
-### __New(aFunc,aPeriod := "250")
+### __New(aFunc,aPeriod := "250",isSingle:=false)
 - aFunc：需要定时运行的函数对象
 - aPeriod：计时器运行周期
 
+- isSingle: 只执行一次
