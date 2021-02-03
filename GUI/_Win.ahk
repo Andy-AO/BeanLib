@@ -5,6 +5,10 @@
 
 
 Class _Win{
+	AnalyzeByMousePos(){
+		MouseGetPos,OutputVarX, OutputVarY, OutputVarWin, OutputVarControl
+		return _Win.Analyze("ahk_id" " " OutputVarWin)
+	}
 	moveToRightCorner(aWinTitle){
 		WinGetPos, X, Y, Width, Height, %aWinTitle%
 

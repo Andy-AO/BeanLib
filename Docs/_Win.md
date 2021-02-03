@@ -71,6 +71,10 @@ WinClass:ahk_class Qt5QWindowIcon
 Obj:=_Win.Analyze(WinTitle)
 ```
 
+### AnalyzeByMousePos()
+
+获取当前鼠标位置上的窗口信息
+
 ### getIdByPath(aWinPath,aDetectHiddenWindows:="")
 
 通过路径获取窗口ID
