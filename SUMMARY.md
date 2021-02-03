@@ -25,6 +25,7 @@
     -   [Method](Docs/Method.md)
     -   [ObservableMap](Docs/ObservableMap.md)
     -   [ObservableObj](Docs/ObservableObj.md)
+    -   [Queue](Docs/Queue.md)
     -   [WinEvent](Docs/WinEvent.md)
     -   [TextFile](Docs/TextFile.md)
     -   [Timer](Docs/Timer.md)

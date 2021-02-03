@@ -26,6 +26,7 @@ Core Pack 必须全部导入
 #Include Core\ObservableObj.ahk
 #Include Core\PathObj.ahk
 #Include Core\Stack.ahk
+#Include Core\Queue.ahk
 #Include Core\Timer.ahk
 #Include Core\MesToast.ahk
 
