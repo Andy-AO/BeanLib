@@ -180,8 +180,11 @@ RegexEscape(){
 	}
 	;---------------------------------------------------------------------- 
 	isNumber(){
-		aRegEx:="^\d+(\.\d+)?$"		
-		return this.isRegExMatch(aRegEx,aRegExOption:="i)")
+		if this is number
+		{
+			return true
+		}
+		return false
 	}
 	
 	toHex(pad=0 ) { ; Function by [VxE]. Formats an integer (decimals are truncated) as hex.
