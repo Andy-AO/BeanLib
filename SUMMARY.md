@@ -62,6 +62,7 @@
 	-   [rawCall()](Docs/rawCall.md)
 	-   [RandomStr()](Docs/RandomStr().md)
 	-   [showObj()](Docs/showObj().md)
+	-   [WatchFolder()](Docs/WatchFolder().md)
 	-   [Type()](Docs/Type().md)
 	-   [throwWithSt()](Docs/throwWithSt.md)
 	-   [UseCMD()](Docs/UseCMD.md)
