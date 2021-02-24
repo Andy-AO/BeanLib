@@ -26,6 +26,12 @@
 
 鼠标悬停在上面会停止计时
 
+### destroyAll()
+
+静态方法，用于销毁所有的 Toast。
+
+要注意的是，只能消除本进程内由 `Toast` 静态类托管的 Toast
+
 ## 示例
 ```AutoHotKey
 MesToast.setSoundFile(new PathObj(Filename))

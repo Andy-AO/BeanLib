@@ -9,6 +9,14 @@ class MesToast{
 	
 	static Hwnd := "DefaultHwnd",title:="DefaultTitle",text:="DefaultText",theTimer := "" ,TimeIdle := "",UsersOnline := false
 	,index := "DefaultIndex",Hidden := true,TransparentMode := false,rawDuration := 10,duration := MesToast.rawDuration,Color := "f0f0f0",isDestroyed := false
+	
+	destroyAll(){
+		for i,v in MesToast.objList {
+			v.destroy()
+		}
+		return
+	}
+	
 	ToggleHidden(){
 		if(this.Hidden)
 			this.Hidden := false
