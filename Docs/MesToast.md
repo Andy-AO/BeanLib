@@ -32,6 +32,12 @@
 
 要注意的是，只能消除本进程内由 `Toast` 静态类托管的 Toast
 
+### CloseAll()
+
+静态方法，用于关闭所有的 Toast。
+
+这个能够消除所有 WinTitle 中窗口名有默认后缀 ` - Toast`，窗口类是 `ahk_class AutoHotkeyGUI` 的窗口。
+
 ## 示例
 ```AutoHotKey
 MesToast.setSoundFile(new PathObj(Filename))

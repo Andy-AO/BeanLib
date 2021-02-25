@@ -6,9 +6,25 @@ class MesToast{
 	,objList := array(),HadMessage := false,objMap := Object()
 	
 	static SoundFile := "",StatusBarExist := false
-	
-	static Hwnd := "DefaultHwnd",title:="DefaultTitle",text:="DefaultText",theTimer := "" ,TimeIdle := "",UsersOnline := false
+	static titleSuffix = " - Toast"
+	static Hwnd := "DefaultHwnd",title:="DefaultTitle" MesToast.titleSuffix,text:="DefaultText",theTimer := "" ,TimeIdle := "",UsersOnline := false
 	,index := "DefaultIndex",Hidden := true,TransparentMode := false,rawDuration := 10,duration := MesToast.rawDuration,Color := "f0f0f0",isDestroyed := false
+	
+	CloseAll(){
+		theWinTitle := MesToast.titleSuffix " " "ahk_class AutoHotkeyGUI"
+		WinGet, ids, list,%theWinTitle%
+		Loop, %ids% 
+		{
+			WinGet, pseudoArray_, list,ahk_class AutoHotkeyGUI
+
+			Loop, %pseudoArray_% 
+			{
+				StringTrimRight, theID, pseudoArray_%a_index%, 0
+				PostMessage, 0x112, 0xF060,,,ahk_id %theID%
+			}
+		}
+		return
+	}
 	
 	destroyAll(){
 		for i,v in MesToast.objList {
@@ -87,7 +103,7 @@ class MesToast{
 	__New(aTitle,aText,aDuration := "",AllowPlay := true){
 		if(aDuration!="")
 			this.duration := aDuration
-		this.text := aText,this.title := aTitle
+		this.text := aText,this.title := aTitle " " MesToast.titleSuffix
 		Width := MesToast.Width,Height := MesToast.Height,FontName := MesToast.FontName,Color := this.Color
 		this.MaxX := _Win.getMonitorWorkArea().Right - Width 
 		this.MaxY := _Win.getMonitorWorkArea().Bottom - Height
