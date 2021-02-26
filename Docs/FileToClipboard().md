@@ -1,4 +1,6 @@
-**%功能介绍%:**
+**FileToClipboard:** 将指定文件复制到剪切板
+
+不知道为什么，这个函数在我这里经常会失效，并不稳定
 
 ```autohotkey
 FileToClipboard(PathToCopy)

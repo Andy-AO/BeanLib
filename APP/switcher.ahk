@@ -82,7 +82,9 @@ class Switcher{
 	;------------------------------
 	p_Run(aPath){
 		;TODO:可以直接在这里以Max方式运行
-		run,%aPath%,,% this.Options,OutputVarPID
+		WorkingDir := (new PathObj(aPath)).dir
+		MsgBox,%WorkingDir%
+		run,%aPath%,%WorkingDir%,% this.Options,OutputVarPID
 		return OutputVarPID
 	}
 	;------------------------------
