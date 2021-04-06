@@ -79,14 +79,19 @@ class Switcher{
 		}
 		return theWinExist
 	}
+	p_getWorkingDir(aPath){
+		;这是为了去除可能存在的命令行参数
+		if(RegExMatch(aPath, "O)^(.+) ([^ ]+)$",SubPat))
+			aPath := SubPat.1
+		else if(RegExMatch(aPath, "O)^`"(.+)`"",SubPat))
+			aPath := SubPat.1
+		return (new PathObj(aPath)).dir
+	}
 	;------------------------------
 	p_Run(aPath){
-		;TODO:可以直接在这里以Max方式运行
-		WorkingDir := (new PathObj(aPath)).dir
-		MsgBox,%WorkingDir%
-		run,%aPath%,%WorkingDir%,% this.Options,OutputVarPID
+		run,%aPath%,% this.p_getWorkingDir(aPath),% this.Options,OutputVarPID
 		return OutputVarPID
-	}
+	}	
 	;------------------------------
 	p_ifJavaSwingReDraw(aWinTitle){
 		if(WinActive("ahk_class SunAwtFrame")){ 
