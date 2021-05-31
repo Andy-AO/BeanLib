@@ -75,7 +75,9 @@ class Switcher{
 		}
 		else{
 			WinActivate,%aWinTitle%
-			this.p_ifJavaSwingReDraw(aWinTitle)
+			;~ this.p_ifJavaSwingReDraw(aWinTitle)
+			;不仅Java要重绘,任何窗口都重绘吧,希望能解决VSCode的WSL远程模式的卡顿问题
+			WinSet, Redraw ,,%aWinTitle%
 		}
 		return theWinExist
 	}
