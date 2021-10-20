@@ -57,6 +57,7 @@ Core Pack 必须全部导入
 #Include APP\Script.ahk
 #Include APP\Switcher.ahk
 #Include APP\RunningSpeedTest.ahk
+#Include APP\IPA_EN.ahk
 
 ;UMSS Pack
 #Include UMSS.ahk
