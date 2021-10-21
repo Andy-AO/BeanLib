@@ -1,19 +1,14 @@
 ﻿#Include D:\AHKs\ahk_lib
 #Include head.tds.ahk
+;获取数据
+IPA_EN.LoadData()
+AHKTest.eq(IPA_EN.Data["Z"],"ð")
 
-class IPA_EN{
-	static config_path := A_ScriptDir "\IPA_EN.md"
-	static data := ""
-	LoadData(){
-		FileRead, ConfigString, % this.config_path
-		FoundPos := RegExMatch(Haystack, "O)1\. ([A-Z:])(.) " , OutputVar, StartingPos := 1)
-	}
-	Hook(){
-		if(this.data == ""){
-			this.LoadData()
-		}
-	}
-	
-	UnHook(){
-	}
-}
+;hook
+IPA_EN.Hook()
+
+return
+;unhook
+^u::
+	IPA_EN.ToggleHook()
+return
