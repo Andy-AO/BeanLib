@@ -4,4 +4,4 @@
 #Include %A_ScriptDir%
 #Include name.ahk
 
-ahktest.eq("","")
+AHKTest.eq("","")

@@ -7,6 +7,7 @@ Core Pack 必须全部导入
 其余 Pack 按需导入
 */
 
+#Include Core\AHKTest.ahk
 #Include Core\Bean.ahk
 #Include Core\_Container.ahk
 #Include Core\_EX.ahk
