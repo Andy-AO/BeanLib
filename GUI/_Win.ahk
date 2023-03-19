@@ -136,7 +136,7 @@ getProcessName(aWinTitle){
 	/*
 	说明:获取窗口参数,可用于窗口操作和调试
 	*/
-	Analyze(aWinTitle,aDetectHiddenWindows:="",EnableWinText:=false){
+	Analyze(aWinTitle,aDetectHiddenWindows:="",EnableWinText:=false,path:=""){
 		
 		WinTitle:="",WinClass:="",WinProcessName:="",WinId:="",WinPath:="",WinText:="*DiListbled*",Str:=""
 		
@@ -161,6 +161,12 @@ getProcessName(aWinTitle){
 		theObj.ProcessName := _Win.getProcessName(aWinTitle),theObj.WinProcessName := "ahk_exe " theObj.ProcessName
 		
 		theObj.WinPath := _Win.getPath(aWinTitle)
+		
+		if(path != ""){
+			if(path != theObj.WinPath){
+				return false
+			}	
+		}
 		
 		WinGet,theId,ID,%aWinTitle%
 
