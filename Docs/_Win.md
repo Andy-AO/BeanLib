@@ -34,6 +34,11 @@ Path 类，可以通过及构造方法迅速的获得包含`name`和`path`两种
 
 ## 方法 Method
 
+### Exist(aWinTitle,path="")
+
+- aWinTitle - 目标窗口的 `WinTitle`
+- path - 目标窗口进程
+
 ### Analyze(aWinTitle,aDetectHiddenWindows:="",EnableWinText:=false,path:="")
 
 #### 参数 Parameters: 

@@ -11,7 +11,7 @@ Run命令的Options，默认是"Max"，也就是以最大化窗口形式运行�
 
 ## 方法 Method
 
-### switch(aWinTitle,aPathOrFuncObj,aWait = 0)
+### switch(aWinTitle,aPathOrFuncObj,aWait = 0,winPath:="")
 
 **切换窗口(软件)**
 
@@ -58,7 +58,7 @@ Run命令的Options，默认是"Max"，也就是以最大化窗口形式运行�
 		Switcher.switch("ahk_exe SourceTree.exe","C:\Users\Administrator\AppData\Local\SourceTree\app-3.1.2\SourceTree.exe")
 ```
 
-### toggle(aWinTitle)
+### toggle(aWinTitle,winPath:="")
 
 **切换窗口(软件)**
 

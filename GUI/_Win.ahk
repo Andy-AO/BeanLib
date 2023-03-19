@@ -130,9 +130,20 @@ getProcessName(aWinTitle){
 		}
 
 	}
+	
+Exist(aWinTitle,path=""){
+	if(Type.isNS(path))
+		return WinExist(aWinTitle)
+	theWins := _Wins.Analyze(aWinTitle,"",path)
+	if(theWins[1] == 0){
+		return false
+	}
+	return WinExist(aWinTitle)
+}
+
 ;---------------------------------------------------------------------- 
 
-		
+	
 	/*
 	说明:获取窗口参数,可用于窗口操作和调试
 	*/

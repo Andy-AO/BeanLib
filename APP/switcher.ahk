@@ -10,25 +10,29 @@ class Switcher{
 	/*
 			TODO:关于方法之间参数的调用,传参还是经过域的问题.一个Switcher实例代表的是一种「切换设置」,所以关于「窗口」的数据都是经过参数的,而所有关于「设置」的参数都是经过域的.
 	*/
-	getLastWin(aWinTitle){
-		theLastWin := _Win.Analyze(aWinTitle)
-		theWins := _Wins.AnalyzeOnMap(aWinTitle)
-		if(theWins.Count()<=1){
+	getLastWin(aWinTitle,winPath:=""){
+		theLastWin := _Win.Analyze(aWinTitle,"",false,winPath) ;分析出一个
+		LogPrintln(theLastWin,A_LineFile  "("  A_LineNumber  ")"  " : " "theLastWin >>> `r`n")
+		theWins := _Wins.AnalyzeOnMap(aWinTitle,"",winPath) ;分析出所有符合条件的 Map
+		LogPrintln(theWins,A_LineFile  "("  A_LineNumber  ")"  " : " "theWins >>> `r`n")
+		if(theWins.Count()<=1){ ;如果符合条件的只有一个，那么直接返回
 			return theLastWin
 		}
-		theEnum := Switcher.winStack.getEnum()
+		theEnum := Switcher.winStack.getEnum() ;遍历之前保存的
 		while(theEnum.next(v)){
-			theWin := theWins[v.id]
+			theWin := theWins[v.id] ;从前到后找，如果匹配符合的，那么就可以返回它
 			if(Type.isObj(theWin)){
 				theLastWin := theWin
 				break
 			}
 		}
 		return theLastWin
+		;更改的方法是让 Analyze 支持根据 Path 进行筛选
 	}
 	;------------------------------
-	toggle(aWinTitle){
-		theLastWin := this.getLastWin(aWinTitle)
+	toggle(aWinTitle,winPath:=""){
+		theLastWin := this.getLastWin(aWinTitle,winPath)
+		LogPrintln(theLastWin,A_LineFile  "("  A_LineNumber  ")"  " : " "theLastWin >>> `r`n")
 		return this.p_ActivateOrMini(theLastWin.WinId)
 	}
 	;------------------------------
@@ -57,10 +61,10 @@ class Switcher{
 		}
 	}
 	;------------------------------
-	switch(aWinTitle,aPathOrFuncObj,aWait = 0){
-		theWinExist := WinExist(aWinTitle)
+	switch(aWinTitle,aPathOrFuncObj,aWait = 0,winPath:=""){
+		theWinExist := _Win.Exist(aWinTitle,winPath)
 		if(theWinExist){
-			this.toggle(aWinTitle)
+			this.toggle(aWinTitle,winPath)
 		}
 		else{
 			this.run(aWinTitle,aPathOrFuncObj,aWait)
@@ -69,11 +73,15 @@ class Switcher{
 	}
 	;------------------------------
 	p_ActivateOrMini(aWinTitle){
+		if(Type.isNS(aWinTitle))
+			return false
+		LogPrintln(aWinTitle,A_LineFile  "("  A_LineNumber  ")"  " : " "aWinTitle >>> `r`n")
 		theWinExist := WinExist(aWinTitle)
-		if(WinActive(aWinTitle)){
-			WinMinimize,%aWinTitle%
+		if(WinActive(aWinTitle)){ 
+			WinMinimize,%aWinTitle% 
 		}
 		else{
+			LogPrintln(aWinTitle,A_LineFile  "("  A_LineNumber  ")"  " : " "aWinTitle >>> `r`n")
 			WinActivate,%aWinTitle%
 			;~ this.p_ifJavaSwingReDraw(aWinTitle)
 			;不仅Java要重绘,任何窗口都重绘吧,希望能解决VSCode的WSL远程模式的卡顿问题
