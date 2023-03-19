@@ -1,4 +1,13 @@
-﻿/*
+﻿
+MouseMoveToWin(winTitle){
+	WinGetPos , X, Y, Width, Height, %winTitle%
+	theX := X+(Width/2)
+	theY := Y+(Height/2)
+	MouseMove, %theX% ,%theY%, 0
+}
+
+
+/*
 随机字符串生成器
 */
 
